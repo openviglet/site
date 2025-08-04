@@ -1,6 +1,24 @@
 [{
   "name": "",
   "notes": [
+  "[New] Ollama Integration",
+  "[New] GenAI Integration with Semantic Navigation",
+  "[New] AEM Connector UI in the Administration Console",
+  "[New] Logging for Turing, Indexing, and AEM Connector in Console",
+  "[New] Logging for Turing in MongoDB",
+  "[New] Connector Framework",
+  "[New] Job Action Commit Feature",
+  "[New] AEM Indexing Rule Support",
+  "[Improved] AEM Connector Service in Spring Boot",
+  "[Improved] Upgraded to Spring Boot 3.5.3",
+  "[Improved] Angular Framework Updated to Version 20"
+],
+  "pub_date": "2025-07-14T12:00:00Z",
+  "version": "2025.2"
+},
+{
+  "name": "",
+  "notes": [
     "[New] Exact Match",
     "[New] Sprinklr Connector",
     "[New] Semantic Navigation Search with Cache",
