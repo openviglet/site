@@ -2,4 +2,4 @@
 title: Microservices
 solution: turing
 ---
-Run Multi-container Docker applications using Docker Compose and Kubernetes.
+Deploy and manage multi-container Docker applications effortlessly with Docker Compose and Kubernetes, enabling seamless scalability and orchestration.

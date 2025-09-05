@@ -2,4 +2,4 @@
 title: Semantic Navigation
 solution: turing
 ---
-Create a faceted search with targeting rules and choose your favorite Generative AI to boost your content and index from many sources, such as: Wordpress, OpenText WEM, database and file system.
+Build a powerful faceted search with precise targeting rules, and seamlessly integrate your preferred Generative AI to enhance your content. Effortlessly index data from diverse sources like AEM, WordPress, OpenText WEM, databases, and file systems for a smarter, more dynamic search experience.
