@@ -1,6 +1,6 @@
 
 <script>
-    $.getJSON("https://api.github.com/users/{{ page.github-org }}/events", function (data) {
+    $.getJSON("https://api.github.com/orgs/{{ page.github-org }}/events", function (data) {
         console.log(data.length)
         var count = 0;
         $.each(data, function (i, item) {

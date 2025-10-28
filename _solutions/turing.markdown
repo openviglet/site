@@ -15,8 +15,8 @@ logo-section: ES
 short-name: Turing ES
 full-name: Viglet Turing ES
 description: Enterprise Search, Semantic Navigation, Chatbot using Search Engine and Generative AI.
-github-ci-url: https://github.com/openviglet/turing/actions/workflows/build.yml
-github-ci-image: https://img.shields.io/github/actions/workflow/status/openviglet/turing/build.yml?branch=2025.4
+github-ci-url: https://github.com/openviglet/turing/actions/workflows/validate.yml
+github-ci-image: https://img.shields.io/github/actions/workflow/status/openviglet/turing/validate.yml?branch=2025.4
 twitter-url: https://twitter.com/VigletTuring
 download-message: Download Turing ES and add more value to your content.
 download-size: 455 MB
