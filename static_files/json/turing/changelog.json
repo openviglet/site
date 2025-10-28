@@ -1,6 +1,25 @@
 [{
   "name": "",
   "notes": [
+  "[New] GraphQL",  
+  "[New] JavaScript SDK", 
+  "[New] MCP Server",
+  "[New] Replication AEM Event Handler",
+  "[New] Search returns a list specifying fields",
+  "[New] Libraries on Maven Central",
+  "[New] JavaScript SDK in NPM repository",
+  "[New] Turing launches on startup",
+  "[Improved] Enhance AEM Plugin",
+  "[Improved] Solr - Use commitWithin rather than commit",
+  "[Improved] API Queue with additional details",
+  "[Improved] Upgraded to Spring Boot 3.5.7"
+  ],
+  "pub_date": "2025-10-28T12:00:00Z",
+  "version": "2025.3"
+  },
+  {
+  "name": "",
+  "notes": [
   "[New] Ollama Integration",
   "[New] GenAI Integration with Semantic Navigation",
   "[New] AEM Connector UI in the Administration Console",
