@@ -2,8 +2,7 @@
 layout: default
 ---
 
-{% assign solution = page %}
-{%- include solution-menu.html -%}
+{% assign solution = page %} {%- include solution-menu.html -%}
 <style>
     .feature-icon {
         display: inline-flex;
@@ -14,11 +13,11 @@ layout: default
         margin-bottom: 1rem;
         font-size: 2rem;
         color: #fff;
-        border-radius: .75rem;
+        border-radius: 0.75rem;
     }
 
     .bi {
-        vertical-align: -.125em;
+        vertical-align: -0.125em;
         fill: currentColor;
     }
 
@@ -29,13 +28,13 @@ layout: default
         width: 3rem;
         height: 3rem;
         font-size: 1.5rem;
-        border-radius: .75rem;
+        border-radius: 0.75rem;
     }
 </style>
 
 {%- include github_link.html -%}
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="toggles2" viewBox="0 0 16 16">
         <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z" />
         <path
@@ -43,38 +42,56 @@ layout: default
         <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
     </symbol>
 </svg>
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 40px">
     <div>
-        <div class="row text-center" style="margin:0px;display: inherit;">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered" style="margin: 0px; padding: 0px;">
+        <div class="row text-center" style="margin: 0px; display: inherit">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered" style="margin: 0px; padding: 0px">
                 {%- if page.logo -%}
-                <div style="text-align: center;margin-bottom: 20px">
-                    <img src="{{ page.logo }}">
+                <div style="text-align: center; margin-bottom: 20px">
+                    <img src="{{ page.logo }}" />
                 </div>
                 {%- else -%}
-                <div style="text-align: center;margin-bottom: 20px">
-                    <div
-                        style="letter-spacing: 0;line-height: 1.42857143;margin-bottom: 0;color: #a4b1b2;text-transform: none;display: inline-block;text-align: left;">
+                <div style="text-align: center; margin-bottom: 20px">
+                    <div style="
+              letter-spacing: 0;
+              line-height: 1.42857143;
+              margin-bottom: 0;
+              color: #a4b1b2;
+              text-transform: none;
+              display: inline-block;
+              text-align: left;
+            ">
                         <div
                             style="background: {{ page.main-color }};width: 280px;height: 280px;color: navajowhite;padding-left: 25px;font-size: 135px;font-weight: bolder;border-width: 8px;border-style: solid;-moz-border-radius: 52px;border-radius: 30px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-                            <div
-                                style="font-size: 35px;margin-top: 11px;margin-right: 25px;font-weight: lighter; text-align: right;">
+                            <div style="
+                  font-size: 35px;
+                  margin-top: 11px;
+                  margin-right: 25px;
+                  font-weight: lighter;
+                  text-align: right;
+                ">
                                 {{ page.logo-section }}
                             </div>
-                            <div style="margin-top: 4px;" id="shlogo">
+                            <div style="margin-top: 4px" id="shlogo">
                                 <span>{{ page.logo-acronym }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 {%- endif -%}
-                <div style="font-size:40px;text-align:center;line-height: 120%;">
+                <div style="font-size: 40px; text-align: center; line-height: 120%">
                     <b>{{ page.full-name }}</b>
                 </div>
-                <div style="font-size:30px;text-align:center;line-height: 120%;margin-top:20px;margin-bottom:40px">
+                <div style="
+            font-size: 30px;
+            text-align: center;
+            line-height: 120%;
+            margin-top: 20px;
+            margin-bottom: 40px;
+          ">
                     {{ page.description }}
                 </div>
-                <form class="form-inline text-center" style="margin:0px;margin-bottom:70px">
+                <form class="form-inline text-center" style="margin: 0px; margin-bottom: 70px">
                     {%- if page.pdf-get-started -%}
                     <div class="btn-group">
                         <a href="{{ page.get-started }}" target="_blank" class="btn btn-lg"
@@ -86,21 +103,19 @@ layout: default
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ page.pdf-get-started }}" target="_blank">Developer
-                                    Guide (PDF)</a> </li>
-
+                            <li>
+                                <a class="dropdown-item" href="{{ page.pdf-get-started }}" target="_blank">Developer
+                                    Guide (PDF)</a>
+                            </li>
                         </ul>
                     </div>
-                    {%- else -%}
-                    {%- if page.get-started -%}
+                    {%- else -%} {%- if page.get-started -%}
                     <div class="btn-group">
                         <a href="{{ page.get-started }}" class="btn btn-lg"
                             style="margin: 7px;width:250px;background: {{ page.main-color }};color:navajowhite !important">Get
                             Started</a>
                     </div>
-                    {%- endif -%}
-                    {%- endif -%}
-                    {%- if page.release -%}
+                    {%- endif -%} {%- endif -%} {%- if page.release -%}
                     <a href="download" class="btn btn-light btn-lg"
                         style="margin: 7px;color:#444;width:250px;border-color: {{ page.main-color }}; color: {{ page.main-color }};">Download
                         {{ page.release }}</a>
@@ -111,30 +126,29 @@ layout: default
                 </form>
             </div>
         </div>
-        {%- if page.youtube-playlist-id -%}
-        {%- include videos.html -%}
-        {%- endif -%}
-        <div class="row text-center" style="margin:0px;display: inherit;">
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 col-centered" style="text-align: left;">
+        {%- if page.youtube-playlist-id -%} {%- include videos.html -%} {%- endif
+        -%}
+        <div class="row text-center" style="margin: 0px; display: inherit">
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 col-centered" style="text-align: left">
                 {{ page.content }}
             </div>
         </div>
-        {% assign filtered_features = site.features | where:"solution", page.identifier %}
-        {%- if filtered_features.size > 0 -%}
-        <div class="row text-center" style="margin:0px;display: inherit">
+        {% assign filtered_features = site.features | where:"solution",
+        page.identifier %} {%- if filtered_features.size > 0 -%}
+        <div class="row text-center" style="margin: 0px; display: inherit">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-centered">
-                <div class="row text-center" style="margin:0px; display: flex;;width: 100%;">
-
-
-                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-centered ">
+                <div class="row text-center" style="margin: 0px; display: flex; width: 100%">
+                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 col-centered">
                         <div>
                             {% for feature in filtered_features %}
                             <div class="p-2 mb-4 bg-light rounded-3">
                                 <div class="container-fluid py-5">
-                                    <h1 class="display-5 fw-bold" style="color:{{ page.main-color }}">{{
-                                        feature.title }}</h1>
-                                    <p class="col-md-12 fs-4" style="color:black;line-height: 29px">{{
-                                        feature.content }}</p>
+                                    <h1 class="display-5 fw-bold" style="color:{{ page.main-color }}">
+                                        {{ feature.title }}
+                                    </h1>
+                                    <p class="col-md-12 fs-4" style="color: black; line-height: 29px">
+                                        {{ feature.content }}
+                                    </p>
                                 </div>
                             </div>
                             {% endfor %}
@@ -142,53 +156,49 @@ layout: default
                     </div>
 
                     <div class="col-lg-5 col-centered vig-hide-md">
-                        <div id="vigletfeedbox" class="card" style="height: calc( 100% - 24px );">
-                            <div class=" card-body">
-                            <h5 class="card-title">
-                                Track the progress of {{ page.short-name }} development
-                            </h5>
-                            <h6 class="card-subtitle">
-                                <a href="{{ page.github-ci-url }}" target="_blank"><img
-                                        src="{{ page.github-ci-image }}"></a>
-                            </h6>
+                        <div id="vigletfeedbox" class="card" style="height: calc(100% - 24px)">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Track the progress of {{ page.short-name }} development
+                                </h5>
+                                <h6 class="card-subtitle">
+                                    <a href="{{ page.github-ci-url }}" target="_blank"><img
+                                            src="{{ page.github-ci-image }}" /></a>
+                                </h6>
 
-                            <div id="vigletfeed" class="panel-body"
-                                style="text-align: left; overflow-y: auto; max-height: 1320px">
+                                <div id="vigletfeed" class="panel-body"
+                                    style="text-align: left; overflow-y: auto; max-height: 1320px"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    {%- endif -%}
-    {% assign filtered_modules = site.modules | where:"solution", page.identifier %}
-    {%- if filtered_modules.size > 0 -%}
-    <div class="container px-4 py-5">
-        <h2 class="pb-2 border-bottom">Integration</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            {% for module in filtered_modules %}
-            {%- if module.github-url -%}
-            <a href="{{ module.github-url }}" target="_blank" style="text-decoration: none;color: inherit;">
-                {%- endif -%}
-                <div class="col d-flex align-items-start">
-                    <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-                        <svg class="bi" width="1em" height="1em">
-                            <use xlink:href="#toggles2" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h2>{{ module.title }}</h2>
-                        <p>{{ module.description }}</p>
-                    </div>
+            {%- endif -%} {% assign filtered_modules = site.modules |
+            where:"solution", page.identifier %} {%- if filtered_modules.size > 0 -%}
+            <div class="container px-4 py-5">
+                <h2 class="pb-2 border-bottom">Integration</h2>
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    {% for module in filtered_modules %} {%- if module.github-url -%}
+                    <a href="{{ module.github-url }}" target="_blank" style="text-decoration: none; color: inherit">
+                        {%- endif -%}
+                        <div class="col d-flex align-items-start">
+                            <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                                <svg class="bi" width="1em" height="1em">
+                                    <use xlink:href="#toggles2" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>{{ module.title }}</h2>
+                                <p>{{ module.description }}</p>
+                            </div>
+                        </div>
+                        {%- if module.github-url -%}
+                    </a>
+                    {%- endif -%} {% endfor %}
                 </div>
-                {%- if module.github-url -%}
-            </a>
+            </div>
             {%- endif -%}
-            {% endfor %}
         </div>
     </div>
-    {%- endif -%}
+    {%- include solution-scripts.html -%}
 </div>
-</div>
-{%- include solution-scripts.html -%}
