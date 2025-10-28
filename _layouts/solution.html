@@ -142,17 +142,14 @@ layout: default
                     </div>
 
                     <div class="col-lg-5 col-centered vig-hide-md">
-                        {%- if page.github -%}
                         <div id="vigletfeedbox" class="card" style="height: calc( 100% - 24px );">
                             <div class=" card-body">
                             <h5 class="card-title">
                                 Track the progress of {{ page.short-name }} development
                             </h5>
                             <h6 class="card-subtitle">
-                                {%- if page.github-ci-url -%}
                                 <a href="{{ page.github-ci-url }}" target="_blank"><img
                                         src="{{ page.github-ci-image }}"></a>
-                                {%- endif -%}
                             </h6>
 
                             <div id="vigletfeed" class="panel-body"
@@ -160,8 +157,6 @@ layout: default
                             </div>
                         </div>
                     </div>
-                    {%- endif -%}
-
                 </div>
             </div>
         </div>
