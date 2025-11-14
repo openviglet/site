@@ -2,7 +2,7 @@
 layout: solution
 title: Viglet Shio CMS
 status: stable
-order: 3
+order: 2
 identifier: shio
 permalink: /shio/
 get-started: https://docs.viglet.com/shio/
