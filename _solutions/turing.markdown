@@ -2,7 +2,7 @@
 layout: solution
 title: Viglet Turing ES
 status: stable
-order: 1
+order: 3
 identifier: turing
 permalink: /turing/
 get-started: https://docs.viglet.com/turing/
