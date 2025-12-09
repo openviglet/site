@@ -20,7 +20,7 @@ github-ci-image: https://img.shields.io/github/actions/workflow/status/openvigle
 twitter-url: 
 download-message: Download Dumont DEP and explore your flight plan.
 download-size: 455 MB
-download-url: https://github.com/openviglet/dumont/releases/download/v2025.1/viglet-dumont.jar
+download-url: https://github.com/openviglet/dumont/releases/download/v2025.4/dumont-connector.jar
 run-jar: viglet-dumont.jar
 run-port: 2750
 social-image: https://avatars.githubusercontent.com/u/44909290?s=280&amp;v=4

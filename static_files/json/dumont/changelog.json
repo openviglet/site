@@ -1,0 +1,12 @@
+[{
+  "name": "",
+  "notes": [
+  "[New] Elastic Search Support",  
+  "[New] Solr Search Support", 
+  "[Improved] AEM Connector Refactoring",
+  "[Improved] Upgraded to Spring Boot 4.0.0"
+  ],
+  "pub_date": "2025-12-01T12:00:00Z",
+  "version": "2025.4"
+  }
+]
