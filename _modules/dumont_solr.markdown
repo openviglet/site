@@ -2,5 +2,5 @@
 title: Solr
 solution: dumont
 github-url: https://github.com/openviglet/dumont
-description:  Index to Solr.
+description:  Feed the open-source standard. Ensure robust and reliable data ingestion into Apache Solr.
 ---

@@ -2,5 +2,5 @@
 title: Elastic Search 
 solution: dumont
 github-url: https://github.com/openviglet/dumont
-description:  Index to Elastic Seach.
+description:  Power up Elasticsearch. Push data instantly to build fast, scalable, and relevant search applications.
 ---
