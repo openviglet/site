@@ -1,5 +1,5 @@
 ---
-title: Asset Connector
+title: Asset Source
 solution: dumont
 download: true
 github-url: https://github.com/openviglet/dumont

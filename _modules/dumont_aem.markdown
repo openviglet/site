@@ -1,5 +1,5 @@
 ---
-title: AEM Connector
+title: AEM Source
 solution: dumont
 download: true
 github-url: https://github.com/openviglet/dumont

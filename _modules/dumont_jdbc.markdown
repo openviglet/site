@@ -1,5 +1,5 @@
 ---
-title: Database Connector
+title: Database Source
 solution: dumont
 download: true
 description: Bridge structured data. Easily ingest and synchronize records from SQL.
