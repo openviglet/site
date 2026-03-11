@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom'
-import { Download, Settings } from 'lucide-react'
+import { IconDownload, IconSettings } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
@@ -47,7 +47,7 @@ export default function DownloadPage() {
                 <div className="flex flex-wrap gap-3 items-center">
                   <ProductButton identifier={identifier} size="lg" asChild>
                     <a href={solution.downloadUrl} target="_blank" rel="noopener">
-                      <Download size={16} />
+                      <IconDownload size={16} />
                       Download {solution.release}
                     </a>
                   </ProductButton>
@@ -78,7 +78,7 @@ export default function DownloadPage() {
               {solution.downloadUrl && (
                 <ProductButton identifier={identifier} size="lg" className="w-full mb-4" asChild>
                   <a href={solution.downloadUrl} target="_blank" rel="noopener">
-                    <Download size={18} />
+                    <IconDownload size={18} />
                     Download {solution.shortName} {solution.release}
                   </a>
                 </ProductButton>
@@ -178,7 +178,7 @@ export default function DownloadPage() {
                 const inner = (
                   <div className="flex items-start gap-4">
                     <span className={`w-10 h-10 rounded-xl flex items-center justify-content text-white shrink-0 product-bg-${identifier}`}>
-                      <Settings size={16} className="mx-auto" />
+                      <IconSettings size={16} className="mx-auto" />
                     </span>
                     <div>
                       <p className="font-bold text-slate-900 text-sm mb-1">{mod.title}</p>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react'
+import { IconMenu2, IconX, IconChevronDown, IconExternalLink } from '@tabler/icons-react'
 import { solutions } from '@/data/solutions'
 import { categories } from '@/data/categories'
 import { Button } from '@/components/ui/button'
@@ -72,7 +72,7 @@ export default function Header() {
                 className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-brand-bg hover:text-brand transition-colors"
               >
                 Products
-                <ChevronDown
+                <IconChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
                 />
@@ -114,7 +114,7 @@ export default function Header() {
             className="md:hidden ml-auto p-2 rounded-lg hover:bg-slate-100 transition-colors"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            {menuOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
           </button>
         </div>
 
@@ -153,7 +153,7 @@ export default function Header() {
               rel="noopener"
               className="flex items-center gap-2 px-3 py-2 text-sm font-bold text-brand"
             >
-              Get Started <ExternalLink size={12} />
+              Get Started <IconExternalLink size={12} />
             </a>
           </div>
         )}

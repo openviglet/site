@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { Download, ArrowRight, Settings } from 'lucide-react'
+import { IconDownload, IconSettings } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
@@ -58,7 +58,7 @@ export default function SolutionPage() {
                   <>
                     <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
                       <Link to={`${solution.permalink}download/`}>
-                        <Download size={16} />
+                        <IconDownload size={16} />
                         Download {solution.release}
                       </Link>
                     </ProductButton>
@@ -80,40 +80,20 @@ export default function SolutionPage() {
       {features.length > 0 && (
         <section className="py-16 px-6 bg-slate-50">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-[1fr_320px] gap-10 items-start">
-              {/* Features grid */}
-              <div>
-                <ProductBadge identifier={identifier} className="mb-6">Features</ProductBadge>
-                <div className="grid sm:grid-cols-2 gap-5">
-                  {features.map((feat) => (
-                    <Card key={feat.title} className={`hover:-translate-y-1 transition-all product-card-${identifier}`}>
-                      <CardContent className="p-6">
-                        <h3 className={`font-bold text-base mb-2 product-text-${identifier}`}>
-                          {feat.title}
-                        </h3>
-                        <p className="text-sm text-slate-500 leading-relaxed">{feat.content}</p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+            <div>
+              <ProductBadge identifier={identifier} className="mb-6">Features</ProductBadge>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {features.map((feat) => (
+                  <Card key={feat.title} className={`hover:-translate-y-1 transition-all product-card-${identifier}`}>
+                    <CardContent className="p-6">
+                      <h3 className={`font-bold text-base mb-2 product-text-${identifier}`}>
+                        {feat.title}
+                      </h3>
+                      <p className="text-sm text-slate-500 leading-relaxed">{feat.content}</p>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-
-              {/* GitHub feed sidebar */}
-              {solution.github && (
-                <aside className="lg:sticky lg:top-[128px] bg-white border border-slate-200 rounded-2xl p-6">
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
-                    Track {solution.shortName} development
-                  </p>
-                  <a
-                    href={solution.github}
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center justify-between text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors no-underline"
-                  >
-                    View on GitHub <ArrowRight size={14} />
-                  </a>
-                </aside>
-              )}
             </div>
           </div>
         </section>
@@ -134,7 +114,7 @@ export default function SolutionPage() {
                 const inner = (
                   <div className="flex items-start gap-4">
                     <span className={`w-10 h-10 rounded-xl flex items-center justify-content text-white shrink-0 product-bg-${identifier}`}>
-                      <Settings size={16} className="mx-auto" />
+                      <IconSettings size={16} className="mx-auto" />
                     </span>
                     <div>
                       <p className="font-bold text-slate-900 text-sm mb-1">{mod.title}</p>
