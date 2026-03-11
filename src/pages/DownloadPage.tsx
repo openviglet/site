@@ -61,36 +61,6 @@ export default function DownloadPage() {
         </div>
       </section>
 
-      {/* ===== DOWNLOAD CARD ===== */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-lg mx-auto">
-          <Card className={`border-slate-200 product-card-${identifier}`}>
-            <CardContent className="p-10 text-center">
-              <span
-                className={`inline-flex items-center px-3.5 py-1 rounded-full text-sm font-bold text-white mb-6 product-bg-${identifier}`}
-              >
-                v{solution.release}
-              </span>
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-3">
-                {solution.shortName} {solution.release}
-              </h2>
-              <p className="text-slate-500 leading-relaxed mb-8">{solution.downloadMessage}</p>
-              {solution.downloadUrl && (
-                <ProductButton identifier={identifier} size="lg" className="w-full mb-4" asChild>
-                  <a href={solution.downloadUrl} target="_blank" rel="noopener">
-                    <IconDownload size={18} />
-                    Download {solution.shortName} {solution.release}
-                  </a>
-                </ProductButton>
-              )}
-              <p className="text-xs text-slate-400">
-                {solution.fileType} &mdash; {solution.downloadSize}
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
       {/* ===== GETTING STARTED STEPS ===== */}
       {solution.installationSteps && (
         <section className="py-16 px-6 bg-slate-50">
