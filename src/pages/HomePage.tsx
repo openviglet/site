@@ -190,19 +190,19 @@ function HeroCards({ sols }: Readonly<{ sols: Solution[] }>) {
     () => LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)],
     [],
   )
-  if (layout === 'row')        return <LayoutRow        sols={sols} />
+  if (layout === 'row') return <LayoutRow sols={sols} />
   if (layout === 'asymmetric') return <LayoutAsymmetric sols={sols} />
-  if (layout === 'podium')     return <LayoutPodium     sols={sols} />
-  if (layout === 'cascade')    return <LayoutCascade    sols={sols} />
-  return                              <LayoutBento      sols={sols} />
+  if (layout === 'podium') return <LayoutPodium sols={sols} />
+  if (layout === 'cascade') return <LayoutCascade sols={sols} />
+  return <LayoutBento sols={sols} />
 }
 
 // ── Trust-bar items (stable keys, no array index) ───────────────────────────
 const TRUST_ITEMS = [
-  { key: 'projects', icon: <IconPackage size={20} className="text-brand" />,      value: '3',          label: 'Open Source Projects', bg: 'bg-brand-bg'    },
-  { key: 'oss',      icon: <IconCode   size={20} className="text-brand" />,      value: '100%',       label: 'Open Source',          bg: 'bg-brand-bg'    },
-  { key: 'license',  icon: <GitHubSvg size={20} className="text-emerald-600" />,  value: 'Apache 2.0', label: 'License',              bg: 'bg-emerald-50'  },
-  { key: 'stack',    icon: <span className="text-orange-500 font-extrabold text-sm">Java</span>, value: 'Spring Boot', label: 'Backend Stack', bg: 'bg-orange-50' },
+  { key: 'projects', icon: <IconPackage size={20} className="text-brand" />, value: '3', label: 'Open Source Projects', bg: 'bg-brand-bg' },
+  { key: 'oss', icon: <IconCode size={20} className="text-brand" />, value: '100%', label: 'Open Source', bg: 'bg-brand-bg' },
+  { key: 'license', icon: <GitHubSvg size={20} className="text-emerald-600" />, value: 'Apache 2.0', label: 'License', bg: 'bg-emerald-50' },
+  { key: 'stack', icon: <span className="text-orange-500 font-extrabold text-sm">Java</span>, value: 'Spring Boot', label: 'Backend Stack', bg: 'bg-orange-50' },
 ] as const
 
 // ── Page ────────────────────────────────────────────────────────────────────
@@ -334,27 +334,6 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <a
-              href="https://www.linkedin.com/company/viglet.com"
-              target="_blank"
-              rel="noopener"
-              className="flex flex-col bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
-                  <LinkedInSvg size={20} className="text-white" />
-                </span>
-                <div>
-                  <p className="font-bold text-slate-900">LinkedIn</p>
-                  <p className="text-xs text-slate-500">@viglet</p>
-                </div>
-              </div>
-              <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
-                Follow us for product updates, engineering insights, and community news.
-              </p>
-              <span className="text-sm font-semibold text-[#0A66C2]">Follow on LinkedIn →</span>
-            </a>
-
-            <a
               href="https://github.com/openviglet"
               target="_blank"
               rel="noopener"
@@ -374,7 +353,6 @@ export default function HomePage() {
               </p>
               <span className="text-sm font-semibold text-slate-900">Star on GitHub →</span>
             </a>
-
             <a
               href="https://www.reddit.com/r/TuringES/"
               target="_blank"
@@ -394,6 +372,26 @@ export default function HomePage() {
                 Join the r/TuringES community — ask questions, share integrations, and discuss search engineering with fellow users.
               </p>
               <span className="text-sm font-semibold text-[#FF4500]">Join on Reddit →</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/viglet.com"
+              target="_blank"
+              rel="noopener"
+              className="flex flex-col bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
+                  <LinkedInSvg size={20} className="text-white" />
+                </span>
+                <div>
+                  <p className="font-bold text-slate-900">LinkedIn</p>
+                  <p className="text-xs text-slate-500">@viglet.com</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+                Follow us for product updates, engineering insights, and community news.
+              </p>
+              <span className="text-sm font-semibold text-[#0A66C2]">Follow on LinkedIn →</span>
             </a>
           </div>
         </div>

@@ -42,15 +42,6 @@ export default function Footer() {
                 <IconBrandGithub size={16} className="mx-auto" />
               </a>
               <a
-                href="https://www.linkedin.com/company/viglet.com"
-                target="_blank"
-                rel="noopener"
-                aria-label="LinkedIn"
-                className="flex items-center justify-content w-9 h-9 rounded-lg bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-colors"
-              >
-                <IconBrandLinkedin size={16} className="mx-auto" />
-              </a>
-              <a
                 href="https://www.reddit.com/r/TuringES/"
                 target="_blank"
                 rel="noopener"
@@ -59,6 +50,16 @@ export default function Footer() {
               >
                 <RedditIcon size={16} className="mx-auto" />
               </a>
+              <a
+                href="https://www.linkedin.com/company/viglet.com"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                className="flex items-center justify-content w-9 h-9 rounded-lg bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white transition-colors"
+              >
+                <IconBrandLinkedin size={16} className="mx-auto" />
+              </a>
+
             </div>
           </div>
 
@@ -90,6 +91,7 @@ export default function Footer() {
               {[
                 { label: 'Documentation', href: 'https://docs.viglet.com' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
+                { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -109,20 +111,6 @@ export default function Footer() {
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-white mb-4">Company</p>
             <ul className="space-y-2.5">
-              {[
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet.com' },
-              ].map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener"
-                    className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
               <li>
                 <Link
                   to="/about/"
@@ -139,6 +127,21 @@ export default function Footer() {
                   Become a Partner
                 </Link>
               </li>
+              {[
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet.com' },
+              ].map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              
             </ul>
           </div>
         </div>
