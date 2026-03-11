@@ -50,7 +50,7 @@ export const solutions: Solution[] = [
     logoAcronym: 'Du',
     logoSection: 'DEP',
     shortName: 'Dumont DEP',
-    memo:'Data Extraction Platform',
+    memo:'Flow',
     fullName: 'Viglet Dumont DEP',
     description: 'The Data Extraction Platform. Giving your data flight, from source to destination.',
 
@@ -77,7 +77,7 @@ export const solutions: Solution[] = [
     shortName: 'Shio CMS',
     fullName: 'Viglet Shio CMS',
     description: 'Model Content, Use GraphQL and Create Site using Javascript with Native Cache and Search.',
-    memo: 'Content Management System',
+    memo: 'Content',
 
     downloadMessage: 'Download Shio CMS and create your site.',
     downloadSize: '179 MB',
@@ -104,7 +104,7 @@ export const solutions: Solution[] = [
     shortName: 'Turing ES',
     fullName: 'Viglet Turing ES',
     description: 'Enterprise Search, Semantic Navigation, Chatbot using Search Engine and Generative AI.',
-    memo: 'Enterprise Search',
+    memo: 'Intelligence',
     downloadMessage: 'Download Turing ES and add more value to your content.',
     downloadSize: '455 MB',
     downloadUrl: 'https://github.com/openviglet/turing/releases/download/v2025.3.65/viglet-turing.jar',

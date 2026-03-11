@@ -178,7 +178,7 @@ export default function AboutPage() {
               >
                 <VigletLogo identifier={sol.identifier} size={52} className="mb-4" />
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">
-                  {sol.logoSection}
+                  {sol.memo}
                 </p>
                 <p className="font-extrabold text-slate-900 mb-2 group-hover:text-brand transition-colors">
                   {sol.shortName}
