@@ -326,7 +326,7 @@ export default function HomePage() {
 
           <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <a
-              href="https://www.linkedin.com/company/viglet"
+              href="https://www.linkedin.com/company/viglet.com"
               target="_blank"
               rel="noopener"
               className="block bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"

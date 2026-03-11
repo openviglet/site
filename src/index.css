@@ -67,6 +67,37 @@
 .product-blob-shio   { background: radial-gradient(circle, rgba(255,99,71,0.09) 0%, transparent 70%); }
 .product-blob-turing { background: radial-gradient(circle, rgba(65,105,225,0.09) 0%, transparent 70%); }
 
+/* ── Product-coloured buttons (override Tailwind gradient + shadow) ──────── */
+.product-btn-dumont { background: linear-gradient(135deg, #004d00, #006400) !important; box-shadow: 0 4px 14px 0 rgba(0,100,0,0.35) !important; }
+.product-btn-dumont:hover { background: linear-gradient(135deg, #003800, #004d00) !important; box-shadow: 0 10px 25px -5px rgba(0,100,0,0.40) !important; }
+.product-btn-shio   { background: linear-gradient(135deg, #cc2f1a, #FF6347) !important; box-shadow: 0 4px 14px 0 rgba(255,99,71,0.35) !important; }
+.product-btn-shio:hover   { background: linear-gradient(135deg, #a82210, #e0533a) !important; box-shadow: 0 10px 25px -5px rgba(255,99,71,0.40) !important; }
+.product-btn-turing { background: linear-gradient(135deg, #2e52c0, #4169E1) !important; box-shadow: 0 4px 14px 0 rgba(65,105,225,0.35) !important; }
+.product-btn-turing:hover { background: linear-gradient(135deg, #1e3e9e, #2e52c0) !important; box-shadow: 0 10px 25px -5px rgba(65,105,225,0.40) !important; }
+
+/* ── Product-coloured ghost buttons (text + border) ─────────────────────── */
+.product-btn-ghost-dumont { color: #006400 !important; border-color: rgba(0,100,0,0.35) !important; }
+.product-btn-ghost-dumont:hover { background-color: rgba(0,100,0,0.07) !important; border-color: #006400 !important; }
+.product-btn-ghost-shio   { color: #C73E00 !important; border-color: rgba(199,62,0,0.35) !important; }
+.product-btn-ghost-shio:hover   { background-color: rgba(199,62,0,0.07) !important; border-color: #C73E00 !important; }
+.product-btn-ghost-turing { color: #4169E1 !important; border-color: rgba(65,105,225,0.35) !important; }
+.product-btn-ghost-turing:hover { background-color: rgba(65,105,225,0.07) !important; border-color: #4169E1 !important; }
+
+/* ── SolutionMenu: active tab ────────────────────────────────────────────── */
+.product-tab-active-dumont { background-color: rgba(0,100,0,0.08) !important; color: #006400 !important; }
+.product-tab-active-shio   { background-color: rgba(199,62,0,0.08) !important; color: #C73E00 !important; }
+.product-tab-active-turing { background-color: rgba(65,105,225,0.08) !important; color: #4169E1 !important; }
+
+/* ── SolutionMenu: brand name hover ─────────────────────────────────────── */
+.product-nav-link-dumont:hover { color: #006400 !important; }
+.product-nav-link-shio:hover   { color: #C73E00 !important; }
+.product-nav-link-turing:hover { color: #4169E1 !important; }
+
+/* ── Product-coloured card hover shadows ────────────────────────────────── */
+.product-card-dumont:hover { box-shadow: 0 10px 25px -5px rgba(0,100,0,0.18) !important; }
+.product-card-shio:hover   { box-shadow: 0 10px 25px -5px rgba(255,99,71,0.18) !important; }
+.product-card-turing:hover { box-shadow: 0 10px 25px -5px rgba(65,105,225,0.18) !important; }
+
 /* ── Download hero highlight ────────────────────────────────────────────── */
 .download-hero-highlight {
   background: radial-gradient(ellipse 60% 80% at 90% -10%, rgba(255,255,255,0.07) 0%, transparent 70%);

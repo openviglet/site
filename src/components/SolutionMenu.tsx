@@ -34,7 +34,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
         {/* Brand */}
         <Link
           to={base}
-          className="flex items-center gap-2 text-slate-900 font-bold text-sm no-underline hover:text-brand transition-colors shrink-0 mr-2"
+          className={`flex items-center gap-2 text-slate-900 font-bold text-sm no-underline transition-colors shrink-0 mr-2 product-nav-link-${solution.identifier}`}
         >
           <VigletLogo identifier={solution.identifier} size={28} />
           {solution.shortName}
@@ -50,7 +50,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
                 to={tab.to}
                 className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors no-underline whitespace-nowrap ${
                   isActive
-                    ? 'bg-brand-bg text-brand font-semibold'
+                    ? `product-tab-active-${solution.identifier} font-semibold`
                     : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >

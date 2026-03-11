@@ -3,11 +3,11 @@ import { Download, Settings } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
+import ProductBadge from '@/components/ProductBadge'
+import ProductButton from '@/components/ProductButton'
 import { getDownloadModulesBySolution } from '@/data/modules'
 
 export default function DownloadPage() {
@@ -35,7 +35,7 @@ export default function DownloadPage() {
             </div>
 
             <div className="flex-1 min-w-0">
-              <Badge variant="brand" className="mb-4">Download</Badge>
+              <ProductBadge identifier={identifier} className="mb-4">Download</ProductBadge>
               <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
                 Get {solution.shortName}
               </h1>
@@ -45,12 +45,12 @@ export default function DownloadPage() {
 
               {solution.downloadUrl && solution.release && (
                 <div className="flex flex-wrap gap-3 items-center">
-                  <Button size="lg" asChild>
+                  <ProductButton identifier={identifier} size="lg" asChild>
                     <a href={solution.downloadUrl} target="_blank" rel="noopener">
                       <Download size={16} />
                       Download {solution.release}
                     </a>
-                  </Button>
+                  </ProductButton>
                   <span className="text-sm text-slate-400">
                     {solution.fileType} &mdash; {solution.downloadSize}
                   </span>
@@ -64,7 +64,7 @@ export default function DownloadPage() {
       {/* ===== DOWNLOAD CARD ===== */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-lg mx-auto">
-          <Card className="shadow-hover border-slate-200">
+          <Card className={`border-slate-200 product-card-${identifier}`}>
             <CardContent className="p-10 text-center">
               <span
                 className={`inline-flex items-center px-3.5 py-1 rounded-full text-sm font-bold text-white mb-6 product-bg-${identifier}`}
@@ -76,7 +76,7 @@ export default function DownloadPage() {
               </h2>
               <p className="text-slate-500 leading-relaxed mb-8">{solution.downloadMessage}</p>
               {solution.downloadUrl && (
-                <Button size="lg" className="w-full mb-4" asChild>
+                <ProductButton identifier={identifier} size="lg" className="w-full mb-4" asChild>
                   <a href={solution.downloadUrl} target="_blank" rel="noopener">
                     <Download size={18} />
                     Download {solution.shortName} {solution.release}
@@ -96,7 +96,7 @@ export default function DownloadPage() {
         <section className="py-16 px-6 bg-slate-50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
-              <Badge variant="brand" className="mb-4">Quick Start</Badge>
+              <ProductBadge identifier={identifier} className="mb-4">Quick Start</ProductBadge>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                 Up and running in minutes
               </h2>
@@ -130,7 +130,7 @@ export default function DownloadPage() {
                       href={`http://localhost:${solution.runPort}`}
                       target="_blank"
                       rel="noopener"
-                      className="text-brand hover:underline"
+                      className={`product-text-${identifier} hover:underline`}
                     >
                       localhost:{solution.runPort}
                     </a>{' '}
@@ -150,7 +150,7 @@ export default function DownloadPage() {
                     Explore everything {solution.shortName} can do in the official docs.
                   </p>
                   {solution.getStarted && (
-                    <Button size="sm" asChild>
+                    <ProductButton identifier={identifier} size="sm" asChild>
                       <a href={solution.getStarted} target="_blank" rel="noopener">
                         Read the Docs
                       </a>
@@ -168,7 +168,7 @@ export default function DownloadPage() {
         <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
-              <Badge variant="brand" className="mb-4">Integration</Badge>
+              <ProductBadge identifier={identifier} className="mb-4">Integration</ProductBadge>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                 Connect to your ecosystem
               </h2>
@@ -192,7 +192,7 @@ export default function DownloadPage() {
                     href={mod.downloadUrl}
                     target="_blank"
                     rel="noopener"
-                    className="block bg-white border border-slate-200 rounded-2xl p-5 hover:shadow-hover hover:-translate-y-1 hover:border-brand-border transition-all no-underline"
+                    className={`block bg-white border border-slate-200 rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
                   >
                     {inner}
                   </a>

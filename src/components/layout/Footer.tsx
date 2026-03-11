@@ -33,7 +33,7 @@ export default function Footer() {
                 <Github size={16} className="mx-auto" />
               </a>
               <a
-                href="https://www.linkedin.com/company/viglet"
+                href="https://www.linkedin.com/company/viglet.com"
                 target="_blank"
                 rel="noopener"
                 aria-label="LinkedIn"
@@ -91,7 +91,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'About', href: 'https://viglet.com' },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet' },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet.com' },
                 { label: 'Facebook', href: 'https://www.facebook.com/viglet' },
               ].map((link) => (
                 <li key={link.label}>

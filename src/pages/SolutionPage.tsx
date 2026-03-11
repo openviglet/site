@@ -3,11 +3,11 @@ import { Download, ArrowRight, Settings } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
+import ProductBadge from '@/components/ProductBadge'
+import ProductButton from '@/components/ProductButton'
 import { getFeaturesBySolution } from '@/data/features'
 import { getModulesBySolution } from '@/data/modules'
 
@@ -48,25 +48,25 @@ export default function SolutionPage() {
 
               <div className="flex flex-wrap gap-3 items-center">
                 {solution.getStarted && (
-                  <Button size="lg" asChild>
+                  <ProductButton identifier={identifier} size="lg" asChild>
                     <a href={solution.getStarted} target="_blank" rel="noopener">
                       Get Started
                     </a>
-                  </Button>
+                  </ProductButton>
                 )}
                 {solution.release && (
                   <>
-                    <Button variant="ghost" size="lg" asChild>
+                    <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
                       <Link to={`${solution.permalink}download/`}>
                         <Download size={16} />
                         Download {solution.release}
                       </Link>
-                    </Button>
-                    <Button variant="ghost" size="lg" asChild>
+                    </ProductButton>
+                    <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
                       <Link to={`${solution.permalink}release-notes/`}>
                         Release Notes
                       </Link>
-                    </Button>
+                    </ProductButton>
                   </>
                 )}
               </div>
@@ -90,10 +90,10 @@ export default function SolutionPage() {
             <div className="grid lg:grid-cols-[1fr_320px] gap-10 items-start">
               {/* Features grid */}
               <div>
-                <Badge variant="brand" className="mb-6">Features</Badge>
+                <ProductBadge identifier={identifier} className="mb-6">Features</ProductBadge>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {features.map((feat) => (
-                    <Card key={feat.title} className="hover:shadow-hover hover:-translate-y-1 transition-all">
+                    <Card key={feat.title} className={`hover:-translate-y-1 transition-all product-card-${identifier}`}>
                       <CardContent className="p-6">
                         <h3 className={`font-bold text-base mb-2 product-text-${identifier}`}>
                           {feat.title}
@@ -138,7 +138,7 @@ export default function SolutionPage() {
         <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-10">
-              <Badge variant="brand" className="mb-4">Integration</Badge>
+              <ProductBadge identifier={identifier} className="mb-4">Integration</ProductBadge>
               <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                 Connect to your ecosystem
               </h2>
@@ -162,7 +162,7 @@ export default function SolutionPage() {
                     href={mod.githubUrl}
                     target="_blank"
                     rel="noopener"
-                    className="block bg-white border border-slate-200 rounded-2xl p-5 hover:shadow-hover hover:-translate-y-1 hover:border-brand-border transition-all no-underline"
+                    className={`block bg-white border border-slate-200 rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
                   >
                     {inner}
                   </a>

@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
-import { Badge } from '@/components/ui/badge'
 import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
+import ProductBadge from '@/components/ProductBadge'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
 
@@ -125,7 +125,7 @@ export default function ReleaseNotesPage() {
             </div>
 
             <div className="flex-1 min-w-0">
-              <Badge variant="brand" className="mb-4">Changelog</Badge>
+              <ProductBadge identifier={identifier} className="mb-4">Changelog</ProductBadge>
               <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
                 {solution.shortName} Release Notes
               </h1>
