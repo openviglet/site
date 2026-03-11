@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getSolution } from '@/data/solutions'
+import VigletLogo from '@/components/VigletLogo'
 import { getFeaturesBySolution } from '@/data/features'
 import { getModulesBySolution } from '@/data/modules'
 
@@ -30,14 +31,7 @@ export default function SolutionPage() {
         <div className={`absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full pointer-events-none product-blob-${identifier}`} />
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
-            <span
-              className={`w-14 h-14 rounded-2xl flex items-center justify-content text-white text-xl font-extrabold shrink-0 product-bg-${identifier}`}
-            >
-              <span className="w-full text-center">{solution.logoAcronym}</span>
-            </span>
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
-              {solution.logoSection}
-            </span>
+            <VigletLogo identifier={identifier} size={96} />
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">

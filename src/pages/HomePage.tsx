@@ -1,19 +1,37 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Package, Code2, Github, Linkedin } from 'lucide-react'
+import { ArrowRight, Package, Code2 } from 'lucide-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { solutions, type Solution } from '@/data/solutions'
+import VigletLogo from '@/components/VigletLogo'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
 
 const CARD = 'bg-white rounded-2xl border border-slate-200 shadow-card hover:shadow-hover transition-all duration-200 no-underline'
 
+// ── Inline brand SVGs (Github/Linkedin removed from lucide as deprecated) ────
+function GitHubSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+    </svg>
+  )
+}
+
+function LinkedInSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  )
+}
+
 // ── Layout 1: Row with alternating tilts ────────────────────────────────────
-function LayoutRow({ sols }: { sols: Solution[] }) {
+function LayoutRow({ sols }: Readonly<{ sols: Solution[] }>) {
   const tilts = [
     '-rotate-2 -translate-y-1 hover:rotate-0 hover:translate-y-0',
     'translate-y-3 hover:translate-y-0',
@@ -27,9 +45,7 @@ function LayoutRow({ sols }: { sols: Solution[] }) {
           to={sol.permalink}
           className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${tilts[i]}`}
         >
-          <span className={`w-11 h-11 rounded-xl flex items-center justify-center text-white text-base font-extrabold product-bg-${sol.identifier}`}>
-            {sol.logoAcronym}
-          </span>
+          <VigletLogo identifier={sol.identifier} size={44} />
           <div>
             <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
             <p className="text-xs text-slate-500 line-clamp-2 mt-1">{sol.description}</p>
@@ -41,18 +57,15 @@ function LayoutRow({ sols }: { sols: Solution[] }) {
 }
 
 // ── Layout 2: Asymmetric — tall card left, two stacked right ────────────────
-function LayoutAsymmetric({ sols }: { sols: Solution[] }) {
+function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
   return (
     <div className="flex gap-3 h-[236px]">
       <Link
         to={sols[0].permalink}
         className={`${CARD} flex flex-col justify-between w-[42%] p-5 -rotate-1 hover:rotate-0`}
       >
-        <span className={`w-12 h-12 rounded-xl flex items-center justify-center text-white text-lg font-extrabold product-bg-${sols[0].identifier}`}>
-          {sols[0].logoAcronym}
-        </span>
+        <VigletLogo identifier={sols[0].identifier} size={48} />
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{sols[0].logoSection}</p>
           <p className="font-bold text-slate-900">{sols[0].shortName}</p>
           <p className="text-xs text-slate-500 line-clamp-3 mt-1">{sols[0].description}</p>
         </div>
@@ -64,9 +77,7 @@ function LayoutAsymmetric({ sols }: { sols: Solution[] }) {
             to={sol.permalink}
             className={`${CARD} flex flex-col justify-between flex-1 p-4 ${i === 0 ? 'translate-x-1 hover:translate-x-0' : '-translate-x-1 hover:translate-x-0'}`}
           >
-            <span className={`w-9 h-9 rounded-lg flex items-center justify-center text-white text-xs font-extrabold product-bg-${sol.identifier}`}>
-              {sol.logoAcronym}
-            </span>
+            <VigletLogo identifier={sol.identifier} size={36} />
             <div>
               <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
               <p className="text-xs text-slate-500 line-clamp-2 mt-0.5">{sol.description}</p>
@@ -79,7 +90,7 @@ function LayoutAsymmetric({ sols }: { sols: Solution[] }) {
 }
 
 // ── Layout 3: Podium — centre card is featured ──────────────────────────────
-function LayoutPodium({ sols }: { sols: Solution[] }) {
+function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
   const configs = [
     'scale-95 translate-y-5 opacity-80 hover:scale-100 hover:translate-y-0 hover:opacity-100',
     'scale-100 -translate-y-1 z-10 ring-1 ring-brand/10 shadow-hover hover:-translate-y-3',
@@ -93,13 +104,8 @@ function LayoutPodium({ sols }: { sols: Solution[] }) {
           to={sol.permalink}
           className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${configs[i]}`}
         >
-          <span className={`w-11 h-11 rounded-xl flex items-center justify-center text-white text-base font-extrabold product-bg-${sol.identifier}`}>
-            {sol.logoAcronym}
-          </span>
+          <VigletLogo identifier={sol.identifier} size={44} />
           <div>
-            {i === 1 && (
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">{sol.logoSection}</p>
-            )}
             <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
             <p className="text-xs text-slate-500 line-clamp-2 mt-1">{sol.description}</p>
           </div>
@@ -110,7 +116,7 @@ function LayoutPodium({ sols }: { sols: Solution[] }) {
 }
 
 // ── Layout 4: Cascade — diagonal staircase, hover lifts to front ────────────
-function LayoutCascade({ sols }: { sols: Solution[] }) {
+function LayoutCascade({ sols }: Readonly<{ sols: Solution[] }>) {
   const positions = [
     'top-0 left-0 w-[65%] z-[1] hover:z-30 -rotate-1 hover:rotate-0',
     'top-[26%] left-[17.5%] w-[65%] z-[2] hover:z-30',
@@ -125,9 +131,7 @@ function LayoutCascade({ sols }: { sols: Solution[] }) {
           className={`absolute ${CARD} flex flex-col justify-between p-5 ${positions[i]}`}
           style={{ minHeight: 108 }}
         >
-          <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-extrabold product-bg-${sol.identifier}`}>
-            {sol.logoAcronym}
-          </span>
+          <VigletLogo identifier={sol.identifier} size={40} />
           <div>
             <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
             <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">{sol.description}</p>
@@ -139,18 +143,15 @@ function LayoutCascade({ sols }: { sols: Solution[] }) {
 }
 
 // ── Layout 5: Bento grid ────────────────────────────────────────────────────
-function LayoutBento({ sols }: { sols: Solution[] }) {
+function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
   return (
     <div className="grid grid-cols-5 grid-rows-2 gap-3 h-[228px]">
       <Link
         to={sols[0].permalink}
         className={`${CARD} flex flex-col justify-between col-span-2 row-span-2 p-5`}
       >
-        <span className={`w-12 h-12 rounded-xl flex items-center justify-center text-white text-lg font-extrabold product-bg-${sols[0].identifier}`}>
-          {sols[0].logoAcronym}
-        </span>
+        <VigletLogo identifier={sols[0].identifier} size={48} />
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">{sols[0].logoSection}</p>
           <p className="font-bold text-slate-900">{sols[0].shortName}</p>
           <p className="text-xs text-slate-500 line-clamp-3 mt-1">{sols[0].description}</p>
         </div>
@@ -161,9 +162,7 @@ function LayoutBento({ sols }: { sols: Solution[] }) {
           to={sol.permalink}
           className={`${CARD} flex flex-row items-center gap-3 col-span-3 row-span-1 p-4`}
         >
-          <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white text-sm font-extrabold product-bg-${sol.identifier} shrink-0`}>
-            {sol.logoAcronym}
-          </span>
+          <VigletLogo identifier={sol.identifier} size={40} />
           <div className="min-w-0">
             <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
             <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">{sol.description}</p>
@@ -178,7 +177,7 @@ function LayoutBento({ sols }: { sols: Solution[] }) {
 const LAYOUTS = ['row', 'asymmetric', 'podium', 'cascade', 'bento'] as const
 type Layout = (typeof LAYOUTS)[number]
 
-function HeroCards({ sols }: { sols: Solution[] }) {
+function HeroCards({ sols }: Readonly<{ sols: Solution[] }>) {
   const layout = useMemo<Layout>(
     () => LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)],
     [],
@@ -189,6 +188,14 @@ function HeroCards({ sols }: { sols: Solution[] }) {
   if (layout === 'cascade')    return <LayoutCascade    sols={sols} />
   return                              <LayoutBento      sols={sols} />
 }
+
+// ── Trust-bar items (stable keys, no array index) ───────────────────────────
+const TRUST_ITEMS = [
+  { key: 'projects', icon: <Package size={20} className="text-brand" />,         value: '3',          label: 'Open Source Projects', bg: 'bg-brand-bg'    },
+  { key: 'oss',      icon: <Code2    size={20} className="text-brand" />,         value: '100%',       label: 'Open Source',          bg: 'bg-brand-bg'    },
+  { key: 'license',  icon: <GitHubSvg size={20} className="text-emerald-600" />,  value: 'Apache 2.0', label: 'License',              bg: 'bg-emerald-50'  },
+  { key: 'stack',    icon: <span className="text-orange-500 font-extrabold text-sm">Java</span>, value: 'Spring Boot', label: 'Backend Stack', bg: 'bg-orange-50' },
+] as const
 
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function HomePage() {
@@ -206,7 +213,7 @@ export default function HomePage() {
           <div>
             <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 text-sm font-semibold text-brand shadow-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-gradient-to-br from-brand to-brand-light" />
-              Open Source Platform
+              <span>Open Source Platform</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
               Open Source Tools for{' '}
@@ -241,13 +248,8 @@ export default function HomePage() {
       <section className="border-y border-slate-200 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-wrap divide-x divide-slate-200">
-            {[
-              { icon: <Package size={20} className="text-brand" />, value: '3', label: 'Open Source Projects', bg: 'bg-brand-bg' },
-              { icon: <Code2 size={20} className="text-brand" />, value: '100%', label: 'Open Source', bg: 'bg-brand-bg' },
-              { icon: <Github size={20} className="text-emerald-600" />, value: 'Apache 2.0', label: 'License', bg: 'bg-emerald-50' },
-              { icon: <span className="text-orange-500 font-extrabold text-sm">Java</span>, value: 'Spring Boot', label: 'Backend Stack', bg: 'bg-orange-50' },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-4 flex-1 px-8 py-6 min-w-[180px]">
+            {TRUST_ITEMS.map((item) => (
+              <div key={item.key} className="flex items-center gap-4 flex-1 px-8 py-6 min-w-[180px]">
                 <span className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center shrink-0`}>
                   {item.icon}
                 </span>
@@ -282,11 +284,7 @@ export default function HomePage() {
               >
                 <CardContent className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <span
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center text-white text-lg font-extrabold shrink-0 product-bg-${sol.identifier}`}
-                    >
-                      {sol.logoAcronym}
-                    </span>
+                    <VigletLogo identifier={sol.identifier} size={48} />
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
                         {sol.logoSection}
@@ -335,7 +333,7 @@ export default function HomePage() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
-                  <Linkedin size={20} className="text-white" />
+                  <LinkedInSvg size={20} className="text-white" />
                 </span>
                 <div>
                   <p className="font-bold text-slate-900">LinkedIn</p>
@@ -356,7 +354,7 @@ export default function HomePage() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center">
-                  <Github size={20} className="text-white" />
+                  <GitHubSvg size={20} className="text-white" />
                 </span>
                 <div>
                   <p className="font-bold text-slate-900">GitHub</p>

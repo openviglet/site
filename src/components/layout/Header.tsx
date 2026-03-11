@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown, ExternalLink } from 'lucide-react'
 import { solutions } from '@/data/solutions'
 import { categories } from '@/data/categories'
 import { Button } from '@/components/ui/button'
+import VigletLogo from '@/components/VigletLogo'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -86,11 +87,7 @@ export default function Header() {
                       onClick={() => setProductsOpen(false)}
                       className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
                     >
-                      <span
-                        className={`w-9 h-9 rounded-xl flex items-center justify-content text-white text-sm font-extrabold shrink-0 product-bg-${sol.identifier}`}
-                      >
-                        <span className="w-full text-center">{sol.logoAcronym}</span>
-                      </span>
+                      <VigletLogo identifier={sol.identifier} size={36} />
                       <div>
                         <p className="text-sm font-semibold text-slate-900 group-hover:text-brand transition-colors">
                           {sol.shortName}
@@ -145,11 +142,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-50"
               >
-                <span
-                  className={`w-7 h-7 rounded-lg flex items-center justify-content text-white text-xs font-extrabold shrink-0 product-bg-${sol.identifier}`}
-                >
-                  <span className="w-full text-center">{sol.logoAcronym}</span>
-                </span>
+                <VigletLogo identifier={sol.identifier} size={28} />
                 <span className="text-sm font-medium text-slate-700">{sol.shortName}</span>
               </Link>
             ))}

@@ -31,9 +31,9 @@ export interface Solution {
 }
 
 export const productColors: Record<string, string> = {
-  dumont: '#15803D',
-  shio:   '#DC2626',
-  turing: '#1D4ED8',
+  dumont: '#006400',  // darkgreen
+  shio:   '#FF6347',  // tomato
+  turing: '#4169E1',  // royalblue
 }
 
 export const solutions: Solution[] = [

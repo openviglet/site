@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { getSolution } from '@/data/solutions'
+import VigletLogo from '@/components/VigletLogo'
 import { getDownloadModulesBySolution } from '@/data/modules'
 
 export default function DownloadPage() {
@@ -26,13 +27,8 @@ export default function DownloadPage() {
       {/* ===== DOWNLOAD HERO ===== */}
       <section className={`py-20 px-6 text-center product-hero-${identifier}`}>
         <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="w-14 h-14 rounded-2xl flex items-center justify-content text-white text-xl font-extrabold bg-black/20">
-              <span className="w-full text-center">{solution.logoAcronym}</span>
-            </span>
-            <span className="text-xs font-bold uppercase tracking-widest text-white/70 bg-black/20 px-2.5 py-1 rounded-md">
-              {solution.logoSection}
-            </span>
+          <div className="flex items-center justify-center mb-6">
+            <VigletLogo identifier={identifier} size={96} />
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             Get {solution.shortName}

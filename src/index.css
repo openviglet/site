@@ -46,22 +46,23 @@
 
 /* Per-product classes — kept outside @layer so Tailwind never purges them */
 
-/* Background colours (logo badges, version pills) */
-.product-bg-dumont { background-color: #15803D; }
-.product-bg-shio   { background-color: #DC2626; }
-.product-bg-turing { background-color: #1D4ED8; }
+/* Background colours (version pills, icon chips) */
+/* dumont=darkgreen  shio=tomato  turing=royalblue */
+.product-bg-dumont { background-color: #006400; }
+.product-bg-shio   { background-color: #FF6347; }
+.product-bg-turing { background-color: #4169E1; }
 
-/* Text colours (feature titles, step numbers) */
-.product-text-dumont { color: #15803D; }
-.product-text-shio   { color: #DC2626; }
-.product-text-turing { color: #1D4ED8; }
+/* Text colours — WCAG AA on white (darkened for shio) */
+.product-text-dumont { color: #006400; }   /* 7.4:1 */
+.product-text-shio   { color: #C73E00; }   /* 5.1:1 — darker tomato */
+.product-text-turing { color: #4169E1; }   /* 4.6:1 */
 
 /* Hero gradient backgrounds (download page) */
-.product-hero-dumont { background: linear-gradient(135deg, #14532D 0%, #15803D 100%); }
-.product-hero-shio   { background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 100%); }
-.product-hero-turing { background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); }
+.product-hero-dumont { background: linear-gradient(135deg, #003300 0%, #006400 100%); }
+.product-hero-shio   { background: linear-gradient(135deg, #CC2200 0%, #FF6347 100%); }
+.product-hero-turing { background: linear-gradient(135deg, #1a3a9e 0%, #4169E1 100%); }
 
 /* Glow blobs */
-.product-blob-dumont { background: radial-gradient(circle, rgba(21,128,61,0.09) 0%, transparent 70%); }
-.product-blob-shio   { background: radial-gradient(circle, rgba(220,38,38,0.09) 0%, transparent 70%); }
-.product-blob-turing { background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
+.product-blob-dumont { background: radial-gradient(circle, rgba(0,100,0,0.09) 0%, transparent 70%); }
+.product-blob-shio   { background: radial-gradient(circle, rgba(255,99,71,0.09) 0%, transparent 70%); }
+.product-blob-turing { background: radial-gradient(circle, rgba(65,105,225,0.09) 0%, transparent 70%); }

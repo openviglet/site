@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import VigletLogo from '@/components/VigletLogo'
 import type { Solution } from '@/data/solutions'
 
 function GitHubIcon({ size = 14 }: Readonly<{ size?: number }>) {
@@ -10,7 +11,7 @@ function GitHubIcon({ size = 14 }: Readonly<{ size?: number }>) {
 }
 
 interface SolutionMenuProps {
-  solution: Solution
+  readonly solution: Solution
 }
 
 export default function SolutionMenu({ solution }: SolutionMenuProps) {
@@ -35,11 +36,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           to={base}
           className="flex items-center gap-2 text-slate-900 font-bold text-sm no-underline hover:text-brand transition-colors shrink-0 mr-2"
         >
-          <span
-            className={`w-7 h-7 rounded-lg flex items-center justify-content text-white text-xs font-extrabold shrink-0 product-bg-${solution.identifier}`}
-          >
-            <span className="w-full text-center">{solution.logoAcronym}</span>
-          </span>
+          <VigletLogo identifier={solution.identifier} size={28} />
           {solution.shortName}
         </Link>
 
