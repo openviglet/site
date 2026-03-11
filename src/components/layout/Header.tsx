@@ -1,31 +1,18 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { IconMenu2, IconX, IconChevronDown, IconExternalLink } from '@tabler/icons-react'
+import { IconMenu2, IconX, IconExternalLink } from '@tabler/icons-react'
 import { solutions } from '@/data/solutions'
-import { categories } from '@/data/categories'
 import { Button } from '@/components/ui/button'
 import VigletLogo from '@/components/VigletLogo'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [productsOpen, setProductsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setProductsOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   return (
@@ -52,54 +39,23 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1 flex-1">
-            {categories.map((cat) => (
+            {solutions.map((sol) => (
               <Link
-                key={cat.identifier}
-                to={cat.url}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-brand-bg hover:text-brand transition-colors"
+                key={sol.identifier}
+                to={sol.permalink}
+                className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-semibold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors"
               >
-                {cat.menuTitle}
+                <span className="relative flex w-2 h-2 shrink-0">
+                  <span className={`absolute inline-flex h-full w-full rounded-full opacity-0 group-hover:opacity-75 group-hover:animate-ping product-bg-${sol.identifier}`} />
+                  <span className={`relative inline-flex w-2 h-2 rounded-full product-bg-${sol.identifier}`} />
+                </span>
+                {sol.shortName}
               </Link>
             ))}
           </nav>
 
-          {/* Products dropdown + CTA */}
+          {/* CTA */}
           <div className="hidden md:flex items-center gap-3 ml-auto">
-            <div ref={dropdownRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setProductsOpen((v) => !v)}
-                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:bg-brand-bg hover:text-brand transition-colors"
-              >
-                Products
-                <IconChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              {productsOpen && (
-                <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-2xl border border-slate-200 shadow-hover p-2 z-50">
-                  {solutions.map((sol) => (
-                    <Link
-                      key={sol.identifier}
-                      to={sol.permalink}
-                      onClick={() => setProductsOpen(false)}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                    >
-                      <VigletLogo identifier={sol.identifier} size={36} />
-                      <div>
-                        <p className="text-sm font-semibold text-slate-900 group-hover:text-brand transition-colors">
-                          {sol.shortName}
-                        </p>
-                        <p className="text-xs text-slate-500 line-clamp-1">{sol.description}</p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             <Button asChild size="sm">
               <a href="https://docs.viglet.com" target="_blank" rel="noopener">
                 Get Started
@@ -121,20 +77,6 @@ export default function Header() {
         {/* Mobile nav */}
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200 px-6 py-4 space-y-1">
-            {categories.map((cat) => (
-              <Link
-                key={cat.identifier}
-                to={cat.url}
-                onClick={() => setMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-brand-bg hover:text-brand"
-              >
-                {cat.menuTitle}
-              </Link>
-            ))}
-            <hr className="border-slate-100 my-2" />
-            <p className="px-3 text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">
-              Products
-            </p>
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}

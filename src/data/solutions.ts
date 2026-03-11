@@ -56,7 +56,7 @@ export const solutions: Solution[] = [
     downloadSize: '145 MB',
     downloadUrl: 'https://github.com/openviglet/dumont/releases/download/v2025.4/dumont-connector.jar',
     runJar: 'dumont-connector.jar',
-    runPort: 2750,
+    runPort: 30110,
     fileType: '.jar',
     installationSteps: true,
   },

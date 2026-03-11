@@ -70,9 +70,12 @@ export default function Footer() {
                 <li key={sol.identifier}>
                   <Link
                     to={sol.permalink}
-                    className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                    className="group flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
                   >
-                    <span className={`w-2 h-2 rounded-sm shrink-0 product-bg-${sol.identifier}`} />
+                    <span className="relative flex w-2 h-2 shrink-0">
+                      <span className={`absolute inline-flex h-full w-full rounded-full opacity-0 group-hover:opacity-75 group-hover:animate-ping product-bg-${sol.identifier}`} />
+                      <span className={`relative inline-flex w-2 h-2 rounded-full product-bg-${sol.identifier}`} />
+                    </span>
                     {sol.shortName}
                   </Link>
                 </li>
@@ -87,7 +90,6 @@ export default function Footer() {
               {[
                 { label: 'Documentation', href: 'https://docs.viglet.com' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
-                { label: 'Releases', href: 'https://github.com/openviglet' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -108,9 +110,7 @@ export default function Footer() {
             <p className="text-xs font-bold uppercase tracking-widest text-white mb-4">Company</p>
             <ul className="space-y-2.5">
               {[
-                { label: 'About', href: 'https://viglet.com' },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet.com' },
-                { label: 'Facebook', href: 'https://www.facebook.com/viglet' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -123,6 +123,22 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/about/"
+                  className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/partner/"
+                  className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                >
+                  Become a Partner
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

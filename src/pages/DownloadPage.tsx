@@ -109,7 +109,7 @@ export default function DownloadPage() {
                   <h3 className="text-lg font-bold text-slate-900 mb-3">Requirements</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">
                     {solution.shortName} is built on Java. You need{' '}
-                    <strong>Java 14+</strong> installed. Runs on Linux and Windows.
+                    <strong>Java 21</strong> installed. Runs on Linux and Windows.
                   </p>
                 </CardContent>
               </Card>

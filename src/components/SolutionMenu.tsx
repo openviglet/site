@@ -29,7 +29,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
   ]
 
   return (
-    <nav className="sticky top-16 z-40 bg-white/92 backdrop-blur-md border-b border-slate-200 shadow-sm font-sans">
+    <nav className="sticky top-16 z-40 bg-slate-50/95 backdrop-blur-md border-b border-slate-200 font-sans">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center gap-4">
         {/* Brand */}
         <Link
