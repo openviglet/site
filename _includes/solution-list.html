@@ -1,30 +1,32 @@
-{% for solution in stable_solutions %}
-<div class="row text-center" style="margin: 0px;margin-top:50px;display: inherit;min-height: 180px;">
-    <div class="col-lg-2 col-md-6 col-sm-6 col-xs-6 col-centered d-none d-sm-block" style="width: 205px;float: left;">
+<div class="vg-solutions-grid">
+  {% for solution in stable_solutions %}
+  <article class="vg-solution-card">
 
-        {%- if solution.service-url -%}
-        <a target="_blank" href="{{ solution.service-url }}">
-            <div style="text-align: center;margin-bottom: 20px">
-                <img src="{{ solution.logo }}" style="width: 180px;">
-            </div>
-        </a>
-        {%- else -%}
-        <a href="{{ solution.permalink }}">
-            {%- include solution-home-logo.html -%}
-        </a>
-        {%- endif -%}
+    <div class="vg-solution-card__logo-wrap">
+      <span class="vg-solution-card__logo vg-product-logo--{{ solution.identifier }}">{{ solution.logo-acronym }}</span>
+      <span class="vg-solution-card__section-tag">{{ solution.logo-section }}</span>
+    </div>
 
+    <h3 class="vg-solution-card__name">{{ solution.short-name }}</h3>
+    <p class="vg-solution-card__desc">{{ solution.description }}</p>
+
+    <div class="vg-solution-card__footer">
+      {%- if solution.service-url -%}
+      <a href="{{ solution.service-url }}" target="_blank" rel="noopener" class="vg-learn-more">
+        Learn More
+        <svg class="vg-learn-more__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      {%- else -%}
+      <a href="{{ solution.permalink }}" class="vg-learn-more">
+        Learn More
+        <svg class="vg-learn-more__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      {%- endif -%}
+      {%- if solution.release -%}
+      <span class="vg-solution-card__version">v{{ solution.release }}</span>
+      {%- endif -%}
     </div>
-    <div class="col-lg-10 col-md-6  col-sm-12 col-xs-12 col-centered"> 
-        <h2> {%- if solution.service-url -%}
-            <a href="{{ solution.service-url }}" target="_blank" style="color:#444;text-decoration: none;font-weight: bolder;">{{
-                solution.short-name }}</a>
-            {%- else -%}
-            <a href="{{ solution.permalink }}" style="color:#444;text-decoration: none;font-weight: bolder;">{{
-                solution.short-name }}</a>
-                {%- endif -%}
-            </h2>
-        <h3 style="font-size: 21px;">{{ solution.description }}</h3>
-    </div>
+
+  </article>
+  {% endfor %}
 </div>
-{% endfor %}

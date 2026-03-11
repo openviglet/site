@@ -1,43 +1,73 @@
-<div class="container py-3">
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-                <img class="mb-2" src="/static_files/img/viglet_logo_sm.png" alt="" style="width:30px; height:30px">
-                <span style="font-size: larger;font-weight: bolder;margin-left: 3px;">Viglet.</span>
-                <small class="d-block mb-3 text-muted">© 2017 – {{ 'now' | date: "%Y" }}</small>
+<footer class="vg-footer">
+  <div class="vg-footer__inner">
 
-                <h5>Solutions</h5>
-                <ul class="list-unstyled text-small">
-                    {% for category in site.categories %}
-                    <li class="mb-1" style="margin-bottom: 10px !important;">
-                        <a class="link-secondary text-decoration-none" href="{{category.url}}">
-                            <span style="margin-left: 5px;">{{category.menu-title}}</span>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-                <h5>Products</h5>
-                <ul class="list-unstyled text-small">
+    <div class="vg-footer__top">
 
-                    {% assign stable_solutions = site.solutions | where:"status", "stable" %} {% for solution in stable_solutions %}
-                    <li class="mb-1" style="margin-bottom: 10px !important;"><a class="link-secondary text-decoration-none" href="{{ solution.permalink }}">
-                            {%- include solution-footer-logo.html -%}
-                            <span style="margin-left: 5px;">{{ solution.short-name }}</span>
-                        </a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small" style="margin-bottom: 5px !important;">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://docs.viglet.com">Documentation</a></li>
-                </ul>
-                <ul class="list-unstyled text-small" style="margin-bottom: 5px !important;">
-                    <li class="mb-1"><a class="link-secondary text-decoration-none" href="https://viglet.com/partner">Become a Partner</a></li>
-                </ul>
-            </div>
+      <!-- Brand column -->
+      <div>
+        <a href="/" class="vg-footer__brand-logo">
+          <img src="/static_files/img/viglet_logo_sm.png" alt="Viglet" class="vg-footer__brand-logo-img">
+          <span class="vg-footer__brand-logo-text">Viglet</span>
+        </a>
+        <p class="vg-footer__tagline">
+          Open-source enterprise software for teams that demand performance, flexibility, and control.
+        </p>
+        <div class="vg-footer__social">
+          <a href="https://www.linkedin.com/company/viglet.com/" target="_blank" rel="noopener" class="vg-footer__social-link" aria-label="Follow Viglet on LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 34 34" aria-hidden="true">
+              <path d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/openviglet" target="_blank" rel="noopener" class="vg-footer__social-link" aria-label="Viglet on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com/VigletTweet" target="_blank" rel="noopener" class="vg-footer__social-link" aria-label="Follow Viglet on Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg>
+          </a>
         </div>
-    </footer>
-</div>
+      </div>
+
+      <!-- Solutions column -->
+      <div>
+        <h3 class="vg-footer__col-title">Solutions</h3>
+        <ul class="vg-footer__links">{%- for category in site.categories -%}<li>
+            <a href="{{category.url}}" class="vg-footer__link">{{category.menu-title}}</a>
+          </li>{%- endfor -%}</ul>
+      </div>
+
+      <!-- Products column -->
+      {%- assign stable_solutions = site.solutions | where:"status", "stable" -%}
+      <div>
+        <h3 class="vg-footer__col-title">Products</h3>
+        <ul class="vg-footer__links">{%- for solution in stable_solutions -%}<li>
+            <a href="{{ solution.permalink }}" class="vg-footer__link">
+              <span class="vg-footer__product-dot vg-product-logo--{{ solution.identifier }}"></span>
+              {{ solution.short-name }}
+            </a>
+          </li>{%- endfor -%}</ul>
+      </div>
+
+      <!-- Resources column -->
+      <div>
+        <h3 class="vg-footer__col-title">Resources</h3>
+        <ul class="vg-footer__links">
+          <li><a href="https://docs.viglet.com" target="_blank" rel="noopener" class="vg-footer__link">Documentation</a></li>
+          <li><a href="https://viglet.com/partner" class="vg-footer__link">Become a Partner</a></li>
+          <li><a href="https://github.com/openviglet" target="_blank" rel="noopener" class="vg-footer__link">GitHub</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="vg-footer__bottom">
+      <p class="vg-footer__copy">© 2017 – {{ 'now' | date: "%Y" }} Viglet. All rights reserved.</p>
+      <p class="vg-footer__copy">Open source. Made with care.</p>
+    </div>
+
+  </div>
+</footer>

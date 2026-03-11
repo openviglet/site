@@ -114,12 +114,12 @@
 
 .btn-viglet {
   background-color: #ff874b;
-  color: white !important;
+  color: #1A0A00 !important;
 }
 
 .btn-viglet:hover {
   background-color: #ff691f;
-  color: white !important;
+  color: #1A0A00 !important;
 }
 .video-container {
   position: relative;
@@ -163,22 +163,1773 @@
   font-style: normal;
 }
 
-/* Wrapper for page content to push down footer */
+/* Wrapper for page content */
 
 #wrap {
   min-height: 100%;
-  height: auto;
-  /* Negative indent footer by its height */
-  margin: 0 auto -60px;
-  /* Pad bottom by footer height */
-  padding: 0 0 60px;
 }
 
-/* Set the fixed height of the footer here */
+/* =============================================
+   VIGLET DESIGN SYSTEM — HEADER COMPONENT
+   ============================================= */
 
-#footer {
-  height: 60px;
-  background-color: #f5f5f5;
+/* -- Layout shell -- */
+.vg-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E2E8F0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* -- Logo -- */
+.vg-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.vg-header__logo-img {
+  width: 28px;
+  height: 28px;
+}
+
+.vg-header__logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* -- Desktop nav -- */
+.vg-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* -- Shared nav-link style (used in nav + products button) -- */
+.vg-nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-nav-link:hover {
+  background-color: #FFF7ED;
+  color: #C2410C;
+  text-decoration: none;
+}
+
+/* -- Right actions row -- */
+.vg-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* -- Products button (extends .vg-nav-link) -- */
+.vg-products-wrap {
+  position: relative;
+}
+
+.vg-products-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* -- Products dropdown -- */
+.vg-products-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 20px 50px -8px rgba(194, 65, 12, 0.18), 0 4px 20px -2px rgba(194, 65, 12, 0.08);
+  padding: 20px;
+  width: 300px;
+  z-index: 1001;
+}
+
+.vg-products-menu--open {
+  display: block;
+}
+
+.vg-products-menu__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94A3B8;
+  margin: 0 0 12px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-products-menu__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* -- Dropdown item -- */
+.vg-dd-item {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background 0.15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-dd-item:hover {
+  background: #F5F3FF;
+  text-decoration: none;
+}
+
+.vg-dd-item__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.vg-dd-item__name {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.vg-dd-item__section {
+  font-size: 0.6875rem;
+  color: #94A3B8;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+/* -- CTA button -- */
+.vg-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #C2410C, #F97316);
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px 0 rgba(194, 65, 12, 0.30);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+}
+
+.vg-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(194, 65, 12, 0.42);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* -- Mobile hamburger -- */
+.vg-mobile-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+/* -- Mobile nav panel -- */
+.vg-mobile-nav {
+  display: none;
+  border-top: 1px solid #E2E8F0;
+  padding: 16px 24px 20px;
+  background: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-mobile-nav--open {
+  display: block;
+}
+
+.vg-mobile-nav__link {
+  display: block;
+  padding: 11px 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.vg-mobile-nav__link:hover {
+  color: #C2410C;
+  text-decoration: none;
+}
+
+.vg-mobile-nav__footer {
+  margin-top: 16px;
+}
+
+/* -- Fixed header spacer -- */
+.vg-header-spacer {
+  height: 64px;
+}
+
+/* -- Responsive breakpoint -- */
+@media (max-width: 900px) {
+  .vg-header__nav { display: none; }
+  .vg-mobile-btn  { display: flex; }
+  #vg-cta-btn     { display: none; }
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — SHARED TOKENS
+   ============================================= */
+
+.vg-gradient-text {
+  background: linear-gradient(135deg, #C2410C 0%, #F97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Badge pill */
+.vg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #C2410C;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(194, 65, 12, 0.08);
+}
+
+.vg-badge__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C2410C, #F97316);
+  flex-shrink: 0;
+}
+
+/* Section badge (inner sections) */
+.vg-section-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #FFF7ED;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #C2410C;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 16px;
+}
+
+/* Ghost / secondary button */
+.vg-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-btn-ghost:hover {
+  border-color: #CBD5E1;
+  color: #C2410C;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+}
+
+/* Large size modifier for CTA + ghost buttons */
+.vg-cta-btn--lg,
+.vg-btn-ghost--lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — SECTION LAYOUT
+   ============================================= */
+
+.vg-section {
+  padding: 96px 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-section--slate { background: #F8FAFC; }
+.vg-section--white { background: #ffffff; }
+
+.vg-section__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.vg-section__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.vg-section__title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-section__subtitle {
+  font-size: 1.0625rem;
+  color: #64748B;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — HERO
+   ============================================= */
+
+.vg-hero {
+  position: relative;
+  overflow: hidden;
+  background: #F8FAFC;
+  padding: 80px 24px 100px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.vg-hero__blob--tr {
+  top: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(194, 65, 12, 0.12), rgba(249, 115, 22, 0.06));
+}
+
+.vg-hero__blob--bl {
+  bottom: -100px;
+  left: -150px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.10), rgba(194, 65, 12, 0.04));
+}
+
+.vg-hero__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.vg-hero__copy {
+  position: relative;
+  z-index: 1;
+}
+
+.vg-hero__headline {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 28px 0 24px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-hero__subtext {
+  font-size: 1.125rem;
+  color: #64748B;
+  line-height: 1.7;
+  margin: 0 0 36px 0;
+  max-width: 480px;
+}
+
+.vg-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Hero visual (decorative fanned cards) */
+.vg-hero__visual {
+  position: relative;
+  height: 380px;
+}
+
+.vg-hero-card {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px -5px rgba(194, 65, 12, 0.12);
+  padding: 20px;
+  width: 210px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vg-hero-card--1 { top: 16px;  left: 5%;  transform: rotate(-3deg); z-index: 3; }
+.vg-hero-card--2 { top: 90px;  left: 32%; transform: rotate(1deg);  z-index: 2; }
+.vg-hero-card--3 { top: 170px; left: 14%; transform: rotate(4deg);  z-index: 1; }
+
+.vg-hero-card:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 16px 40px -6px rgba(194, 65, 12, 0.18);
+  z-index: 10;
+}
+
+.vg-hero-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #C2410C;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* Per-product logo colours — mapped from solution.identifier */
+.vg-product-logo--dumont { background: #15803D; } /* green-700  */
+.vg-product-logo--shio   { background: #DC2626; } /* red-600    */
+.vg-product-logo--turing { background: #1D4ED8; } /* blue-700   */
+
+.vg-hero-card__name {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.vg-hero-card__desc {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — TRUST BAR
+   ============================================= */
+
+.vg-trust-bar {
+  background: #ffffff;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 0 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-trust-bar__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.vg-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 48px 24px 0;
+  margin-right: 48px;
+  border-right: 1px solid #E2E8F0;
+}
+
+.vg-trust-item--last {
+  border-right: none;
+  margin-right: 0;
+}
+
+.vg-trust-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.vg-trust-item__icon--orange  { background: #FFF7ED; }
+.vg-trust-item__icon--emerald { background: #ECFDF5; }
+
+.vg-trust-item__value {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.vg-trust-item__label {
+  display: block;
+  font-size: 0.8125rem;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — SOLUTION CARDS
+   ============================================= */
+
+.vg-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.vg-solution-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #E2E8F0;
+  padding: 32px;
+  box-shadow: 0 4px 20px -2px rgba(194, 65, 12, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vg-solution-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px -4px rgba(194, 65, 12, 0.15), 0 4px 12px -2px rgba(194, 65, 12, 0.08);
+  border-color: #FED7AA;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vg-solution-card__logo-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.vg-solution-card__logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #C2410C;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.vg-solution-card__section-tag {
+  position: absolute;
+  bottom: -6px;
+  right: -8px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  color: #64748B;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.vg-solution-card__name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.vg-solution-card__desc {
+  font-size: 0.9375rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.vg-solution-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.vg-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #C2410C;
+  text-decoration: none;
+}
+
+.vg-learn-more:hover {
+  color: #9A3412;
+  text-decoration: none;
+}
+
+.vg-learn-more:hover .vg-learn-more__arrow {
+  transform: translateX(3px);
+}
+
+.vg-learn-more__arrow {
+  transition: transform 0.2s;
+}
+
+.vg-solution-card__version {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — COMMUNITY
+   ============================================= */
+
+.vg-community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.vg-community-card {
+  display: block;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 20px -2px rgba(194, 65, 12, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vg-community-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -4px rgba(194, 65, 12, 0.15);
+  border-color: #FED7AA;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vg-community-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.vg-community-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.vg-community-card__icon--linkedin { background: #0A66C2; }
+.vg-community-card__icon--github   { background: #24292F; }
+
+.vg-community-card__platform {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.vg-community-card__handle {
+  display: block;
+  font-size: 0.8125rem;
+  color: #64748B;
+}
+
+.vg-community-card__desc {
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.vg-community-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.vg-community-card__cta--linkedin { color: #0A66C2; }
+.vg-community-card__cta--github   { color: #24292F; }
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — FOOTER
+   ============================================= */
+
+.vg-footer {
+  background: #0F172A;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 64px 24px 0;
+}
+
+.vg-footer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.vg-footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vg-footer__brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+
+.vg-footer__brand-logo-img {
+  width: 28px;
+  height: 28px;
+}
+
+.vg-footer__brand-logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-footer__tagline {
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  line-height: 1.7;
+  margin: 0 0 24px 0;
+  max-width: 260px;
+}
+
+.vg-footer__social {
+  display: flex;
+  gap: 10px;
+}
+
+.vg-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #1E293B;
+  color: #CBD5E1;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.vg-footer__social-link:hover {
+  background: #334155;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.vg-footer__col-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 16px 0;
+}
+
+.vg-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vg-footer__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.vg-footer__link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.vg-footer__product-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.vg-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.vg-footer__copy {
+  font-size: 0.875rem;
+  color: #475569;
+  margin: 0;
+}
+
+/* Footer responsive */
+@media (max-width: 900px) {
+  .vg-footer__top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vg-footer__top > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .vg-footer__top { grid-template-columns: 1fr; }
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+  .vg-hero__inner {
+    grid-template-columns: 1fr;
+  }
+  .vg-hero__visual {
+    display: none;
+  }
+  .vg-hero {
+    padding: 60px 24px 72px;
+  }
+  .vg-trust-item {
+    padding: 20px 28px 20px 0;
+    margin-right: 28px;
+  }
+  .vg-section {
+    padding: 72px 24px;
+  }
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — PRODUCT SUB-NAV
+   ============================================= */
+
+.vg-sol-nav {
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E2E8F0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.vg-sol-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 52px;
+}
+
+.vg-sol-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.vg-sol-nav__brand:hover {
+  text-decoration: none;
+  color: #C2410C;
+}
+
+.vg-sol-nav__brand-name {
+  white-space: nowrap;
+}
+
+.vg-sol-nav__tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.vg-sol-nav__tab {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.vg-sol-nav__tab:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+  text-decoration: none;
+}
+
+.vg-sol-nav__tab--active {
+  background: #FFF7ED;
+  color: #C2410C;
+  font-weight: 600;
+}
+
+.vg-sol-nav__tab--active:hover {
+  background: #FFEDD5;
+  color: #9A3412;
+}
+
+.vg-sol-nav__github {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  text-decoration: none;
+  border: 1px solid #E2E8F0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.vg-sol-nav__github:hover {
+  background: #F8FAFC;
+  color: #0F172A;
+  border-color: #CBD5E1;
+  text-decoration: none;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — PRODUCT HERO
+   ============================================= */
+
+.vg-sol-hero {
+  background: #ffffff;
+  padding: 72px 24px 64px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.vg-sol-hero__blob {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(194, 65, 12, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.vg-sol-hero__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vg-sol-hero__logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.vg-sol-hero__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.vg-sol-hero__section-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #475569;
+  background: #F1F5F9;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.vg-sol-hero__title {
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+}
+
+.vg-sol-hero__desc {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 32px 0;
+  max-width: 580px;
+}
+
+.vg-sol-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.vg-sol-hero__ci {
+  margin-top: 24px;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — SPLIT BUTTON
+   ============================================= */
+
+.vg-split-btn {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.vg-split-btn > .vg-cta-btn {
+  border-radius: 10px 0 0 10px;
+}
+
+.vg-split-btn__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  background: #C2410C;
+  color: #ffffff;
+  border: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.vg-split-btn__toggle:hover {
+  background: #9A3412;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — GITHUB CORNER
+   ============================================= */
+
+.vg-github-corner {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  z-index: 99;
+  text-decoration: none;
+}
+
+.vg-github-corner svg {
+  display: block;
+}
+
+.vg-github-corner--dumont path:first-child { fill: #15803D; }
+.vg-github-corner--shio   path:first-child { fill: #DC2626; }
+.vg-github-corner--turing path:first-child { fill: #1D4ED8; }
+
+.vg-github-corner .octo-arm {
+  transform-origin: 130px 106px;
+}
+
+.vg-github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+  0%,100% { transform: rotate(0); }
+  20%,60%  { transform: rotate(-25deg); }
+  40%,80%  { transform: rotate(10deg); }
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — PROSE CONTENT
+   ============================================= */
+
+.vg-sol-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.vg-prose {
+  font-size: 1.0625rem;
+  color: #334155;
+  line-height: 1.8;
+}
+
+.vg-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 2em 0 0.75em;
+}
+
+.vg-prose h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0F172A;
+  margin: 1.5em 0 0.5em;
+}
+
+.vg-prose p { margin: 0 0 1.25em; }
+
+.vg-prose a {
+  color: #C2410C;
+  text-decoration: underline;
+}
+
+.vg-prose ul, .vg-prose ol {
+  padding-left: 1.5em;
+  margin: 0 0 1.25em;
+}
+
+.vg-prose li { margin-bottom: 0.4em; }
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — FEATURES + FEED LAYOUT
+   ============================================= */
+
+.vg-sol-features-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.vg-features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.vg-feature-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.vg-feature-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(194, 65, 12, 0.12);
+  transform: translateY(-2px);
+}
+
+.vg-feature-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.vg-feature-card__desc {
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — GITHUB FEED
+   ============================================= */
+
+.vg-github-feed {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  position: sticky;
+  top: 128px;
+}
+
+.vg-github-feed__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.vg-github-feed__ci {
+  margin-bottom: 16px;
+}
+
+.vg-github-feed__log {
+  font-size: 0.8125rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — MODULE CARDS
+   ============================================= */
+
+.vg-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.vg-module-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+a.vg-module-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(194, 65, 12, 0.12);
+  transform: translateY(-2px);
+  border-color: #FED7AA;
+  text-decoration: none;
+  color: inherit;
+}
+
+.vg-module-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.vg-module-card__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 6px 0;
+}
+
+.vg-module-card__desc {
+  font-size: 0.875rem;
+  color: #64748B;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — PRODUCT TEXT COLORS
+   ============================================= */
+
+.vg-product-color--dumont { color: #15803D; }
+.vg-product-color--shio   { color: #DC2626; }
+.vg-product-color--turing { color: #1D4ED8; }
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — DOWNLOAD PAGE
+   ============================================= */
+
+.vg-dl-hero {
+  padding: 80px 24px 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vg-dl-hero--dumont {
+  background: linear-gradient(135deg, #14532D 0%, #166534 60%, #15803D 100%);
+}
+
+.vg-dl-hero--shio {
+  background: linear-gradient(135deg, #7F1D1D 0%, #991B1B 60%, #DC2626 100%);
+}
+
+.vg-dl-hero--turing {
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 60%, #2563EB 100%);
+}
+
+.vg-dl-hero__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vg-dl-hero__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.vg-dl-hero__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.vg-dl-hero__section-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.vg-dl-hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
+}
+
+.vg-dl-hero__desc {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.vg-dl-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px -4px rgba(194, 65, 12, 0.10);
+}
+
+.vg-dl-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.vg-dl-card__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+}
+
+.vg-dl-card__message {
+  font-size: 1rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0 0 28px 0;
+}
+
+.vg-dl-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.vg-dl-card__meta {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.vg-dl-doc-intro {
+  text-align: center;
+  color: #64748B;
+  font-size: 1.0625rem;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — GETTING STARTED STEPS
+   ============================================= */
+
+.vg-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.vg-step-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.vg-step-card__number {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.vg-step-card__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 12px 0;
+}
+
+.vg-step-card__body {
+  font-size: 0.9375rem;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.vg-step-card__body p { margin: 0 0 12px 0; }
+.vg-step-card__body p:last-child { margin-bottom: 0; }
+
+.vg-step-card__hint {
+  font-size: 0.875rem;
+  color: #64748B;
+}
+
+.vg-code-block {
+  background: #0F172A;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.vg-code-block code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875rem;
+  color: #7DD3FC;
+  white-space: nowrap;
+}
+
+.vg-text-link {
+  color: #C2410C;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.vg-text-link:hover {
+  color: #9A3412;
+}
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — RELEASE NOTES
+   ============================================= */
+
+.vg-rn-hero {
+  background: #ffffff;
+  border-bottom: 1px solid #F1F5F9;
+  padding: 64px 24px 48px;
+  text-align: center;
+}
+
+.vg-rn-hero__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.vg-rn-hero__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.vg-rn-hero__desc {
+  font-size: 1rem;
+  color: #64748B;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.vg-rn-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.vg-rn-loading {
+  color: #94A3B8;
+  font-size: 0.9375rem;
+  text-align: center;
+  padding: 48px 0;
+}
+
+.vg-rn-entry {
+  padding: 32px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.vg-rn-entry:last-child { border-bottom: none; }
+
+.vg-rn-entry__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.vg-rn-entry__version {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.vg-rn-entry__date {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  margin: 0;
+}
+
+.vg-rn-entry__changes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vg-rn-entry__change {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.55;
+}
+
+.vg-rn-entry__change-desc a {
+  color: #C2410C;
+  text-decoration: none;
+}
+
+.vg-rn-entry__change-desc a:hover {
+  text-decoration: underline;
+}
+
+.vg-rn-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.vg-rn-badge--new      { background: #DCFCE7; color: #15803D; }
+.vg-rn-badge--added    { background: #DCFCE7; color: #15803D; }
+.vg-rn-badge--improved { background: #DBEAFE; color: #1D4ED8; }
+.vg-rn-badge--fixed    { background: #FEF9C3; color: #92400E; }
+.vg-rn-badge--removed  { background: #FEE2E2; color: #991B1B; }
+
+/* =============================================
+   VIGLET DESIGN SYSTEM — PRODUCT PAGE RESPONSIVE
+   ============================================= */
+
+@media (max-width: 900px) {
+  .vg-sol-features-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .vg-github-feed {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .vg-sol-nav__tabs {
+    display: none;
+  }
+
+  .vg-sol-hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vg-dl-card {
+    padding: 28px 20px;
+  }
+
+  .vg-steps-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* centered columns styles */
@@ -198,8 +1949,9 @@
 }
 
 body {
-  font-family: "ProximaNovaLight", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
 }
 
 @media (max-width: 991px) {
