@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    /* Viglet orange: #C2410C ≈ hsl(17, 88%, 41%) */
+    --primary: 17 88% 41%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 10% 96%;
+    --secondary-foreground: 17 40% 20%;
+    --muted: 30 10% 96%;
+    --muted-foreground: 25 5% 45%;
+    --accent: 30 30% 96%;
+    --accent-foreground: 17 40% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 6% 90%;
+    --input: 20 6% 90%;
+    --ring: 17 88% 41%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer utilities {
+  .vg-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #C2410C, #F97316);
+  }
+}
+
+/* Per-product classes — kept outside @layer so Tailwind never purges them */
+
+/* Background colours (logo badges, version pills) */
+.product-bg-dumont { background-color: #15803D; }
+.product-bg-shio   { background-color: #DC2626; }
+.product-bg-turing { background-color: #1D4ED8; }
+
+/* Text colours (feature titles, step numbers) */
+.product-text-dumont { color: #15803D; }
+.product-text-shio   { color: #DC2626; }
+.product-text-turing { color: #1D4ED8; }
+
+/* Hero gradient backgrounds (download page) */
+.product-hero-dumont { background: linear-gradient(135deg, #14532D 0%, #15803D 100%); }
+.product-hero-shio   { background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 100%); }
+.product-hero-turing { background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); }
+
+/* Glow blobs */
+.product-blob-dumont { background: radial-gradient(circle, rgba(21,128,61,0.09) 0%, transparent 70%); }
+.product-blob-shio   { background: radial-gradient(circle, rgba(220,38,38,0.09) 0%, transparent 70%); }
+.product-blob-turing { background: radial-gradient(circle, rgba(29,78,216,0.09) 0%, transparent 70%); }
