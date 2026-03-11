@@ -30,25 +30,25 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
 
   return (
     <nav className="sticky top-16 z-40 bg-slate-50/95 backdrop-blur-md border-b border-slate-200 font-sans">
-      <div className="max-w-7xl mx-auto px-6 h-14 flex items-center gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-2 sm:gap-4 overflow-x-auto scrollbar-hide">
         {/* Brand */}
         <Link
           to={base}
-          className={`flex items-center gap-2 text-slate-900 font-bold text-sm no-underline transition-colors shrink-0 mr-2 product-nav-link-${solution.identifier}`}
+          className={`flex items-center gap-2 text-slate-900 font-bold text-sm no-underline transition-colors shrink-0 mr-1 sm:mr-2 product-nav-link-${solution.identifier}`}
         >
           <VigletLogo identifier={solution.identifier} size={28} />
-          {solution.shortName}
+          <span className="hidden sm:inline">{solution.shortName}</span>
         </Link>
 
         {/* Tabs */}
-        <div className="flex items-center gap-1 flex-1">
+        <div className="flex items-center gap-0.5 sm:gap-1 flex-1 min-w-0">
           {tabs.map((tab) => {
             const isActive = pathname === tab.to || pathname === tab.to.slice(0, -1)
             return (
               <Link
                 key={tab.to}
                 to={tab.to}
-                className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors no-underline whitespace-nowrap ${
+                className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors no-underline whitespace-nowrap shrink-0 ${
                   isActive
                     ? `product-tab-active-${solution.identifier} font-semibold`
                     : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
@@ -63,15 +63,15 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
         {/* GitHub link */}
         {solution.github && (
           <>
-            <div className="w-px h-5 bg-slate-200 shrink-0" />
+            <div className="w-px h-5 bg-slate-200 shrink-0 hidden sm:block" />
             <a
               href={solution.github}
               target="_blank"
               rel="noopener"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors no-underline shrink-0"
+              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors no-underline shrink-0"
             >
               <GitHubIcon size={14} />
-              GitHub
+              <span className="hidden sm:inline">GitHub</span>
             </a>
           </>
         )}

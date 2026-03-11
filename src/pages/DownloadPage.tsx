@@ -187,110 +187,102 @@ export default function DownloadPage() {
               </p>
             </div>
 
-            {/* Steps as connected timeline */}
-            <div className="space-y-0">
+            {/* Steps */}
+            <div className="space-y-6">
               {/* Step 1: Download */}
-              <div className="relative flex gap-6 pb-10">
-                <div className="flex flex-col items-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-extrabold text-lg product-bg-${identifier} shrink-0 shadow-lg`}>1</div>
-                  <div className={`w-0.5 flex-1 mt-2 product-bg-${identifier} opacity-20`} />
-                </div>
-                <Card className="flex-1">
-                  <CardContent className="p-6 md:p-8">
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
-                      <IconDownload size={20} className={`product-text-${identifier}`} />
+              <Card>
+                <CardContent className="p-5 sm:p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>1</div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                      <IconDownload size={18} className={`product-text-${identifier}`} />
                       Download the JAR
                     </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed mb-4">
-                      Download the latest release of {solution.shortName}. The application is packaged as a single executable JAR file — no installation required.
-                    </p>
-                    {solution.downloadUrl && (
+                  </div>
+                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                    Download the latest release of {solution.shortName}. The application is packaged as a single executable JAR file — no installation required.
+                  </p>
+                  {solution.downloadUrl && (
+                    <ProductButton identifier={identifier} size="sm" asChild>
+                      <a href={solution.downloadUrl} target="_blank" rel="noopener" className="truncate">
+                        <IconDownload size={14} className="shrink-0" />
+                        <span className="truncate">Download ({solution.downloadSize})</span>
+                      </a>
+                    </ProductButton>
+                  )}
+                </CardContent>
+              </Card>
+
+              {/* Step 2: Run */}
+              <Card>
+                <CardContent className="p-5 sm:p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>2</div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                      <IconTerminal2 size={18} className={`product-text-${identifier}`} />
+                      Run from terminal
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                    Open your terminal, navigate to the download folder, and execute:
+                  </p>
+                  <CopyableCommand command={`java -jar ${solution.runJar}`} />
+                  <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                    <span className="flex items-center gap-1.5 text-slate-500">
+                      <IconWorld size={14} className={`product-text-${identifier}`} />
+                      Open{' '}
+                      <a
+                        href={`http://localhost:${solution.runPort}`}
+                        target="_blank"
+                        rel="noopener"
+                        className={`product-text-${identifier} hover:underline font-medium`}
+                      >
+                        localhost:{solution.runPort}
+                      </a>
+                    </span>
+                    {solution.appLogin && (
+                      <span className="flex items-center gap-1.5 text-slate-500">
+                        <IconLock size={14} className={`product-text-${identifier}`} />
+                        Login: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appLogin}</code> / <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appPassword}</code>
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Step 3: Explore */}
+              <Card>
+                <CardContent className="p-5 sm:p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>3</div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                      <IconBook size={18} className={`product-text-${identifier}`} />
+                      Explore the docs
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                    Dive into the official documentation to discover all {solution.shortName} features, configuration options, and best practices.
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {solution.getStarted && (
                       <ProductButton identifier={identifier} size="sm" asChild>
-                        <a href={solution.downloadUrl} target="_blank" rel="noopener">
-                          <IconDownload size={14} />
-                          Download {solution.runJar} ({solution.downloadSize})
+                        <a href={solution.getStarted} target="_blank" rel="noopener">
+                          <IconBook size={14} />
+                          Read the Docs
                         </a>
                       </ProductButton>
                     )}
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Step 2: Run */}
-              <div className="relative flex gap-6 pb-10">
-                <div className="flex flex-col items-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-extrabold text-lg product-bg-${identifier} shrink-0 shadow-lg`}>2</div>
-                  <div className={`w-0.5 flex-1 mt-2 product-bg-${identifier} opacity-20`} />
-                </div>
-                <Card className="flex-1">
-                  <CardContent className="p-6 md:p-8">
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
-                      <IconTerminal2 size={20} className={`product-text-${identifier}`} />
-                      Run from terminal
-                    </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed mb-4">
-                      Open your terminal, navigate to the download folder, and execute:
-                    </p>
-                    <CopyableCommand command={`java -jar ${solution.runJar}`} />
-                    <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-                      <span className="flex items-center gap-1.5 text-slate-500">
-                        <IconWorld size={14} className={`product-text-${identifier}`} />
-                        Open{' '}
-                        <a
-                          href={`http://localhost:${solution.runPort}`}
-                          target="_blank"
-                          rel="noopener"
-                          className={`product-text-${identifier} hover:underline font-medium`}
-                        >
-                          localhost:{solution.runPort}
+                    {solution.github && (
+                      <ProductButton identifier={identifier} productVariant="ghost" size="sm" asChild>
+                        <a href={solution.github} target="_blank" rel="noopener">
+                          <IconBrandGithub size={14} />
+                          Source Code
                         </a>
-                      </span>
-                      {solution.appLogin && (
-                        <span className="flex items-center gap-1.5 text-slate-500">
-                          <IconLock size={14} className={`product-text-${identifier}`} />
-                          Login: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appLogin}</code> / <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appPassword}</code>
-                        </span>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* Step 3: Explore */}
-              <div className="relative flex gap-6">
-                <div className="flex flex-col items-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-extrabold text-lg product-bg-${identifier} shrink-0 shadow-lg`}>3</div>
-                </div>
-                <Card className="flex-1">
-                  <CardContent className="p-6 md:p-8">
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
-                      <IconBook size={20} className={`product-text-${identifier}`} />
-                      Explore the documentation
-                    </h3>
-                    <p className="text-sm text-slate-500 leading-relaxed mb-4">
-                      Dive into the official documentation to discover all {solution.shortName} features, configuration options, and best practices.
-                    </p>
-                    <div className="flex flex-wrap gap-3">
-                      {solution.getStarted && (
-                        <ProductButton identifier={identifier} size="sm" asChild>
-                          <a href={solution.getStarted} target="_blank" rel="noopener">
-                            <IconBook size={14} />
-                            Read the Docs
-                          </a>
-                        </ProductButton>
-                      )}
-                      {solution.github && (
-                        <ProductButton identifier={identifier} productVariant="ghost" size="sm" asChild>
-                          <a href={solution.github} target="_blank" rel="noopener">
-                            <IconBrandGithub size={14} />
-                            Source Code
-                          </a>
-                        </ProductButton>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+                      </ProductButton>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
