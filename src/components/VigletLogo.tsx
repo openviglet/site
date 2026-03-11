@@ -31,10 +31,29 @@ const TEXT_COLOR = '#FFDEAD' // navajowhite — matches original spec
 interface VigletLogoProps {
   readonly identifier: string
   readonly size?: number
+  /** Animate acronym with a coloured glow wave. Default false. */
+  readonly glow?: boolean
   readonly className?: string
 }
 
-export default function VigletLogo({ identifier, size = 48, className }: VigletLogoProps) {
+/** Renders acronym letters as individual <span>s with staggered glow delays. */
+function GlowAcronym({ acronym, duration = 2 }: { acronym: string; duration?: number }) {
+  return (
+    <>
+      {acronym.split('').map((char, i) => (
+        <span
+          key={i}
+          className="vg-logo-glow"
+          style={{ animationDelay: `${-((i + 1) * (duration / acronym.length)).toFixed(4)}s` }}
+        >
+          {char}
+        </span>
+      ))}
+    </>
+  )
+}
+
+export default function VigletLogo({ identifier, size = 48, glow = true, className }: VigletLogoProps) {
   const meta  = PRODUCT_META[identifier]
   const color = PRODUCT_COLORS[identifier] ?? '#555555'
   if (!meta) return null
@@ -49,14 +68,15 @@ export default function VigletLogo({ identifier, size = 48, className }: VigletL
 
   if (isSmall) {
     // ── Badge mode — no section label, acronym centred and nudged left ──────
-    const padLeft = Math.max(4, r(0.13))   // slightly more left than centre
+    const padLeft = Math.max(4, r(0.09))   // slightly more left than centre
+    const smallOffsetY = r(0.25) // 10px @ 40px size — proportional
     return (
       <div
         className={className}
         aria-label={meta.acronym}
         style={{
           display:         'inline-flex',
-          alignItems:      'center',          // vertically centred (slightly higher than bottom)
+          alignItems:      'center',
           justifyContent:  'flex-start',
           width:           size,
           height:          size,
@@ -79,9 +99,10 @@ export default function VigletLogo({ identifier, size = 48, className }: VigletL
             fontSize:   Math.max(10, r(0.46)),
             fontWeight: 900,
             lineHeight: 1,
+            marginTop:  smallOffsetY,
           }}
         >
-          {meta.acronym}
+          {glow ? <GlowAcronym acronym={meta.acronym} /> : meta.acronym}
         </span>
       </div>
     )
@@ -137,7 +158,7 @@ export default function VigletLogo({ identifier, size = 48, className }: VigletL
           alignSelf:  'flex-start',
         }}
       >
-        {meta.acronym}
+        {glow ? <GlowAcronym acronym={meta.acronym} /> : meta.acronym}
       </div>
     </div>
   )

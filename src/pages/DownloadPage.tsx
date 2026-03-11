@@ -25,27 +25,49 @@ export default function DownloadPage() {
       <SolutionMenu solution={solution} />
 
       {/* ===== DOWNLOAD HERO ===== */}
-      <section className={`py-20 px-6 text-center product-hero-${identifier}`}>
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
-            <VigletLogo identifier={identifier} size={96} />
+      <section className="relative bg-white border-b border-slate-100 overflow-hidden py-16 px-6">
+        <div className={`absolute top-[-80px] right-[-80px] w-[560px] h-[560px] rounded-full pointer-events-none product-blob-${identifier}`} />
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+
+            <div className="shrink-0">
+              <VigletLogo identifier={identifier} size={160} glow />
+            </div>
+
+            <div className="flex-1 min-w-0">
+              <Badge variant="brand" className="mb-4">Download</Badge>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                Get {solution.shortName}
+              </h1>
+              <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
+                {solution.description}
+              </p>
+
+              {solution.downloadUrl && solution.release && (
+                <div className="flex flex-wrap gap-3 items-center">
+                  <Button size="lg" asChild>
+                    <a href={solution.downloadUrl} target="_blank" rel="noopener">
+                      <Download size={16} />
+                      Download {solution.release}
+                    </a>
+                  </Button>
+                  <span className="text-sm text-slate-400">
+                    {solution.fileType} &mdash; {solution.downloadSize}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Get {solution.shortName}
-          </h1>
-          <p className="text-lg text-white/80 leading-relaxed">
-            {solution.description}
-          </p>
         </div>
       </section>
 
       {/* ===== DOWNLOAD CARD ===== */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-lg mx-auto">
-          <Card className="shadow-hover">
+          <Card className="shadow-hover border-slate-200">
             <CardContent className="p-10 text-center">
               <span
-                className={`inline-flex items-center px-3.5 py-1 rounded-full text-sm font-bold text-white mb-4 product-bg-${identifier}`}
+                className={`inline-flex items-center px-3.5 py-1 rounded-full text-sm font-bold text-white mb-6 product-bg-${identifier}`}
               >
                 v{solution.release}
               </span>
@@ -54,7 +76,7 @@ export default function DownloadPage() {
               </h2>
               <p className="text-slate-500 leading-relaxed mb-8">{solution.downloadMessage}</p>
               {solution.downloadUrl && (
-                <Button size="lg" className="w-full mb-3" asChild>
+                <Button size="lg" className="w-full mb-4" asChild>
                   <a href={solution.downloadUrl} target="_blank" rel="noopener">
                     <Download size={18} />
                     Download {solution.shortName} {solution.release}

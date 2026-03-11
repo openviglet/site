@@ -66,3 +66,19 @@
 .product-blob-dumont { background: radial-gradient(circle, rgba(0,100,0,0.09) 0%, transparent 70%); }
 .product-blob-shio   { background: radial-gradient(circle, rgba(255,99,71,0.09) 0%, transparent 70%); }
 .product-blob-turing { background: radial-gradient(circle, rgba(65,105,225,0.09) 0%, transparent 70%); }
+
+/* ── Download hero highlight ────────────────────────────────────────────── */
+.download-hero-highlight {
+  background: radial-gradient(ellipse 60% 80% at 90% -10%, rgba(255,255,255,0.07) 0%, transparent 70%);
+}
+
+/* ── VigletLogo glow animation ──────────────────────────────────────────── */
+.vg-logo-glow {
+  animation: vg-glow 2s ease-in-out both infinite;
+}
+
+@keyframes vg-glow {
+  0%,  100% { text-shadow: 0 0 8px snow, 0 -25px 50px tomato,  -25px 25px 50px yellow, 25px 25px 50px tomato; }
+  33%        { text-shadow: 0 0 8px snow, 0 -25px 50px cyan,    -25px 25px 50px tomato, 25px 25px 50px cyan;   }
+  66%        { text-shadow: 0 0 8px snow, 0 -25px 50px yellow,  -25px 25px 50px cyan,   25px 25px 50px yellow; }
+}

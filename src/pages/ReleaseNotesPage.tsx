@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
 import { Badge } from '@/components/ui/badge'
 import { getSolution } from '@/data/solutions'
+import VigletLogo from '@/components/VigletLogo'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
 
@@ -114,15 +115,25 @@ export default function ReleaseNotesPage() {
       <SolutionMenu solution={solution} />
 
       {/* ===== HERO ===== */}
-      <section className="py-14 px-6 text-center bg-white border-b border-slate-100">
-        <div className="max-w-xl mx-auto flex flex-col items-center gap-3">
-          <Badge variant="brand">Changelog</Badge>
-          <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">
-            {solution.shortName} Release Notes
-          </h1>
-          <p className="text-slate-500 text-base">
-            Track every improvement, fix, and new capability across all releases.
-          </p>
+      <section className="relative bg-white border-b border-slate-100 overflow-hidden py-16 px-6">
+        <div className={`absolute top-[-80px] right-[-80px] w-[560px] h-[560px] rounded-full pointer-events-none product-blob-${identifier}`} />
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+
+            <div className="shrink-0">
+              <VigletLogo identifier={identifier} size={160} glow />
+            </div>
+
+            <div className="flex-1 min-w-0">
+              <Badge variant="brand" className="mb-4">Changelog</Badge>
+              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                {solution.shortName} Release Notes
+              </h1>
+              <p className="text-xl text-slate-500 leading-relaxed max-w-2xl">
+                Track every improvement, fix, and new capability across all releases.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -28,51 +28,58 @@ export default function SolutionPage() {
 
       {/* ===== PRODUCT HERO ===== */}
       <section className="relative bg-white border-b border-slate-100 overflow-hidden py-16 px-6">
-        <div className={`absolute top-[-80px] right-[-80px] w-[480px] h-[480px] rounded-full pointer-events-none product-blob-${identifier}`} />
+        <div className={`absolute top-[-80px] right-[-80px] w-[560px] h-[560px] rounded-full pointer-events-none product-blob-${identifier}`} />
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <VigletLogo identifier={identifier} size={96} />
-          </div>
+          <div className="flex flex-col md:flex-row items-start gap-8 md:gap-12">
 
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
-            {solution.fullName}
-          </h1>
-          <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
-            {solution.description}
-          </p>
-
-          <div className="flex flex-wrap gap-3 items-center">
-            {solution.getStarted && (
-              <Button size="lg" asChild>
-                <a href={solution.getStarted} target="_blank" rel="noopener">
-                  Get Started
-                </a>
-              </Button>
-            )}
-            {solution.release && (
-              <>
-                <Button variant="ghost" size="lg" asChild>
-                  <Link to={`${solution.permalink}download/`}>
-                    <Download size={16} />
-                    Download {solution.release}
-                  </Link>
-                </Button>
-                <Button variant="ghost" size="lg" asChild>
-                  <Link to={`${solution.permalink}release-notes/`}>
-                    Release Notes
-                  </Link>
-                </Button>
-              </>
-            )}
-          </div>
-
-          {solution.githubCiImage && solution.githubCiUrl && (
-            <div className="mt-6">
-              <a href={solution.githubCiUrl} target="_blank" rel="noopener">
-                <img src={solution.githubCiImage} alt={`${solution.shortName} CI status`} />
-              </a>
+            {/* Logo — large, sticky to top on desktop */}
+            <div className="shrink-0">
+              <VigletLogo identifier={identifier} size={160} glow />
             </div>
-          )}
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                {solution.fullName}
+              </h1>
+              <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
+                {solution.description}
+              </p>
+
+              <div className="flex flex-wrap gap-3 items-center">
+                {solution.getStarted && (
+                  <Button size="lg" asChild>
+                    <a href={solution.getStarted} target="_blank" rel="noopener">
+                      Get Started
+                    </a>
+                  </Button>
+                )}
+                {solution.release && (
+                  <>
+                    <Button variant="ghost" size="lg" asChild>
+                      <Link to={`${solution.permalink}download/`}>
+                        <Download size={16} />
+                        Download {solution.release}
+                      </Link>
+                    </Button>
+                    <Button variant="ghost" size="lg" asChild>
+                      <Link to={`${solution.permalink}release-notes/`}>
+                        Release Notes
+                      </Link>
+                    </Button>
+                  </>
+                )}
+              </div>
+
+              {solution.githubCiImage && solution.githubCiUrl && (
+                <div className="mt-6">
+                  <a href={solution.githubCiUrl} target="_blank" rel="noopener">
+                    <img src={solution.githubCiImage} alt={`${solution.shortName} CI status`} />
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
