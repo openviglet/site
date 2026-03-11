@@ -294,10 +294,11 @@ export default function HomePage() {
                   <div className="flex items-center gap-3 mb-4">
                     <VigletLogo identifier={sol.identifier} size={48} />
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                        {sol.logoSection}
-                      </p>
                       <p className="font-bold text-slate-900">{sol.shortName}</p>
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                        {sol.memo}
+                      </p>
+                      
                     </div>
                   </div>
                   <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-6">
