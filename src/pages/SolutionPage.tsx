@@ -71,13 +71,6 @@ export default function SolutionPage() {
                 )}
               </div>
 
-              {solution.githubCiImage && solution.githubCiUrl && (
-                <div className="mt-6">
-                  <a href={solution.githubCiUrl} target="_blank" rel="noopener">
-                    <img src={solution.githubCiImage} alt={`${solution.shortName} CI status`} />
-                  </a>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -106,28 +99,21 @@ export default function SolutionPage() {
               </div>
 
               {/* GitHub feed sidebar */}
-              <aside className="lg:sticky lg:top-[128px] bg-white border border-slate-200 rounded-2xl p-6">
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
-                  Track {solution.shortName} development
-                </p>
-                {solution.githubCiImage && solution.githubCiUrl && (
-                  <div className="mb-4">
-                    <a href={solution.githubCiUrl} target="_blank" rel="noopener">
-                      <img src={solution.githubCiImage} alt="CI status" />
-                    </a>
-                  </div>
-                )}
-                {solution.github && (
+              {solution.github && (
+                <aside className="lg:sticky lg:top-[128px] bg-white border border-slate-200 rounded-2xl p-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-3">
+                    Track {solution.shortName} development
+                  </p>
                   <a
                     href={solution.github}
                     target="_blank"
                     rel="noopener"
-                    className="flex items-center justify-between text-sm font-semibold text-slate-700 hover:text-brand transition-colors no-underline"
+                    className="flex items-center justify-between text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors no-underline"
                   >
                     View on GitHub <ArrowRight size={14} />
                   </a>
-                )}
-              </aside>
+                </aside>
+              )}
             </div>
           </div>
         </section>

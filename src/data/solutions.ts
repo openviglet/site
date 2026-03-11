@@ -13,8 +13,7 @@ export interface Solution {
   shortName: string
   fullName: string
   description: string
-  githubCiUrl?: string
-  githubCiImage?: string
+
   downloadMessage?: string
   downloadSize?: string
   downloadUrl?: string
@@ -52,8 +51,7 @@ export const solutions: Solution[] = [
     shortName: 'Dumont DEP',
     fullName: 'Viglet Dumont DEP',
     description: 'The Data Extraction Platform. Giving your data flight, from source to destination.',
-    githubCiUrl: 'https://github.com/openviglet/dumont/actions/workflows/validate.yml',
-    githubCiImage: 'https://img.shields.io/github/actions/workflow/status/openviglet/dumont/validate.yml?branch=2025.4',
+
     downloadMessage: 'Download Dumont DEP and explore your flight plan.',
     downloadSize: '145 MB',
     downloadUrl: 'https://github.com/openviglet/dumont/releases/download/v2025.4/dumont-connector.jar',
@@ -77,8 +75,7 @@ export const solutions: Solution[] = [
     shortName: 'Shio CMS',
     fullName: 'Viglet Shio CMS',
     description: 'Model Content, Use GraphQL and Create Site using Javascript with Native Cache and Search.',
-    githubCiUrl: 'https://github.com/openviglet/shio/actions/workflows/build.yml',
-    githubCiImage: 'https://img.shields.io/github/actions/workflow/status/openviglet/shio/build.yml?branch=0.3.8',
+
     downloadMessage: 'Download Shio CMS and create your site.',
     downloadSize: '179 MB',
     downloadUrl: 'https://github.com/openviglet/shio/releases/download/v0.3.8/viglet-shio.jar',
@@ -104,8 +101,7 @@ export const solutions: Solution[] = [
     shortName: 'Turing ES',
     fullName: 'Viglet Turing ES',
     description: 'Enterprise Search, Semantic Navigation, Chatbot using Search Engine and Generative AI.',
-    githubCiUrl: 'https://github.com/openviglet/turing/actions/workflows/validate.yml',
-    githubCiImage: 'https://img.shields.io/github/actions/workflow/status/openviglet/turing/validate.yml?branch=2025.4',
+
     downloadMessage: 'Download Turing ES and add more value to your content.',
     downloadSize: '455 MB',
     downloadUrl: 'https://github.com/openviglet/turing/releases/download/v2025.3.65/viglet-turing.jar',

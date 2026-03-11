@@ -81,7 +81,7 @@ export default function DownloadPage() {
                     <Download size={18} />
                     Download {solution.shortName} {solution.release}
                   </a>
-                </Button>
+                </ProductButton>
               )}
               <p className="text-xs text-slate-400">
                 {solution.fileType} &mdash; {solution.downloadSize}
@@ -154,7 +154,7 @@ export default function DownloadPage() {
                       <a href={solution.getStarted} target="_blank" rel="noopener">
                         Read the Docs
                       </a>
-                    </Button>
+                    </ProductButton>
                   )}
                 </CardContent>
               </Card>

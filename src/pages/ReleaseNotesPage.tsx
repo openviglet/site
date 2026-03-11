@@ -6,6 +6,7 @@ import SolutionMenu from '@/components/SolutionMenu'
 import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 import ProductBadge from '@/components/ProductBadge'
+import { Badge } from '@/components/ui/badge'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
 
@@ -45,15 +46,8 @@ function formatDate(dateStr: string | null): string {
   }
 }
 
-const badgeVariantMap: Record<ChangeType, 'new' | 'added' | 'improved' | 'fixed' | 'removed'> = {
-  new: 'new',
-  added: 'added',
-  improved: 'improved',
-  fixed: 'fixed',
-  removed: 'removed',
-}
 
-function ChangeItem({ text }: { text: string }) {
+function ChangeItem({ text }: Readonly<{ text: string }>) {
   const entry = parseChange(text)
   if (!entry) return null
 
@@ -79,7 +73,7 @@ function ChangeItem({ text }: { text: string }) {
   return (
     <li className="flex items-start gap-2.5 text-sm text-slate-700 leading-relaxed">
       {entry.type ? (
-        <Badge variant={badgeVariantMap[entry.type]} className="mt-0.5 shrink-0">
+        <Badge variant={entry.type} className="mt-0.5 shrink-0 uppercase font-bold tracking-wider">
           {entry.type}
         </Badge>
       ) : (
@@ -149,33 +143,38 @@ export default function ReleaseNotesPage() {
             </p>
           )}
           {status === 'done' && (
-            <div className="divide-y divide-slate-100">
-              {releases.map((release) => {
-                const validNotes = release.notes.filter(
-                  (n) => n.trim() && !/^\s*\[pretext\]\s/i.test(n),
-                )
-                return (
-                  <div key={release.version} className="py-8 first:pt-0 last:pb-0">
-                    <div className="flex items-center gap-3 mb-5">
-                      <span
-                        className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-bold text-white shrink-0 product-bg-${identifier}`}
-                      >
-                        {release.version}
-                      </span>
-                      {release.pub_date && (
-                        <span className="text-sm font-semibold text-slate-500">
-                          {formatDate(release.pub_date)}
-                        </span>
-                      )}
+            <div className="relative pl-2">
+              {/* continuous vertical line — full height of all releases */}
+              {/* line centered on ProductBadge: container pl-2(8px) + half badge width(≈35px) ≈ 43px */}
+              <span className={`absolute left-[43px] top-0 bottom-0 w-0.5 product-bg-${identifier} vg-timeline-line z-0`} />
+              <div>
+                {releases.map((release) => {
+                  const validNotes = release.notes.filter(
+                    (n) => n.trim() && !/^\s*\[pretext\]\s/i.test(n),
+                  )
+                  return (
+                    <div key={release.version} className="mb-10 last:mb-0">
+                      {/* version + date row — badge sits over the line */}
+                      <div className="relative z-10 flex items-center gap-3 mb-4">
+                        <ProductBadge identifier={identifier} className="shrink-0 min-w-[70px] justify-center">
+                          {release.version}
+                        </ProductBadge>
+                        {release.pub_date && (
+                          <span className="text-sm font-semibold text-slate-500">
+                            {formatDate(release.pub_date)}
+                          </span>
+                        )}
+                      </div>
+                      {/* items — indented past the line */}
+                      <ul className="relative z-10 pl-14 space-y-2.5 pb-2">
+                        {validNotes.map((note) => (
+                          <ChangeItem key={note} text={note} />
+                        ))}
+                      </ul>
                     </div>
-                    <ul className="space-y-2.5">
-                      {validNotes.map((note, i) => (
-                        <ChangeItem key={i} text={note} />
-                      ))}
-                    </ul>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
           )}
         </div>
