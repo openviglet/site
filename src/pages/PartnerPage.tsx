@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { FloatingFormulas } from '@/components/FloatingFormulas'
 
 function CognitoPartnerForm() {
   const ref = useRef<HTMLDivElement>(null)
@@ -90,8 +91,8 @@ export default function PartnerPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(79,70,229,0.08),transparent)]" />
-        <div className="relative max-w-3xl mx-auto text-center">
+        <FloatingFormulas />
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
           <Badge variant="brand" className="mb-6">Partner Program</Badge>
           <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
             Build the future of enterprise intelligence — together

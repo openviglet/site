@@ -24,6 +24,7 @@ import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 import ProductBadge from '@/components/ProductBadge'
 import ProductButton from '@/components/ProductButton'
+import { FloatingFormulas } from '@/components/FloatingFormulas'
 import { getDownloadModulesBySolution } from '@/data/modules'
 import { getFeaturesBySolution } from '@/data/features'
 import { useState } from 'react'
@@ -63,11 +64,9 @@ export default function DownloadPage() {
 
       {/* ===== DOWNLOAD HERO ===== */}
       <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <div className={`absolute inset-0 product-hero-${identifier} opacity-[0.03]`} />
-        <div className={`absolute top-[-120px] right-[-120px] w-[700px] h-[700px] rounded-full pointer-events-none product-blob-${identifier}`} />
-        <div className={`absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none product-blob-${identifier} opacity-50`} />
+        <FloatingFormulas />
 
-        <div className="max-w-5xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
             <div className="shrink-0">
