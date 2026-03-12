@@ -87,20 +87,20 @@ const STACK_ITEMS = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
 
       {/* ===== HERO ===== */}
-      <section className="relative bg-white border-b border-slate-100 overflow-hidden py-24 px-6">
+      <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(79,70,229,0.07),transparent)]" />
         <div className="absolute top-[-60px] right-[-60px] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(79,70,229,0.06),transparent_70%)] pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center">
           <Badge variant="brand" className="mb-6">About Viglet</Badge>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
             Open source tools for{' '}
             <span className="vg-gradient-text">enterprise intelligence</span>
           </h1>
-          <p className="text-xl text-slate-500 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
             Viglet was built on a simple belief: every team deserves world-class data extraction,
             content management, and enterprise search — without vendor lock-in or enterprise pricing.
           </p>
@@ -119,20 +119,20 @@ export default function AboutPage() {
       </section>
 
       {/* ===== MISSION ===== */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="brand" className="mb-4">Our mission</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-6">
               Democratize enterprise-grade software
             </h2>
-            <p className="text-slate-500 leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-4">
               Large enterprises spend millions of dollars on proprietary platforms for search,
               content, and data pipelines. Viglet exists to level the playing field — giving
               any team, regardless of budget, the same capabilities with full control over
               their infrastructure and data.
             </p>
-            <p className="text-slate-500 leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               We maintain everything under the Apache 2.0 license, so you can deploy on-premise,
               in the cloud, or in air-gapped environments without asking permission.
             </p>
@@ -146,10 +146,10 @@ export default function AboutPage() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white rounded-2xl border border-slate-200 p-6 text-center"
+                className="bg-card rounded-2xl border border-border p-6 text-center"
               >
                 <p className="text-3xl font-extrabold text-brand mb-1">{stat.value}</p>
-                <p className="text-sm text-slate-500">{stat.label}</p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -157,14 +157,14 @@ export default function AboutPage() {
       </section>
 
       {/* ===== PRODUCTS ===== */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">The platform</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               Three products, one ecosystem
             </h2>
-            <p className="text-slate-500 text-lg mt-3 max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
               Each product solves a distinct problem and integrates seamlessly with the others.
             </p>
           </div>
@@ -174,16 +174,16 @@ export default function AboutPage() {
               <Link
                 key={sol.identifier}
                 to={sol.permalink}
-                className="flex flex-col bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-hover hover:-translate-y-1 transition-all no-underline group"
+                className="flex flex-col bg-card rounded-2xl border border-border p-6 hover:shadow-hover hover:-translate-y-1 transition-all no-underline group"
               >
                 <VigletLogo identifier={sol.identifier} size={52} className="mb-4" />
-                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-1">
                   {sol.memo}
                 </p>
-                <p className="font-extrabold text-slate-900 mb-2 group-hover:text-brand transition-colors">
+                <p className="font-extrabold text-foreground mb-2 group-hover:text-brand transition-colors">
                   {sol.shortName}
                 </p>
-                <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-4">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                   {sol.description}
                 </p>
                 <span className="flex items-center gap-1 text-sm font-semibold text-brand">
@@ -196,11 +196,11 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TIMELINE ===== */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">History</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               How we got here
             </h2>
           </div>
@@ -217,8 +217,8 @@ export default function AboutPage() {
                     <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand mb-1">
                       {m.year}
                     </span>
-                    <h3 className="font-extrabold text-slate-900 mb-1">{m.title}</h3>
-                    <p className="text-sm text-slate-500 leading-relaxed">{m.description}</p>
+                    <h3 className="font-extrabold text-foreground mb-1">{m.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{m.description}</p>
                   </div>
                 </div>
               ))}
@@ -228,22 +228,22 @@ export default function AboutPage() {
       </section>
 
       {/* ===== VALUES ===== */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Values</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               What we stand for
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map((v) => (
-              <div key={v.title} className="bg-slate-50 rounded-2xl border border-slate-200 p-6">
+              <div key={v.title} className="bg-muted rounded-2xl border border-border p-6">
                 <div className="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center mb-4">
                   {v.icon}
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">{v.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{v.description}</p>
+                <h3 className="font-bold text-foreground mb-2">{v.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{v.description}</p>
               </div>
             ))}
           </div>
@@ -251,14 +251,14 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TECH STACK ===== */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Tech stack</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               Built on proven open source
             </h2>
-            <p className="text-slate-500 text-lg mt-3 max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
               Viglet stands on the shoulders of giants — battle-tested open source projects used by millions.
             </p>
           </div>
@@ -266,12 +266,12 @@ export default function AboutPage() {
             {STACK_ITEMS.map((item) => (
               <div
                 key={item.label}
-                className="bg-white rounded-xl border border-slate-200 px-5 py-4 flex items-center gap-4"
+                className="bg-card rounded-xl border border-border px-5 py-4 flex items-center gap-4"
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-brand shrink-0" />
                 <div>
-                  <p className="font-semibold text-slate-900 text-sm">{item.label}</p>
-                  <p className="text-xs text-slate-500">{item.detail}</p>
+                  <p className="font-semibold text-foreground text-sm">{item.label}</p>
+                  <p className="text-xs text-muted-foreground">{item.detail}</p>
                 </div>
               </div>
             ))}
@@ -280,15 +280,15 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-16 h-16 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mx-auto mb-6">
             <IconRocket size={28} />
           </div>
-          <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-4">
             Get involved
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
             Viglet is shaped by its community. Whether you file a bug, improve documentation,
             build an integration, or just star a repo — every contribution matters.
           </p>

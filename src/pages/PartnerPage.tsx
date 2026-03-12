@@ -85,18 +85,18 @@ const TIERS = [
 
 export default function PartnerPage() {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
 
       {/* ===== HERO ===== */}
-      <section className="relative bg-white border-b border-slate-100 overflow-hidden py-24 px-6">
+      <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(79,70,229,0.08),transparent)]" />
         <div className="relative max-w-3xl mx-auto text-center">
           <Badge variant="brand" className="mb-6">Partner Program</Badge>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
             Build the future of enterprise intelligence — together
           </h1>
-          <p className="text-xl text-slate-500 leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
             Join the Viglet partner ecosystem and help enterprises unlock the power of open source data extraction, content management, and semantic search.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
@@ -114,22 +114,22 @@ export default function PartnerPage() {
       </section>
 
       {/* ===== BENEFITS ===== */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-20 px-6 bg-muted">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Why partner with Viglet</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               Everything you need to grow together
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {BENEFITS.map((b) => (
-              <div key={b.title} className="bg-white rounded-2xl border border-slate-200 p-6">
+              <div key={b.title} className="bg-card rounded-2xl border border-border p-6">
                 <div className="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center mb-4">
                   {b.icon}
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">{b.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{b.description}</p>
+                <h3 className="font-bold text-foreground mb-2">{b.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{b.description}</p>
               </div>
             ))}
           </div>
@@ -137,11 +137,11 @@ export default function PartnerPage() {
       </section>
 
       {/* ===== TIERS ===== */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Partner tiers</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               Find your path in the ecosystem
             </h2>
           </div>
@@ -152,18 +152,18 @@ export default function PartnerPage() {
                 className={`flex flex-col rounded-2xl border p-8 ${
                   tier.featured
                     ? 'border-brand bg-brand-bg shadow-hover'
-                    : 'border-slate-200 bg-white'
+                    : 'border-border bg-card'
                 }`}
               >
-                <h3 className={`text-lg font-extrabold mb-2 ${tier.featured ? 'text-brand' : 'text-slate-900'}`}>
+                <h3 className={`text-lg font-extrabold mb-2 ${tier.featured ? 'text-brand' : 'text-foreground'}`}>
                   {tier.name}
                 </h3>
-                <p className="text-sm text-slate-500 leading-relaxed mb-6 flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
                   {tier.description}
                 </p>
                 <ul className="space-y-2.5 mb-8">
                   {tier.perks.map((perk) => (
-                    <li key={perk} className="flex items-start gap-2 text-sm text-slate-700">
+                    <li key={perk} className="flex items-start gap-2 text-sm text-foreground">
                       <IconCheck size={16} className="text-brand mt-0.5 shrink-0" />
                       {perk}
                     </li>
@@ -185,18 +185,18 @@ export default function PartnerPage() {
       </section>
 
       {/* ===== APPLICATION FORM ===== */}
-      <section id="apply" className="py-20 px-6 bg-slate-50">
+      <section id="apply" className="py-20 px-6 bg-muted">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
             <Badge variant="brand" className="mb-4">Apply now</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-3">
               Ready to partner with us?
             </h2>
-            <p className="text-lg text-slate-500 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               Fill out the form below and our team will get back to you within 2 business days.
             </p>
           </div>
-          <div className="bg-white rounded-2xl border border-slate-200 p-8">
+          <div className="bg-card rounded-2xl border border-border p-8">
             <CognitoPartnerForm />
           </div>
         </div>

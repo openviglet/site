@@ -32,12 +32,12 @@ export default function SolutionPage() {
   const modules = getModulesBySolution(identifier)
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
       <SolutionMenu solution={solution} />
 
       {/* ===== PRODUCT HERO ===== */}
-      <section className="relative overflow-hidden py-20 px-6 border-b border-slate-100">
+      <section className="relative overflow-hidden py-20 px-6 border-b border-border">
         <div className={`absolute inset-0 product-hero-${identifier} opacity-[0.03]`} />
         <div className={`absolute top-[-120px] right-[-120px] w-[700px] h-[700px] rounded-full pointer-events-none product-blob-${identifier}`} />
         <div className={`absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none product-blob-${identifier} opacity-50`} />
@@ -55,10 +55,10 @@ export default function SolutionPage() {
                   v{solution.release} &mdash; Stable
                 </ProductBadge>
               )}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {solution.fullName}
               </h1>
-              <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
                 {solution.description}
               </p>
 
@@ -82,7 +82,7 @@ export default function SolutionPage() {
               </div>
 
               {/* Info bar */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-slate-400 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
                 <span className="flex items-center gap-1.5">
                   <IconBrandOpenSource size={14} />
                   Open Source
@@ -96,7 +96,7 @@ export default function SolutionPage() {
                     href={solution.github}
                     target="_blank"
                     rel="noopener"
-                    className="flex items-center gap-1.5 text-slate-400 hover:text-slate-600 transition-colors no-underline"
+                    className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors no-underline"
                   >
                     <IconBrandGithub size={14} />
                     GitHub
@@ -110,34 +110,34 @@ export default function SolutionPage() {
       </section>
 
       {/* ===== QUICK LINKS BAR ===== */}
-      <section className="py-10 px-6 bg-white border-b border-slate-100">
+      <section className="py-10 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-3 gap-4">
             {solution.release && (
               <Link
                 to={`${solution.permalink}download/`}
-                className={`flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
+                className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
                   <IconDownload size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Download</p>
-                  <p className="text-xs text-slate-500">v{solution.release} &mdash; {solution.downloadSize}</p>
+                  <p className="font-bold text-foreground text-sm">Download</p>
+                  <p className="text-xs text-muted-foreground">v{solution.release} &mdash; {solution.downloadSize}</p>
                 </div>
               </Link>
             )}
             {solution.release && (
               <Link
                 to={`${solution.permalink}release-notes/`}
-                className={`flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
+                className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
                   <IconFileDescription size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Release Notes</p>
-                  <p className="text-xs text-slate-500">Changelog & updates</p>
+                  <p className="font-bold text-foreground text-sm">Release Notes</p>
+                  <p className="text-xs text-muted-foreground">Changelog & updates</p>
                 </div>
               </Link>
             )}
@@ -146,14 +146,14 @@ export default function SolutionPage() {
                 href={solution.getStarted}
                 target="_blank"
                 rel="noopener"
-                className={`flex items-center gap-4 p-4 rounded-2xl border border-slate-200 hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
+                className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
                   <IconBook size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Documentation</p>
-                  <p className="text-xs text-slate-500">Guides & API reference</p>
+                  <p className="font-bold text-foreground text-sm">Documentation</p>
+                  <p className="text-xs text-muted-foreground">Guides & API reference</p>
                 </div>
               </a>
             )}
@@ -163,14 +163,14 @@ export default function SolutionPage() {
 
       {/* ===== FEATURES ===== */}
       {features.length > 0 && (
-        <section className="py-20 px-6 bg-slate-50">
+        <section className="py-20 px-6 bg-muted">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Features</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
                 Built for enterprise
               </h2>
-              <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Everything you need to power your {solution.shortName} deployment.
               </p>
             </div>
@@ -184,8 +184,8 @@ export default function SolutionPage() {
                         <IconCheck size={14} />
                       </span>
                       <div>
-                        <h3 className="font-bold text-slate-900 mb-1">{feat.title}</h3>
-                        <p className="text-sm text-slate-500 leading-relaxed">{feat.content}</p>
+                        <h3 className="font-bold text-foreground mb-1">{feat.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{feat.content}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -198,14 +198,14 @@ export default function SolutionPage() {
 
       {/* ===== INTEGRATION MODULES ===== */}
       {modules.length > 0 && (
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Integration</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
                 Connect to your ecosystem
               </h2>
-              <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Extend {solution.shortName} with ready-to-use integration modules.
               </p>
             </div>
@@ -217,13 +217,13 @@ export default function SolutionPage() {
                       <IconSettings size={16} />
                     </span>
                     <div className="min-w-0">
-                      <p className="font-bold text-slate-900 text-sm mb-1 flex items-center gap-2">
+                      <p className="font-bold text-foreground text-sm mb-1 flex items-center gap-2">
                         {mod.title}
                         {mod.githubUrl && (
-                          <IconExternalLink size={12} className="text-slate-400" />
+                          <IconExternalLink size={12} className="text-muted-foreground" />
                         )}
                       </p>
-                      <p className="text-xs text-slate-500 leading-relaxed">{mod.description}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{mod.description}</p>
                     </div>
                   </div>
                 )
@@ -233,12 +233,12 @@ export default function SolutionPage() {
                     href={mod.githubUrl}
                     target="_blank"
                     rel="noopener"
-                    className={`block bg-white border border-slate-200 rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
+                    className={`block bg-card border border-border rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div key={mod.title} className="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div key={mod.title} className="bg-card border border-border rounded-2xl p-5">
                     {inner}
                   </div>
                 )

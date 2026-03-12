@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(cat dist/assets/*.css)",
+      "Bash(tr ';' '\\\\n')",
+      "Bash(tr '{' '\\\\n')",
+      "Bash(node -e \":*)",
+      "Bash(tr '}' '}\\\\n')"
+    ]
+  }
+}

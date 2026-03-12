@@ -80,13 +80,13 @@ function ChangeItem({ text, githubOrg }: Readonly<{ text: string; githubOrg?: st
   })
 
   return (
-    <li className="flex items-start gap-2.5 text-sm text-slate-700 leading-relaxed">
+    <li className="flex items-start gap-2.5 text-sm text-foreground leading-relaxed">
       {entry.type ? (
         <Badge variant={entry.type} className="mt-0.5 shrink-0 uppercase font-bold tracking-wider">
           {entry.type}
         </Badge>
       ) : (
-        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0" />
+        <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 shrink-0" />
       )}
       <span className="flex-1">{descNode}</span>
     </li>
@@ -114,12 +114,12 @@ export default function ReleaseNotesPage() {
   const latestDate = releases[0]?.pub_date ? formatDate(releases[0].pub_date) : null
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
       <SolutionMenu solution={solution} />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-20 px-6 border-b border-slate-100">
+      <section className="relative overflow-hidden py-20 px-6 border-b border-border">
         <div className={`absolute inset-0 product-hero-${identifier} opacity-[0.03]`} />
         <div className={`absolute top-[-120px] right-[-120px] w-[700px] h-[700px] rounded-full pointer-events-none product-blob-${identifier}`} />
         <div className={`absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none product-blob-${identifier} opacity-50`} />
@@ -133,10 +133,10 @@ export default function ReleaseNotesPage() {
 
             <div className="flex-1 min-w-0 text-center md:text-left">
               <ProductBadge identifier={identifier} className="mb-4">Changelog</ProductBadge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {solution.shortName} Release Notes
               </h1>
-              <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
                 Track every improvement, fix, and new capability across all releases.
               </p>
 
@@ -160,7 +160,7 @@ export default function ReleaseNotesPage() {
               </div>
 
               {/* Info bar */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-slate-400 justify-center md:justify-start">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
                 {solution.release && (
                   <span className="flex items-center gap-1.5">
                     <IconTag size={14} />
@@ -198,24 +198,24 @@ export default function ReleaseNotesPage() {
           }
         }
         return (
-          <section className="py-10 px-6 bg-white border-b border-slate-100">
+          <section className="py-10 px-6 bg-background border-b border-border">
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
                 <div className="text-center">
                   <p className={`text-3xl font-extrabold product-text-${identifier}`}>{totalReleases}</p>
-                  <p className="text-sm text-slate-500 mt-1">Releases</p>
+                  <p className="text-sm text-muted-foreground mt-1">Releases</p>
                 </div>
                 <div className="text-center">
                   <p className="text-3xl font-extrabold text-emerald-600">{totalNew}</p>
-                  <p className="text-sm text-slate-500 mt-1">New Features</p>
+                  <p className="text-sm text-muted-foreground mt-1">New Features</p>
                 </div>
                 <div className="text-center">
                   <p className="text-3xl font-extrabold text-blue-600">{totalImproved}</p>
-                  <p className="text-sm text-slate-500 mt-1">Improvements</p>
+                  <p className="text-sm text-muted-foreground mt-1">Improvements</p>
                 </div>
                 <div className="text-center">
                   <p className="text-3xl font-extrabold text-amber-600">{totalFixed}</p>
-                  <p className="text-sm text-slate-500 mt-1">Bug Fixes</p>
+                  <p className="text-sm text-muted-foreground mt-1">Bug Fixes</p>
                 </div>
               </div>
             </div>
@@ -224,17 +224,17 @@ export default function ReleaseNotesPage() {
       })()}
 
       {/* ===== CHANGELOG ===== */}
-      <section className="py-16 px-6 bg-slate-50">
+      <section className="py-16 px-6 bg-muted">
         <div className="max-w-3xl mx-auto">
           {status === 'loading' && (
             <div className="flex flex-col items-center py-20">
-              <div className={`w-10 h-10 rounded-full border-4 border-slate-200 border-t-current product-text-${identifier} animate-spin mb-4`} />
-              <p className="text-slate-400">Loading release notes…</p>
+              <div className={`w-10 h-10 rounded-full border-4 border-border border-t-current product-text-${identifier} animate-spin mb-4`} />
+              <p className="text-muted-foreground">Loading release notes…</p>
             </div>
           )}
           {status === 'error' && (
             <div className="text-center py-20">
-              <p className="text-slate-400 mb-4">
+              <p className="text-muted-foreground mb-4">
                 An error occurred while fetching release notes.
               </p>
               {solution.github && (
@@ -269,7 +269,7 @@ export default function ReleaseNotesPage() {
                           </span>
                         )}
                         {release.pub_date && (
-                          <span className="flex items-center gap-1 text-sm text-slate-400">
+                          <span className="flex items-center gap-1 text-sm text-muted-foreground">
                             <IconCalendar size={13} />
                             {formatDate(release.pub_date)}
                           </span>
@@ -279,7 +279,7 @@ export default function ReleaseNotesPage() {
                             href={`${solution.github}/releases/tag/v${release.version}`}
                             target="_blank"
                             rel="noopener"
-                            className="text-slate-400 hover:text-slate-600 transition-colors no-underline ml-auto"
+                            className="text-muted-foreground hover:text-foreground transition-colors no-underline ml-auto"
                             title="View on GitHub"
                           >
                             <IconExternalLink size={14} />

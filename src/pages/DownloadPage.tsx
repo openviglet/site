@@ -38,7 +38,7 @@ function CopyableCommand({ command }: Readonly<{ command: string }>) {
       <button
         type="button"
         onClick={() => { navigator.clipboard.writeText(command); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
-        className="text-slate-500 hover:text-white transition-colors shrink-0"
+        className="text-muted-foreground hover:text-white transition-colors shrink-0"
         aria-label="Copy command"
       >
         {copied ? <IconCheck size={16} className="text-green-400" /> : <IconCopy size={16} />}
@@ -57,12 +57,12 @@ export default function DownloadPage() {
   const solutionFeatures = getFeaturesBySolution(identifier)
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
       <SolutionMenu solution={solution} />
 
       {/* ===== DOWNLOAD HERO ===== */}
-      <section className="relative overflow-hidden py-20 px-6 border-b border-slate-100">
+      <section className="relative overflow-hidden py-20 px-6 border-b border-border">
         <div className={`absolute inset-0 product-hero-${identifier} opacity-[0.03]`} />
         <div className={`absolute top-[-120px] right-[-120px] w-[700px] h-[700px] rounded-full pointer-events-none product-blob-${identifier}`} />
         <div className={`absolute bottom-[-200px] left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none product-blob-${identifier} opacity-50`} />
@@ -78,14 +78,14 @@ export default function DownloadPage() {
               <ProductBadge identifier={identifier} className="mb-4">
                 v{solution.release} &mdash; Stable
               </ProductBadge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 Get {solution.shortName}
               </h1>
-              <p className="text-xl text-slate-500 leading-relaxed mb-3 max-w-2xl">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-3 max-w-2xl">
                 {solution.description}
               </p>
               {solution.downloadMessage && (
-                <p className="text-base text-slate-400 mb-8 max-w-2xl">{solution.downloadMessage}</p>
+                <p className="text-base text-muted-foreground mb-8 max-w-2xl">{solution.downloadMessage}</p>
               )}
 
               {solution.downloadUrl && solution.release && (
@@ -109,7 +109,7 @@ export default function DownloadPage() {
 
               {/* File info bar */}
               {solution.downloadUrl && (
-                <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-slate-400 justify-center md:justify-start">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
                   <span className="flex items-center gap-1.5">
                     <IconFileZip size={14} />
                     {solution.fileType} &mdash; {solution.downloadSize}
@@ -130,7 +130,7 @@ export default function DownloadPage() {
       </section>
 
       {/* ===== SYSTEM REQUIREMENTS ===== */}
-      <section className="py-14 px-6 bg-white border-b border-slate-100">
+      <section className="py-14 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <div className="flex items-start gap-3">
@@ -138,8 +138,8 @@ export default function DownloadPage() {
                 <IconCoffee size={18} />
               </span>
               <div>
-                <p className="font-bold text-slate-900 text-sm">Java 21+</p>
-                <p className="text-xs text-slate-500">OpenJDK or Oracle JDK</p>
+                <p className="font-bold text-foreground text-sm">Java 21+</p>
+                <p className="text-xs text-muted-foreground">OpenJDK or Oracle JDK</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -147,8 +147,8 @@ export default function DownloadPage() {
                 <IconTerminal2 size={18} />
               </span>
               <div>
-                <p className="font-bold text-slate-900 text-sm">Linux</p>
-                <p className="text-xs text-slate-500">Ubuntu, CentOS, Debian</p>
+                <p className="font-bold text-foreground text-sm">Linux</p>
+                <p className="text-xs text-muted-foreground">Ubuntu, CentOS, Debian</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -156,8 +156,8 @@ export default function DownloadPage() {
                 <IconBrandWindows size={18} />
               </span>
               <div>
-                <p className="font-bold text-slate-900 text-sm">Windows</p>
-                <p className="text-xs text-slate-500">Windows 10+ / Server 2019+</p>
+                <p className="font-bold text-foreground text-sm">Windows</p>
+                <p className="text-xs text-muted-foreground">Windows 10+ / Server 2019+</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -165,8 +165,8 @@ export default function DownloadPage() {
                 <IconBrandDocker size={18} />
               </span>
               <div>
-                <p className="font-bold text-slate-900 text-sm">Docker</p>
-                <p className="text-xs text-slate-500">Container-ready deployment</p>
+                <p className="font-bold text-foreground text-sm">Docker</p>
+                <p className="text-xs text-muted-foreground">Container-ready deployment</p>
               </div>
             </div>
           </div>
@@ -175,14 +175,14 @@ export default function DownloadPage() {
 
       {/* ===== GETTING STARTED STEPS ===== */}
       {solution.installationSteps && (
-        <section className="py-20 px-6 bg-slate-50">
+        <section className="py-20 px-6 bg-muted">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Quick Start</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
                 Up and running in minutes
               </h2>
-              <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Three simple steps to get {solution.shortName} running on your machine.
               </p>
             </div>
@@ -194,12 +194,12 @@ export default function DownloadPage() {
                 <CardContent className="p-5 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>1</div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
                       <IconDownload size={18} className={`product-text-${identifier}`} />
                       Download the JAR
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Download the latest release of {solution.shortName}. The application is packaged as a single executable JAR file — no installation required.
                   </p>
                   {solution.downloadUrl && (
@@ -218,17 +218,17 @@ export default function DownloadPage() {
                 <CardContent className="p-5 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>2</div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
                       <IconTerminal2 size={18} className={`product-text-${identifier}`} />
                       Run from terminal
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Open your terminal, navigate to the download folder, and execute:
                   </p>
                   <CopyableCommand command={`java -jar ${solution.runJar}`} />
                   <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                    <span className="flex items-center gap-1.5 text-slate-500">
+                    <span className="flex items-center gap-1.5 text-muted-foreground">
                       <IconWorld size={14} className={`product-text-${identifier}`} />
                       Open{' '}
                       <a
@@ -241,9 +241,9 @@ export default function DownloadPage() {
                       </a>
                     </span>
                     {solution.appLogin && (
-                      <span className="flex items-center gap-1.5 text-slate-500">
+                      <span className="flex items-center gap-1.5 text-muted-foreground">
                         <IconLock size={14} className={`product-text-${identifier}`} />
-                        Login: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appLogin}</code> / <code className="bg-slate-100 px-1.5 py-0.5 rounded text-xs font-mono">{solution.appPassword}</code>
+                        Login: <code className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono">{solution.appLogin}</code> / <code className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono">{solution.appPassword}</code>
                       </span>
                     )}
                   </div>
@@ -255,12 +255,12 @@ export default function DownloadPage() {
                 <CardContent className="p-5 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>3</div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
                       <IconBook size={18} className={`product-text-${identifier}`} />
                       Explore the docs
                     </h3>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Dive into the official documentation to discover all {solution.shortName} features, configuration options, and best practices.
                   </p>
                   <div className="flex flex-wrap gap-3">
@@ -290,14 +290,14 @@ export default function DownloadPage() {
 
       {/* ===== WHAT'S INCLUDED (features) ===== */}
       {solutionFeatures.length > 0 && (
-        <section className="py-20 px-6 bg-white border-t border-slate-100">
+        <section className="py-20 px-6 bg-background border-t border-border">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Features</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
                 What's included
               </h2>
-              <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Everything you get out of the box with {solution.shortName}.
               </p>
             </div>
@@ -311,8 +311,8 @@ export default function DownloadPage() {
                         <IconCheck size={14} />
                       </span>
                       <div>
-                        <h3 className="font-bold text-slate-900 mb-1">{feat.title}</h3>
-                        <p className="text-sm text-slate-500 leading-relaxed">{feat.content}</p>
+                        <h3 className="font-bold text-foreground mb-1">{feat.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{feat.content}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -325,14 +325,14 @@ export default function DownloadPage() {
 
       {/* ===== INTEGRATION MODULES ===== */}
       {dlModules.length > 0 && (
-        <section className="py-20 px-6 bg-slate-50">
+        <section className="py-20 px-6 bg-muted">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Integration</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
                 Connect to your ecosystem
               </h2>
-              <p className="text-lg text-slate-500 max-w-xl mx-auto">
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
                 Extend {solution.shortName} with ready-to-use integration modules.
               </p>
             </div>
@@ -344,7 +344,7 @@ export default function DownloadPage() {
                       <IconSettings size={16} />
                     </span>
                     <div className="min-w-0">
-                      <p className="font-bold text-slate-900 text-sm mb-1 flex items-center gap-2">
+                      <p className="font-bold text-foreground text-sm mb-1 flex items-center gap-2">
                         {mod.title}
                         {mod.downloadUrl && (
                           <span className={`inline-flex items-center gap-1 text-xs font-medium product-text-${identifier}`}>
@@ -352,7 +352,7 @@ export default function DownloadPage() {
                           </span>
                         )}
                       </p>
-                      <p className="text-xs text-slate-500 leading-relaxed">{mod.description}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{mod.description}</p>
                     </div>
                   </div>
                 )
@@ -362,12 +362,12 @@ export default function DownloadPage() {
                     href={mod.downloadUrl}
                     target="_blank"
                     rel="noopener"
-                    className={`block bg-white border border-slate-200 rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
+                    className={`block bg-card border border-border rounded-2xl p-5 hover:-translate-y-1 transition-all no-underline product-card-${identifier}`}
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div key={mod.title} className="bg-white border border-slate-200 rounded-2xl p-5">
+                  <div key={mod.title} className="bg-card border border-border rounded-2xl p-5">
                     {inner}
                   </div>
                 )

@@ -11,7 +11,7 @@ import VigletLogo from '@/components/VigletLogo'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
 
-const CARD = 'bg-white rounded-2xl border border-slate-200 shadow-card hover:shadow-hover transition-all duration-200 no-underline'
+const CARD = 'bg-card rounded-2xl border border-border shadow-card hover:shadow-hover transition-all duration-200 no-underline'
 
 // ── Inline brand SVGs (Github/Linkedin removed from lucide as deprecated) ────
 function GitHubSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
@@ -55,8 +55,8 @@ function LayoutRow({ sols }: Readonly<{ sols: Solution[] }>) {
         >
           <VigletLogo identifier={sol.identifier} size={44} />
           <div>
-            <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
-            <p className="text-xs text-slate-500 line-clamp-2 mt-1">{sol.description}</p>
+            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
+            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">{sol.description}</p>
           </div>
         </Link>
       ))}
@@ -74,8 +74,8 @@ function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
       >
         <VigletLogo identifier={sols[0].identifier} size={48} />
         <div>
-          <p className="font-bold text-slate-900">{sols[0].shortName}</p>
-          <p className="text-xs text-slate-500 line-clamp-3 mt-1">{sols[0].description}</p>
+          <p className="font-bold text-foreground">{sols[0].shortName}</p>
+          <p className="text-xs text-muted-foreground line-clamp-3 mt-1">{sols[0].description}</p>
         </div>
       </Link>
       <div className="flex flex-col gap-3 flex-1">
@@ -87,8 +87,8 @@ function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
           >
             <VigletLogo identifier={sol.identifier} size={36} />
             <div>
-              <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
-              <p className="text-xs text-slate-500 line-clamp-2 mt-0.5">{sol.description}</p>
+              <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
+              <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">{sol.description}</p>
             </div>
           </Link>
         ))}
@@ -114,8 +114,8 @@ function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
         >
           <VigletLogo identifier={sol.identifier} size={44} />
           <div>
-            <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
-            <p className="text-xs text-slate-500 line-clamp-2 mt-1">{sol.description}</p>
+            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
+            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">{sol.description}</p>
           </div>
         </Link>
       ))}
@@ -141,8 +141,8 @@ function LayoutCascade({ sols }: Readonly<{ sols: Solution[] }>) {
         >
           <VigletLogo identifier={sol.identifier} size={40} />
           <div>
-            <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
-            <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">{sol.description}</p>
+            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
+            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">{sol.description}</p>
           </div>
         </Link>
       ))}
@@ -160,8 +160,8 @@ function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
       >
         <VigletLogo identifier={sols[0].identifier} size={48} />
         <div>
-          <p className="font-bold text-slate-900">{sols[0].shortName}</p>
-          <p className="text-xs text-slate-500 line-clamp-3 mt-1">{sols[0].description}</p>
+          <p className="font-bold text-foreground">{sols[0].shortName}</p>
+          <p className="text-xs text-muted-foreground line-clamp-3 mt-1">{sols[0].description}</p>
         </div>
       </Link>
       {sols.slice(1).map((sol) => (
@@ -172,8 +172,8 @@ function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
         >
           <VigletLogo identifier={sol.identifier} size={40} />
           <div className="min-w-0">
-            <p className="font-bold text-slate-900 text-sm">{sol.shortName}</p>
-            <p className="text-xs text-slate-500 line-clamp-1 mt-0.5">{sol.description}</p>
+            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
+            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">{sol.description}</p>
           </div>
         </Link>
       ))}
@@ -208,26 +208,26 @@ const TRUST_ITEMS = [
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col">
+    <div className="min-h-screen bg-muted flex flex-col">
       <Header />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-white pt-20 pb-24 px-6">
+      <section className="relative overflow-hidden bg-background pt-20 pb-24 px-6">
         <div className="absolute top-[-80px] right-[-80px] w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(194,65,12,0.09),transparent_70%)] pointer-events-none" />
         <div className="absolute bottom-[-60px] left-[-40px] w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.06),transparent_70%)] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Copy */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-3.5 py-1.5 text-sm font-semibold text-brand shadow-sm mb-6">
+            <div className="inline-flex items-center gap-2 bg-background border border-border rounded-full px-3.5 py-1.5 text-sm font-semibold text-brand shadow-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-gradient-to-br from-brand to-brand-light" />
               <span>Open Source Platform</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-6">
               Open Source Tools for{' '}
               <span className="vg-gradient-text">Enterprise Intelligence</span>
             </h1>
-            <p className="text-xl text-slate-500 leading-relaxed mb-8 max-w-lg">
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
               Data extraction, content management, and semantic search — built for developers, trusted by enterprises.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -253,17 +253,17 @@ export default function HomePage() {
       </section>
 
       {/* ===== TRUST BAR ===== */}
-      <section className="border-y border-slate-200 bg-white">
+      <section className="border-y border-border bg-background">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap divide-x divide-slate-200">
+          <div className="flex flex-wrap divide-x divide-border">
             {TRUST_ITEMS.map((item) => (
               <div key={item.key} className="flex items-center gap-4 flex-1 px-8 py-6 min-w-[180px]">
                 <span className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center shrink-0`}>
                   {item.icon}
                 </span>
                 <div>
-                  <p className="text-xl font-extrabold text-slate-900 leading-none">{item.value}</p>
-                  <p className="text-sm text-slate-500 mt-0.5">{item.label}</p>
+                  <p className="text-xl font-extrabold text-foreground leading-none">{item.value}</p>
+                  <p className="text-sm text-muted-foreground mt-0.5">{item.label}</p>
                 </div>
               </div>
             ))}
@@ -272,14 +272,14 @@ export default function HomePage() {
       </section>
 
       {/* ===== PRODUCTS ===== */}
-      <section id="products" className="py-20 px-6 bg-slate-50">
+      <section id="products" className="py-20 px-6 bg-muted">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Products</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               The Viglet Suite
             </h2>
-            <p className="text-slate-500 text-lg mt-3 max-w-xl mx-auto">
+            <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
               Three complementary tools that work independently or together.
             </p>
           </div>
@@ -294,13 +294,13 @@ export default function HomePage() {
                   <div className="flex items-center gap-3 mb-4">
                     <VigletLogo identifier={sol.identifier} size={48} />
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
                         {sol.memo}
                       </p>
-                      <p className="font-bold text-slate-900">{sol.shortName}</p>
+                      <p className="font-bold text-foreground">{sol.shortName}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-500 leading-relaxed flex-1 mb-6">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
                     {sol.description}
                   </p>
                   <div className="flex items-center justify-between">
@@ -312,7 +312,7 @@ export default function HomePage() {
                       <IconArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                     </Link>
                     {sol.release && (
-                      <span className="text-xs text-slate-400 font-medium">v{sol.release}</span>
+                      <span className="text-xs text-muted-foreground font-medium">v{sol.release}</span>
                     )}
                   </div>
                 </CardContent>
@@ -323,11 +323,11 @@ export default function HomePage() {
       </section>
 
       {/* ===== COMMUNITY ===== */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Community</Badge>
-            <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
               Join the conversation
             </h2>
           </div>
@@ -337,38 +337,38 @@ export default function HomePage() {
               href="https://github.com/openviglet"
               target="_blank"
               rel="noopener"
-              className="flex flex-col bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
+              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center">
                   <GitHubSvg size={20} className="text-white" />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900">GitHub</p>
-                  <p className="text-xs text-slate-500">openviglet</p>
+                  <p className="font-bold text-foreground">GitHub</p>
+                  <p className="text-xs text-muted-foreground">openviglet</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                 Explore the source, open issues, submit pull requests, and shape the roadmap.
               </p>
-              <span className="text-sm font-semibold text-slate-900">Star on GitHub →</span>
+              <span className="text-sm font-semibold text-foreground">Star on GitHub →</span>
             </a>
             <a
               href="https://www.reddit.com/r/TuringES/"
               target="_blank"
               rel="noopener"
-              className="flex flex-col bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
+              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-12 rounded-xl bg-[#FF4500] flex items-center justify-center">
                   <RedditSvg size={20} className="text-white" />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900">Reddit</p>
-                  <p className="text-xs text-slate-500">r/TuringES</p>
+                  <p className="font-bold text-foreground">Reddit</p>
+                  <p className="text-xs text-muted-foreground">r/TuringES</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                 Join the r/TuringES community — ask questions, share integrations, and discuss search engineering with fellow users.
               </p>
               <span className="text-sm font-semibold text-[#FF4500]">Join on Reddit →</span>
@@ -377,18 +377,18 @@ export default function HomePage() {
               href="https://www.linkedin.com/company/viglet.com"
               target="_blank"
               rel="noopener"
-              className="flex flex-col bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
+              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
                   <LinkedInSvg size={20} className="text-white" />
                 </span>
                 <div>
-                  <p className="font-bold text-slate-900">LinkedIn</p>
-                  <p className="text-xs text-slate-500">@viglet.com</p>
+                  <p className="font-bold text-foreground">LinkedIn</p>
+                  <p className="text-xs text-muted-foreground">@viglet.com</p>
                 </div>
               </div>
-              <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
                 Follow us for product updates, engineering insights, and community news.
               </p>
               <span className="text-sm font-semibold text-[#0A66C2]">Follow on LinkedIn →</span>

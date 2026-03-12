@@ -11,7 +11,7 @@ const buttonVariants = cva(
         default:
           'bg-gradient-to-br from-brand to-brand-light text-white shadow-btn hover:scale-[1.02] hover:shadow-hover',
         ghost:
-          'border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300',
+          'border border-border bg-background text-foreground hover:bg-muted hover:border-border',
         outline:
           'border border-brand text-brand bg-transparent hover:bg-brand-bg',
         link: 'text-brand underline-offset-4 hover:underline',

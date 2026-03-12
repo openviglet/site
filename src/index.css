@@ -27,6 +27,28 @@
     --radius: 0.625rem;
   }
 
+  [data-theme="dark"] {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 96%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 96%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 30 20% 15%;
+    --accent-foreground: 24 95% 53%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 27%;
+    --input: 217 33% 27%;
+    --ring: 24 95% 53%;
+  }
+
   * {
     @apply border-border;
   }
@@ -126,4 +148,69 @@
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* ── Brand colour dark mode overrides ─────────────────────────────── */
+[data-theme="dark"] .bg-brand-bg {
+  background-color: #1f1710 !important;
+}
+[data-theme="dark"] .bg-brand-mid,
+[data-theme="dark"] .hover\:bg-brand-bg:hover {
+  background-color: #2a1f16 !important;
+}
+[data-theme="dark"] .border-brand-border {
+  border-color: #5c3a1a !important;
+}
+[data-theme="dark"] .text-brand-border {
+  color: #5c3a1a !important;
+}
+
+/* ── Cognito Forms dark mode overrides ───────────────────────────────── */
+
+/* Nuclear reset: force every element inside the form to dark bg + light text */
+[data-theme="dark"] .cog-form__container,
+[data-theme="dark"] .cog-form__container * {
+  background-color: transparent !important;
+  color: hsl(210 40% 96%) !important;
+  border-color: hsl(217 33% 27%) !important;
+}
+
+/* Inputs & textareas get a visible dark fill */
+[data-theme="dark"] .cog-form__container input,
+[data-theme="dark"] .cog-form__container textarea,
+[data-theme="dark"] .cog-form__container select {
+  background-color: hsl(222 47% 15%) !important;
+  border: 1px solid hsl(217 33% 27%) !important;
+}
+
+[data-theme="dark"] .cog-form__container input::placeholder,
+[data-theme="dark"] .cog-form__container textarea::placeholder {
+  color: hsl(215 20% 55%) !important;
+}
+
+[data-theme="dark"] .cog-form__container input:focus,
+[data-theme="dark"] .cog-form__container textarea:focus,
+[data-theme="dark"] .cog-form__container select:focus {
+  border-color: hsl(24 95% 53%) !important;
+  box-shadow: 0 0 0 2px hsla(24, 95%, 53%, 0.25) !important;
+}
+
+/* Submit / primary button */
+[data-theme="dark"] .cog-form__container button,
+[data-theme="dark"] .cog-form__container [type="submit"],
+[data-theme="dark"] .cog-form__container .cog-button--primary,
+[data-theme="dark"] .cog-form__container input[type="button"] {
+  background-color: hsl(24 95% 53%) !important;
+  color: hsl(222 47% 11%) !important;
+  border-color: hsl(24 95% 53%) !important;
+}
+
+/* Links */
+[data-theme="dark"] .cog-form__container a {
+  color: hsl(24 95% 53%) !important;
+}
+
+/* Horizontal rules / separators */
+[data-theme="dark"] .cog-form__container hr {
+  border-color: hsl(217 33% 27%) !important;
 }
