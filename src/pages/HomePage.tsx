@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { solutions, type Solution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
+import { FloatingFormulas } from '@/components/FloatingFormulas'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
 
@@ -213,12 +214,11 @@ export default function HomePage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-background pt-20 pb-24 px-6">
-        <div className="absolute top-[-80px] right-[-80px] w-[520px] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(194,65,12,0.09),transparent_70%)] pointer-events-none" />
-        <div className="absolute bottom-[-60px] left-[-40px] w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.06),transparent_70%)] pointer-events-none" />
+        <FloatingFormulas />
 
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Copy */}
-          <div>
+          <div className="hero-fade-in">
             <div className="inline-flex items-center gap-2 bg-background border border-border rounded-full px-3.5 py-1.5 text-sm font-semibold text-brand shadow-sm mb-6">
               <span className="w-2 h-2 rounded-full bg-gradient-to-br from-brand to-brand-light" />
               <span>Open Source Platform</span>
@@ -246,7 +246,7 @@ export default function HomePage() {
           </div>
 
           {/* Random product card layout */}
-          <div className="hidden md:block">
+          <div className="hidden md:block hero-fade-in--delayed">
             <HeroCards sols={stableSolutions} />
           </div>
         </div>
