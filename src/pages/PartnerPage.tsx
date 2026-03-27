@@ -28,7 +28,7 @@ const BENEFITS = [
   {
     icon: <IconRocket size={24} />,
     title: 'Co-marketing & visibility',
-    description: 'Get featured on viglet.com, joint case studies, and co-branded content that reaches our global developer and enterprise audience.',
+    description: 'Get featured on viglet.org, joint case studies, and co-branded content that reaches our global developer and enterprise audience.',
   },
   {
     icon: <IconCode size={24} />,

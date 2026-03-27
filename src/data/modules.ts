@@ -23,12 +23,12 @@ export const modules: Module[] = [
   { title: 'OTCS', solution: 'shio', description: 'Integrate OpenText Content Server into Shio CMS and import documents.' },
   { title: 'OTDS', solution: 'shio', description: 'Authenticate via OpenText Directory Services (OTDS).' },
   { title: 'OTMM', solution: 'shio', description: 'Integrate OpenText Media Management into Shio CMS and import assets.' },
-  { title: 'Turing ES', solution: 'shio', githubUrl: 'https://viglet.com/turing', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
+  { title: 'Turing ES', solution: 'shio', githubUrl: 'https://viglet.org/turing', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
   { title: 'WEM', solution: 'shio', description: 'Convert OpenText Web Experience Management (WEM) import package to Shio CMS import package.' },
   // Turing modules
   { title: 'Apache Solr', solution: 'turing', download: false, description: 'Use Apache Solr as Search Engine.' },
   { title: 'Java SDK', solution: 'turing', download: false, githubUrl: 'https://github.com/openviglet/turing', downloadUrl: 'https://github.com/openviglet/turing/releases/download/v0.3.9/turing-java-sdk.jar', description: 'Java Library to access Turing ES.' },
-  { title: 'Shio CMS', solution: 'turing', download: false, githubUrl: 'https://viglet.com/shio', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
+  { title: 'Shio CMS', solution: 'turing', download: false, githubUrl: 'https://viglet.org/shio', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
   { title: 'Utils', solution: 'turing', download: true, githubUrl: 'https://github.com/openviglet/turing', downloadUrl: 'https://github.com/openviglet/turing/releases/download/v0.3.9/turing-utils.zip', description: 'Sample Configurations and Scripts.' },
 ]
 

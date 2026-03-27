@@ -89,7 +89,7 @@ export default function Footer() {
             <p className="text-xs font-bold uppercase tracking-widest text-white mb-4">Resources</p>
             <ul className="space-y-2.5">
               {[
-                { label: 'Documentation', href: 'https://docs.viglet.com' },
+                { label: 'Documentation', href: 'https://docs.viglet.org' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (

@@ -59,7 +59,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3 ml-auto">
             <ColorModeToggle />
             <Button asChild size="sm">
-              <a href="https://docs.viglet.com" target="_blank" rel="noopener">
+              <a href="https://docs.viglet.org" target="_blank" rel="noopener">
                 Get Started
               </a>
             </Button>
@@ -97,7 +97,7 @@ export default function Header() {
             </div>
             <hr className="border-border my-2" />
             <a
-              href="https://docs.viglet.com"
+              href="https://docs.viglet.org"
               target="_blank"
               rel="noopener"
               className="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-brand no-underline"
