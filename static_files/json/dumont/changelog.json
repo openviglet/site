@@ -31,10 +31,10 @@
   "[Improved] Renamed GroupId from Connector to Dumont",
   "[Improved] MongoClient Cleanup and Tighter Filters",
   "[Improved] Removed Obsolete Utility Methods and SN Bean Classes",
-  "[Bug] Fixed Standalone DeIndex Jobs When Empty",
-  "[Bug] Fixed AEM Deserializers and Tests",
-  "[Bug] Fixed OrphanRemoval When Updating LocalePaths",
-  "[Bug] Fixed Null Check and Error Handling in AEM Navigation"
+  "[Fixed] Fixed Standalone DeIndex Jobs When Empty",
+  "[Fixed] Fixed AEM Deserializers and Tests",
+  "[Fixed] Fixed OrphanRemoval When Updating LocalePaths",
+  "[Fixed] Fixed Null Check and Error Handling in AEM Navigation"
   ],
   "pub_date": "2026-03-28T12:00:00Z",
   "version": "2026.1"
