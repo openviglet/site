@@ -10,7 +10,13 @@ export default defineConfig({
   plugins: [
     react(),
     viteStaticCopy({
-      targets: [{ src: 'static_files', dest: '' }],
+      targets: [
+        { src: 'static_files', dest: '' },
+        {
+          src: 'node_modules/@viglet/viglet-design-system/dist/viglet-design-system.css',
+          dest: 'vendor',
+        },
+      ],
     }),
     viteSitemap(),
     viteLlmTxt(),
