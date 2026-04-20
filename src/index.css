@@ -214,3 +214,62 @@
 [data-theme="dark"] .cog-form__container hr {
   border-color: hsl(217 33% 27%) !important;
 }
+
+/* ── FloatingFormulasBg (extracted from @viglet/viglet-design-system) ─────── */
+/* Extracted to avoid importing the design-system's Tailwind v4 preflight,
+   which resets --tw-gradient-* on every element and breaks v3 gradients. */
+.ff-term{color:var(--ff-color,#2563eb);white-space:nowrap;-webkit-user-select:none;user-select:none;will-change:transform;font-family:JetBrains Mono,Fira Code,ui-monospace,monospace;font-weight:700;position:absolute}
+[data-theme="dark"] .ff-term{color:var(--ff-color-dark,#60a5fa)}
+.ff-bond{will-change:transform;position:absolute}
+.ff-bond-line{stroke:var(--ff-color,#2563eb);opacity:.5}
+.ff-bond-node{fill:var(--ff-color,#2563eb);opacity:.6}
+[data-theme="dark"] .ff-bond-line{stroke:var(--ff-color-dark,#60a5fa);opacity:.4}
+[data-theme="dark"] .ff-bond-node{fill:var(--ff-color-dark,#60a5fa);opacity:.5}
+.ff-orb{filter:blur(100px);opacity:.4;border-radius:50%;position:absolute}
+.ff-orb--1{background:radial-gradient(circle, rgba(var(--ff-color-rgb,37, 99, 235), .2), transparent 70%);width:500px;height:500px;animation:8s ease-in-out infinite ff-orb-float-1;top:-15%;right:-8%}
+.ff-orb--2{background:radial-gradient(circle, rgba(var(--ff-color-rgb,79, 70, 229), .15), transparent 70%);width:400px;height:400px;animation:10s ease-in-out infinite ff-orb-float-2;bottom:-20%;left:-5%}
+.ff-orb--3{background:radial-gradient(circle, rgba(var(--ff-color-rgb,99, 102, 241), .12), transparent 70%);width:350px;height:350px;animation:12s ease-in-out 2s infinite ff-orb-float-1;top:40%;left:50%}
+[data-theme="dark"] .ff-orb--1{background:radial-gradient(circle, rgba(var(--ff-color-dark-rgb,96, 165, 250), .35), transparent 70%)}
+[data-theme="dark"] .ff-orb--2{background:radial-gradient(circle, rgba(var(--ff-color-dark-rgb,129, 140, 248), .25), transparent 70%)}
+[data-theme="dark"] .ff-orb--3{background:radial-gradient(circle, rgba(var(--ff-color-dark-rgb,165, 180, 252), .18), transparent 70%)}
+@keyframes ff-orb-float-1{0%,to{transform:translate(0) scale(1)}50%{transform:translate(-30px,20px) scale(1.05)}}
+@keyframes ff-orb-float-2{0%,to{transform:translate(0) scale(1)}50%{transform:translate(25px,-15px) scale(1.08)}}
+.ff-grid{background-image:radial-gradient(rgba(var(--ff-color-rgb,37, 99, 235), .07) 1px, transparent 1px);background-size:32px 32px;position:absolute;inset:0}
+[data-theme="dark"] .ff-grid{background-image:radial-gradient(rgba(var(--ff-color-dark-rgb,165, 180, 252), .06) 1px, transparent 1px)}
+.ff-drift-a{animation:ease-in-out infinite ff-drift-a}
+.ff-drift-b{animation:ease-in-out infinite ff-drift-b}
+.ff-drift-c{animation:ease-in-out infinite ff-drift-c}
+.ff-drift-d{animation:ease-in-out infinite ff-drift-d}
+.ff-drift-e{animation:ease-in-out infinite ff-drift-e}
+@keyframes ff-drift-a{0%{transform:translate(0) scale(1) rotate(0)}20%{transform:translate(80px,-60px) scale(1.15) rotate(5deg)}40%{transform:translate(-40px,-120px) scale(.85) rotate(-4deg)}60%{transform:translate(-100px,-30px) scale(1.1) rotate(3deg)}80%{transform:translate(50px,60px) scale(.9) rotate(-2deg)}to{transform:translate(0) scale(1) rotate(0)}}
+@keyframes ff-drift-b{0%{transform:translate(0) scale(1) rotate(0)}25%{transform:translate(-90px,70px) scale(.88) rotate(-5deg)}50%{transform:translate(60px,130px) scale(1.2) rotate(4deg)}75%{transform:translate(100px,-40px) scale(.85) rotate(-3deg)}to{transform:translate(0) scale(1) rotate(0)}}
+@keyframes ff-drift-c{0%{transform:translate(0) scale(1) rotate(0)}16%{transform:translate(70px,80px) scale(1.12) rotate(4deg)}33%{transform:translate(-50px,40px) scale(.86) rotate(-5deg)}50%{transform:translate(-110px,-60px) scale(1.18) rotate(2deg)}66%{transform:translate(30px,-100px) scale(.9) rotate(-3deg)}83%{transform:translate(90px,-20px) scale(1.05) rotate(4deg)}to{transform:translate(0) scale(1) rotate(0)}}
+@keyframes ff-drift-d{0%{transform:translate(0) scale(1) rotate(0)}20%{transform:translate(-70px,-90px) scale(1.1) rotate(-4deg)}40%{transform:translate(100px,-50px) scale(.88) rotate(5deg)}60%{transform:translate(40px,100px) scale(1.15) rotate(-2deg)}80%{transform:translate(-80px,50px) scale(.92) rotate(3deg)}to{transform:translate(0) scale(1) rotate(0)}}
+@keyframes ff-drift-e{0%{transform:translate(0) scale(1) rotate(0)}15%{transform:translate(60px,90px) scale(.9) rotate(5deg)}35%{transform:translate(110px,-30px) scale(1.12) rotate(-3deg)}55%{transform:translate(-30px,-110px) scale(.87) rotate(4deg)}75%{transform:translate(-100px,40px) scale(1.1) rotate(-5deg)}to{transform:translate(0) scale(1) rotate(0)}}
+.ff-lightning{opacity:0;pointer-events:none;will-change:opacity;mix-blend-mode:multiply;position:absolute;inset:0}
+[data-theme="dark"] .ff-lightning{mix-blend-mode:screen}
+.ff-lightning--a1{background:radial-gradient(ellipse 50% 50% at 5% 10%, rgba(var(--ff-color-rgb,37, 99, 235), .35), rgba(var(--ff-color-rgb,79, 70, 229), .15) 40%, transparent 70%);animation:11s linear infinite ff-flash-a}
+.ff-lightning--a2{background:radial-gradient(ellipse 50% 50% at 95% 85%, rgba(var(--ff-color-rgb,37, 99, 235), .3), rgba(var(--ff-color-rgb,99, 102, 241), .12) 40%, transparent 70%);animation:11s linear 80ms infinite ff-flash-a}
+.ff-lightning--a3{background:radial-gradient(ellipse 40% 60% at 3% 55%, rgba(var(--ff-color-rgb,79, 70, 229), .3), rgba(var(--ff-color-rgb,37, 99, 235), .12) 40%, transparent 70%);animation:11s linear .15s infinite ff-flash-a}
+[data-theme="dark"] .ff-lightning--a1{background:radial-gradient(ellipse 50% 50% at 5% 10%, rgba(var(--ff-color-dark-rgb,147, 197, 253), .9), rgba(var(--ff-color-dark-rgb,96, 165, 250), .4) 40%, transparent 70%)}
+[data-theme="dark"] .ff-lightning--a2{background:radial-gradient(ellipse 50% 50% at 95% 85%, rgba(var(--ff-color-dark-rgb,165, 180, 252), .8), rgba(var(--ff-color-dark-rgb,129, 140, 248), .35) 40%, transparent 70%)}
+[data-theme="dark"] .ff-lightning--a3{background:radial-gradient(ellipse 40% 60% at 3% 55%, rgba(var(--ff-color-dark-rgb,129, 140, 248), .8), rgba(var(--ff-color-dark-rgb,79, 70, 229), .35) 40%, transparent 70%)}
+@keyframes ff-flash-a{0%,to{opacity:0}3%{opacity:0}3.2%{opacity:1}3.5%{opacity:.15}3.8%{opacity:.95}4.3%{opacity:1}5%{opacity:.4}5.8%{opacity:0}}
+.ff-lightning--b1{background:radial-gradient(ellipse 45% 50% at 88% 8%, rgba(var(--ff-color-rgb,37, 99, 235), .35), rgba(var(--ff-color-rgb,99, 102, 241), .15) 45%, transparent 75%);animation:15s linear 4s infinite ff-flash-b}
+.ff-lightning--b2{background:radial-gradient(ellipse 55% 45% at 45% 88%, rgba(var(--ff-color-rgb,79, 70, 229), .3), rgba(var(--ff-color-rgb,37, 99, 235), .12) 40%, transparent 70%);animation:15s linear 4.1s infinite ff-flash-b}
+[data-theme="dark"] .ff-lightning--b1{background:radial-gradient(ellipse 45% 50% at 88% 8%, rgba(var(--ff-color-dark-rgb,147, 197, 253), .85), rgba(var(--ff-color-dark-rgb,96, 165, 250), .4) 45%, transparent 75%)}
+[data-theme="dark"] .ff-lightning--b2{background:radial-gradient(ellipse 55% 45% at 45% 88%, rgba(var(--ff-color-dark-rgb,165, 180, 252), .8), rgba(var(--ff-color-dark-rgb,129, 140, 248), .35) 40%, transparent 70%)}
+@keyframes ff-flash-b{0%,to{opacity:0}2%{opacity:0}2.15%{opacity:1}2.4%{opacity:.1}2.7%{opacity:1}3.2%{opacity:.85}3.8%{opacity:0}}
+.ff-lightning--c1{background:radial-gradient(ellipse 50% 55% at 8% 92%, rgba(var(--ff-color-rgb,37, 99, 235), .4), rgba(var(--ff-color-rgb,99, 102, 241), .18) 40%, transparent 70%);animation:18s linear 9s infinite ff-flash-c}
+.ff-lightning--c2{background:radial-gradient(ellipse 55% 40% at 40% 5%, rgba(var(--ff-color-rgb,79, 70, 229), .35), rgba(var(--ff-color-rgb,37, 99, 235), .15) 40%, transparent 70%);animation:18s linear 9.06s infinite ff-flash-c}
+.ff-lightning--c3{background:radial-gradient(ellipse 40% 60% at 97% 50%, rgba(var(--ff-color-rgb,99, 102, 241), .3), rgba(var(--ff-color-rgb,79, 70, 229), .12) 40%, transparent 70%);animation:18s linear 9.12s infinite ff-flash-c}
+[data-theme="dark"] .ff-lightning--c1{background:radial-gradient(ellipse 50% 55% at 8% 92%, rgba(var(--ff-color-dark-rgb,147, 197, 253), .95), rgba(var(--ff-color-dark-rgb,96, 165, 250), .45) 40%, transparent 70%)}
+[data-theme="dark"] .ff-lightning--c2{background:radial-gradient(ellipse 55% 40% at 40% 5%, rgba(var(--ff-color-dark-rgb,165, 180, 252), .85), rgba(var(--ff-color-dark-rgb,129, 140, 248), .4) 40%, transparent 70%)}
+[data-theme="dark"] .ff-lightning--c3{background:radial-gradient(ellipse 40% 60% at 97% 50%, rgba(var(--ff-color-dark-rgb,129, 140, 248), .8), rgba(var(--ff-color-dark-rgb,96, 165, 250), .35) 40%, transparent 70%)}
+@keyframes ff-flash-c{0%,to{opacity:0}4%{opacity:0}4.1%{opacity:1}4.25%{opacity:.1}4.4%{opacity:1}4.55%{opacity:.05}4.7%{opacity:.95}5.1%{opacity:1}5.6%{opacity:.5}6.2%{opacity:0}}
+.ff-lightning--nuke{background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(var(--ff-color-rgb,37, 99, 235), .5), rgba(var(--ff-color-rgb,79, 70, 229), .3) 25%, rgba(var(--ff-color-rgb,99, 102, 241), .15) 50%, transparent 75%);mix-blend-mode:multiply;will-change:transform, opacity;width:400%;height:400%;animation:50s linear 20s infinite ff-flash-nuke;position:absolute;top:-150%;left:-150%;transform:scale(.15)}
+[data-theme="dark"] .ff-lightning--nuke{background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(var(--ff-color-dark-rgb,199, 210, 254), 1), rgba(var(--ff-color-dark-rgb,147, 197, 253), .8) 25%, rgba(var(--ff-color-dark-rgb,96, 165, 250), .45) 50%, transparent 75%);mix-blend-mode:screen}
+.ff-lightning--flood{background:rgba(var(--ff-color-rgb,37, 99, 235), .95);opacity:0;will-change:opacity;animation:50s linear 20s infinite ff-flash-flood;position:absolute;inset:0}
+[data-theme="dark"] .ff-lightning--flood{background:#fffffff2}
+@keyframes ff-flash-nuke{0%,to{opacity:0;transform:scale(.15)}3%{opacity:0;transform:scale(.15)}3.2%{opacity:.4;transform:scale(.2)}3.4%{opacity:.05;transform:scale(.15)}3.6%{opacity:.5;transform:scale(.25)}3.9%{opacity:.2;transform:scale(.3)}4.2%{opacity:1;transform:scale(.45)}4.5%{opacity:.9;transform:scale(.6)}4.8%{opacity:1;transform:scale(.75)}5.5%{opacity:1;transform:scale(.9)}6.5%{opacity:1;transform:scale(1.05)}8%{opacity:1;transform:scale(1.1)}10%{opacity:1;transform:scale(1.15)}13%{opacity:1;transform:scale(1.2)}16%{opacity:.95;transform:scale(1.25)}20%{opacity:.7;transform:scale(1.25)}24%{opacity:.4;transform:scale(1.25)}28%{opacity:.15;transform:scale(1.25)}32%{opacity:0;transform:scale(1.25)}}
+@keyframes ff-flash-flood{0%{opacity:0}6%{opacity:0}7%{opacity:.1}8%{opacity:.3}9%{opacity:.55}10%{opacity:.8}11%{opacity:1}17%{opacity:1}19%{opacity:.7}21%{opacity:.4}23%{opacity:.15}25%{opacity:0}}
