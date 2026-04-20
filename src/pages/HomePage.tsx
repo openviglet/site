@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { solutions, type Solution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
-import { FloatingFormulas } from '@/components/FloatingFormulas'
+import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
 
@@ -214,7 +214,7 @@ export default function HomePage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-background pt-20 pb-24 px-6">
-        <FloatingFormulas />
+        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} />
 
         <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Copy */}

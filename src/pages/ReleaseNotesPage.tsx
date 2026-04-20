@@ -15,7 +15,7 @@ import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 import ProductBadge from '@/components/ProductBadge'
 import ProductButton from '@/components/ProductButton'
-import { FloatingFormulas } from '@/components/FloatingFormulas'
+import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import { Badge } from '@/components/ui/badge'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
@@ -121,7 +121,7 @@ export default function ReleaseNotesPage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <FloatingFormulas />
+        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
