@@ -33,7 +33,7 @@ export default function Header() {
               alt="Viglet"
               className="w-7 h-7"
             />
-            <span className="text-lg font-extrabold text-foreground tracking-tight">
+            <span className="font-brand text-lg font-extrabold text-foreground tracking-tight">
               viglet
             </span>
           </Link>

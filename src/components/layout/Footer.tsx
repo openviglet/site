@@ -26,7 +26,7 @@ export default function Footer() {
                 alt="Viglet"
                 className="w-7 h-7"
               />
-              <span className="text-xl font-extrabold text-white tracking-tight">viglet</span>
+              <span className="font-brand text-xl font-extrabold text-white tracking-tight">viglet</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs mb-6">
               Open source tools for enterprise intelligence. Built for developers, trusted by enterprises.
