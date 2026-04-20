@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-0 font-sans">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/8">
+        <div className="vg-footer-grid pb-12 border-b border-white/8">
           {/* Brand column */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4 no-underline">
