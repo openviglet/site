@@ -6,29 +6,16 @@ updates:
       interval: weekly
     open-pull-requests-limit: 10
     groups:
-      radix-ui:
+      npm-dependencies:
         patterns:
-          - "@radix-ui/*"
-      react:
-        patterns:
-          - "react"
-          - "react-dom"
-          - "@types/react"
-          - "@types/react-dom"
-      tailwind:
-        patterns:
-          - "tailwindcss"
-          - "tailwindcss-*"
-          - "autoprefixer"
-          - "postcss"
-      vite:
-        patterns:
-          - "vite"
-          - "@vitejs/*"
-          - "vite-plugin-*"
+          - "*"
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    groups:
+      github-actions:
+        patterns:
+          - "*"
