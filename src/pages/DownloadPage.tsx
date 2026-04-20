@@ -77,7 +77,7 @@ export default function DownloadPage() {
               <ProductBadge identifier={identifier} className="mb-4">
                 v{solution.release} &mdash; Stable
               </ProductBadge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 Get {solution.shortName}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-3 max-w-2xl">

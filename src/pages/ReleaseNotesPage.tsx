@@ -132,7 +132,7 @@ export default function ReleaseNotesPage() {
 
             <div className="flex-1 min-w-0 text-center md:text-left">
               <ProductBadge identifier={identifier} className="mb-4">Changelog</ProductBadge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {solution.shortName} Release Notes
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">

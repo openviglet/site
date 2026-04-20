@@ -54,7 +54,7 @@ export default function SolutionPage() {
                   v{solution.release} &mdash; Stable
                 </ProductBadge>
               )}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
+              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {solution.fullName}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
@@ -121,7 +121,7 @@ export default function SolutionPage() {
                   <IconDownload size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-foreground text-sm">Download</p>
+                  <p className="font-bold text-foreground text-base">Download</p>
                   <p className="text-xs text-muted-foreground">v{solution.release} &mdash; {solution.downloadSize}</p>
                 </div>
               </Link>
@@ -135,7 +135,7 @@ export default function SolutionPage() {
                   <IconFileDescription size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-foreground text-sm">Release Notes</p>
+                  <p className="font-bold text-foreground text-base">Release Notes</p>
                   <p className="text-xs text-muted-foreground">Changelog & updates</p>
                 </div>
               </Link>
@@ -151,7 +151,7 @@ export default function SolutionPage() {
                   <IconBook size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-foreground text-sm">Documentation</p>
+                  <p className="font-bold text-foreground text-base">Documentation</p>
                   <p className="text-xs text-muted-foreground">Guides & API reference</p>
                 </div>
               </a>

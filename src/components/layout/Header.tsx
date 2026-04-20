@@ -44,7 +44,7 @@ export default function Header() {
               <Link
                 key={sol.identifier}
                 to={sol.permalink}
-                className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-semibold text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
               >
                 <span className="relative flex w-2 h-2 shrink-0">
                   <span className={`absolute inline-flex h-full w-full rounded-full opacity-0 group-hover:opacity-75 group-hover:animate-ping product-bg-${sol.identifier}`} />

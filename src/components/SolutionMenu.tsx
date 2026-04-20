@@ -34,7 +34,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
         {/* Brand */}
         <Link
           to={base}
-          className={`flex items-center gap-2 text-foreground font-bold text-sm no-underline transition-colors shrink-0 mr-1 sm:mr-2 product-nav-link-${solution.identifier}`}
+          className={`flex items-center gap-2 text-foreground font-bold text-sm sm:text-base no-underline transition-colors shrink-0 mr-1 sm:mr-2 product-nav-link-${solution.identifier}`}
         >
           <VigletLogo identifier={solution.identifier} size={28} />
           <span className="hidden sm:inline">{solution.shortName}</span>
@@ -48,7 +48,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
               <Link
                 key={tab.to}
                 to={tab.to}
-                className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors no-underline whitespace-nowrap shrink-0 ${
+                className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-sm sm:text-base font-medium transition-colors no-underline whitespace-nowrap shrink-0 ${
                   isActive
                     ? `product-tab-active-${solution.identifier} font-semibold`
                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -68,7 +68,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
               href={solution.github}
               target="_blank"
               rel="noopener"
-              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors no-underline shrink-0"
+              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm sm:text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors no-underline shrink-0"
             >
               <GitHubIcon size={14} />
               <span className="hidden sm:inline">GitHub</span>
