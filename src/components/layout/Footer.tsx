@@ -90,6 +90,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Documentation', href: 'https://docs.viglet.org' },
+                { label: 'Blog', href: 'https://docs.viglet.org/blog' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (
