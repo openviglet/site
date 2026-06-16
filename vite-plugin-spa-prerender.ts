@@ -72,12 +72,27 @@ function injectMeta(html: string, title: string, description: string): string {
     )
 }
 
+/**
+ * The FAQPage JSON-LD (in index.html) is Turing-specific, so it belongs only
+ * on the home page — not on the Dumont/Shio/About/Partner routes. The home is
+ * dist/index.html (left untouched here); every other route is generated from
+ * rootHtml, so strip the block out of those copies.
+ */
+function stripFaqStructuredData(html: string): string {
+  return html.replace(
+    /\s*<!-- FAQPage structured data[\s\S]*?<\/script>/,
+    '',
+  )
+}
+
 export default function viteSpaPrerender(): Plugin {
   return {
     name: 'vite-plugin-spa-prerender',
     closeBundle() {
       const distDir = resolve(__dirname, 'dist')
-      const rootHtml = readFileSync(resolve(distDir, 'index.html'), 'utf-8')
+      const rootHtml = stripFaqStructuredData(
+        readFileSync(resolve(distDir, 'index.html'), 'utf-8'),
+      )
       const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
       const products = extractProducts(solutionsPath)
 
