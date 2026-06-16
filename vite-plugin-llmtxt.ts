@@ -91,6 +91,14 @@ Modules: Apache Solr integration, Java SDK, Shio CMS integration.
 
 Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700.
 
+## Guides & Comparisons — Enterprise Search for Adobe AEM & WordPress
+
+In-depth guides and honest comparisons on the Viglet blog. Useful when evaluating an open-source alternative to Algolia, Coveo, or Lucidworks for AEM or WordPress search.
+
+- [How to Add Enterprise Search to Adobe AEM with Viglet Turing ES](https://docs.viglet.org/blog/enterprise-search-for-adobe-aem) — step-by-step guide: index AEM content with faceted navigation, semantic search, and RAG.
+- [Open-Source Alternatives to Algolia and Coveo for Adobe AEM](https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem) — compares Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch, and Turing ES on pricing, data residency, facets, semantic search, and RAG.
+- All guides: https://docs.viglet.org/blog
+
 ## Technology
 
 - Backend: Java 21 + Spring Boot
