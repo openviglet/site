@@ -42,9 +42,15 @@ const productSubRoutes: { suffix: string; titleFn: (name: string) => string; des
   },
 ]
 
+/** Absolute origin this site is served from (see CNAME). Used for canonicals. */
+const SITE_ORIGIN = 'https://www.viglet.org'
+
 interface ProductMeta {
   identifier: string
   fullName: string
+  /** Dedicated product site, if any (e.g. turing.viglet.org). When set, the
+   *  product landing canonicalises there to avoid cross-domain duplication. */
+  site: string
 }
 
 function extractProducts(solutionsPath: string): ProductMeta[] {
@@ -58,7 +64,7 @@ function extractProducts(solutionsPath: string): ProductMeta[] {
     }
     const id = get('identifier')
     if (!id) continue
-    products.push({ identifier: id, fullName: get('fullName') })
+    products.push({ identifier: id, fullName: get('fullName'), site: get('site') })
   }
   return products
 }
@@ -70,6 +76,20 @@ function injectMeta(html: string, title: string, description: string): string {
       /<meta name="description" content="[^"]*" \/>/,
       `<meta name="description" content="${description}" />`,
     )
+}
+
+/**
+ * Inject a <link rel="canonical">. Routes self-canonicalise to their absolute
+ * URL on www.viglet.org; the product landing may point cross-domain to its
+ * dedicated site (e.g. /turing/ → turing.viglet.org) so search engines treat
+ * the product site as the primary version and don't split ranking signals.
+ */
+function injectCanonical(html: string, url: string): string {
+  const tag = `<link rel="canonical" href="${url}" />`
+  if (/<link rel="canonical"/.test(html)) {
+    return html.replace(/<link rel="canonical" href="[^"]*" \/>/, tag)
+  }
+  return html.replace(/<\/title>/, `</title>\n    ${tag}`)
 }
 
 /**
@@ -98,11 +118,13 @@ export default function viteSpaPrerender(): Plugin {
 
       let count = 0
 
-      // Static routes
+      // Static routes — self-canonical to their absolute URL.
       for (const route of staticRoutes) {
         const dir = resolve(distDir, route.path.replace(/^\//, ''))
         mkdirSync(dir, { recursive: true })
-        writeFileSync(resolve(dir, 'index.html'), injectMeta(rootHtml, route.title, route.description), 'utf-8')
+        let html = injectMeta(rootHtml, route.title, route.description)
+        html = injectCanonical(html, `${SITE_ORIGIN}${route.path}`)
+        writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
         count++
       }
 
@@ -114,7 +136,15 @@ export default function viteSpaPrerender(): Plugin {
           mkdirSync(dir, { recursive: true })
           const title = sub.titleFn(product.fullName)
           const desc = sub.descFn(product.fullName)
-          writeFileSync(resolve(dir, 'index.html'), injectMeta(rootHtml, title, desc), 'utf-8')
+          // The product landing (suffix "/") canonicalises to the dedicated
+          // product site when one exists; all other pages self-canonicalise.
+          const canonical =
+            sub.suffix === '/' && product.site
+              ? product.site
+              : `${SITE_ORIGIN}${routePath}`
+          let html = injectMeta(rootHtml, title, desc)
+          html = injectCanonical(html, canonical)
+          writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
           count++
         }
       }

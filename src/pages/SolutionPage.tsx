@@ -10,6 +10,7 @@ import {
   IconBrandOpenSource,
   IconFileDescription,
   IconExternalLink,
+  IconRocket,
 } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -62,8 +63,23 @@ export default function SolutionPage() {
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-                {solution.getStarted && (
+                {/* When a dedicated product site exists, it's the primary CTA —
+                    this page is a portfolio teaser that funnels there. */}
+                {solution.site && (
                   <ProductButton identifier={identifier} size="lg" asChild>
+                    <a href={solution.site} rel="noopener">
+                      <IconRocket size={18} />
+                      Explore {solution.shortName}
+                    </a>
+                  </ProductButton>
+                )}
+                {solution.getStarted && (
+                  <ProductButton
+                    identifier={identifier}
+                    productVariant={solution.site ? 'ghost' : 'primary'}
+                    size="lg"
+                    asChild
+                  >
                     <a href={solution.getStarted} target="_blank" rel="noopener">
                       <IconBook size={18} />
                       Get Started
@@ -258,10 +274,24 @@ export default function SolutionPage() {
             Free, open source, and ready to deploy. Get started in minutes.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
+            {solution.site && (
+              <a
+                href={solution.site}
+                rel="noopener"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
+              >
+                <IconRocket size={16} />
+                Explore {solution.shortName}
+              </a>
+            )}
             {solution.release && (
               <Link
                 to={`${solution.permalink}download/`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
+                className={`inline-flex items-center gap-2 px-6 py-3 font-bold rounded-xl transition-colors text-sm no-underline ${
+                  solution.site
+                    ? 'border border-white/30 text-white hover:bg-white/10'
+                    : 'bg-white text-slate-900 hover:bg-slate-100'
+                }`}
               >
                 <IconDownload size={16} />
                 Download {solution.shortName}

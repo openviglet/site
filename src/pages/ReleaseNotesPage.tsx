@@ -103,7 +103,14 @@ export default function ReleaseNotesPage() {
   useEffect(() => {
     if (!solution) return
     setStatus('loading')
-    fetch(`/static_files/json/${identifier}/changelog.json`)
+    // Single source of truth: products with a dedicated site (e.g. Turing) own
+    // their changelog in their own repo and serve it from their domain — we
+    // fetch it cross-origin (GitHub Pages sends Access-Control-Allow-Origin: *).
+    // Products without a site keep their locally curated JSON.
+    const changelogUrl = solution.site
+      ? `${solution.site}/changelog.json`
+      : `/static_files/json/${identifier}/changelog.json`
+    fetch(changelogUrl)
       .then((r) => r.json())
       .then((data: Release[]) => { setReleases(data); setStatus('done') })
       .catch(() => setStatus('error'))

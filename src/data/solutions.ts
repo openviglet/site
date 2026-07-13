@@ -28,6 +28,9 @@ export interface Solution {
   pdfGetStarted?: string
   installationSteps?: boolean
   serviceUrl?: string
+  /** Dedicated product marketing site (e.g. turing.viglet.org). When set, the
+   *  solution page funnels visitors here as the primary CTA instead of docs. */
+  site?: string
 }
 
 export const productColors: Record<string, string> = {
@@ -94,6 +97,7 @@ export const solutions: Solution[] = [
     order: 3,
     permalink: '/turing/',
     getStarted: 'https://docs.viglet.org/turing/',
+    site: 'https://turing.viglet.org',
     github: 'https://github.com/openviglet/turing-ce',
     githubOrg: 'openviglet',
     release: '2026.2.6',
