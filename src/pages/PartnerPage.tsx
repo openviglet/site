@@ -1,11 +1,20 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { IconBuildingStore, IconCode, IconUsers, IconRocket, IconCheck, IconArrowRight } from '@tabler/icons-react'
+import { IconBuildingStore, IconCode, IconUsers, IconRocket, IconCheck, IconArrowRight, IconPlus } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import PartnerCard from '@/components/PartnerCard'
+import PartnerSpotlight from '@/components/PartnerSpotlight'
+import { partners, type PartnerTier } from '@/data/partners'
+
+const GHOST_TIERS: PartnerTier[] = [
+  'Technology Partner',
+  'Solution Partner',
+  'Community Partner',
+]
 
 function CognitoPartnerForm() {
   const ref = useRef<HTMLDivElement>(null)
@@ -185,8 +194,62 @@ export default function PartnerPage() {
         </div>
       </section>
 
+      {/* ===== PARTNER DIRECTORY ===== */}
+      <section id="directory" className="py-20 px-6 bg-muted">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-4">
+            <Badge variant="brand" className="mb-4">Our partners</Badge>
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+              Meet the ecosystem
+            </h2>
+          </div>
+          <p className="text-center text-muted-foreground leading-relaxed mb-12 max-w-2xl mx-auto">
+            The companies that build, implement and support Viglet in production.
+            This is how your organization will appear here once you join the program.
+          </p>
+
+          {/* Anchor partners get a full-width spotlight so the directory never
+              looks empty with only one entry. */}
+          <div className="space-y-6 mb-8">
+            {partners
+              .filter((p) => p.featured)
+              .map((partner) => (
+                <PartnerSpotlight key={partner.name} partner={partner} />
+              ))}
+          </div>
+
+          {/* Non-featured partners + "your company here" ghost slots (one per
+              tier) — fills the grid and shows prospects exactly how they'll
+              appear. */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {partners
+              .filter((p) => !p.featured)
+              .map((partner) => (
+                <PartnerCard key={partner.name} partner={partner} />
+              ))}
+            {GHOST_TIERS.map((tier) => (
+              <a
+                key={tier}
+                href="#apply"
+                className="group flex flex-col items-center justify-center text-center rounded-2xl border-2 border-dashed border-border p-6 min-h-[240px] no-underline transition-colors hover:border-brand hover:bg-brand-bg/40"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-border text-muted-foreground mb-4 transition-colors group-hover:border-brand group-hover:text-brand">
+                  <IconPlus size={22} />
+                </span>
+                <p className="font-bold text-foreground">Your company here</p>
+                <p className="text-sm text-muted-foreground mt-1">{tier}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand">
+                  Apply
+                  <IconArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== APPLICATION FORM ===== */}
-      <section id="apply" className="py-20 px-6 bg-muted">
+      <section id="apply" className="py-20 px-6 bg-background">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
             <Badge variant="brand" className="mb-4">Apply now</Badge>

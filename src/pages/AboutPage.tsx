@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   IconBrandGithub,
   IconArrowRight,
+  IconArrowUpRight,
   IconHeart,
   IconLock,
   IconUsers,
@@ -86,6 +88,69 @@ const STACK_ITEMS = [
   { label: 'GitHub Actions', detail: 'CI/CD and release automation' },
 ]
 
+/**
+ * "Meet the founder" — puts a name and a face behind what the timeline calls a
+ * "personal project". Viglet stays the protagonist: an independent open-source
+ * project. Sumware is introduced as one of its solution partners (implementation
+ * & support), not its owner. Alexandre is Founder of Viglet and CEO of Sumware.
+ * Photo falls back to initials until the asset lands at
+ * /founder/alexandre-oliveira.jpg.
+ */
+function FounderSection() {
+  const [photoOk, setPhotoOk] = useState(true)
+
+  return (
+    <section className="py-20 px-6 bg-background border-t border-border">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 md:gap-12 items-start">
+        <div className="flex flex-col items-center md:items-start">
+          {photoOk ? (
+            <img
+              src="/founder/alexandre-oliveira.jpg"
+              alt="Alexandre Oliveira"
+              className="w-40 h-40 rounded-2xl object-cover border border-border shadow-hover"
+              onError={() => setPhotoOk(false)}
+            />
+          ) : (
+            <span className="flex w-40 h-40 items-center justify-center rounded-2xl bg-brand text-white font-extrabold text-4xl border border-border">
+              AO
+            </span>
+          )}
+        </div>
+
+        <div>
+          <Badge variant="brand" className="mb-4">Meet the founder</Badge>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2">
+            Alexandre Oliveira
+          </h2>
+          <p className="text-sm font-semibold text-brand mb-6">
+            Founder of Viglet · CEO of Sumware
+          </p>
+          <blockquote className="text-lg text-muted-foreground leading-relaxed mb-4">
+            “I started Viglet to give any team enterprise-grade search and content
+            tooling without vendor lock-in — fully open source, yours to own and
+            run on your own infrastructure.”
+          </blockquote>
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            Viglet is an independent open-source project.{' '}
+            <strong className="text-foreground">Sumware</strong>, my consultancy,
+            is one of its solution partners — helping teams that want
+            implementation, custom development or an SLA adopt Viglet in production.
+          </p>
+          <a
+            href="https://sumware.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-bg text-brand font-semibold text-sm hover:bg-brand hover:text-white transition-colors"
+          >
+            Visit Sumware
+            <IconArrowUpRight size={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-muted flex flex-col">
@@ -155,6 +220,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ===== COMPANY BEHIND VIGLET (founder) ===== */}
+      <FounderSection />
 
       {/* ===== PRODUCTS ===== */}
       <section className="py-20 px-6 bg-background">
