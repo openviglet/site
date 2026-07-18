@@ -16,14 +16,13 @@ export interface Solution {
   description: string
 
   downloadMessage?: string
-  downloadSize?: string
-  downloadUrl?: string
   shortRelease?: string
-  runJar?: string
+  /** Docker image on the GitHub Container Registry, e.g. `ghcr.io/openviglet/turing-ce`.
+   *  Products are distributed exclusively as containers — no JAR downloads. */
+  dockerImage?: string
   runPort?: number
   appLogin?: string
   appPassword?: string
-  fileType?: string
   youtubePlaylistId?: string
   pdfGetStarted?: string
   installationSteps?: boolean
@@ -56,12 +55,9 @@ export const solutions: Solution[] = [
     memo:'Flow',
     fullName: 'Viglet Dumont DEP',
     description: 'The Data Extraction Platform. Giving your data flight, from source to destination.',
-    downloadMessage: 'Download Dumont DEP and explore your flight plan.',
-    downloadSize: '145 MB',
-    downloadUrl: 'https://github.com/openviglet/dumont-ce/releases/download/v2026.2.16/dumont-connector.jar',
-    runJar: 'dumont-connector.jar',
+    downloadMessage: 'Run Dumont DEP with Docker and explore your flight plan.',
+    dockerImage: 'ghcr.io/openviglet/dumont-ce',
     runPort: 30130,
-    fileType: '.jar',
     installationSteps: true,
   },
   {
@@ -80,14 +76,11 @@ export const solutions: Solution[] = [
     fullName: 'Viglet Shio CMS',
     description: 'Model Content, Use GraphQL and Create Site using Javascript with Native Cache and Search.',
     memo: 'Content',
-    downloadMessage: 'Download Shio CMS and create your site.',
-    downloadSize: '179 MB',
-    downloadUrl: 'https://github.com/openviglet/shio-ce/releases/download/v0.3.8/viglet-shio.jar',
-    runJar: 'viglet-shio.jar',
+    downloadMessage: 'Run Shio CMS with Docker and create your site.',
+    dockerImage: 'ghcr.io/openviglet/shio-ce',
     runPort: 2710,
     appLogin: 'admin',
     appPassword: 'admin',
-    fileType: '.jar',
     installationSteps: true,
   },
   {
@@ -107,12 +100,9 @@ export const solutions: Solution[] = [
     fullName: 'Viglet Turing ES',
     description: 'Enterprise Search, Semantic Navigation, Chatbot using Search Engine and Generative AI.',
     memo: 'Intelligence',
-    downloadMessage: 'Download Turing ES and add more value to your content.',
-    downloadSize: '309 MB',
-    downloadUrl: 'https://github.com/openviglet/turing-ce/releases/download/v2026.2.6/viglet-turing.jar',
-    runJar: 'viglet-turing.jar',
+    downloadMessage: 'Run Turing ES with Docker and add more value to your content.',
+    dockerImage: 'ghcr.io/openviglet/turing-ce',
     runPort: 2700,
-    fileType: '.jar',
     installationSteps: true,
   },
 ]

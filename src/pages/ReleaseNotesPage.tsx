@@ -1,12 +1,10 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {
-  IconDownload,
+  IconBrandDocker,
   IconArrowRight,
-  IconBrandGithub,
   IconCalendar,
   IconTag,
-  IconExternalLink,
 } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -150,17 +148,9 @@ export default function ReleaseNotesPage() {
                 {solution.release && (
                   <ProductButton identifier={identifier} size="lg" asChild>
                     <Link to={`${solution.permalink}download/`}>
-                      <IconDownload size={18} />
-                      Download {solution.release}
+                      <IconBrandDocker size={18} />
+                      Run with Docker
                     </Link>
-                  </ProductButton>
-                )}
-                {solution.github && (
-                  <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
-                    <a href={`${solution.github}/releases`} target="_blank" rel="noopener">
-                      <IconBrandGithub size={18} />
-                      GitHub Releases
-                    </a>
                   </ProductButton>
                 )}
               </div>
@@ -240,17 +230,9 @@ export default function ReleaseNotesPage() {
           )}
           {status === 'error' && (
             <div className="text-center py-20">
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground">
                 An error occurred while fetching release notes.
               </p>
-              {solution.github && (
-                <ProductButton identifier={identifier} size="sm" asChild>
-                  <a href={`${solution.github}/releases`} target="_blank" rel="noopener">
-                    <IconBrandGithub size={14} />
-                    View on GitHub
-                  </a>
-                </ProductButton>
-              )}
             </div>
           )}
           {status === 'done' && (
@@ -280,17 +262,6 @@ export default function ReleaseNotesPage() {
                             {formatDate(release.pub_date)}
                           </span>
                         )}
-                        {solution.github && (
-                          <a
-                            href={`${solution.github}/releases/tag/v${release.version}`}
-                            target="_blank"
-                            rel="noopener"
-                            className="text-muted-foreground hover:text-foreground transition-colors no-underline ml-auto"
-                            title="View on GitHub"
-                          >
-                            <IconExternalLink size={14} />
-                          </a>
-                        )}
                       </div>
                       {/* items */}
                       <ul className="relative z-10 pl-14 space-y-2.5 pb-2">
@@ -315,7 +286,7 @@ export default function ReleaseNotesPage() {
             Try the latest version
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            {solution.shortName} v{solution.release} is available now. Download and get started in minutes.
+            {solution.shortName} v{solution.release} is available now. Pull the image and get started in minutes.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             {solution.release && (
@@ -323,8 +294,8 @@ export default function ReleaseNotesPage() {
                 to={`${solution.permalink}download/`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
               >
-                <IconDownload size={16} />
-                Download {solution.shortName}
+                <IconBrandDocker size={16} />
+                Run {solution.shortName} with Docker
               </Link>
             )}
             {solution.getStarted && (

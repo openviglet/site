@@ -1,20 +1,17 @@
 import { useParams, Navigate } from 'react-router-dom'
 import {
-  IconDownload,
   IconSettings,
-  IconBrandGithub,
   IconBook,
   IconTerminal2,
   IconWorld,
   IconLock,
   IconBrandDocker,
-  IconFileZip,
   IconCheck,
   IconArrowRight,
-  IconBrandWindows,
-  IconCoffee,
   IconScale,
   IconCopy,
+  IconPackage,
+  IconDownload,
 } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -32,14 +29,14 @@ import { useState } from 'react'
 function CopyableCommand({ command }: Readonly<{ command: string }>) {
   const [copied, setCopied] = useState(false)
   return (
-    <div className="bg-slate-900 rounded-xl px-4 py-3 flex items-center justify-between gap-3 group">
-      <code className="text-sky-300 text-sm font-mono whitespace-nowrap overflow-x-auto">
-        {command}
+    <div className="bg-slate-900 rounded-xl px-4 py-3 flex items-start justify-between gap-3 group">
+      <code className="text-sky-300 text-sm font-mono whitespace-pre-wrap break-words leading-relaxed min-w-0">
+        <span className="text-slate-500 select-none">$ </span>{command}
       </code>
       <button
         type="button"
         onClick={() => { navigator.clipboard.writeText(command); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
-        className="text-muted-foreground hover:text-white transition-colors shrink-0"
+        className="text-muted-foreground hover:text-white transition-colors shrink-0 mt-0.5"
         aria-label="Copy command"
       >
         {copied ? <IconCheck size={16} className="text-green-400" /> : <IconCopy size={16} />}
@@ -56,6 +53,21 @@ export default function DownloadPage() {
 
   const dlModules = getDownloadModulesBySolution(identifier)
   const solutionFeatures = getFeaturesBySolution(identifier)
+
+  // Products are distributed exclusively as Docker images on the GitHub
+  // Container Registry (ghcr.io). Everything below is derived from `dockerImage`.
+  const image = solution.dockerImage
+  // Tag is omitted — Docker defaults to `:latest`, and this keeps the shown
+  // commands consistent with the bare image name in the info bar below.
+  const port = solution.runPort
+  const pullCmd = image ? `docker pull ${image}` : ''
+  const runCmd = image && port
+    ? `docker run -d -p ${port}:${port} --name ${identifier} ${image}`
+    : ''
+  // GHCR container package page (org-level packages URL).
+  const packagesUrl = solution.githubOrg
+    ? `https://github.com/orgs/${solution.githubOrg}/packages/container/package/${identifier}-ce`
+    : undefined
 
   return (
     <div className="min-h-screen bg-muted flex flex-col">
@@ -78,48 +90,47 @@ export default function DownloadPage() {
                 v{solution.release} &mdash; Stable
               </ProductBadge>
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
-                Get {solution.shortName}
+                Run {solution.shortName}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-3 max-w-2xl">
                 {solution.description}
               </p>
               {solution.downloadMessage && (
-                <p className="text-base text-muted-foreground mb-8 max-w-2xl">{solution.downloadMessage}</p>
+                <p className="text-base text-muted-foreground mb-6 max-w-2xl">{solution.downloadMessage}</p>
               )}
 
-              {solution.downloadUrl && solution.release && (
-                <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-                  <ProductButton identifier={identifier} size="lg" asChild>
-                    <a href={solution.downloadUrl} target="_blank" rel="noopener">
-                      <IconDownload size={18} />
-                      Download {solution.release}
-                    </a>
-                  </ProductButton>
-                  {solution.github && (
-                    <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
-                      <a href={`${solution.github}/releases`} target="_blank" rel="noopener">
-                        <IconBrandGithub size={18} />
-                        View on GitHub
-                      </a>
-                    </ProductButton>
-                  )}
+              {/* One command to run it — no download, no install. */}
+              {runCmd && (
+                <div className="max-w-2xl mb-6">
+                  <CopyableCommand command={runCmd} />
                 </div>
               )}
 
-              {/* File info bar */}
-              {solution.downloadUrl && (
+              <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
+                {packagesUrl && (
+                  <ProductButton identifier={identifier} size="lg" asChild>
+                    <a href={packagesUrl} target="_blank" rel="noopener">
+                      <IconPackage size={18} />
+                      View on GHCR
+                    </a>
+                  </ProductButton>
+                )}
+              </div>
+
+              {/* Info bar */}
+              {image && (
                 <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
                   <span className="flex items-center gap-1.5">
-                    <IconFileZip size={14} />
-                    {solution.fileType} &mdash; {solution.downloadSize}
+                    <IconBrandDocker size={14} />
+                    {image}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <IconScale size={14} />
                     Apache 2.0 License
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <IconCoffee size={14} />
-                    Java 21+
+                    <IconCheck size={14} />
+                    No install &mdash; runtime bundled
                   </span>
                 </div>
               )}
@@ -128,17 +139,23 @@ export default function DownloadPage() {
         </div>
       </section>
 
-      {/* ===== SYSTEM REQUIREMENTS ===== */}
+      {/* ===== PREREQUISITES ===== */}
       <section className="py-14 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="text-center mb-10">
+            <ProductBadge identifier={identifier} className="mb-4">Prerequisites</ProductBadge>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
+              The only requirement is Docker
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-5">
             <div className="flex items-start gap-3">
               <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 product-bg-${identifier} text-white`}>
-                <IconCoffee size={18} />
+                <IconBrandDocker size={18} />
               </span>
               <div>
-                <p className="font-bold text-foreground text-sm">Java 21+</p>
-                <p className="text-xs text-muted-foreground">OpenJDK or Oracle JDK</p>
+                <p className="font-bold text-foreground text-sm">Docker</p>
+                <p className="text-xs text-muted-foreground">Docker Engine 20+ or Docker Desktop</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -146,26 +163,17 @@ export default function DownloadPage() {
                 <IconTerminal2 size={18} />
               </span>
               <div>
-                <p className="font-bold text-foreground text-sm">Linux</p>
-                <p className="text-xs text-muted-foreground">Ubuntu, CentOS, Debian</p>
+                <p className="font-bold text-foreground text-sm">Any OS</p>
+                <p className="text-xs text-muted-foreground">Linux, Windows &amp; macOS</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 product-bg-${identifier} text-white`}>
-                <IconBrandWindows size={18} />
+                <IconWorld size={18} />
               </span>
               <div>
-                <p className="font-bold text-foreground text-sm">Windows</p>
-                <p className="text-xs text-muted-foreground">Windows 10+ / Server 2019+</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 product-bg-${identifier} text-white`}>
-                <IconBrandDocker size={18} />
-              </span>
-              <div>
-                <p className="font-bold text-foreground text-sm">Docker</p>
-                <p className="text-xs text-muted-foreground">Container-ready deployment</p>
+                <p className="font-bold text-foreground text-sm">One free port</p>
+                <p className="text-xs text-muted-foreground">Port {port} available on the host</p>
               </div>
             </div>
           </div>
@@ -173,7 +181,7 @@ export default function DownloadPage() {
       </section>
 
       {/* ===== GETTING STARTED STEPS ===== */}
-      {solution.installationSteps && (
+      {solution.installationSteps && image && (
         <section className="py-20 px-6 bg-muted">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -182,33 +190,26 @@ export default function DownloadPage() {
                 Up and running in minutes
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Three simple steps to get {solution.shortName} running on your machine.
+                Three simple steps to get {solution.shortName} running with Docker.
               </p>
             </div>
 
             {/* Steps */}
             <div className="space-y-6">
-              {/* Step 1: Download */}
+              {/* Step 1: Pull */}
               <Card>
                 <CardContent className="p-5 sm:p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>1</div>
                     <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
-                      <IconDownload size={18} className={`product-text-${identifier}`} />
-                      Download the JAR
+                      <IconBrandDocker size={18} className={`product-text-${identifier}`} />
+                      Pull the image
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Download the latest release of {solution.shortName}. The application is packaged as a single executable JAR file — no installation required.
+                    Pull the latest {solution.shortName} image from the GitHub Container Registry. The container ships with everything bundled — no Java, no manual setup.
                   </p>
-                  {solution.downloadUrl && (
-                    <ProductButton identifier={identifier} size="sm" asChild>
-                      <a href={solution.downloadUrl} target="_blank" rel="noopener" className="truncate">
-                        <IconDownload size={14} className="shrink-0" />
-                        <span className="truncate">Download ({solution.downloadSize})</span>
-                      </a>
-                    </ProductButton>
-                  )}
+                  <CopyableCommand command={pullCmd} />
                 </CardContent>
               </Card>
 
@@ -219,24 +220,24 @@ export default function DownloadPage() {
                     <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-white font-extrabold text-sm sm:text-base product-bg-${identifier} shrink-0 shadow-lg`}>2</div>
                     <h3 className="text-base sm:text-lg font-bold text-foreground flex items-center gap-2">
                       <IconTerminal2 size={18} className={`product-text-${identifier}`} />
-                      Run from terminal
+                      Run the container
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Open your terminal, navigate to the download folder, and execute:
+                    Start {solution.shortName} in the background, mapping the container port to your host:
                   </p>
-                  <CopyableCommand command={`java -jar ${solution.runJar}`} />
+                  <CopyableCommand command={runCmd} />
                   <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
                     <span className="flex items-center gap-1.5 text-muted-foreground">
                       <IconWorld size={14} className={`product-text-${identifier}`} />
                       Open{' '}
                       <a
-                        href={`http://localhost:${solution.runPort}`}
+                        href={`http://localhost:${port}`}
                         target="_blank"
                         rel="noopener"
                         className={`product-text-${identifier} hover:underline font-medium`}
                       >
-                        localhost:{solution.runPort}
+                        localhost:{port}
                       </a>
                     </span>
                     {solution.appLogin && (
@@ -260,7 +261,7 @@ export default function DownloadPage() {
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Dive into the official documentation to discover all {solution.shortName} features, configuration options, and best practices.
+                    Dive into the official documentation to discover all {solution.shortName} features, environment variables, and production deployment with Docker Compose.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {solution.getStarted && (
@@ -268,14 +269,6 @@ export default function DownloadPage() {
                         <a href={solution.getStarted} target="_blank" rel="noopener">
                           <IconBook size={14} />
                           Read the Docs
-                        </a>
-                      </ProductButton>
-                    )}
-                    {solution.github && (
-                      <ProductButton identifier={identifier} productVariant="ghost" size="sm" asChild>
-                        <a href={solution.github} target="_blank" rel="noopener">
-                          <IconBrandGithub size={14} />
-                          Source Code
                         </a>
                       </ProductButton>
                     )}
@@ -332,7 +325,7 @@ export default function DownloadPage() {
                 Connect to your ecosystem
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Extend {solution.shortName} with ready-to-use integration modules.
+                {solution.shortName} ships with ready-to-use integration modules, all bundled in the image.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -384,18 +377,23 @@ export default function DownloadPage() {
             Ready to get started?
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            {solution.shortName} is open source and free to use. Join the community and start building today.
+            {solution.shortName} is open source and free to use. Pull the image and start building today.
           </p>
+          {runCmd && (
+            <div className="max-w-xl mx-auto mb-8 text-left">
+              <CopyableCommand command={runCmd} />
+            </div>
+          )}
           <div className="flex flex-wrap gap-3 justify-center">
-            {solution.downloadUrl && (
+            {packagesUrl && (
               <a
-                href={solution.downloadUrl}
+                href={packagesUrl}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
               >
-                <IconDownload size={16} />
-                Download {solution.shortName}
+                <IconPackage size={16} />
+                View on GHCR
               </a>
             )}
             {solution.getStarted && (

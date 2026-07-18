@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import {
-  IconDownload,
+  IconBrandDocker,
   IconSettings,
   IconBrandGithub,
   IconBook,
@@ -89,8 +89,8 @@ export default function SolutionPage() {
                 {solution.release && (
                   <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
                     <Link to={`${solution.permalink}download/`}>
-                      <IconDownload size={18} />
-                      Download {solution.release}
+                      <IconBrandDocker size={18} />
+                      Run with Docker
                     </Link>
                   </ProductButton>
                 )}
@@ -106,18 +106,16 @@ export default function SolutionPage() {
                   <IconScale size={14} />
                   Apache 2.0
                 </span>
-                {solution.github && (
-                  <a
-                    href={solution.github}
-                    target="_blank"
-                    rel="noopener"
-                    className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors no-underline"
-                  >
-                    <IconBrandGithub size={14} />
-                    GitHub
-                    <IconExternalLink size={12} />
-                  </a>
-                )}
+                <a
+                  href="https://github.com/openviglet"
+                  target="_blank"
+                  rel="noopener"
+                  className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors no-underline"
+                >
+                  <IconBrandGithub size={14} />
+                  GitHub
+                  <IconExternalLink size={12} />
+                </a>
               </div>
             </div>
           </div>
@@ -134,11 +132,11 @@ export default function SolutionPage() {
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
-                  <IconDownload size={18} />
+                  <IconBrandDocker size={18} />
                 </span>
                 <div>
-                  <p className="font-bold text-foreground text-base">Download</p>
-                  <p className="text-xs text-muted-foreground">v{solution.release} &mdash; {solution.downloadSize}</p>
+                  <p className="font-bold text-foreground text-base">Run with Docker</p>
+                  <p className="text-xs text-muted-foreground">v{solution.release} &mdash; ghcr.io image</p>
                 </div>
               </Link>
             )}
@@ -293,8 +291,8 @@ export default function SolutionPage() {
                     : 'bg-white text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                <IconDownload size={16} />
-                Download {solution.shortName}
+                <IconBrandDocker size={16} />
+                Run {solution.shortName} with Docker
               </Link>
             )}
             {solution.getStarted && (

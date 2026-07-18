@@ -22,7 +22,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
     { label: 'Overview', to: base },
     ...(solution.release
       ? [
-          { label: 'Download', to: `${base}download/` },
+          { label: 'Get Started', to: `${base}download/` },
           { label: 'Release Notes', to: `${base}release-notes/` },
         ]
       : []),
@@ -60,21 +60,17 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           })}
         </div>
 
-        {/* GitHub link */}
-        {solution.github && (
-          <>
-            <div className="w-px h-5 bg-border shrink-0 hidden sm:block" />
-            <a
-              href={solution.github}
-              target="_blank"
-              rel="noopener"
-              className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm sm:text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors no-underline shrink-0"
-            >
-              <GitHubIcon size={14} />
-              <span className="hidden sm:inline">GitHub</span>
-            </a>
-          </>
-        )}
+        {/* GitHub link — org only (product repos are not linked directly) */}
+        <div className="w-px h-5 bg-border shrink-0 hidden sm:block" />
+        <a
+          href="https://github.com/openviglet"
+          target="_blank"
+          rel="noopener"
+          className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm sm:text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors no-underline shrink-0"
+        >
+          <GitHubIcon size={14} />
+          <span className="hidden sm:inline">GitHub</span>
+        </a>
       </div>
     </nav>
   )
