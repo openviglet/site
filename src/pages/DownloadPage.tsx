@@ -9,7 +9,6 @@ import {
   IconCheck,
   IconArrowRight,
   IconScale,
-  IconCopy,
   IconPackage,
   IconDownload,
 } from '@tabler/icons-react'
@@ -24,26 +23,7 @@ import ProductButton from '@/components/ProductButton'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import { getDownloadModulesBySolution } from '@/data/modules'
 import { getFeaturesBySolution } from '@/data/features'
-import { useState } from 'react'
-
-function CopyableCommand({ command }: Readonly<{ command: string }>) {
-  const [copied, setCopied] = useState(false)
-  return (
-    <div className="bg-slate-900 rounded-xl px-4 py-3 flex items-start justify-between gap-3 group">
-      <code className="text-sky-300 text-sm font-mono whitespace-pre-wrap break-words leading-relaxed min-w-0">
-        <span className="text-slate-500 select-none">$ </span>{command}
-      </code>
-      <button
-        type="button"
-        onClick={() => { navigator.clipboard.writeText(command); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
-        className="text-muted-foreground hover:text-white transition-colors shrink-0 mt-0.5"
-        aria-label="Copy command"
-      >
-        {copied ? <IconCheck size={16} className="text-green-400" /> : <IconCopy size={16} />}
-      </button>
-    </div>
-  )
-}
+import { CommandBlock } from '@/components/Terminal'
 
 export default function DownloadPage() {
   const { identifier = '' } = useParams<{ identifier: string }>()
@@ -102,7 +82,7 @@ export default function DownloadPage() {
               {/* One command to run it — no download, no install. */}
               {runCmd && (
                 <div className="max-w-2xl mb-6">
-                  <CopyableCommand command={runCmd} />
+                  <CommandBlock command={runCmd} />
                 </div>
               )}
 
@@ -209,7 +189,7 @@ export default function DownloadPage() {
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Pull the latest {solution.shortName} image from the GitHub Container Registry. The container ships with everything bundled — no Java, no manual setup.
                   </p>
-                  <CopyableCommand command={pullCmd} />
+                  <CommandBlock command={pullCmd} />
                 </CardContent>
               </Card>
 
@@ -226,7 +206,7 @@ export default function DownloadPage() {
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Start {solution.shortName} in the background, mapping the container port to your host:
                   </p>
-                  <CopyableCommand command={runCmd} />
+                  <CommandBlock command={runCmd} />
                   <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
                     <span className="flex items-center gap-1.5 text-muted-foreground">
                       <IconWorld size={14} className={`product-text-${identifier}`} />
@@ -381,7 +361,7 @@ export default function DownloadPage() {
           </p>
           {runCmd && (
             <div className="max-w-xl mx-auto mb-8 text-left">
-              <CopyableCommand command={runCmd} />
+              <CommandBlock command={runCmd} />
             </div>
           )}
           <div className="flex flex-wrap gap-3 justify-center">

@@ -30,7 +30,6 @@
 ## Block A — Showcase & proof ("Built with Viglet")
 
 - 📋 **W1** (deps: —) **Cursarei case-study page** `/showcase/cursarei` — what it does (~6.9k courses, 100+ institutions), the problem it solves, and how each Viglet product powers a layer. The single strongest conversion asset: a buyer *sees* the stack working. → §II.1
-- 📋 **W2** (deps: W1) **"Built with Viglet" architecture diagram** — Dumont (crawl 100+ sources) → Turing (lexical + semantic + NL-filter search & RAG) → Shio (editorial content). Reusable SVG/React component for any showcase. → §II.2
 - 💭 **W3** (deps: W1) **Showcase index** `/showcase` — gallery of reference deployments (cursarei first), each card linking to a live demo + case study. Seeds a "logos" trust bar on the home page. → §II.3
 - 💭 **W4** (deps: W1) **Live-demo CTA** — prominent "try it live" link to the running cursarei (and any future hosted demo) from the home hero and the Turing solution page. → §II.4
 
@@ -78,30 +77,6 @@
 - 💭 **W17** (deps: —) **Migrate SPA → Next.js (App Router, SSG-first)** — port the 6 pages ([App.tsx](../src/App.tsx) routes) to the App Router, keep `@viglet/viglet-design-system` + Tailwind v4 + i18next, and reproduce the three Vite plugins' output (`llms.txt`, sitemap, prerendered HTML) via Next equivalents (`app/llms.txt/route.ts`, `sitemap.ts`, static export/SSG). No visual/SEO regression is the bar. → §VIII.1
 - 💭 **W18** (deps: W17) **Deploy on Viglet Cloud as a site** — Dockerfile + Cloud wiring mirroring cursarei's deployment in the `viglet/cloud` repo; viglet.org becomes a managed Cloud site (proves the Cloud platform on our own marketing surface). → §VIII.2
 - 💭 **W19** (deps: W17) **Native AI API routes** — once on Next.js server, implement W5–W7 backends as App Router API routes (copilot, semantic search, NL match) with content-keyed cache + daily budget + deterministic fallback, following cursarei's `llmRuntime` pattern. Supersedes the "external Turing call" approach in Block B once shipped. → §VIII.3
-
-## Block H — Conversion narrative & product essence (port turing.viglet.org craft)
-
-> **Origin (2026-07-19):** seeded by analysing **turing.viglet.org**
-> (`turing/2026.1/frontend/apps/site`) — a React 19 + Vite 8 + Tailwind v4 site
-> (same stack as this repo, no Next, no animation lib) that captures the *essence*
-> of one product. viglet.org is the institutional site for **all** products, but
-> is still just hero + product cards + community. This block ports turing.viglet's
-> conversion craft to the multi-product story **without new runtime deps**: a
-> data-driven content model, an outcome-led narrative, per-product essence, dev
-> terminals, a stack pill-wall, FAQ+JSON-LD, and per-route OG images. The live
-> interactive demo (the "wow") is gated last because it needs a corpus/SDK or a
-> scripted fallback. Grounding rule still binds: no invented metrics (§ non-goals).
-> Design → IMPROVEMENTS §IX.
-
-- 📋 **W20** (deps: —) **Narrative content model** — a typed `src/data/narrative.ts` (`outcomes`, `pillars`, `faq`, `providers`) so the new sections are `map()` over data, copy separated from layout (mirrors turing's `site-content.ts`). Foundation for W21–W26. → §IX.1
-- 📋 **W21** (deps: W20, W2) **Home → conversion narrative** — restructure the home from (hero · trust · products · community) to *hook → see → outcomes → how the three connect → proof → compare → convert*: add an outcome-led section (W22), a "how Dumont → Turing → Shio connect" band (consumes the W2 pipeline diagram), a comparison teaser linking the W9 table, and a stronger closing CTA. → §IX.2
-- 📋 **W22** (deps: W20) **Outcome-led section** ("what changes for you") — a results-first copy layer around the product cards with self-justifying subheads, replacing feature-listing with concrete outcomes. Grounded facts only. → §IX.3
-- 💭 **W23** (deps: —) **Reusable terminal component** — promote DownloadPage's `CopyableCommand` into a macOS-style faux terminal (`src/components/Terminal.tsx`, traffic-lights, colored prompt/flag/comment), reused on home + solution + download for dev credibility. → §IX.4
-- 💭 **W24** (deps: W20) **Per-product "essence" on SolutionPage** — data-driven pillars + outcomes per product so each product page tells its story (as turing.viglet does for one), not just a feature grid. → §IX.5
-- 💭 **W25** (deps: W20) **"Works with your stack" pill wall** — a providers/tech grid (AEM, WordPress, Solr, Elastic, LLMs) derived from [modules.ts](../src/data/modules.ts) / [features.ts](../src/data/features.ts); objective, deep-links into the docs guides (bidirectional with W15). → §IX.6
-- 💭 **W26** (deps: W20) **Home FAQ + FAQPage JSON-LD** — honest, objection-pre-empting Q&A; extends the FAQPage JSON-LD already shipped (see CHANGELOG). → §IX.7
-- 💭 **W27** (deps: —) **Per-route OG social images** — build-time SVG→PNG OG image per route in the prerender pipeline (turing's `og-image.mjs` pattern). Build-time only — **no server** (per-page canonical/meta already exist; respects Block G non-goal). → §IX.8
-- 💭 **W28** (deps: W21) **Interactive/scripted product demo in the hero** — embed a live-or-scripted demo widget so the product *is* the hero visual (turing's strongest pattern). A deterministic scripted fallback keeps it dependency-light and always-working; supersede with a real Turing-backed demo once Block B lands. Relates to W4 (live-demo CTA). → §IX.9
 
 ## Block I — Viglet Cloud (beta) surface
 

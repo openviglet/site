@@ -20,9 +20,11 @@ import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 import ProductBadge from '@/components/ProductBadge'
 import ProductButton from '@/components/ProductButton'
+import Terminal from '@/components/Terminal'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import { getFeaturesBySolution } from '@/data/features'
 import { getModulesBySolution } from '@/data/modules'
+import { getEssence } from '@/data/narrative'
 
 export default function SolutionPage() {
   const { identifier = '' } = useParams<{ identifier: string }>()
@@ -32,6 +34,17 @@ export default function SolutionPage() {
 
   const features = getFeaturesBySolution(identifier)
   const modules = getModulesBySolution(identifier)
+  const essence = getEssence(identifier)
+
+  // Reusable terminal (W23): the one-command quick start for this product.
+  const image = solution.dockerImage
+  const port = solution.runPort
+  const terminalLines = image && port
+    ? [
+        { cmd: `docker pull ${image}`, comment: 'get the image' },
+        { cmd: `docker run -d -p ${port}:${port} --name ${identifier} ${image}`, comment: `then open localhost:${port}` },
+      ]
+    : []
 
   return (
     <div className="min-h-screen bg-muted flex flex-col">
@@ -59,7 +72,7 @@ export default function SolutionPage() {
                 {solution.fullName}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                {solution.description}
+                {essence?.tagline ?? solution.description}
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
@@ -174,9 +187,51 @@ export default function SolutionPage() {
         </div>
       </section>
 
+      {/* ===== ESSENCE — per-product pillars (W24) ===== */}
+      {essence && (
+        <section className="py-20 px-6 bg-muted border-t border-border">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <ProductBadge identifier={identifier} className="mb-4">What it does</ProductBadge>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
+                {solution.shortName}, in {essence.pillars.length} moves
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+                The capabilities that define {solution.shortName} — not just a list of features.
+              </p>
+            </div>
+
+            <div className={`grid gap-5 ${essence.pillars.length >= 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
+              {essence.pillars.map((pillar) => (
+                <div
+                  key={pillar.step}
+                  className={`flex flex-col bg-card border border-border rounded-2xl p-6 hover:-translate-y-0.5 transition-all product-card-${identifier}`}
+                >
+                  <span className={`w-11 h-11 rounded-2xl flex items-center justify-center text-white shadow-md mb-4 product-bg-${identifier}`}>
+                    <pillar.icon size={20} />
+                  </span>
+                  <span className={`text-xs font-bold uppercase tracking-wider mb-1 product-text-${identifier}`}>
+                    {pillar.step}
+                  </span>
+                  <h3 className="font-bold text-foreground mb-1.5">{pillar.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{pillar.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Reusable terminal (W23): one-command quick start */}
+            {terminalLines.length > 0 && (
+              <div className="max-w-2xl mx-auto mt-12">
+                <Terminal title={`bash — ${identifier}`} lines={terminalLines} />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* ===== FEATURES ===== */}
       {features.length > 0 && (
-        <section className="py-20 px-6 bg-muted">
+        <section className="py-20 px-6 bg-background border-t border-border">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Features</ProductBadge>
@@ -211,7 +266,7 @@ export default function SolutionPage() {
 
       {/* ===== INTEGRATION MODULES ===== */}
       {modules.length > 0 && (
-        <section className="py-20 px-6 bg-background">
+        <section className="py-20 px-6 bg-muted border-t border-border">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={identifier} className="mb-4">Integration</ProductBadge>

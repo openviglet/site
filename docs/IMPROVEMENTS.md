@@ -59,14 +59,6 @@ each Viglet product powers a layer** (links to II.2 diagram) → live-demo CTA �
 entry so future case studies reuse the same page component. Grounding: only
 facts observable from the running app — no invented metrics.
 
-### II.2 W2 — "Built with Viglet" architecture diagram
-
-A reusable React/SVG component rendering the pipeline **Dumont → Turing → Shio**
-with one-line captions per stage. Lives in `src/components/` (design-system
-tokens, no inline colors per the DS convention). Consumed by W1 and any future
-showcase. It is the asset that converts "three product pages" into "one coherent
-platform story."
-
 ### II.3 W3 — Showcase index
 
 `/showcase` gallery; each card = {logo, one-liner, live-demo link, case-study
@@ -234,102 +226,6 @@ supersedes the external-endpoint approach in Block B once shipped — update tho
 tasks' notes when it lands.
 
 ---
-
-## IX. Block H — Conversion narrative & product essence
-
-> **Source:** teardown of **turing.viglet.org** (`turing/2026.1/frontend/apps/site`)
-> — same stack as this repo (React 19 + Vite 8 + Tailwind v4, **no Next, no
-> animation library**), so every *structural* pattern below ports with **zero new
-> runtime deps**. turing.viglet sells one product's essence with a
-> hook→see→outcomes→how→proof→compare→convert flow, a data-driven content model
-> (`src/lib/site-content.ts`), dev terminals, an honest comparison + FAQ, and
-> per-route OG images. viglet.org is the *portfolio* site (all products) but stops
-> at hero + product cards + community. This block ports the craft to the
-> multi-product story. **Already done, so not tasked:** anti-FOUC theme boot
-> (index.html) and per-route canonical/meta (vite-plugin-spa-prerender). Binding:
-> the grounding rule (§0) — no invented metrics, comparisons state objective facts.
-
-### IX.1 W20 — Narrative content model
-
-A typed `src/data/narrative.ts` holding `outcomes[]`, `pillars[]`, `faq[]`,
-`providers[]` (and room for future arrays), so the new sections are pure `map()`
-over data with copy separated from layout — the pattern that makes turing's
-`site-content.ts` scale to many sections. This is the **foundation** for W21–W26;
-build it first so those tasks are layout-only. Reuse the existing `src/data/*`
-conventions (typed export + `getX()` helpers). No product claim that isn't
-observable from a running product.
-
-### IX.2 W21 — Home → conversion narrative
-
-Restructure [HomePage.tsx](../src/pages/HomePage.tsx) from *hero · trust · products
-· community* to the turing flow: **hook** (keep hero) → **see** → **outcomes**
-(W22) → **how the three connect** (a Dumont → Turing → Shio band that consumes the
-W2 pipeline diagram — the asset that turns "three product pages" into one platform
-story) → **proof** (keep/upgrade the trust strip) → **compare** (a teaser that
-deep-links the W9 comparison table) → **convert** (a stronger dark-gradient closing
-CTA). Sections stay data-driven (W20). No visual regression on the parts kept.
-
-### IX.3 W22 — Outcome-led section ("what changes for you")
-
-A results-first band around the product cards: lead with outcomes ("find answers,
-not links"; "extract from any source without glue code"; "model content, ship a
-site") rather than feature lists, with self-justifying subheads (turing's
-`OUTCOMES` pattern: "A capability list is easy to skim past — here's what actually
-changes"). Data from W20. Grounding rule binds — outcomes must be defensible.
-
-### IX.4 W23 — Reusable terminal component
-
-Promote DownloadPage's private `CopyableCommand` into a shared
-`src/components/Terminal.tsx`: a macOS-style faux terminal (traffic-light dots,
-monospace, colored prompt/flag/comment spans, click-to-copy) plus a plain
-copy-command pill variant. Reuse on home, solution, and download pages. Pure
-presentation, design-system tokens (no inline colors), `prefers-reduced-motion`
-safe. Cheap to build, high credibility for the dev audience.
-
-### IX.5 W24 — Per-product "essence" on SolutionPage
-
-Give each product the storytelling turing.viglet gives one: data-driven **pillars**
-(the 3–4 verbs/capabilities that define it) + **outcomes** per product on
-[SolutionPage.tsx](../src/pages/SolutionPage.tsx), replacing the flat feature grid
-with a narrative. Extend the W20 model with a `solution` key per entry so the same
-component renders all three. This is what makes a portfolio page feel like a
-product page.
-
-### IX.6 W25 — "Works with your stack" pill wall
-
-A providers/tech grid (AEM, WordPress, Solr, Elasticsearch, databases, the LLM
-providers) derived from [modules.ts](../src/data/modules.ts) / [features.ts](../src/data/features.ts)
-— turing's `PROVIDERS` pill-wall pattern. Each pill objective and, where a guide
-exists, deep-linking into `docs.viglet.org` (bidirectional with W15). Answers
-"does it fit *my* environment?" at a glance.
-
-### IX.7 W26 — Home FAQ + FAQPage JSON-LD
-
-An honest, objection-pre-empting FAQ ("Do I need all three?", "Is it really free?",
-"Self-hosted vs Cloud?", "How is this different from X?") rendered from the W20
-`faq[]` and **emitted as FAQPage JSON-LD** for rich results — extending the
-FAQPage JSON-LD already shipped (CHANGELOG). Answers first, no hype.
-
-### IX.8 W27 — Per-route OG social images
-
-Port turing's `scripts/og-image.mjs`: at build time, render a per-route SVG
-(product logo + title + brand gradient) and rasterize to PNG (`@resvg/resvg-js`),
-wiring `og:image`/`twitter:image` per route. Fits the existing **build-time** plugin
-model ([vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) already does
-per-route canonical/meta) — **no runtime server**, so it respects the Block G
-non-goal. Big social-share win over the current single static image.
-
-### IX.9 W28 — Interactive/scripted product demo in the hero
-
-turing's strongest move: the product *is* the hero visual (a live search box, not a
-screenshot). Port the idea as an embedded demo widget that runs a **deterministic
-scripted interaction** by default (dependency-light, always-working), and upgrades
-to a real Turing-backed demo once Block B / the Cloud migration lands. Must never
-show a broken/never-resolving state (same fallback discipline as Block B). Relates
-to W4 (live-demo CTA) — the CTA links out; this embeds.
-
----
-
 ## X. Block I — Viglet Cloud (beta) surface
 
 > **Context:** Viglet Cloud is live but **beta / testing-only**. It is the 4th

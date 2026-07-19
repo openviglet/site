@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/og-images.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -37,5 +37,8 @@
     "typescript": "^6.0.3",
     "vite": "^8.1.2",
     "vite-plugin-static-copy": "^4.1.1"
+  },
+  "optionalDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

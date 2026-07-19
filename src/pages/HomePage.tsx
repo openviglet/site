@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { IconArrowRight, IconPackage, IconCode } from '@tabler/icons-react'
+import { IconArrowRight, IconPackage, IconCode, IconBrandDocker, IconBook } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
@@ -8,9 +8,23 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { solutions, type Solution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
+import Terminal from '@/components/Terminal'
+import PipelineDiagram from '@/components/PipelineDiagram'
+import ScriptedDemo from '@/components/sections/ScriptedDemo'
+import Outcomes from '@/components/sections/Outcomes'
+import StackWall from '@/components/sections/StackWall'
+import HomeFaq from '@/components/sections/HomeFaq'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
+
+// One `docker run` per product for the closing-CTA terminal (W23 reuse on home).
+const runLines = stableSolutions
+  .filter((s) => s.dockerImage && s.runPort)
+  .map((s) => ({
+    cmd: `docker run -p ${s.runPort}:${s.runPort} ${s.dockerImage}`,
+    comment: s.shortName,
+  }))
 
 const CARD = 'bg-card rounded-2xl border border-border shadow-card hover:shadow-hover transition-all duration-200 no-underline'
 
@@ -271,8 +285,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== SEE — scripted product demo (W28) ===== */}
+      <ScriptedDemo />
+
+      {/* ===== OUTCOMES — what changes for you (W22) ===== */}
+      <Outcomes />
+
       {/* ===== PRODUCTS ===== */}
-      <section id="products" className="py-20 px-6 bg-muted">
+      <section id="products" className="py-20 px-6 bg-muted border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Products</Badge>
@@ -322,8 +342,66 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== HOW THE THREE CONNECT — pipeline band (W21 / W2) ===== */}
+      <section className="py-20 px-6 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge variant="brand" className="mb-4">Built with Viglet</Badge>
+            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+              How the three connect
+            </h2>
+            <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
+              Independently useful, stronger together: extract with Dumont, search and answer with Turing, model and serve with Shio.
+            </p>
+          </div>
+          <PipelineDiagram />
+        </div>
+      </section>
+
+      {/* ===== WORKS WITH YOUR STACK — pill wall (W25) ===== */}
+      <StackWall />
+
+      {/* ===== FAQ (W26) ===== */}
+      <HomeFaq />
+
+      {/* ===== CONVERT — closing CTA (W21) ===== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950">
+        <div className="max-w-4xl mx-auto py-20 px-6 text-center relative">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+            Start with one product. Or the whole platform.
+          </h2>
+          <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
+            Open source under Apache 2.0, self-hosted with a single Docker command. No account, no per-query pricing.
+          </p>
+          {runLines.length > 0 && (
+            <div className="max-w-2xl mx-auto mb-8 text-left">
+              <Terminal title="bash — viglet" lines={runLines} />
+            </div>
+          )}
+          <div className="flex flex-wrap gap-3 justify-center">
+            <a
+              href="#products"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
+            >
+              <IconBrandDocker size={16} />
+              Explore the products
+            </a>
+            <a
+              href="https://docs.viglet.org"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
+            >
+              <IconBook size={16} />
+              Read the Docs
+              <IconArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ===== COMMUNITY ===== */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-20 px-6 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Community</Badge>

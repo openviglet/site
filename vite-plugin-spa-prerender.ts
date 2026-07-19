@@ -11,16 +11,18 @@ import { resolve } from 'path'
  * <meta description> are injected for basic SEO.
  */
 
-const staticRoutes: { path: string; title: string; description: string }[] = [
+const staticRoutes: { path: string; title: string; description: string; ogId: string }[] = [
   {
     path: '/partner/',
     title: 'Partner Program — Viglet',
     description: 'Join the Viglet partner ecosystem — technology, solution, and community tiers.',
+    ogId: 'partner',
   },
   {
     path: '/about/',
     title: 'About — Viglet',
     description: 'Learn about Viglet, the open-source platform for enterprise intelligence.',
+    ogId: 'about',
   },
 ]
 
@@ -79,6 +81,34 @@ function injectMeta(html: string, title: string, description: string): string {
 }
 
 /**
+ * Override the Open Graph / Twitter tags per route (W27). The home defaults live
+ * in index.html; here we point og:title / description / url / image (+ twitter)
+ * at the route's own values and its build-time card in /og/{ogId}.png (generated
+ * by scripts/og-images.mjs). og:image must be an absolute URL for social
+ * crawlers.
+ */
+function injectOg(
+  html: string,
+  opts: { title: string; description: string; url: string; ogId: string },
+): string {
+  const img = `${SITE_ORIGIN}/og/${opts.ogId}.png`
+  const set = (h: string, attr: 'property' | 'name', key: string, value: string) =>
+    h.replace(
+      new RegExp(`<meta ${attr}="${key}" content="[^"]*" \\/>`),
+      `<meta ${attr}="${key}" content="${value}" />`,
+    )
+  let out = html
+  out = set(out, 'property', 'og:title', opts.title)
+  out = set(out, 'property', 'og:description', opts.description)
+  out = set(out, 'property', 'og:url', opts.url)
+  out = set(out, 'property', 'og:image', img)
+  out = set(out, 'name', 'twitter:title', opts.title)
+  out = set(out, 'name', 'twitter:description', opts.description)
+  out = set(out, 'name', 'twitter:image', img)
+  return out
+}
+
+/**
  * Inject a <link rel="canonical">. Routes self-canonicalise to their absolute
  * URL on www.viglet.org; the product landing may point cross-domain to its
  * dedicated site (e.g. /turing/ → turing.viglet.org) so search engines treat
@@ -122,8 +152,10 @@ export default function viteSpaPrerender(): Plugin {
       for (const route of staticRoutes) {
         const dir = resolve(distDir, route.path.replace(/^\//, ''))
         mkdirSync(dir, { recursive: true })
+        const routeUrl = `${SITE_ORIGIN}${route.path}`
         let html = injectMeta(rootHtml, route.title, route.description)
-        html = injectCanonical(html, `${SITE_ORIGIN}${route.path}`)
+        html = injectCanonical(html, routeUrl)
+        html = injectOg(html, { title: route.title, description: route.description, url: routeUrl, ogId: route.ogId })
         writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
         count++
       }
@@ -144,6 +176,9 @@ export default function viteSpaPrerender(): Plugin {
               : `${SITE_ORIGIN}${routePath}`
           let html = injectMeta(rootHtml, title, desc)
           html = injectCanonical(html, canonical)
+          // og:image always self-references the product card (not the dedicated
+          // site); og:url matches the canonical.
+          html = injectOg(html, { title, description: desc, url: canonical, ogId: product.identifier })
           writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
           count++
         }

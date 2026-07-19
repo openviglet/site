@@ -19,9 +19,26 @@
     </script>
     <meta name="description" content="Viglet — Open Source Tools for Enterprise Intelligence" />
     <title>Viglet</title>
+    <!-- Open Graph / Twitter — home defaults. The prerender plugin overrides
+         og:title / og:description / og:url / og:image + twitter:image per route,
+         pointing at the build-time cards in /og/ (see scripts/og-images.mjs). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Viglet" />
+    <meta property="og:title" content="Viglet — Open Source Tools for Enterprise Intelligence" />
+    <meta property="og:description" content="Data extraction, content management & semantic search — open source, self-hosted with Docker." />
+    <meta property="og:url" content="https://www.viglet.org/" />
+    <meta property="og:image" content="https://www.viglet.org/og/home.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Viglet — Open Source Tools for Enterprise Intelligence" />
+    <meta name="twitter:description" content="Data extraction, content management & semantic search — open source, self-hosted with Docker." />
+    <meta name="twitter:image" content="https://www.viglet.org/og/home.png" />
     <!-- FAQPage structured data — helps search engines and LLM assistants
-         answer high-intent questions about Viglet Turing ES (open-source
-         enterprise search for Adobe AEM / WordPress). -->
+         answer high-intent questions about the Viglet suite (open-source
+         enterprise search / data extraction / CMS for Adobe AEM & WordPress).
+         MIRRORS src/data/narrative.ts `faq[]` VERBATIM — the home FAQ section
+         (W26) renders the same Q&A visibly, so structured data matches on-page
+         content. If you edit one, edit both. The prerender plugin keeps this
+         block on the home route only. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -29,42 +46,58 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is Viglet Turing ES a free, open-source alternative to Algolia, Coveo, and Lucidworks?",
+            "name": "Do I need all three products?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Viglet Turing ES is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query SaaS pricing, while getting faceted search, semantic/vector search, and generative AI (RAG) in a single platform."
+              "text": "No. Each product runs independently — Turing ES for search and AI, Dumont DEP to feed it content, and Shio CMS to model and serve content. They're stronger together, but there's no lock-in and no required bundle."
             }
           },
           {
             "@type": "Question",
-            "name": "Can Turing ES index Adobe Experience Manager (AEM) content?",
+            "name": "Which Viglet product do I need?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. The Viglet Dumont DEP connector indexes AEM into Turing ES with real-time sync on publish, AEM tags converted to facets automatically, multi-language support, and cascade re-indexing for shared components. AEM author content stays inside your own infrastructure."
+              "text": "Match the product to the job: Dumont DEP extracts and moves data (indexing, ETL, connectors); Shio CMS models and serves content (headless CMS, sites); Turing ES searches and answers (enterprise search, semantic navigation, AI chatbot)."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Turing ES support WordPress search?",
+            "name": "Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. WordPress is a supported source via Viglet Dumont DEP, alongside Adobe AEM, SQL databases, file systems, and web crawlers."
+              "text": "Yes. Viglet Turing ES is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, while getting faceted search, semantic/vector search and generative AI (RAG) in a single platform."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Turing ES support semantic search and RAG (AI answers)?",
+            "name": "How do I run it?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Turing ES bundles vector/semantic search and Retrieval-Augmented Generation (RAG) with the LLM of your choice (OpenAI, Ollama, Anthropic, Gemini). Answers are grounded in your indexed content with citations, on your own infrastructure."
+              "text": "One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled inside the container — no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap."
             }
           },
           {
             "@type": "Question",
-            "name": "Where is my content stored when I use Turing ES?",
+            "name": "Which sources can I index — Adobe AEM, WordPress, databases?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "On your own infrastructure. Turing ES is self-hosted (Java 21, Docker), so indexed content never leaves your perimeter — important for regulated industries with data-residency requirements, unlike SaaS search where content lives in the vendor's cloud."
+              "text": "Adobe AEM, WordPress, SQL databases, file systems and any website via the web crawler are supported through Viglet Dumont DEP, delivered into Apache Solr, Elasticsearch or Turing ES."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it support semantic search and RAG with the LLM of my choice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Turing ES bundles vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice — OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini — on SaaS or on-premises. Answers are grounded in your indexed content with citations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is my content stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On your own infrastructure. Every product is self-hosted via Docker, so indexed content and user queries never leave your perimeter — important for regulated industries with data-residency requirements, unlike SaaS search where content lives in the vendor cloud."
             }
           }
         ]
