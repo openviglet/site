@@ -79,6 +79,48 @@
 - 💭 **W18** (deps: W17) **Deploy on Viglet Cloud as a site** — Dockerfile + Cloud wiring mirroring cursarei's deployment in the `viglet/cloud` repo; viglet.org becomes a managed Cloud site (proves the Cloud platform on our own marketing surface). → §VIII.2
 - 💭 **W19** (deps: W17) **Native AI API routes** — once on Next.js server, implement W5–W7 backends as App Router API routes (copilot, semantic search, NL match) with content-keyed cache + daily budget + deterministic fallback, following cursarei's `llmRuntime` pattern. Supersedes the "external Turing call" approach in Block B once shipped. → §VIII.3
 
+## Block H — Conversion narrative & product essence (port turing.viglet.org craft)
+
+> **Origin (2026-07-19):** seeded by analysing **turing.viglet.org**
+> (`turing/2026.1/frontend/apps/site`) — a React 19 + Vite 8 + Tailwind v4 site
+> (same stack as this repo, no Next, no animation lib) that captures the *essence*
+> of one product. viglet.org is the institutional site for **all** products, but
+> is still just hero + product cards + community. This block ports turing.viglet's
+> conversion craft to the multi-product story **without new runtime deps**: a
+> data-driven content model, an outcome-led narrative, per-product essence, dev
+> terminals, a stack pill-wall, FAQ+JSON-LD, and per-route OG images. The live
+> interactive demo (the "wow") is gated last because it needs a corpus/SDK or a
+> scripted fallback. Grounding rule still binds: no invented metrics (§ non-goals).
+> Design → IMPROVEMENTS §IX.
+
+- 📋 **W20** (deps: —) **Narrative content model** — a typed `src/data/narrative.ts` (`outcomes`, `pillars`, `faq`, `providers`) so the new sections are `map()` over data, copy separated from layout (mirrors turing's `site-content.ts`). Foundation for W21–W26. → §IX.1
+- 📋 **W21** (deps: W20, W2) **Home → conversion narrative** — restructure the home from (hero · trust · products · community) to *hook → see → outcomes → how the three connect → proof → compare → convert*: add an outcome-led section (W22), a "how Dumont → Turing → Shio connect" band (consumes the W2 pipeline diagram), a comparison teaser linking the W9 table, and a stronger closing CTA. → §IX.2
+- 📋 **W22** (deps: W20) **Outcome-led section** ("what changes for you") — a results-first copy layer around the product cards with self-justifying subheads, replacing feature-listing with concrete outcomes. Grounded facts only. → §IX.3
+- 💭 **W23** (deps: —) **Reusable terminal component** — promote DownloadPage's `CopyableCommand` into a macOS-style faux terminal (`src/components/Terminal.tsx`, traffic-lights, colored prompt/flag/comment), reused on home + solution + download for dev credibility. → §IX.4
+- 💭 **W24** (deps: W20) **Per-product "essence" on SolutionPage** — data-driven pillars + outcomes per product so each product page tells its story (as turing.viglet does for one), not just a feature grid. → §IX.5
+- 💭 **W25** (deps: W20) **"Works with your stack" pill wall** — a providers/tech grid (AEM, WordPress, Solr, Elastic, LLMs) derived from [modules.ts](../src/data/modules.ts) / [features.ts](../src/data/features.ts); objective, deep-links into the docs guides (bidirectional with W15). → §IX.6
+- 💭 **W26** (deps: W20) **Home FAQ + FAQPage JSON-LD** — honest, objection-pre-empting Q&A; extends the FAQPage JSON-LD already shipped (see CHANGELOG). → §IX.7
+- 💭 **W27** (deps: —) **Per-route OG social images** — build-time SVG→PNG OG image per route in the prerender pipeline (turing's `og-image.mjs` pattern). Build-time only — **no server** (per-page canonical/meta already exist; respects Block G non-goal). → §IX.8
+- 💭 **W28** (deps: W21) **Interactive/scripted product demo in the hero** — embed a live-or-scripted demo widget so the product *is* the hero visual (turing's strongest pattern). A deterministic scripted fallback keeps it dependency-light and always-working; supersede with a real Turing-backed demo once Block B lands. Relates to W4 (live-demo CTA). → §IX.9
+
+## Block I — Viglet Cloud (beta) surface
+
+> **Origin (2026-07-19):** Viglet Cloud launched but is **beta / testing-only**
+> right now. It is the **4th surface** in the channel model (STRATEGY §II) — the
+> *managed/hosted* delivery of the same products, sitting beside self-host via
+> Docker: "**self-host with Docker** *or* **run it on Cloud (beta)**". Decision:
+> **light-touch, honest** exposure — a **Beta** badge on every mention, a footer
+> link, one small home callout, and a low-friction early-access capture. **Not** a
+> 4th product card equal to Dumont/Shio/Turing; **not** a primary CTA. Reuses Block
+> D's privacy discipline (W10/W12) for the signup. turing.viglet.org gets the same
+> light mention (cross-repo, like Block E ↔ Turing Block O). Design → IMPROVEMENTS §X.
+
+- 📋 **W29** (deps: —) **Cloud as a surface (data + footer link)** — represent Viglet Cloud in the data layer (a `cloud` entry / `src/data/cloud.ts`: url, `beta: true`, one-liner) and add a "Cloud · Beta" link to the footer across all pages. Foundation for W30–W32. → §X.1
+- 💭 **W30** (deps: W29) **Home "Viglet Cloud — beta" callout** — a small band (not a product card) framing hosted-vs-self-host, explicitly **Beta**, with an early-access CTA. Honest about the testing phase; no stability claims. → §X.2
+- 💭 **W31** (deps: W30, W10, W12) **Beta early-access capture** — low-friction "entrar na beta" email opt-in, LGPD-compliant, reusing Block D's capture + consent-banner discipline (W10/W12). Degrades gracefully while the site is a static SPA (no backend until Block G). → §X.3
+- 💭 **W32** (deps: W29) **"Or run on Cloud (beta)" on Download/Self-host** — a line on the Docker download pages presenting Cloud as the hosted alternative to `docker run`. Pairs the two delivery modes at the moment of intent. → §X.4
+- 💭 **W33** (deps: W29) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section ("or try it on Cloud — beta") + footer. Tracked here; **executed in the turing repo** (`frontend/apps/site`). → §X.5
+
 ## Non-goals (do NOT add as tasks)
 
 Binding constraints — see [IMPROVEMENTS.md](IMPROVEMENTS.md) §0 and

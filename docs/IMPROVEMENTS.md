@@ -232,3 +232,150 @@ timeout, and **deterministic fallback on no-key / budget-exhausted / error**.
 Optionally SQLite (better-sqlite3) for click/cache as cursarei does. This
 supersedes the external-endpoint approach in Block B once shipped — update those
 tasks' notes when it lands.
+
+---
+
+## IX. Block H — Conversion narrative & product essence
+
+> **Source:** teardown of **turing.viglet.org** (`turing/2026.1/frontend/apps/site`)
+> — same stack as this repo (React 19 + Vite 8 + Tailwind v4, **no Next, no
+> animation library**), so every *structural* pattern below ports with **zero new
+> runtime deps**. turing.viglet sells one product's essence with a
+> hook→see→outcomes→how→proof→compare→convert flow, a data-driven content model
+> (`src/lib/site-content.ts`), dev terminals, an honest comparison + FAQ, and
+> per-route OG images. viglet.org is the *portfolio* site (all products) but stops
+> at hero + product cards + community. This block ports the craft to the
+> multi-product story. **Already done, so not tasked:** anti-FOUC theme boot
+> (index.html) and per-route canonical/meta (vite-plugin-spa-prerender). Binding:
+> the grounding rule (§0) — no invented metrics, comparisons state objective facts.
+
+### IX.1 W20 — Narrative content model
+
+A typed `src/data/narrative.ts` holding `outcomes[]`, `pillars[]`, `faq[]`,
+`providers[]` (and room for future arrays), so the new sections are pure `map()`
+over data with copy separated from layout — the pattern that makes turing's
+`site-content.ts` scale to many sections. This is the **foundation** for W21–W26;
+build it first so those tasks are layout-only. Reuse the existing `src/data/*`
+conventions (typed export + `getX()` helpers). No product claim that isn't
+observable from a running product.
+
+### IX.2 W21 — Home → conversion narrative
+
+Restructure [HomePage.tsx](../src/pages/HomePage.tsx) from *hero · trust · products
+· community* to the turing flow: **hook** (keep hero) → **see** → **outcomes**
+(W22) → **how the three connect** (a Dumont → Turing → Shio band that consumes the
+W2 pipeline diagram — the asset that turns "three product pages" into one platform
+story) → **proof** (keep/upgrade the trust strip) → **compare** (a teaser that
+deep-links the W9 comparison table) → **convert** (a stronger dark-gradient closing
+CTA). Sections stay data-driven (W20). No visual regression on the parts kept.
+
+### IX.3 W22 — Outcome-led section ("what changes for you")
+
+A results-first band around the product cards: lead with outcomes ("find answers,
+not links"; "extract from any source without glue code"; "model content, ship a
+site") rather than feature lists, with self-justifying subheads (turing's
+`OUTCOMES` pattern: "A capability list is easy to skim past — here's what actually
+changes"). Data from W20. Grounding rule binds — outcomes must be defensible.
+
+### IX.4 W23 — Reusable terminal component
+
+Promote DownloadPage's private `CopyableCommand` into a shared
+`src/components/Terminal.tsx`: a macOS-style faux terminal (traffic-light dots,
+monospace, colored prompt/flag/comment spans, click-to-copy) plus a plain
+copy-command pill variant. Reuse on home, solution, and download pages. Pure
+presentation, design-system tokens (no inline colors), `prefers-reduced-motion`
+safe. Cheap to build, high credibility for the dev audience.
+
+### IX.5 W24 — Per-product "essence" on SolutionPage
+
+Give each product the storytelling turing.viglet gives one: data-driven **pillars**
+(the 3–4 verbs/capabilities that define it) + **outcomes** per product on
+[SolutionPage.tsx](../src/pages/SolutionPage.tsx), replacing the flat feature grid
+with a narrative. Extend the W20 model with a `solution` key per entry so the same
+component renders all three. This is what makes a portfolio page feel like a
+product page.
+
+### IX.6 W25 — "Works with your stack" pill wall
+
+A providers/tech grid (AEM, WordPress, Solr, Elasticsearch, databases, the LLM
+providers) derived from [modules.ts](../src/data/modules.ts) / [features.ts](../src/data/features.ts)
+— turing's `PROVIDERS` pill-wall pattern. Each pill objective and, where a guide
+exists, deep-linking into `docs.viglet.org` (bidirectional with W15). Answers
+"does it fit *my* environment?" at a glance.
+
+### IX.7 W26 — Home FAQ + FAQPage JSON-LD
+
+An honest, objection-pre-empting FAQ ("Do I need all three?", "Is it really free?",
+"Self-hosted vs Cloud?", "How is this different from X?") rendered from the W20
+`faq[]` and **emitted as FAQPage JSON-LD** for rich results — extending the
+FAQPage JSON-LD already shipped (CHANGELOG). Answers first, no hype.
+
+### IX.8 W27 — Per-route OG social images
+
+Port turing's `scripts/og-image.mjs`: at build time, render a per-route SVG
+(product logo + title + brand gradient) and rasterize to PNG (`@resvg/resvg-js`),
+wiring `og:image`/`twitter:image` per route. Fits the existing **build-time** plugin
+model ([vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) already does
+per-route canonical/meta) — **no runtime server**, so it respects the Block G
+non-goal. Big social-share win over the current single static image.
+
+### IX.9 W28 — Interactive/scripted product demo in the hero
+
+turing's strongest move: the product *is* the hero visual (a live search box, not a
+screenshot). Port the idea as an embedded demo widget that runs a **deterministic
+scripted interaction** by default (dependency-light, always-working), and upgrades
+to a real Turing-backed demo once Block B / the Cloud migration lands. Must never
+show a broken/never-resolving state (same fallback discipline as Block B). Relates
+to W4 (live-demo CTA) — the CTA links out; this embeds.
+
+---
+
+## X. Block I — Viglet Cloud (beta) surface
+
+> **Context:** Viglet Cloud is live but **beta / testing-only**. It is the 4th
+> surface in the channel model (STRATEGY §II): the *managed/hosted* delivery of the
+> same products, paired with self-host via Docker. The whole block is **light-touch
+> and honest** — a **Beta** badge on every mention, no over-promising, no 4th
+> product card, no primary CTA. It plants the seed and captures interested
+> evaluators without implying production stability. All copy obeys §0 grounding.
+
+### X.1 W29 — Cloud as a surface (data + footer link)
+
+Represent Cloud once, in data, so every mention stays consistent: a `src/data/cloud.ts`
+(or a `cloud` entry beside `solutions`) with `url` (viglet.cloud), `beta: true`, and
+a one-line value prop. Add a "**Cloud · Beta**" link to the shared footer
+([Footer.tsx](../src/components/layout/Footer.tsx)) so it appears site-wide. This is
+the low-risk foundation W30–W32 build on; nothing here claims stability.
+
+### X.2 W30 — Home "Viglet Cloud — beta" callout
+
+A small home band — **not** a product card in the suite — that frames the two
+delivery modes: "self-host with Docker, or **run it on Cloud (beta)**". Carries an
+explicit `Beta` badge and an early-access CTA (W31). Honest about the testing phase;
+no SLAs, no "production-ready" language. Sits after the products section, before the
+community/CTA close.
+
+### X.3 W31 — Beta early-access capture
+
+A low-friction "**entrar na beta**" email opt-in — the highest-value light-touch
+move: it turns anonymous interest into a contactable early-access list. **Reuse
+Block D**: the W10 capture pattern + the W12 consent banner (LGPD/privacy-first, no
+analytics/marketing cookies without consent). While the site is a static SPA there
+is no backend, so submit to a privacy-respecting form endpoint or gate the whole
+feature behind availability — and **degrade gracefully** (never a hard error or a
+dead spinner), exactly as Block B requires. Revisit as a native route after Block G.
+
+### X.4 W32 — "Or run on Cloud (beta)" on Download/Self-host
+
+At the moment of intent (the Docker download pages — [DownloadPage.tsx](../src/pages/DownloadPage.tsx)),
+add a single line pairing the two delivery modes: after the `docker run` quick-start,
+"prefer not to self-host? **Run it on Cloud — beta**". Keeps Docker as the default,
+Cloud as the hosted alternative. Beta-labelled; links to the W30 callout / viglet.cloud.
+
+### X.5 W33 — [cross-repo] Cloud (beta) mention on turing.viglet.org
+
+Mirror the light mention on the Turing site so the two surfaces tell one story:
+a line in turing's `SelfHost` section ("or try it on Cloud — beta") and a footer
+link. **Executed in the Turing repo** (`turing/2026.1/frontend/apps/site`), tracked
+here — the same cross-repo arrangement as Block E ↔ Turing Block O. Keep wording and
+Beta-labelling identical to viglet.org's so the brand voice is consistent.

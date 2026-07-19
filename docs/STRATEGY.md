@@ -72,9 +72,18 @@ owner's go-ahead (it's their codebase).
 
 | Surface | Role | Stack reality |
 |---|---|---|
-| **viglet.org** (this repo) | Positioning, product, comparison, **showcase**, lead capture, embedded AI demo. | React+Vite SPA today → **Next.js on Viglet Cloud** (§VII). Emits `llms.txt`. |
+| **viglet.org** (this repo) | **Hub / portfolio for all products** — positioning, comparison, **showcase**, lead capture, embedded AI demo. Top of funnel; funnels into the dedicated product sites via `solution.site`. | React+Vite SPA today → **Next.js on Viglet Cloud** (§VII). Emits `llms.txt`. |
+| **turing.viglet.org** (+ future dumont/shio) | **Dedicated product site** — the *essence* deep-dive of one product. Linked as the primary CTA from that product's page on viglet.org (`solution.site`). | React+Vite+Tailwind (same stack), own SSG/prerender. |
 | **docs.viglet.org** | Technical blog + integration how-tos (the conversion path GEO links into). | Docusaurus 3 — native blog plugin. |
+| **viglet.cloud** | **Managed/hosted delivery** of the products — the "run it for me" option beside self-host via Docker. **Beta / testing-only (2026-07)** — light-touch, honest exposure (Block I). | `viglet/cloud` repo (Next.js 15 + Docker). |
 | **Off-domain** | Strongest GEO lever: GitHub (the cursarei starter repo), directories, dev communities. | Where independent corroboration is born. |
+
+**They coexist as a layered funnel, not competitors.** viglet.org is the hub that
+routes a visitor to the right product deep-dive (turing.viglet.org), the docs, or —
+once out of beta — the hosted Cloud. Self-host (Docker) and Cloud are two delivery
+modes of the *same* products, not rival offerings. Note the reflexive twist in §VII:
+Cloud is also viglet.org's own future deployment platform (Block G), so the site both
+*markets* Cloud and *runs on* it.
 
 ---
 

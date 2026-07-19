@@ -1,7 +1,7 @@
-# Last task number — `W19`
+# Last task number — `W33`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W20`; after assigning it, bump the number above and the log line below.
+> `W34`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,20 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W33** — [cross-repo] Cloud (beta) mention on turing.viglet.org (Block I) — 2026-07-19
+- **W32** — "Or run on Cloud (beta)" on Download/Self-host (Block I) — 2026-07-19
+- **W31** — Beta early-access capture (Block I) — 2026-07-19
+- **W30** — Home "Viglet Cloud — beta" callout (Block I) — 2026-07-19
+- **W29** — Cloud as a surface (data + footer link) (Block I) — 2026-07-19
+- **W28** — Interactive/scripted product demo in the hero (Block H) — 2026-07-19
+- **W27** — Per-route OG social images (Block H) — 2026-07-19
+- **W26** — Home FAQ + FAQPage JSON-LD (Block H) — 2026-07-19
+- **W25** — "Works with your stack" pill wall (Block H) — 2026-07-19
+- **W24** — Per-product "essence" on SolutionPage (Block H) — 2026-07-19
+- **W23** — Reusable terminal component (Block H) — 2026-07-19
+- **W22** — Outcome-led section (Block H) — 2026-07-19
+- **W21** — Home → conversion narrative (Block H) — 2026-07-19
+- **W20** — Narrative content model (Block H) — 2026-07-19
 - **W19** — Native AI API routes (Block G) — 2026-06-16
 - **W18** — Deploy on Viglet Cloud as a site (Block G) — 2026-06-16
 - **W17** — Migrate SPA → Next.js, App Router (Block G) — 2026-06-16
