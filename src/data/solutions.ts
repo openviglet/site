@@ -74,7 +74,7 @@ export const solutions: Solution[] = [
     logoSection: 'CMS',
     shortName: 'Shio CMS',
     fullName: 'Viglet Shio CMS',
-    description: 'Model Content, Use GraphQL and Create Site using Javascript with Native Cache and Search.',
+    description: 'Headless CMS — model content, deliver it over a versioned REST & GraphQL API, with native cache and search.',
     memo: 'Content',
     downloadMessage: 'Run Shio CMS with Docker and create your site.',
     dockerImage: 'ghcr.io/openviglet/shio-ce',

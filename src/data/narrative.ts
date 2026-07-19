@@ -171,35 +171,35 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   shio: {
-    tagline: 'The Headless CMS — model content, query it with GraphQL, and ship a site in JavaScript.',
+    tagline: 'The Headless CMS — model content, deliver it over REST & GraphQL, and render it with any framework.',
     pillars: [
       {
         icon: IconLayoutGrid,
         step: 'Model',
-        title: 'Post types that fit your business',
+        title: 'Post types in the console or as code',
         description:
-          'Create new post types with exactly the attributes you need, then map which fields get indexed for search during modeling.',
+          'Create post types with exactly the attributes you need — in the admin, or versioned as code with the Post Types DSL and the Shio CLI.',
       },
       {
         icon: IconApi,
-        step: 'Query',
-        title: 'Headless over GraphQL',
+        step: 'Deliver',
+        title: 'Headless Content Delivery API',
         description:
-          'Consume and interact with your content through the power of GraphQL — the simplicity of a headless CMS, on your terms.',
+          'Consume content over a versioned delivery API — REST and GraphQL — by id, by URL for slug routing, or query, with caching and rate limiting.',
       },
       {
         icon: IconServerBolt,
-        step: 'Serve',
-        title: 'Cached, search-ready sites',
+        step: 'Publish',
+        title: 'Drafts, preview & scheduling',
         description:
-          'Build a JavaScript site with native cache for speed, automatic content indexing for embedded search, and a NodeJS export path.',
+          'Preview unpublished drafts with short-lived tokens, schedule content to go live, restore earlier versions, and fire outbound webhooks.',
       },
       {
         icon: IconPuzzle,
-        step: 'Integrate',
-        title: 'OpenText & Turing ES',
+        step: 'Render',
+        title: 'SDKs & visual editing',
         description:
-          'Authenticate through OTDS, consume OTCS and OTMM documents and assets, import WEM content, and index into Turing ES.',
+          'Render with Next.js or any framework using the React and JavaScript SDKs, and edit pages inline through the Adobe Universal Editor bridge.',
       },
     ],
   },
@@ -266,7 +266,6 @@ export const providerGroups: ProviderGroup[] = [
       { name: 'SQL Databases', color: '#00758f' },
       { name: 'File Systems', color: '#64748b' },
       { name: 'Web Crawler', color: '#0ea5e9' },
-      { name: 'OpenText', color: '#3a5dae' },
     ],
   },
   {

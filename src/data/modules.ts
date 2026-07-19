@@ -19,12 +19,12 @@ export const modules: Module[] = [
   { title: 'Solr Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Feed the open-source standard. Ensure robust and reliable data ingestion into Apache Solr.' },
   { title: 'Turing ES Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Fuel Cognitive Search. Feed semantic data into Turing ES for AI-driven answers and personalization.' },
   // Shio modules
-  { title: 'NodeJS', solution: 'shio', description: 'Convert Shio CMS Site to NodeJS application.' },
-  { title: 'OTCS', solution: 'shio', description: 'Integrate OpenText Content Server into Shio CMS and import documents.' },
-  { title: 'OTDS', solution: 'shio', description: 'Authenticate via OpenText Directory Services (OTDS).' },
-  { title: 'OTMM', solution: 'shio', description: 'Integrate OpenText Media Management into Shio CMS and import assets.' },
-  { title: 'Turing ES', solution: 'shio', githubUrl: 'https://viglet.org/turing', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
-  { title: 'WEM', solution: 'shio', description: 'Convert OpenText Web Experience Management (WEM) import package to Shio CMS import package.' },
+  { title: 'React SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-react-sdk', description: 'Consume the Content Delivery API from React with hooks — useShioPost, useShioChildren, useShioQuery, useShioSites — and a ShioProvider.' },
+  { title: 'JavaScript SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-editor-cors', description: 'Framework-agnostic client with the Adobe Universal Editor bridge, enabling inline visual editing on any externally-rendered page.' },
+  { title: 'Shio CLI', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio', description: 'Scaffold an app (create-shio-app) and manage your content model as code — push and pull post types with drift detection.' },
+  { title: 'Next.js', solution: 'shio', githubUrl: 'https://docs.viglet.org/shio/', description: 'Render Shio content with Next.js (App Router) using the delivery API and the React SDK — slug routing via post-by-URL.' },
+  { title: 'Turing ES', solution: 'shio', githubUrl: 'https://www.viglet.org/turing/', description: 'Shio CMS integrates with Turing ES — map which attributes get indexed during Post Type modeling for enterprise search and AI.' },
+  { title: 'Webhooks', solution: 'shio', description: 'Outbound webhooks notify your application when content is published or unpublished, so you can revalidate caches or rebuild pages.' },
   // Turing modules
   { title: 'Apache Solr', solution: 'turing', download: false, description: 'Use Apache Solr as Search Engine.' },
   { title: 'Java SDK', solution: 'turing', download: false, githubUrl: 'https://github.com/openviglet/turing-ce', downloadUrl: 'https://github.com/openviglet/turing-ce/releases/download/v0.3.9/turing-java-sdk.jar', description: 'Java Library to access Turing ES.' },
