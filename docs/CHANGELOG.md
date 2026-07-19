@@ -38,6 +38,27 @@
   Data-driven from `narrative.ts`; consumed by the home "how the three connect"
   band (W21) and reusable by any future showcase (W1/W3).
 
+## Block D — Engagement & lead capture (privacy-first)
+
+- **W12 — Consent banner (analytics opt-in).** Google Analytics no longer loads
+  unconditionally — the `gtag` snippet was removed from `index.html` and moved to
+  [src/lib/analytics.ts](../src/lib/analytics.ts), loaded at runtime **only after
+  the visitor opts in** ([ConsentBanner.tsx](../src/components/ConsentBanner.tsx),
+  mounted globally in [App.tsx](../src/App.tsx)). Accept/Decline are equally
+  prominent (LGPD), the choice persists in `localStorage`, and a "Cookie settings"
+  footer control reopens the banner. Nothing tracks before consent.
+- **W10 + W11 — Release-alert / newsletter opt-in.** A single LGPD-compliant
+  signup ([NewsletterSignup.tsx](../src/components/NewsletterSignup.tsx)) in the
+  footer: explicit **unchecked** consent, unsubscribe note, email validation,
+  timeout-guarded submit (never a dead spinner), success/error states. Since the
+  site is a static SPA (no backend until Block G), it POSTs JSON to a third-party
+  **form service**. **Activation (ops step):** set the `NEWSLETTER_ENDPOINT` repo
+  secret (Formspree / Buttondown / Web3Forms …) → wired into the build as
+  `VITE_NEWSLETTER_ENDPOINT` ([deploy.yml](../.github/workflows/deploy.yml),
+  [.env.example](../.env.example)). Until it's set the signup renders nothing —
+  no half-built form ships. W10 (release alerts) and W11 (newsletter digest) are
+  unified into one opt-in (`tags: ['release','newsletter']`).
+
 ## Block H — Conversion narrative & product essence
 
 > Ported turing.viglet.org's conversion craft to the multi-product story with

@@ -32,6 +32,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Newsletter / release-alert form-service endpoint (Block D W10/W11).
+          # Set a repo secret NEWSLETTER_ENDPOINT to enable the footer signup;
+          # when empty, the signup UI is not rendered.
+          VITE_NEWSLETTER_ENDPOINT: ${{ secrets.NEWSLETTER_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

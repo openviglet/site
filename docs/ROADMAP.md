@@ -44,12 +44,6 @@
 - 📋 **W8** (deps: —) **"Which Viglet product?" wizard** — 2–3 question selector → recommends Dumont / Shio / Turing (or a combination) with rationale. Pure client-side; no backend. → §IV.1
 - 💭 **W9** (deps: —) **Product comparison table** — Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
 
-## Block D — Engagement & lead capture (privacy-first)
-
-- 💭 **W10** (deps: —) **Release / feature alert opt-in** — low-friction email capture ("avise-me sobre novas releases"), LGPD-compliant. Turns anonymous traffic into a contactable evaluator list (cursarei's alerts pattern). → §V.1
-- 💭 **W11** (deps: W10) **Newsletter signup** — opt-in digest of releases + blog guides on `docs.viglet.org`. → §V.2
-- 💭 **W12** (deps: —) **Consent banner (analytics opt-in)** — privacy-first banner; no analytics cookies without consent (cursarei `ConsentBanner`). Pre-req for any GA/measurement. → §V.3
-
 ## Block E — Discoverability / GEO (cross-repo with Turing Block O)
 
 > Executes Turing [STRATEGY.md] §IX.4 / §X — make LLM assistants suggest Viglet

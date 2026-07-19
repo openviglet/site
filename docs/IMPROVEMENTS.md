@@ -123,29 +123,6 @@ deploy model, integrates-with, license. Facts only.
 
 ---
 
-## V. Block D — Engagement & lead capture
-
-### V.1 W10 — Release / feature alert opt-in
-
-Low-friction email capture ("avise-me sobre novas releases"). Converts anonymous
-traffic into a contactable evaluator list — the scarce asset per
-[STRATEGY.md](STRATEGY.md) §I.4 (distribution, not features, is the bottleneck).
-LGPD: explicit opt-in, unsubscribe link, no pre-checked boxes. Storage: a form
-endpoint (native after Block G; a form service before).
-
-### V.2 W11 — Newsletter signup
-
-Opt-in digest of releases + new `docs.viglet.org/blog` guides. Builds on W10's
-capture plumbing. Cadence and content owned editorially, not in code.
-
-### V.3 W12 — Consent banner
-
-Privacy-first analytics gate (cursarei `ConsentBanner`): no analytics cookies
-until consent; choice persisted in `localStorage`. Pre-requisite for any
-measurement so we never ship tracking that violates the grounding/trust posture.
-
----
-
 ## VI. Block E — Discoverability / GEO
 
 > Cross-repo execution of Turing [STRATEGY.md] §IX.4/§X. The thesis: an LLM

@@ -6,6 +6,7 @@ import DownloadPage from '@/pages/DownloadPage'
 import ReleaseNotesPage from '@/pages/ReleaseNotesPage'
 import PartnerPage from '@/pages/PartnerPage'
 import AboutPage from '@/pages/AboutPage'
+import ConsentBanner from '@/components/ConsentBanner'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -17,6 +18,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <ConsentBanner />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:identifier/" element={<SolutionPage />} />

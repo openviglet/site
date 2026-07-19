@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 
 import { solutions } from '@/data/solutions'
+import { reopenConsent } from '@/lib/analytics'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 function RedditIcon({ size = 16, className = '' }: Readonly<{ size?: number; className?: string }>) {
   return (
@@ -17,6 +19,9 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-0 font-sans">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Release-alert / newsletter opt-in (W10/W11) — renders only when a
+            form-service endpoint is configured (VITE_NEWSLETTER_ENDPOINT). */}
+        <NewsletterSignup />
         <div className="vg-footer-grid pb-12 border-b border-white/8">
           {/* Brand column */}
           <div>
@@ -152,9 +157,18 @@ export default function Footer() {
           <p className="text-sm text-slate-500">
             © 2017 – {year} Viglet. All rights reserved.
           </p>
-          <p className="text-xs text-slate-600">
-            Open source under the Apache 2.0 License.
-          </p>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={reopenConsent}
+              className="text-xs text-slate-500 hover:text-white transition-colors"
+            >
+              Cookie settings
+            </button>
+            <p className="text-xs text-slate-600">
+              Open source under the Apache 2.0 License.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
