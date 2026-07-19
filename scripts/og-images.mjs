@@ -61,6 +61,31 @@ const products = extractProducts().map((p) => ({
   grad: GRADIENTS[p.id] ?? GRADIENTS.brand,
 }))
 
+/* ---- Comparison landing pages (Block E / W14) — grounded in comparisons.ts -- */
+
+function extractComparisons() {
+  const src = readFileSync(resolve(process.cwd(), 'src/data/comparisons.ts'), 'utf-8')
+  const blocks = src.split(/\{/).slice(1)
+  const out = []
+  for (const b of blocks) {
+    const get = (k) => {
+      const m = b.match(new RegExp(`${k}:\\s*['"]([^'"]+)['"]`))
+      return m ? m[1] : ''
+    }
+    const slug = get('slug')
+    const h1 = get('h1')
+    if (!slug || !h1) continue
+    out.push({
+      id: `compare-${slug}`,
+      title: h1,
+      subtitle: get('metaDescription'),
+      acronym: '',
+      grad: GRADIENTS.turing,
+    })
+  }
+  return out
+}
+
 const identities = [
   {
     id: 'home',
@@ -84,6 +109,7 @@ const identities = [
     acronym: '',
     grad: GRADIENTS.brand,
   },
+  ...extractComparisons(),
 ]
 
 /* ---- SVG template ---------------------------------------------------------- */

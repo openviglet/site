@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/fetch-guides.mjs",
     "build": "tsc -b && vite build && node scripts/og-images.mjs",
     "preview": "vite preview"
   },

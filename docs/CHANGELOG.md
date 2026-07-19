@@ -72,6 +72,34 @@
   Dumont's EDS source), and the Products-section GitHub links now use each
   solution's real `-ce` repo (via the `github` field) instead of a hardcoded
   `openviglet/<id>`. All copy obeys the §0 grounding rule.
+- **W14 — Comparison / positioning landing pages.** New `/compare/:slug/` route
+  ([ComparePage.tsx](../src/pages/ComparePage.tsx)) rendering data-driven pages
+  from [comparisons.ts](../src/data/comparisons.ts) whose titles are the queries
+  evaluators type — "open-source alternative to Algolia/Coveo/Lucidworks" and
+  "enterprise search for Adobe AEM". Facts-only, non-disparaging tables (Viglet
+  vs hosted SaaS), a "how it works" approach, per-page FAQ + client-injected
+  FAQPage JSON-LD, and cross-links into the docs guides. Registered across every
+  SEO surface: [sitemap](../vite-plugin-sitemap.ts), [prerender](../vite-plugin-spa-prerender.ts)
+  (per-page title/canonical/OG), [llms.txt](../vite-plugin-llmtxt.ts) (new
+  "Comparison & Positioning Pages" section) and per-page OG cards
+  ([og-images.mjs](../scripts/og-images.mjs)). Cross-repo with Turing STRATEGY
+  Block O.
+- **W15 — Cross-link product pages → docs guides.** A per-product "Guides"
+  section on [SolutionPage.tsx](../src/pages/SolutionPage.tsx) linking to the
+  matching `docs.viglet.org/blog` integration/comparison guides (Turing + Dumont;
+  Shio has no published guide, so the section hides). Tightens the GEO graph and
+  the human funnel at once.
+- **Dynamic guides (docs endpoint).** The W14/W15 cross-links are **not**
+  hardcoded. The docs site now emits a machine-readable `/guides.json` from its
+  **published** blog posts (new `guides-json` Docusaurus plugin in the
+  **vigletdocs** repo; `draft: true` posts are excluded upstream, so nothing ever
+  links a 404). viglet.org fetches it at runtime
+  ([guides.ts](../src/data/guides.ts) `useGuides`) with a committed snapshot
+  ([guides.generated.json](../src/data/guides.generated.json), refreshed at build
+  by [scripts/fetch-guides.mjs](../scripts/fetch-guides.mjs)) as an instant,
+  offline-safe fallback. New guides appear without a viglet.org redeploy; any
+  fetch failure degrades to the snapshot (§ non-goals: degrade gracefully).
+  Product mapping comes from a `viglet_products` frontmatter field on each post.
 
 ## Block H — Conversion narrative & product essence
 

@@ -25,16 +25,23 @@ import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import { getFeaturesBySolution } from '@/data/features'
 import { getModulesBySolution } from '@/data/modules'
 import { getEssence } from '@/data/narrative'
+import { useGuides, getGuidesBySolution } from '@/data/guides'
 
 export default function SolutionPage() {
   const { identifier = '' } = useParams<{ identifier: string }>()
   const solution = getSolution(identifier)
+  // W15 — cross-links into the docs blog integration/comparison guides for this
+  // product. Dynamic: fetched from the docs endpoint (see data/guides.ts), with
+  // a baked snapshot fallback. Products with no published guide render nothing.
+  // Called before the early return to satisfy the Rules of Hooks.
+  const allGuides = useGuides()
 
   if (!solution) return <Navigate to="/" replace />
 
   const features = getFeaturesBySolution(identifier)
   const modules = getModulesBySolution(identifier)
   const essence = getEssence(identifier)
+  const guides = getGuidesBySolution(allGuides, identifier)
 
   // Reusable terminal (W23): the one-command quick start for this product.
   const image = solution.dockerImage
@@ -311,6 +318,51 @@ export default function SolutionPage() {
                   </div>
                 )
               })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ===== GUIDES — cross-links into docs blog (W15) ===== */}
+      {guides.length > 0 && (
+        <section className="py-20 px-6 bg-background border-t border-border">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <ProductBadge identifier={identifier} className="mb-4">Guides</ProductBadge>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
+                How-tos &amp; comparisons
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+                Step-by-step integration guides and honest comparisons on the Viglet blog.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {guides.map((g) => (
+                <a
+                  key={g.slug}
+                  href={g.url}
+                  target="_blank"
+                  rel="noopener"
+                  className={`group flex flex-col bg-card border border-border rounded-2xl p-6 hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
+                >
+                  <p className="font-bold text-foreground mb-1.5 flex items-start gap-2">
+                    {g.title}
+                    <IconExternalLink size={14} className="text-muted-foreground shrink-0 mt-1" />
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{g.description}</p>
+                </a>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <a
+                href="https://docs.viglet.org/blog"
+                target="_blank"
+                rel="noopener"
+                className={`inline-flex items-center gap-1.5 text-sm font-bold no-underline product-text-${identifier}`}
+              >
+                All guides on the blog
+                <IconArrowRight size={14} />
+              </a>
             </div>
           </div>
         </section>

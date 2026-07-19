@@ -16,7 +16,14 @@ function extractIdentifiers(solutionsPath: string): string[] {
   return matches.map((m) => m[1])
 }
 
-function buildSitemap(identifiers: string[]): string {
+/** Comparison landing-page slugs (Block E / W14) from src/data/comparisons.ts. */
+function extractComparisonSlugs(comparisonsPath: string): string[] {
+  const src = readFileSync(comparisonsPath, 'utf-8')
+  const matches = [...src.matchAll(/\bslug:\s*['"]([^'"]+)['"]/g)]
+  return matches.map((m) => m[1])
+}
+
+function buildSitemap(identifiers: string[], compareSlugs: string[]): string {
   const today = new Date().toISOString().split('T')[0]
 
   const urls: { loc: string; priority: string }[] = []
@@ -32,6 +39,11 @@ function buildSitemap(identifiers: string[]): string {
         priority: sub === '/' ? '0.9' : '0.6',
       })
     }
+  }
+
+  // Comparison / positioning landing pages (GEO surface) — high priority.
+  for (const slug of compareSlugs) {
+    urls.push({ loc: `${SITE_URL}/compare/${slug}/`, priority: '0.8' })
   }
 
   const entries = urls
@@ -56,11 +68,14 @@ export default function viteSitemap(): Plugin {
     name: 'vite-plugin-sitemap',
     closeBundle() {
       const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
+      const comparisonsPath = resolve(__dirname, 'src/data/comparisons.ts')
       const identifiers = extractIdentifiers(solutionsPath)
-      const sitemap = buildSitemap(identifiers)
+      const compareSlugs = extractComparisonSlugs(comparisonsPath)
+      const sitemap = buildSitemap(identifiers, compareSlugs)
       const outPath = resolve(__dirname, 'dist/sitemap.xml')
       writeFileSync(outPath, sitemap, 'utf-8')
-      console.log(`\n✓ sitemap.xml generated with ${identifiers.length} products (${3 + identifiers.length * 3} URLs)`)
+      const total = 3 + identifiers.length * 3 + compareSlugs.length
+      console.log(`\n✓ sitemap.xml generated with ${identifiers.length} products + ${compareSlugs.length} comparison pages (${total} URLs)`)
     },
   }
 }

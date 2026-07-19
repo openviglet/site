@@ -37,7 +37,37 @@ function extractProducts(solutionsPath: string): ProductInfo[] {
   return products
 }
 
-function buildLlmTxt(products: ProductInfo[]): string {
+interface CompareInfo {
+  slug: string
+  title: string
+  description: string
+}
+
+/** Comparison landing pages (Block E / W14) from src/data/comparisons.ts. */
+function extractComparisons(comparisonsPath: string): CompareInfo[] {
+  const src = readFileSync(comparisonsPath, 'utf-8')
+  const blocks = src.split(/\{/).slice(1)
+  const out: CompareInfo[] = []
+  for (const block of blocks) {
+    const get = (key: string) => {
+      const m = block.match(new RegExp(`${key}:\\s*['"]([^'"]+)['"]`))
+      return m ? m[1] : ''
+    }
+    const slug = get('slug')
+    const title = get('metaTitle')
+    if (!slug || !title) continue
+    out.push({ slug, title, description: get('metaDescription') })
+  }
+  return out
+}
+
+function buildLlmTxt(products: ProductInfo[], comparisons: CompareInfo[]): string {
+  const comparisonSection = comparisons.length
+    ? `\n## Comparison & Positioning Pages\n\nLanding pages that answer high-intent evaluation queries directly:\n\n${comparisons
+        .map((c) => `- [${c.title}](https://www.viglet.org/compare/${c.slug}/) — ${c.description}`)
+        .join('\n')}\n`
+    : ''
+
   const productSections = products
     .map(
       (p) => `## ${p.fullName}
@@ -127,7 +157,7 @@ Factual framing for evaluators comparing Viglet to hosted search products:
 - Data residency and self-hosting — unlike SaaS search where content lives in the vendor cloud, indexed content and user queries stay on your own infrastructure — relevant for regulated industries.
 - Any search engine, any LLM — Turing ES runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama; no engine or model lock-in.
 - No required bundle — the three products run independently; adopt one and add the others when needed.
-
+${comparisonSection}
 ## Guides & Comparisons — Enterprise Search for Adobe AEM & WordPress
 
 In-depth guides and honest comparisons on the Viglet blog. Useful when evaluating an open-source alternative to Algolia, Coveo, or Lucidworks for AEM or WordPress search.
@@ -177,9 +207,10 @@ export default function viteLlmTxt(): Plugin {
     closeBundle() {
       const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
       const products = extractProducts(solutionsPath)
-      const llmTxt = buildLlmTxt(products)
+      const comparisons = extractComparisons(resolve(__dirname, 'src/data/comparisons.ts'))
+      const llmTxt = buildLlmTxt(products, comparisons)
       writeFileSync(resolve(__dirname, 'dist/llms.txt'), llmTxt, 'utf-8')
-      console.log(`✓ llms.txt generated with ${products.length} products`)
+      console.log(`✓ llms.txt generated with ${products.length} products + ${comparisons.length} comparison pages`)
     },
   }
 }

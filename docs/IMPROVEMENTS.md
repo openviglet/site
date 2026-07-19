@@ -123,29 +123,6 @@ deploy model, integrates-with, license. Facts only.
 
 ---
 
-## VI. Block E — Discoverability / GEO
-
-> Cross-repo execution of Turing [STRATEGY.md] §IX.4/§X. The thesis: an LLM
-> recommends by semantic association built from the open web; "Viglet" is barely
-> connected to "enterprise search / Algolia alternative / AEM search" in that
-> corpus. These tasks manufacture the association on the surfaces models ingest.
-
-### VI.2 W14 — Comparison landing pages
-
-Positioning pages whose **titles are the queries users type** ("open-source
-alternative to Algolia", "enterprise search for Adobe AEM"). They convert
-existing competitor search volume and cross-link *into* the docs how-to guides
-(the actual conversion path — Turing STRATEGY §X.2 keeps how-tos on docs, not
-here). Facts-only comparisons; no disparagement.
-
-### VI.3 W15 — Cross-link product pages → docs guides
-
-Each solution page links to the matching `docs.viglet.org/blog` integration
-guide; bidirectional with the docs repo. Tightens the GEO graph and the human
-funnel simultaneously.
-
----
-
 ## VII. Block F — Reference app / developer funnel
 
 ### VII.1 W16 — Publish cursarei as an open-source starter

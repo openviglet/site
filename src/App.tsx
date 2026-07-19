@@ -6,6 +6,7 @@ import DownloadPage from '@/pages/DownloadPage'
 import ReleaseNotesPage from '@/pages/ReleaseNotesPage'
 import PartnerPage from '@/pages/PartnerPage'
 import AboutPage from '@/pages/AboutPage'
+import ComparePage from '@/pages/ComparePage'
 import ConsentBanner from '@/components/ConsentBanner'
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/:identifier/release-notes/" element={<ReleaseNotesPage />} />
         <Route path="/partner/" element={<PartnerPage />} />
         <Route path="/about/" element={<AboutPage />} />
+        <Route path="/compare/:slug/" element={<ComparePage />} />
         {/* Fallback */}
         <Route path="*" element={<HomePage />} />
       </Routes>

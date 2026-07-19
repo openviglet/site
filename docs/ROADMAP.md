@@ -44,15 +44,6 @@
 - 📋 **W8** (deps: —) **"Which Viglet product?" wizard** — 2–3 question selector → recommends Dumont / Shio / Turing (or a combination) with rationale. Pure client-side; no backend. → §IV.1
 - 💭 **W9** (deps: —) **Product comparison table** — Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
 
-## Block E — Discoverability / GEO (cross-repo with Turing Block O)
-
-> Executes Turing [STRATEGY.md] §IX.4 / §X — make LLM assistants suggest Viglet
-> for "open-source enterprise search / Algolia alternative / AEM search". Turing's
-> roadmap already names this repo (`openviglet.github.io`) as a GEO surface.
-
-- 💭 **W14** (deps: —) **Comparison landing pages** — "open-source alternative to Algolia/Coveo", "enterprise search for AEM/WordPress" — positioning pages that cross-link *into* the docs how-to guides (the conversion path, per Turing STRATEGY §X.2). → §VI.2
-- 💭 **W15** (deps: W14) **Cross-link product pages → docs blog guides** — every solution page links to the matching `docs.viglet.org/blog` integration guide; bidirectional with the docs repo. → §VI.3
-
 ## Block F — Reference app / developer funnel
 
 - 💭 **W16** (deps: W1, W2) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet". A reference repo is the strongest technical lead-magnet; devs who clone it become Dumont/Turing users. Strategy/positioning in §I.5; mechanics gated. → §VII.1

@@ -71,6 +71,34 @@ function extractProducts(solutionsPath: string): ProductMeta[] {
   return products
 }
 
+interface CompareMeta {
+  slug: string
+  title: string
+  description: string
+}
+
+/**
+ * Comparison landing pages (Block E / W14) from src/data/comparisons.ts. The
+ * plugin regex-extracts slug/metaTitle/metaDescription (declared as plain,
+ * quote-free strings before any nested `{` in each object).
+ */
+function extractComparisons(comparisonsPath: string): CompareMeta[] {
+  const src = readFileSync(comparisonsPath, 'utf-8')
+  const blocks = src.split(/\{/).slice(1)
+  const out: CompareMeta[] = []
+  for (const block of blocks) {
+    const get = (key: string) => {
+      const m = block.match(new RegExp(`${key}:\\s*['"]([^'"]+)['"]`))
+      return m ? m[1] : ''
+    }
+    const slug = get('slug')
+    const title = get('metaTitle')
+    if (!slug || !title) continue
+    out.push({ slug, title, description: get('metaDescription') })
+  }
+  return out
+}
+
 function injectMeta(html: string, title: string, description: string): string {
   return html
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
@@ -145,6 +173,7 @@ export default function viteSpaPrerender(): Plugin {
       )
       const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
       const products = extractProducts(solutionsPath)
+      const comparisons = extractComparisons(resolve(__dirname, 'src/data/comparisons.ts'))
 
       let count = 0
 
@@ -182,6 +211,20 @@ export default function viteSpaPrerender(): Plugin {
           writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
           count++
         }
+      }
+
+      // Comparison landing pages (Block E / W14) — self-canonical; OG uses the
+      // per-page card in /og/compare-<slug>.png (see scripts/og-images.mjs).
+      for (const cmp of comparisons) {
+        const routePath = `/compare/${cmp.slug}/`
+        const dir = resolve(distDir, routePath.replace(/^\//, ''))
+        mkdirSync(dir, { recursive: true })
+        const routeUrl = `${SITE_ORIGIN}${routePath}`
+        let html = injectMeta(rootHtml, cmp.title, cmp.description)
+        html = injectCanonical(html, routeUrl)
+        html = injectOg(html, { title: cmp.title, description: cmp.description, url: routeUrl, ogId: `compare-${cmp.slug}` })
+        writeFileSync(resolve(dir, 'index.html'), html, 'utf-8')
+        count++
       }
 
       console.log(`✓ SPA pre-render: ${count} index.html files generated`)
