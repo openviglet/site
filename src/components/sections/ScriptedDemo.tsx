@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { IconSearch, IconSparkles } from '@tabler/icons-react'
+import { IconSearch, IconSparkles, IconArrowRight } from '@tabler/icons-react'
 import { Badge } from '@/components/ui/badge'
 import VigletLogo from '@/components/VigletLogo'
 
@@ -205,8 +205,17 @@ export default function ScriptedDemo() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-4">
-          Scripted preview · a live Turing-backed demo is on the roadmap.
+        <p className="text-center text-sm text-muted-foreground mt-5">
+          Scripted preview — want the real thing?{' '}
+          <a
+            href="https://turing.viglet.org/#playground"
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-dark transition-colors no-underline"
+          >
+            Try it live on turing.viglet.org
+            <IconArrowRight size={14} />
+          </a>
         </p>
       </div>
     </section>
