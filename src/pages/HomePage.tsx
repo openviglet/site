@@ -217,7 +217,7 @@ const TRUST_ITEMS = [
   { key: 'projects', icon: <IconPackage size={20} className="text-brand" />, value: '3', label: 'Open Source Projects', bg: 'bg-brand-bg' },
   { key: 'oss', icon: <IconCode size={20} className="text-brand" />, value: '100%', label: 'Open Source', bg: 'bg-brand-bg' },
   { key: 'license', icon: <GitHubSvg size={20} className="text-emerald-600" />, value: 'Apache 2.0', label: 'License', bg: 'bg-emerald-50' },
-  { key: 'stack', icon: <span className="text-orange-500 font-extrabold text-sm">Java</span>, value: 'Spring Boot', label: 'Backend Stack', bg: 'bg-orange-50' },
+  { key: 'selfhost', icon: <IconBrandDocker size={20} className="text-sky-600" />, value: 'Self-hosted', label: 'Docker, your infra', bg: 'bg-sky-50' },
 ] as const
 
 // ── Page ────────────────────────────────────────────────────────────────────
