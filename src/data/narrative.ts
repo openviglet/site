@@ -12,6 +12,8 @@ import {
   IconPuzzle,
   IconLayoutGrid,
   IconApi,
+  IconRobot,
+  IconShieldCheck,
 } from '@tabler/icons-react'
 
 /**
@@ -145,28 +147,35 @@ export interface SolutionEssence {
  */
 export const essence: Record<string, SolutionEssence> = {
   dumont: {
-    tagline: 'The Data Extraction Platform — giving your data flight, from source to destination.',
+    tagline: 'The Data Extraction Platform — connect any source, deliver to any search engine, from source to destination.',
     pillars: [
       {
         icon: IconPuzzle,
         step: 'Connect',
         title: 'Any source, out of the box',
         description:
-          'Ready-to-use sources for Adobe AEM, WordPress, SQL databases, file systems and a web crawler — no custom connector to write.',
+          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler — no custom connector to write.',
       },
       {
         icon: IconTransform,
-        step: 'Extract',
-        title: 'Normalize into one flow',
+        step: 'Model',
+        title: 'Sources as a schema',
         description:
-          'Pull pages, fragments, assets and records from every source and shape them into a single, consistent flow ready for indexing.',
+          'Describe listings and detail pages with a declarative structured-source framework — or point Dumont at a URL and let it draft an extraction strategy you confirm.',
       },
       {
         icon: IconArrowsShuffle,
         step: 'Deliver',
-        title: 'Push to any target',
+        title: 'Push to any search engine',
         description:
-          'Send the extracted flow straight to Elasticsearch, Apache Solr or Turing ES — the search engine you already run.',
+          'Send the extracted flow to Viglet Turing ES, Apache Solr or Elasticsearch by changing a single property — no rewrite when your engine changes.',
+      },
+      {
+        icon: IconShieldCheck,
+        step: 'Trust',
+        title: 'Auditable & grounding-safe',
+        description:
+          'Per-field coverage and drift monitoring plus field-level provenance catch silent layout changes, and absent fields are omitted rather than sent as empty strings.',
       },
     ],
   },
@@ -204,28 +213,35 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   turing: {
-    tagline: 'The Enterprise Search platform — semantic navigation and generative AI over your content.',
+    tagline: 'The Enterprise Search platform — faceted search, cited RAG and AI agents over your content.',
     pillars: [
       {
         icon: IconWorldSearch,
         step: 'Search',
-        title: 'Faceted semantic navigation',
+        title: 'Faceted search, any engine',
         description:
-          'Build a powerful faceted search with precise targeting rules over content indexed from AEM, WordPress, databases and file systems.',
+          'Faceted, multilingual, typo-tolerant search on Apache Solr, Elasticsearch or embedded Lucene, with hybrid keyword + vector ranking (RRF).',
       },
       {
         icon: IconMessageChatbot,
-        step: 'Answer',
-        title: 'Chatbot & generative AI',
+        step: 'Ask',
+        title: 'Cited RAG answers',
         description:
-          'Engage users with a chatbot backed by multiple LLMs (ChatGPT, Ollama and more) and Retrieval-Augmented Generation grounded in your content.',
+          'A chatbot grounded in your content streams answers with source citations, a pluggable reranker, a relevance gate and an optional groundedness check.',
+      },
+      {
+        icon: IconRobot,
+        step: 'Automate',
+        title: 'Agents, tools, skills & MCP',
+        description:
+          'Configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider’s native server-side tools.',
       },
       {
         icon: IconBox,
         step: 'Run',
-        title: 'Your infrastructure, any deployment',
+        title: 'Self-hosted, any LLM',
         description:
-          'Deploy multi-container applications with Docker Compose and Kubernetes, on SaaS or fully on-premises — with an embedding store for RAG.',
+          'Apache 2.0 on your own infrastructure — bring OpenAI, Anthropic, Gemini, Azure or local Ollama, multi-tenant and observable.',
       },
     ],
   },
@@ -262,6 +278,7 @@ export const providerGroups: ProviderGroup[] = [
     label: 'Sources',
     providers: [
       { name: 'Adobe AEM', color: '#eb1000' },
+      { name: 'Adobe EDS', color: '#fa0f00' },
       { name: 'WordPress', color: '#21759b' },
       { name: 'SQL Databases', color: '#00758f' },
       { name: 'File Systems', color: '#64748b' },

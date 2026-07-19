@@ -12,7 +12,8 @@ export const modules: Module[] = [
   { title: 'AEM Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Unlock your AEM content. Seamlessly extract pages, fragments, and assets for superior search experiences.' },
   { title: 'Asset Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Unify your digital files. Transform static documents and media from file systems into searchable insights.' },
   { title: 'Database Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Bridge structured data. Easily ingest and synchronize records from SQL.' },
-  { title: 'Web Crawler Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Harvest the web. Intelligently crawl, extract, and structure content from any public or private website.' },
+  { title: 'Web Crawler Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Harvest the web. Intelligently crawl, extract, and structure content from any public or private website, with robots.txt/sitemap discovery and conditional re-crawl.' },
+  { title: 'Adobe EDS Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Index Adobe Edge Delivery Services (Franklin/Helix) sites — sitemap discovery, sheet parsing, path filters and facet enrichment.' },
   { title: 'WordPress Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Sync your CMS. Automatically push posts and pages from WordPress to your enterprise search engine.' },
   // Dumont targets
   { title: 'Elastic Search Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Power up Elasticsearch. Push data instantly to build fast, scalable, and relevant search applications.' },
@@ -26,10 +27,13 @@ export const modules: Module[] = [
   { title: 'Turing ES', solution: 'shio', githubUrl: 'https://www.viglet.org/turing/', description: 'Shio CMS integrates with Turing ES — map which attributes get indexed during Post Type modeling for enterprise search and AI.' },
   { title: 'Webhooks', solution: 'shio', description: 'Outbound webhooks notify your application when content is published or unpublished, so you can revalidate caches or rebuild pages.' },
   // Turing modules
-  { title: 'Apache Solr', solution: 'turing', download: false, description: 'Use Apache Solr as Search Engine.' },
-  { title: 'Java SDK', solution: 'turing', download: false, githubUrl: 'https://github.com/openviglet/turing-ce', downloadUrl: 'https://github.com/openviglet/turing-ce/releases/download/v0.3.9/turing-java-sdk.jar', description: 'Java Library to access Turing ES.' },
-  { title: 'Shio CMS', solution: 'turing', download: false, githubUrl: 'https://viglet.org/shio', description: 'Shio CMS is integrated with Turing ES, allowing you to map the attributes that will be indexed in Turing during Post Type modeling.' },
-  { title: 'Utils', solution: 'turing', download: true, githubUrl: 'https://github.com/openviglet/turing-ce', downloadUrl: 'https://github.com/openviglet/turing-ce/releases/download/v0.3.9/turing-utils.zip', description: 'Sample Configurations and Scripts.' },
+  { title: 'Dumont DEP', solution: 'turing', githubUrl: 'https://www.viglet.org/dumont/', description: 'Feed Turing with content from Adobe AEM, WordPress, databases, files and the web — connectors are provided by the Dumont Data Extraction Platform.' },
+  { title: 'React SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-react-sdk', description: 'React 19 headless hooks and UI components for search, chat and autocomplete, with full TypeScript support.' },
+  { title: 'JavaScript SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-sdk', description: 'Framework-agnostic, zero-dependency vanilla-JS client — works in Adobe EDS blocks, a plain <script>, or any bundler.' },
+  { title: 'Turing CLI', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-cli', description: 'Zero-dependency developer CLI: scaffold a project, run a local stack, deploy agents/flows/tools/skills, and run YAML eval suites.' },
+  { title: 'Java SDK', solution: 'turing', githubUrl: 'https://github.com/openviglet/turing-ce', description: 'Java library to index and query Turing ES from JVM applications.' },
+  { title: 'MCP Server & Client', solution: 'turing', githubUrl: 'https://docs.viglet.org/turing/', description: 'Expose Turing search as an MCP server for any MCP-aware client, and connect agents out to federated MCP servers.' },
+  { title: 'Shio CMS', solution: 'turing', githubUrl: 'https://www.viglet.org/shio/', description: 'Shio CMS integrates with Turing ES — map which attributes get indexed during Post Type modeling.' },
 ]
 
 export function getModulesBySolution(identifier: string): Module[] {
