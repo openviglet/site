@@ -130,13 +130,6 @@ deploy model, integrates-with, license. Facts only.
 > connected to "enterprise search / Algolia alternative / AEM search" in that
 > corpus. These tasks manufacture the association on the surfaces models ingest.
 
-### VI.1 W13 — Enrich `llms.txt`
-
-Extend [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts) (the blog-guide half
-shipped — see CHANGELOG) with: product positioning lines, the named use-cases,
-and comparison framing ("open-source alternative to …"). Keep it factual and
-skimmable — it's read by machines and humans.
-
 ### VI.2 W14 — Comparison landing pages
 
 Positioning pages whose **titles are the queries users type** ("open-source

@@ -59,6 +59,20 @@
   no half-built form ships. W10 (release alerts) and W11 (newsletter digest) are
   unified into one opt-in (`tags: ['release','newsletter']`).
 
+## Block E — Discoverability / GEO
+
+- **W13 — Enrich `llms.txt`.** [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)
+  now emits, alongside the blog-guide half (`d9133a2`): a **Positioning** section
+  (one grounded line per product), a **Use Cases** section (problem → product
+  mapping), and a **Positioning & Comparisons** section carrying the
+  "open-source alternative to Algolia/Coveo/Lucidworks" and "enterprise search
+  for Adobe AEM/WordPress" framing Block E targets. The per-product **Details**
+  blocks were reconciled with [narrative.ts](../src/data/narrative.ts) (dropped
+  stale Shio OpenText/NodeJS copy, corrected Turing's LLM/engine list, added
+  Dumont's EDS source), and the Products-section GitHub links now use each
+  solution's real `-ce` repo (via the `github` field) instead of a hardcoded
+  `openviglet/<id>`. All copy obeys the §0 grounding rule.
+
 ## Block H — Conversion narrative & product essence
 
 > Ported turing.viglet.org's conversion craft to the multi-product story with

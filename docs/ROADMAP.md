@@ -50,7 +50,6 @@
 > for "open-source enterprise search / Algolia alternative / AEM search". Turing's
 > roadmap already names this repo (`openviglet.github.io`) as a GEO surface.
 
-- ⏳ **W13** (deps: —) **Enrich `llms.txt`** — extend [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts) with product positioning, use-cases, and comparison framing so LLM crawlers connect "Viglet" to the target queries. (Blog-guide enrichment already shipped — see CHANGELOG.) → §VI.1
 - 💭 **W14** (deps: —) **Comparison landing pages** — "open-source alternative to Algolia/Coveo", "enterprise search for AEM/WordPress" — positioning pages that cross-link *into* the docs how-to guides (the conversion path, per Turing STRATEGY §X.2). → §VI.2
 - 💭 **W15** (deps: W14) **Cross-link product pages → docs blog guides** — every solution page links to the matching `docs.viglet.org/blog` integration guide; bidirectional with the docs repo. → §VI.3
 
