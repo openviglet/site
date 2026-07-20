@@ -15,6 +15,7 @@ import Outcomes from '@/components/sections/Outcomes'
 import StackWall from '@/components/sections/StackWall'
 import HomeFaq from '@/components/sections/HomeFaq'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 
 const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
 
@@ -222,13 +223,14 @@ const TRUST_ITEMS = [
 
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function HomePage() {
+  const motionPaused = useIsMobileOrTablet()
   return (
     <div className="min-h-screen bg-muted flex flex-col">
       <Header />
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden bg-background pt-20 pb-24 px-6">
-        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} />
+        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
 
         <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Copy */}

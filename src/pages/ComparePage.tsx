@@ -11,6 +11,7 @@ import {
   IconScale,
 } from '@tabler/icons-react'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Card, CardContent } from '@/components/ui/card'
@@ -25,6 +26,7 @@ export default function ComparePage() {
   const { slug = '' } = useParams<{ slug: string }>()
   const comparison = getComparison(slug)
   const guides = useGuides()
+  const motionPaused = useIsMobileOrTablet()
 
   // FAQPage structured data for this comparison — helps search engines and LLM
   // assistants answer the high-intent queries these pages target (GEO). Injected
@@ -65,7 +67,7 @@ export default function ComparePage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <FloatingFormulasBg color={accentColor} colorDark={accentColor} withLightning extraTokens={['Algolia', 'Coveo', 'AEM', 'RAG']} />
+        <FloatingFormulasBg color={accentColor} colorDark={accentColor} withLightning extraTokens={['Algolia', 'Coveo', 'AEM', 'RAG']} motionPaused={motionPaused} />
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ProductBadge identifier={accent} className="mb-4">

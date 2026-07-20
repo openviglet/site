@@ -22,6 +22,7 @@ import ProductBadge from '@/components/ProductBadge'
 import ProductButton from '@/components/ProductButton'
 import Terminal from '@/components/Terminal'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { getFeaturesBySolution } from '@/data/features'
 import { getModulesBySolution } from '@/data/modules'
 import { getEssence } from '@/data/narrative'
@@ -35,6 +36,7 @@ export default function SolutionPage() {
   // a baked snapshot fallback. Products with no published guide render nothing.
   // Called before the early return to satisfy the Rules of Hooks.
   const allGuides = useGuides()
+  const motionPaused = useIsMobileOrTablet()
 
   if (!solution) return <Navigate to="/" replace />
 
@@ -60,7 +62,7 @@ export default function SolutionPage() {
 
       {/* ===== PRODUCT HERO ===== */}
       <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} />
+        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
 
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
