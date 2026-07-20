@@ -16,6 +16,7 @@ import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { solutions } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 
@@ -152,13 +153,14 @@ function FounderSection() {
 }
 
 export default function AboutPage() {
+  const motionPaused = useIsMobileOrTablet()
   return (
     <div className="min-h-screen bg-muted flex flex-col">
       <Header />
 
       {/* ===== HERO ===== */}
       <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
-        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} />
+        <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <Badge variant="brand" className="mb-6">About Viglet</Badge>
           <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
