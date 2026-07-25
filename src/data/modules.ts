@@ -33,6 +33,7 @@ export const modules: Module[] = [
   { title: 'Turing CLI', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-cli', description: 'Zero-dependency developer CLI: scaffold a project, run a local stack, deploy agents/flows/tools/skills, and run YAML eval suites.' },
   { title: 'Java SDK', solution: 'turing', githubUrl: 'https://github.com/openviglet/turing-ce', description: 'Java library to index and query Turing ES from JVM applications.' },
   { title: 'MCP Server & Client', solution: 'turing', githubUrl: 'https://docs.viglet.org/turing/', description: 'Expose Turing search as an MCP server for any MCP-aware client, and connect agents out to federated MCP servers.' },
+  { title: 'Model Catalog', solution: 'turing', githubUrl: 'https://github.com/openviglet/model-catalog', description: 'Vendor-neutral public catalog of LLM, embedding, rerank and media models — context windows, capabilities, indicative pricing and deprecations. Turing reads it to enrich the model picker and warn on retired models.' },
   { title: 'Shio CMS', solution: 'turing', githubUrl: 'https://www.viglet.org/shio/', description: 'Shio CMS integrates with Turing ES — map which attributes get indexed during Post Type modeling.' },
 ]
 

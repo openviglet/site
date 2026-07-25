@@ -1,7 +1,7 @@
-# Last task number — `W33`
+# Last task number — `W34`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W34`; after assigning it, bump the number above and the log line below.
+> `W35`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W34** — Model Catalog in the Turing module grid (Block E) — 2026-07-24
 - **W33** — [cross-repo] Cloud (beta) mention on turing.viglet.org (Block I) — 2026-07-19
 - **W32** — "Or run on Cloud (beta)" on Download/Self-host (Block I) — 2026-07-19
 - **W31** — Beta early-access capture (Block I) — 2026-07-19

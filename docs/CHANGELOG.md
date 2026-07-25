@@ -100,6 +100,13 @@
   offline-safe fallback. New guides appear without a viglet.org redeploy; any
   fetch failure degrades to the snapshot (§ non-goals: degrade gracefully).
   Product mapping comes from a `viglet_products` frontmatter field on each post.
+- **W34 — Model Catalog in the Turing module grid.** Added a **Model Catalog**
+  entry to the Turing modules in [modules.ts](../src/data/modules.ts) (linking
+  `github.com/openviglet/model-catalog`), surfacing the vendor-neutral public
+  LLM/embedding/rerank/media catalog that Turing reads for its model picker as an
+  ecosystem piece alongside the SDKs / CLI / MCP server. Data-only (renders on the
+  Turing SolutionPage via the existing external-link card; no route, so no
+  sitemap/prerender change). Cross-repo with `openviglet/model-catalog`.
 
 ## Block H — Conversion narrative & product essence
 
