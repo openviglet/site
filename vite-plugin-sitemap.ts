@@ -10,10 +10,28 @@ const staticRoutes = ['/', '/partner/', '/about/']
 /** Sub-routes generated for each product identifier */
 const productSubRoutes = ['/', '/download/', '/release-notes/']
 
-function extractIdentifiers(solutionsPath: string): string[] {
+interface ProductMeta {
+  identifier: string
+  /** Dedicated product site, if any (e.g. turing.viglet.org). When set, the
+   *  product landing canonicalises there (see vite-plugin-spa-prerender) and is
+   *  therefore left out of the sitemap. */
+  site: string
+}
+
+function extractProducts(solutionsPath: string): ProductMeta[] {
   const src = readFileSync(solutionsPath, 'utf-8')
-  const matches = [...src.matchAll(/identifier:\s*['"]([^'"]+)['"]/g)]
-  return matches.map((m) => m[1])
+  const blocks = src.split(/\{/).slice(1)
+  const products: ProductMeta[] = []
+  for (const block of blocks) {
+    const get = (key: string) => {
+      const m = block.match(new RegExp(`${key}:\\s*['"]([^'"]+)['"]`))
+      return m ? m[1] : ''
+    }
+    const id = get('identifier')
+    if (!id) continue
+    products.push({ identifier: id, site: get('site') })
+  }
+  return products
 }
 
 /** Comparison landing-page slugs (Block E / W14) from src/data/comparisons.ts. */
@@ -23,7 +41,7 @@ function extractComparisonSlugs(comparisonsPath: string): string[] {
   return matches.map((m) => m[1])
 }
 
-function buildSitemap(identifiers: string[], compareSlugs: string[]): string {
+function buildSitemap(products: ProductMeta[], compareSlugs: string[]): string {
   const today = new Date().toISOString().split('T')[0]
 
   const urls: { loc: string; priority: string }[] = []
@@ -32,10 +50,14 @@ function buildSitemap(identifiers: string[], compareSlugs: string[]): string {
     urls.push({ loc: `${SITE_URL}${route}`, priority: route === '/' ? '1.0' : '0.7' })
   }
 
-  for (const id of identifiers) {
+  for (const product of products) {
     for (const sub of productSubRoutes) {
+      // Skip the landing page of products that canonicalise to a dedicated
+      // site — listing a URL that declares another canonical is a contradictory
+      // signal. Sub-pages self-canonicalise, so they stay.
+      if (sub === '/' && product.site) continue
       urls.push({
-        loc: `${SITE_URL}/${id}${sub}`,
+        loc: `${SITE_URL}/${product.identifier}${sub}`,
         priority: sub === '/' ? '0.9' : '0.6',
       })
     }
@@ -69,13 +91,14 @@ export default function viteSitemap(): Plugin {
     closeBundle() {
       const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
       const comparisonsPath = resolve(__dirname, 'src/data/comparisons.ts')
-      const identifiers = extractIdentifiers(solutionsPath)
+      const products = extractProducts(solutionsPath)
       const compareSlugs = extractComparisonSlugs(comparisonsPath)
-      const sitemap = buildSitemap(identifiers, compareSlugs)
+      const sitemap = buildSitemap(products, compareSlugs)
       const outPath = resolve(__dirname, 'dist/sitemap.xml')
       writeFileSync(outPath, sitemap, 'utf-8')
-      const total = 3 + identifiers.length * 3 + compareSlugs.length
-      console.log(`\n✓ sitemap.xml generated with ${identifiers.length} products + ${compareSlugs.length} comparison pages (${total} URLs)`)
+      const offSite = products.filter((p) => p.site).length
+      const total = staticRoutes.length + products.length * productSubRoutes.length - offSite + compareSlugs.length
+      console.log(`\n✓ sitemap.xml generated with ${products.length} products + ${compareSlugs.length} comparison pages (${total} URLs, ${offSite} landing page(s) canonicalised off-site)`)
     },
   }
 }

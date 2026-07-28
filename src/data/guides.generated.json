@@ -1,7 +1,24 @@
 {
   "source": "https://docs.viglet.org",
-  "generatedFrom": "docusaurus-blog",
   "guides": [
+    {
+      "slug": "turing-aem-search",
+      "title": "Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People",
+      "description": "Your AEM search box is the most honest feedback channel you own — and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0.",
+      "url": "https://docs.viglet.org/blog/turing-aem-search",
+      "date": "2026-07-27",
+      "tags": [
+        "Adobe AEM",
+        "Enterprise Search",
+        "Semantic Search",
+        "RAG",
+        "Open Source"
+      ],
+      "solutions": [
+        "turing",
+        "dumont"
+      ]
+    },
     {
       "slug": "semantic-vector-search-aem",
       "title": "Semantic & Vector Search in Adobe AEM with Viglet Turing ES",
