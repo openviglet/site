@@ -26,21 +26,32 @@ const staticRoutes: { path: string; title: string; description: string; ogId: st
   },
 ]
 
-const productSubRoutes: { suffix: string; titleFn: (name: string) => string; descFn: (name: string) => string }[] = [
+/**
+ * `descFn` receives the product's own one-liner from src/data/solutions.ts.
+ * Boilerplate descriptions ("X — open-source enterprise intelligence by
+ * Viglet.") repeated across every product are the kind Google discards in
+ * favour of a snippet scraped off the rendered page, so each route states what
+ * the product actually does.
+ */
+const productSubRoutes: {
+  suffix: string
+  titleFn: (name: string) => string
+  descFn: (name: string, description: string) => string
+}[] = [
   {
     suffix: '/',
     titleFn: (n) => `${n} — Viglet`,
-    descFn: (n) => `${n} — open-source enterprise intelligence by Viglet.`,
+    descFn: (n, d) => `${n}: ${d} Free and open source.`,
   },
   {
     suffix: '/download/',
     titleFn: (n) => `Download ${n} — Viglet`,
-    descFn: (n) => `Download the latest release of ${n}.`,
+    descFn: (n, d) => `Download and run the latest ${n} release with Docker. ${d}`,
   },
   {
     suffix: '/release-notes/',
     titleFn: (n) => `Release Notes — ${n} — Viglet`,
-    descFn: (n) => `Changelog and release notes for ${n}.`,
+    descFn: (n, d) => `Changelog and release notes for ${n} — ${d}`,
   },
 ]
 
@@ -50,6 +61,8 @@ const SITE_ORIGIN = 'https://www.viglet.org'
 interface ProductMeta {
   identifier: string
   fullName: string
+  /** The product's one-line pitch, reused as the route's meta description. */
+  description: string
   /** Dedicated product site, if any (e.g. turing.viglet.org). When set, the
    *  product landing canonicalises there to avoid cross-domain duplication. */
   site: string
@@ -66,7 +79,12 @@ function extractProducts(solutionsPath: string): ProductMeta[] {
     }
     const id = get('identifier')
     if (!id) continue
-    products.push({ identifier: id, fullName: get('fullName'), site: get('site') })
+    products.push({
+      identifier: id,
+      fullName: get('fullName'),
+      description: get('description'),
+      site: get('site'),
+    })
   }
   return products
 }
@@ -99,12 +117,22 @@ function extractComparisons(comparisonsPath: string): CompareMeta[] {
   return out
 }
 
+/** Escape a value going into an HTML attribute or text node (descriptions carry
+ *  `&`, e.g. "REST & GraphQL API"). */
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+}
+
 function injectMeta(html: string, title: string, description: string): string {
   return html
-    .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(
       /<meta name="description" content="[^"]*" \/>/,
-      `<meta name="description" content="${description}" />`,
+      `<meta name="description" content="${escapeHtml(description)}" />`,
     )
 }
 
@@ -123,7 +151,7 @@ function injectOg(
   const set = (h: string, attr: 'property' | 'name', key: string, value: string) =>
     h.replace(
       new RegExp(`<meta ${attr}="${key}" content="[^"]*" \\/>`),
-      `<meta ${attr}="${key}" content="${value}" />`,
+      `<meta ${attr}="${key}" content="${escapeHtml(value)}" />`,
     )
   let out = html
   out = set(out, 'property', 'og:title', opts.title)
@@ -196,7 +224,7 @@ export default function viteSpaPrerender(): Plugin {
           const dir = resolve(distDir, routePath.replace(/^\//, ''))
           mkdirSync(dir, { recursive: true })
           const title = sub.titleFn(product.fullName)
-          const desc = sub.descFn(product.fullName)
+          const desc = sub.descFn(product.fullName, product.description)
           // The product landing (suffix "/") canonicalises to the dedicated
           // product site when one exists; all other pages self-canonicalise.
           const canonical =

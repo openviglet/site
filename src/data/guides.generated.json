@@ -4,8 +4,8 @@
     {
       "slug": "turing-aem-search",
       "title": "Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People",
-      "description": "Your AEM search box is the most honest feedback channel you own — and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0.",
-      "url": "https://docs.viglet.org/blog/turing-aem-search",
+      "description": "Your AEM search box is the most honest feedback channel you own, and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0.",
+      "url": "https://docs.viglet.org/blog/turing-aem-search/",
       "date": "2026-07-27",
       "tags": [
         "Adobe AEM",
@@ -22,8 +22,8 @@
     {
       "slug": "semantic-vector-search-aem",
       "title": "Semantic & Vector Search in Adobe AEM with Viglet Turing ES",
-      "description": "Go beyond keyword search on Adobe Experience Manager content — add embedding-based vector search and semantic navigation with an open-source platform, on your own infrastructure.",
-      "url": "https://docs.viglet.org/blog/semantic-vector-search-aem",
+      "description": "Go beyond keyword search on Adobe Experience Manager content: add embedding-based vector search and semantic navigation with an open-source platform, on your own infrastructure.",
+      "url": "https://docs.viglet.org/blog/semantic-vector-search-aem/",
       "date": "2026-07-13",
       "tags": [
         "Adobe AEM",
@@ -41,7 +41,7 @@
       "slug": "solr-elasticsearch-or-turing-es",
       "title": "When to Choose Apache Solr, Elasticsearch, or Viglet Turing ES",
       "description": "Raw Solr and Elasticsearch are search engines; Turing ES is an enterprise search platform built on top of them. Here's how to decide which layer you actually need.",
-      "url": "https://docs.viglet.org/blog/solr-elasticsearch-or-turing-es",
+      "url": "https://docs.viglet.org/blog/solr-elasticsearch-or-turing-es/",
       "date": "2026-07-06",
       "tags": [
         "Comparison",
@@ -56,8 +56,8 @@
     {
       "slug": "turing-es-vs-coveo-lucidworks",
       "title": "Viglet Turing ES vs. Coveo vs. Lucidworks Fusion",
-      "description": "A head-to-head comparison of three enterprise search platforms for large content portals — Coveo, Lucidworks Fusion, and the open-source Viglet Turing ES — on pricing, data residency, connectors, semantic search, and RAG.",
-      "url": "https://docs.viglet.org/blog/turing-es-vs-coveo-lucidworks",
+      "description": "A head-to-head comparison of three enterprise search platforms for large content portals (Coveo, Lucidworks Fusion, and the open-source Viglet Turing ES) on pricing, data residency, connectors, semantic search, and RAG.",
+      "url": "https://docs.viglet.org/blog/turing-es-vs-coveo-lucidworks/",
       "date": "2026-06-29",
       "tags": [
         "Comparison",
@@ -72,8 +72,8 @@
     {
       "slug": "open-source-alternative-to-algolia-for-aem",
       "title": "Open-Source Alternatives to Algolia and Coveo for Adobe AEM",
-      "description": "Comparing search options for Adobe Experience Manager — Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch, and the open-source Viglet Turing ES. Pricing model, data residency, facets, semantic search, and RAG.",
-      "url": "https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem",
+      "description": "Comparing search options for Adobe Experience Manager: Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch, and the open-source Viglet Turing ES. Pricing model, data residency, facets, semantic search, and RAG.",
+      "url": "https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem/",
       "date": "2026-06-15",
       "tags": [
         "Adobe AEM",
@@ -88,8 +88,8 @@
     {
       "slug": "enterprise-search-for-adobe-aem",
       "title": "How to Add Enterprise Search to Adobe AEM with Viglet Turing ES",
-      "description": "A step-by-step guide to indexing Adobe Experience Manager content into an open-source enterprise search engine with faceted navigation, semantic search, and RAG — an alternative to Algolia, Coveo, and Lucidworks.",
-      "url": "https://docs.viglet.org/blog/enterprise-search-for-adobe-aem",
+      "description": "A step-by-step guide to indexing Adobe Experience Manager content into an open-source enterprise search engine with faceted navigation, semantic search, and RAG: an alternative to Algolia, Coveo, and Lucidworks.",
+      "url": "https://docs.viglet.org/blog/enterprise-search-for-adobe-aem/",
       "date": "2026-06-14",
       "tags": [
         "Adobe AEM",

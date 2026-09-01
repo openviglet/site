@@ -11,6 +11,7 @@ import {
   IconScale,
 } from '@tabler/icons-react'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
+import DecorativeBackdrop from '@/components/DecorativeBackdrop'
 import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -67,7 +68,9 @@ export default function ComparePage() {
 
       {/* ===== HERO ===== */}
       <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <FloatingFormulasBg color={accentColor} colorDark={accentColor} withLightning extraTokens={['Algolia', 'Coveo', 'AEM', 'RAG']} motionPaused={motionPaused} />
+        <DecorativeBackdrop>
+          <FloatingFormulasBg color={accentColor} colorDark={accentColor} withLightning extraTokens={['Algolia', 'Coveo', 'AEM', 'RAG']} motionPaused={motionPaused} />
+        </DecorativeBackdrop>
 
         <div className="max-w-4xl mx-auto relative z-10 text-center">
           <ProductBadge identifier={accent} className="mb-4">
