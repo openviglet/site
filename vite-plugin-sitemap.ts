@@ -5,7 +5,7 @@ import { resolve } from 'path'
 const SITE_URL = 'https://www.viglet.org'
 
 /** Static routes (non-dynamic) */
-const staticRoutes = ['/', '/partner/', '/about/']
+const staticRoutes = ['/', '/partner/', '/about/', '/contact/']
 
 /** Sub-routes generated for each product identifier */
 const productSubRoutes = ['/', '/download/', '/release-notes/']

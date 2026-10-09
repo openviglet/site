@@ -127,6 +127,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  to="/contact/"
+                  className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/partner/"
                   className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
                 >

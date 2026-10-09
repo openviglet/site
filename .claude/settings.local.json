@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(*)",
-      "PowerShell(run-commit.cmd -m \"fix\\(seo\\): nosnippet formula backdrop, per-product meta descriptions\")"
+      "PowerShell(run-commit.cmd -m \"fix\\(seo\\): nosnippet formula backdrop, per-product meta descriptions\")",
+      "PowerShell($f='C:\\\\Users\\\\alexa\\\\.claude-pessoal\\\\projects\\\\d--Git-viglet-site\\\\ded2a08b-d0af-4fb3-9136-5a1f26277cbd\\\\tool-results\\\\toolu_01NYD79Y3fwnTqHdfXVtXV8h.txt'; Get-Content $f | % { \\($_ -split ':\\\\d+:'\\)[0] } | Group-Object | Sort-Object Count -Desc | % { \"$\\($_.Count\\)`t$\\($_.Name\\)\" })",
+      "PowerShell($f='C:\\\\Users\\\\alexa\\\\.claude-pessoal\\\\projects\\\\d--Git-viglet-site\\\\ded2a08b-d0af-4fb3-9136-5a1f26277cbd\\\\tool-results\\\\toolu_01NYD79Y3fwnTqHdfXVtXV8h.txt'; Get-Content $f | ? { $_ -notmatch 'versioned_docs|archived' } | % { if \\($_.Length -gt 260\\) { $_.Substring\\(0,260\\) } else { $_ } })",
+      "PowerShell(Get-Item D:\\\\Git\\\\viglet\\\\dumont\\\\latest, D:\\\\Git\\\\viglet\\\\turing\\\\latest, D:\\\\Git\\\\viglet\\\\shio\\\\latest -ErrorAction SilentlyContinue | Select FullName, LinkType, Target; foreach\\($r in 'vigletdocs\\\\vigletdocs.github.io','cloud','turing\\\\latest','shio\\\\latest','dumont\\\\2026.3','.github','viglet-core'\\){ \"== $r\"; git -C \"D:\\\\Git\\\\viglet\\\\$r\" status --short --branch 2>&1 | Select -First 5 })",
+      "PowerShell(python C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Git-viglet-site\\\\ded2a08b-d0af-4fb3-9136-5a1f26277cbd\\\\scratchpad\\\\fixlinks.py)",
+      "PowerShell(python C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Git-viglet-site\\\\ded2a08b-d0af-4fb3-9136-5a1f26277cbd\\\\scratchpad\\\\fixlinks.py --apply | Measure-Object | % Count; python C:\\\\Users\\\\alexa\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Git-viglet-site\\\\ded2a08b-d0af-4fb3-9136-5a1f26277cbd\\\\scratchpad\\\\fixlinks.py | Measure-Object | % Count; foreach\\($r in 'vigletdocs\\\\vigletdocs.github.io','cloud','turing\\\\latest','dumont\\\\latest','.github','viglet-core'\\){ \"== $r\"; git -C \"D:\\\\Git\\\\viglet\\\\$r\" diff --stat | Select -Last 1 })",
+      "PowerShell(foreach\\($f in 'D:\\\\Git\\\\viglet\\\\turing\\\\latest\\\\README.adoc','D:\\\\Git\\\\viglet\\\\turing\\\\latest\\\\README.ce.adoc'\\){ $t=[IO.File]::ReadAllText\\($f\\); $t=$t.Replace\\('https://viglet.org[Viglet]','https://www.viglet.org[Viglet]'\\); [IO.File]::WriteAllText\\($f,$t,\\(New-Object Text.UTF8Encoding $false\\)\\) }; git -C D:\\\\Git\\\\viglet\\\\turing\\\\latest diff --stat -- README.adoc README.ce.adoc)",
+      "PowerShell(npm run build 2>&1)"
     ]
   }
 }

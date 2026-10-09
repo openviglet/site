@@ -189,6 +189,12 @@ Three partner tiers: Technology Partner (ISVs integrating with Viglet), Solution
 
 - Partner page: https://www.viglet.org/partner/
 
+## Contact
+
+Organizations that want to use Dumont DEP, Shio CMS or Turing ES can reach the Viglet team through the contact form.
+
+- Contact page: https://www.viglet.org/contact/
+
 ## Community
 
 - GitHub: https://github.com/openviglet

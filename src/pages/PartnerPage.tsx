@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { IconBuildingStore, IconCode, IconUsers, IconRocket, IconCheck, IconArrowRight, IconPlus } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
@@ -10,6 +9,7 @@ import DecorativeBackdrop from '@/components/DecorativeBackdrop'
 import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import PartnerCard from '@/components/PartnerCard'
 import PartnerSpotlight from '@/components/PartnerSpotlight'
+import CognitoForm from '@/components/CognitoForm'
 import { partners, type PartnerTier } from '@/data/partners'
 
 const GHOST_TIERS: PartnerTier[] = [
@@ -17,23 +17,6 @@ const GHOST_TIERS: PartnerTier[] = [
   'Solution Partner',
   'Community Partner',
 ]
-
-function CognitoPartnerForm() {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    const container = ref.current
-    if (!container) return
-    container.innerHTML = ''
-    const script = document.createElement('script')
-    script.src = 'https://www.cognitoforms.com/f/seamless.js'
-    script.dataset.key = 'DvUcBbk5D0mgQ4Vka_Txww'
-    script.dataset.form = '1'
-    script.async = true
-    container.appendChild(script)
-    return () => { container.innerHTML = '' }
-  }, [])
-  return <div ref={ref} />
-}
 
 const BENEFITS = [
   {
@@ -266,7 +249,7 @@ export default function PartnerPage() {
             </p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-8">
-            <CognitoPartnerForm />
+            <CognitoForm formId="1" />
           </div>
         </div>
       </section>

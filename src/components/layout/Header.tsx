@@ -57,6 +57,12 @@ export default function Header() {
 
           {/* CTA + Theme toggle */}
           <div className="hidden md:flex items-center gap-3 ml-auto">
+            <Link
+              to="/contact/"
+              className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              Contact
+            </Link>
             <ColorModeToggle />
             <Button asChild size="sm">
               <a href="https://docs.viglet.org" target="_blank" rel="noopener">
@@ -90,6 +96,14 @@ export default function Header() {
                 <span className="text-sm font-medium text-foreground">{sol.shortName}</span>
               </Link>
             ))}
+            <hr className="border-border my-2" />
+            <Link
+              to="/contact/"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium text-foreground no-underline"
+            >
+              Contact
+            </Link>
             <hr className="border-border my-2" />
             <div className="flex items-center gap-3 px-3 py-2.5">
               <ColorModeToggle />

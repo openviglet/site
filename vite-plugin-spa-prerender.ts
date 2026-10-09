@@ -24,6 +24,12 @@ const staticRoutes: { path: string; title: string; description: string; ogId: st
     description: 'Learn about Viglet, the open-source platform for enterprise intelligence.',
     ogId: 'about',
   },
+  {
+    path: '/contact/',
+    title: 'Contact — Viglet',
+    description: 'Talk to the Viglet team about using Dumont DEP, Shio CMS or Turing ES in your organization.',
+    ogId: 'contact',
+  },
 ]
 
 /**

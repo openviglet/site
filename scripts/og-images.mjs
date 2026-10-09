@@ -109,6 +109,13 @@ const identities = [
     acronym: '',
     grad: GRADIENTS.brand,
   },
+  {
+    id: 'contact',
+    title: 'Contact Viglet',
+    subtitle: 'Use Dumont DEP, Shio CMS or Turing ES in your organization',
+    acronym: '',
+    grad: GRADIENTS.brand,
+  },
   ...extractComparisons(),
 ]
 
