@@ -13,6 +13,8 @@
 
 ## Block E — Discoverability / GEO
 
+- ⏸ **W38** (deps: —) **One entity, Turing first** — set aside (needs the GitHub org admin and the product site repos.): copy the descriptors into the GitHub repo descriptions and topics and onto the three product sites, which still carry the acronyms. → §XI.1
+
 ## Block F — Reference app / developer funnel
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)

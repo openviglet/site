@@ -84,7 +84,7 @@ export default function SolutionPage() {
                 {solution.fullName}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                {essence?.tagline ?? solution.description}
+                {solution.description}
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">

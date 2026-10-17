@@ -249,7 +249,7 @@ export default function HomePage() {
               <span className="vg-gradient-text">Enterprise Intelligence</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Data extraction, content management and semantic search for developers. Open source, self-hosted.
+              Enterprise search, data exchange and content management for developers. Open source, self-hosted.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button size="lg" asChild>

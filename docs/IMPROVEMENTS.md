@@ -254,18 +254,20 @@ not to self-host? Run Turing on Viglet Cloud (beta)") and link the same sign-up,
 
 ### XI.1 W38: One entity, Turing first
 
-Turing is the centre of the story: Dumont brings the content Turing indexes, Shio
-is the CMS of the same family. Today the suite is listed Dumont, Shio, Turing
-(`order` in [solutions.ts](../src/data/solutions.ts)) and the home treats the
-three as equals. Put Turing first everywhere and describe the other two by their
-relation to it. Assistants trust a fact they find written the same way in many
-places, so pick one one-line descriptor per product and use it verbatim on this
-site, in `llms.txt`, in the GitHub repository descriptions and topics (Shio's and
-Dumont's are just "Shio CMS Community Edition" / "Dumont DEP Community Edition"),
-and on turing/shio/dumont.viglet.org, which still carry the acronyms. Dumont is
-"Data Extraction Platform" here and "Data Exchange Platform" on its own site: pick
-one. The GitHub settings and the product sites are cross-repo, done by hand or in
-their repositories.
+Turing is the centre of the story: Dumont brings the content Turing indexes, Shio is the
+CMS of the same family. Put Turing first everywhere and describe the other two by their
+relation to it. Assistants trust a fact they find written the same way in many places,
+so each product has one one-line descriptor, used verbatim.
+
+**What is left is outside this repo (2026-10-17).** The descriptors now live in
+`description` in [solutions.ts](../src/data/solutions.ts) and are what this site and its
+`llms.txt` say; copy them word for word into the GitHub repository descriptions and
+topics (Shio's and Dumont's still read "Shio CMS Community Edition" / "Dumont DEP
+Community Edition") and onto turing/shio/dumont.viglet.org, which still carry the
+acronyms. Dumont's name is settled as **Data Exchange Platform**, the name its own
+README, STRATEGY, product site and app already use; viglet.org was the one saying
+"Extraction". The GitHub settings need the org admin; the product sites are edited in
+their own repositories.
 
 ### XI.2 W39: Real prerender
 

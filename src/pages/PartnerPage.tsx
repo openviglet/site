@@ -95,7 +95,7 @@ export default function PartnerPage() {
             Build enterprise intelligence with us
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join the Viglet partner program and help enterprises adopt open source data extraction, content management and semantic search.
+            Join the Viglet partner program and help enterprises adopt open source enterprise search, data exchange and content management.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>

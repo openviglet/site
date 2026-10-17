@@ -135,8 +135,8 @@ export interface Pillar {
 }
 
 export interface SolutionEssence {
-  /** One-line positioning shown under the product name. */
-  tagline: string
+  /** The line under the product name is `solutions.ts`'s `description`, the
+   *  one descriptor the product uses everywhere (W38), so it is not repeated here. */
   pillars: Pillar[]
 }
 
@@ -147,7 +147,6 @@ export interface SolutionEssence {
  */
 export const essence: Record<string, SolutionEssence> = {
   dumont: {
-    tagline: 'Data Extraction Platform: connect any source and deliver its content to any search engine.',
     pillars: [
       {
         icon: IconPuzzle,
@@ -180,7 +179,6 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   shio: {
-    tagline: 'Headless CMS: model content, deliver it over REST and GraphQL, and render it with any framework.',
     pillars: [
       {
         icon: IconLayoutGrid,
@@ -213,7 +211,6 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   turing: {
-    tagline: 'Enterprise Search: faceted search, cited RAG answers and AI agents over your content.',
     pillars: [
       {
         icon: IconWorldSearch,

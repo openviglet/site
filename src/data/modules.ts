@@ -27,7 +27,7 @@ export const modules: Module[] = [
   { title: 'Turing', solution: 'shio', githubUrl: 'https://www.viglet.org/turing/', description: 'Viglet Shio integrates with Viglet Turing: choose which attributes get indexed while modeling post types, for enterprise search and AI.' },
   { title: 'Webhooks', solution: 'shio', description: 'Outbound webhooks notify your application when content is published or unpublished, so you can revalidate caches or rebuild pages.' },
   // Turing modules
-  { title: 'Dumont', solution: 'turing', githubUrl: 'https://www.viglet.org/dumont/', description: 'Viglet Dumont, the data extraction platform, feeds Viglet Turing with content from Adobe AEM, WordPress, databases, files and the web.' },
+  { title: 'Dumont', solution: 'turing', githubUrl: 'https://www.viglet.org/dumont/', description: 'Viglet Dumont, the data exchange platform, feeds Viglet Turing with content from Adobe AEM, WordPress, databases, files and the web.' },
   { title: 'React SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-react-sdk', description: 'React 19 headless hooks and UI components for search, chat and autocomplete, with full TypeScript support.' },
   { title: 'JavaScript SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-sdk', description: 'Framework-agnostic, zero-dependency vanilla-JS client. Works in Adobe EDS blocks, a plain <script>, or any bundler.' },
   { title: 'Turing CLI', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-cli', description: 'Zero-dependency developer CLI: scaffold a project, run a local stack, deploy agents/flows/tools/skills, and run YAML eval suites.' },

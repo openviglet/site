@@ -46,7 +46,6 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 📋 **W38** (deps: —) **One entity, Turing first** — Turing leads the suite with Dumont and Shio framed around it, one identical descriptor per product everywhere (site, llms.txt, GitHub, product sites), and Dumont's name settled. → §XI.1
 - 📋 **W39** (deps: —) **Real prerender** — build the full HTML (body, `<h1>`, copy) for every route, since today `dist/<route>/index.html` has an empty body that AI crawlers read as nothing, staying on Vite + GitHub Pages. → §XI.2
 - 📋 **W40** (deps: W1 ⏸, W39) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with docs.viglet.org and proven by the W1 case study. → §XI.3
 - 📋 **W41** (deps: —) **Promise only what exists** — cut the partner page to "talk to us about partnering" until a program exists, and replace the home stats band with proof (the W1 case study) or remove it. → §XI.4

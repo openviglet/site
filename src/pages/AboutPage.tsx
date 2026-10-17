@@ -71,7 +71,7 @@ const MILESTONES = [
     year: '2023',
     title: 'Dumont ships',
     description:
-      'Viglet Dumont, a data extraction platform, feeds structured data into Turing and Shio.',
+      'Viglet Dumont, a data exchange platform, feeds content into Viglet Turing.',
   },
   {
     year: '2025',
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <span className="vg-gradient-text">enterprise intelligence</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Viglet gives any team data extraction, content management and enterprise search,
+            Viglet gives any team enterprise search, data exchange and content management,
             without vendor lock-in or enterprise pricing.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">

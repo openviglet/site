@@ -85,9 +85,9 @@ function buildLlmTxt(products: ProductInfo[], comparisons: CompareInfo[]): strin
 
   return `# Viglet
 
-> Open source platform for enterprise intelligence: data extraction, content management and semantic search.
+> Open source platform for enterprise intelligence: enterprise search, data exchange and content management.
 
-Viglet makes three tools that work alone or together. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, so your content stays on your infrastructure.
+Viglet makes three tools that work alone or together, led by Viglet Turing. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, so your content stays on your infrastructure.
 
 - Website: https://www.viglet.org
 - Documentation: https://docs.viglet.org
@@ -96,17 +96,26 @@ Viglet makes three tools that work alone or together. All three are open source 
 
 ## Positioning
 
-One line per product: what it is and the job it does.
+One line per product: what it is and the job it does, word for word as the site says it.
 
-- Viglet Turing: open-source enterprise search. Faceted search, cited RAG and AI agents over your content, on any search engine and any LLM. A self-hosted, Apache 2.0 alternative to hosted search services such as Algolia, Coveo and Lucidworks.
-- Viglet Dumont: data extraction. It connects sources (Adobe AEM, WordPress, SQL databases, file systems, the web) to a search engine, so there is no custom ETL to build and maintain.
-- Viglet Shio: headless CMS. Model content, deliver it over a versioned REST and GraphQL API with native cache and search, and render it with any framework.
+${products.map((p) => `- ${p.fullName}: ${p.description}`).join('\n')}
 
 Earlier names: until October 2026 the products carried an acronym (Turing ES, Shio CMS and Dumont DEP). They are the same products.
 
 ## Products
 
 ${productSections}
+
+## Viglet Turing Details
+
+Enterprise search with faceted, multilingual, typo-tolerant navigation and hybrid keyword + vector ranking (RRF), plus a chatbot that answers questions with citations grounded in your own content.
+
+Search engines: Apache Solr, Elasticsearch, or embedded Lucene.
+RAG: cited answers with a pluggable reranker, a relevance gate, and an optional groundedness check.
+AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
+LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
+
+Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing-ce.
 
 ## Viglet Dumont Details
 
@@ -126,17 +135,6 @@ Authoring: preview unpublished drafts with short-lived tokens, schedule content 
 Rendering: React and JavaScript SDKs for Next.js or any framework, plus inline editing through the Adobe Universal Editor bridge.
 
 Stack: Java 21 + Spring Boot. Port: 2710. Docker image: ghcr.io/openviglet/shio-ce.
-
-## Viglet Turing Details
-
-Enterprise search with faceted, multilingual, typo-tolerant navigation and hybrid keyword + vector ranking (RRF), plus a chatbot that answers questions with citations grounded in your own content.
-
-Search engines: Apache Solr, Elasticsearch, or embedded Lucene.
-RAG: cited answers with a pluggable reranker, a relevance gate, and an optional groundedness check.
-AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
-LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
-
-Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing-ce.
 
 ## Use Cases
 

@@ -99,7 +99,7 @@ const identities = [
   {
     id: 'home',
     title: 'Open Source Tools for Enterprise Intelligence',
-    subtitle: 'Data extraction, content management & semantic search',
+    subtitle: 'Enterprise search, data exchange & content management',
     acronym: '',
     grad: GRADIENTS.brand,
   },
