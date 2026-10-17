@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 
 import { solutions } from '@/data/solutions'
+import { cloud } from '@/data/cloud'
 import { reopenConsent } from '@/lib/analytics'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
@@ -86,6 +87,24 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              {/* Viglet Cloud (W29): the hosted offering, marked beta. */}
+              <li>
+                <a
+                  href={cloud.url}
+                  target="_blank"
+                  rel="noopener"
+                  title={cloud.oneLiner}
+                  className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
+                >
+                  <span className="w-2 h-2 shrink-0 rounded-full bg-slate-500" />
+                  Cloud
+                  {cloud.beta && (
+                    <span className="rounded border border-white/15 px-1.5 py-px text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      Beta
+                    </span>
+                  )}
+                </a>
+              </li>
             </ul>
           </div>
 

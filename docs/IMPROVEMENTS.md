@@ -214,21 +214,18 @@ tasks' notes when it lands.
 > product card, no primary CTA. It plants the seed and captures interested
 > evaluators without implying production stability. All copy obeys §0 grounding.
 
-### X.1 W29: Cloud as a surface (data + footer link)
-
-Represent Cloud once, in data, so every mention stays consistent: a `src/data/cloud.ts`
-(or a `cloud` entry beside `solutions`) with `url` (viglet.cloud), `beta: true`, and
-a one-line value prop. Add a "**Cloud · Beta**" link to the shared footer
-([Footer.tsx](../src/components/layout/Footer.tsx)) so it appears site-wide. This is
-the low-risk foundation W30–W32 build on; nothing here claims stability.
-
 ### X.2 W30: Home "Viglet Cloud (beta)" callout
 
-A small home band (**not** a product card in the suite) that frames the two
-delivery modes: "self-host with Docker, or **run it on Cloud (beta)**". Carries an
-explicit `Beta` badge and an early-access CTA (W31). Honest about the testing phase;
-no SLAs, no "production-ready" language. Sits after the products section, before the
-community/CTA close.
+A small home band (**not** a product card in the suite) that frames the two delivery
+modes: "self-host with Docker, or **run it on Cloud (beta)**". Carries an explicit
+`Beta` badge and an early-access CTA (W31). Honest about the testing phase; no SLAs, no
+"production-ready" language. Sits after the products section, before the community/CTA
+close.
+
+Read the name, URL and one-liner from `src/data/cloud.ts` (W29). In the same commit,
+reword the two places that still call Cloud "on the roadmap": the home FAQ answer "How
+do I run it?" in `narrative.ts` (and its mirror in the `index.html` FAQPage JSON-LD),
+and the hosted note in `src/data/wizard.ts`.
 
 ### X.3 W31: Beta early-access capture
 

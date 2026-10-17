@@ -75,3 +75,4 @@
 
 ## Block I — Viglet Cloud (beta) surface
 
+- **W29** — src/data/cloud.ts describes Viglet Cloud once (name, viglet.cloud, beta, one-liner) and every page's footer now lists Cloud with a Beta badge under Products.
