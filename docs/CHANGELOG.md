@@ -66,6 +66,8 @@
 
 ## Block C — Interactive product selection
 
+- **W8** — The home page asks three questions (where the content is, what users get, who runs it) and recommends Dumont, Shio, Turing or a combination, with a reason per product and links to its page and docs, all client-side.
+
 ## Block F — Reference app / developer funnel
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)

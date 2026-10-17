@@ -38,7 +38,6 @@
 
 ## Block C — Interactive product selection
 
-- 📋 **W8** (deps: —) **"Which Viglet product?" wizard** — a 2–3 question selector recommends Dumont, Shio, Turing or a combination with a rationale, client-side only, with no backend. → §IV.1
 - 💭 **W9** (deps: —) **Product comparison table** — Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
 
 ## Block E — Discoverability / GEO

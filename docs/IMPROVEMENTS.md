@@ -144,13 +144,6 @@ the line waits on W19.
 
 ## IV. Block C: Interactive product selection
 
-### IV.1 W8: "Which Viglet product?" wizard
-
-2–3 question client-side selector (no backend) → recommends Dumont / Shio /
-Turing or a combo, with a one-paragraph rationale and links. The non-AI sibling
-of W5: instant, offline, always available. Questions branch on {what you have,
-what you want, who runs it}.
-
 ### IV.2 W9: Product comparison table
 
 Dumont × Shio × Turing side-by-side; expandable rows (cursarei `Compare`).

@@ -14,6 +14,7 @@ import ScriptedDemo from '@/components/sections/ScriptedDemo'
 import Outcomes from '@/components/sections/Outcomes'
 import StackWall from '@/components/sections/StackWall'
 import HomeFaq from '@/components/sections/HomeFaq'
+import ProductWizard from '@/components/sections/ProductWizard'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import DecorativeBackdrop from '@/components/DecorativeBackdrop'
 import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
@@ -346,6 +347,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ===== WHICH PRODUCT: three-question wizard (W8) ===== */}
+      <ProductWizard />
 
       {/* ===== HOW THE THREE CONNECT: pipeline band (W21 / W2) ===== */}
       <section className="py-20 px-6 bg-background border-t border-border">
