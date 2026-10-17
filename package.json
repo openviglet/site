@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/fetch-guides.mjs",
-    "build": "tsc --noEmit && next build && node scripts/og-images.mjs",
+    "prebuild": "node scripts/fetch-guides.mjs && node scripts/og-images.mjs",
+    "build": "tsc --noEmit && next build",
+    "start": "next start",
     "preview": "python -m http.server 4173 --directory out"
   },
   "dependencies": {

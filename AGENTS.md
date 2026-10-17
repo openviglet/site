@@ -6,8 +6,10 @@ roadmap docs**. Keep it lean: reference material belongs in `docs/`.
 
 ## Project Structure
 
-- **Next.js 16 (App Router) + React 19 + TypeScript**, built as a static export
-  (`output: 'export'` → `out/`, served by GitHub Pages). The root `README.md` is
+- **Next.js 16 (App Router) + React 19 + TypeScript**, two builds of the same
+  pages: the default static export (`out/`, served by GitHub Pages) and
+  `SITE_OUTPUT=server` for `next start` (the Viglet Cloud image,
+  `docker/Dockerfile.site` in the cloud repo). The root `README.md` is
   **stale**: it still says `jekyll serve`; ignore it.
 - **Tailwind CSS v4** (`@tailwindcss/postcss`) + **`@viglet/viglet-design-system`**:
   use design-system components/tokens; **never inline colors**.
@@ -25,18 +27,20 @@ roadmap docs**. Keep it lean: reference material belongs in `docs/`.
   - `generateStaticParams` → full HTML per route at build time
 - **Products**: Viglet Turing (`turing`), Viglet Dumont (`dumont`), Viglet Shio (`shio`).
 
-> **Next step (Block G):** the site runs as a **Next.js server on Viglet Cloud**
-> (W18), the shape cursarei already has; that is where `output: 'export'` goes
-> and API routes (W19) become possible. Read [docs/STRATEGY.md](docs/STRATEGY.md)
-> §VII before large architectural changes.
+> **Block G:** the site moves to a **Next.js server on Viglet Cloud** (W18), the
+> shape cursarei already has. GitHub Pages keeps serving www.viglet.org until the
+> DNS cutover; only then does the static export go and API routes (W19) become
+> possible. Anything new must work in both builds until then. Read
+> [docs/STRATEGY.md](docs/STRATEGY.md) §VII before large architectural changes.
 
 ## Build & Run
 
 ```bash
 npm install
 npm run dev        # next dev server
-npm run build      # tsc --noEmit && next build && og-images → out/
+npm run build      # prebuild (guides, OG cards → public/og) + tsc + next build → out/
 npm run preview    # serve out/ on http://localhost:4173 (needs Python)
+# the Cloud build: SITE_OUTPUT=server npm run build, then SITE_OUTPUT=server npm start
 ```
 
 > **Windows**: this is the primary dev environment. If `node_modules` native

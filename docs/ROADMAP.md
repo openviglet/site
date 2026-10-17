@@ -62,7 +62,6 @@
 > external endpoint, and makes viglet.org itself a Cloud reference deployment.
 > Rationale + migration plan → STRATEGY §VII; design → IMPROVEMENTS §VIII.
 
-- 💭 **W18** (deps: W17 ✅) **Deploy on Viglet Cloud as a site** — Dockerfile + Cloud wiring mirroring cursarei's deployment in the `viglet/cloud` repo; viglet.org becomes a managed Cloud site (proves the Cloud platform on our own marketing surface). → §VIII.2
 - 💭 **W19** (deps: W17 ✅) **Native AI API routes** — once on Next.js, W5–W7 become App Router API routes with content-keyed cache, daily budget and deterministic fallback after cursarei's `llmRuntime`, superseding Block B's external calls. → §VIII.3
 
 ## Block I — Viglet Cloud (beta) surface

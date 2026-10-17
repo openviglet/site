@@ -3,13 +3,17 @@ import type { NextConfig } from 'next'
 const projectRoot = import.meta.dirname
 
 /**
- * Static export (W17): `next build` writes the whole site to out/ as plain
- * HTML, which GitHub Pages serves exactly as it served the Vite build. Block G's
- * next step (W18) runs it as a server on Viglet Cloud, which is the point where
- * `output: 'export'` goes and API routes (W19) become possible.
+ * Two builds of the same pages. By default `next build` is a static export
+ * (W17): it writes the whole site to out/ as plain HTML, which GitHub Pages
+ * serves. `SITE_OUTPUT=server` (set by the Viglet Cloud image, W18) builds for
+ * `next start` instead: the same prerendered pages behind a Node server, which
+ * API routes (W19) need. Pages keeps serving until Cloud serves the same content
+ * at the same domain; then the export goes.
  */
+const serverBuild = process.env.SITE_OUTPUT === 'server'
+
 const nextConfig: NextConfig = {
-  output: 'export',
+  ...(serverBuild ? {} : { output: 'export' as const }),
   // `/:identifier/` and every other route keep their trailing slash: it is
   // baked into the sitemap, the canonicals and existing inbound links.
   trailingSlash: true,

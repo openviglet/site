@@ -79,6 +79,7 @@
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
 - **W17** — viglet.org is a Next.js 16 App Router static export: every route, llms.txt and the sitemap render from src/data at build time with the same head, h1 and body text as the Vite build, and GitHub Pages serves out/ unchanged (design §VIII.1 recorded in `next.config.ts`).
+- **W18 (image and Cloud wiring)** — The cloud repo builds viglet.org into a next start image (Dockerfile.site, compose service, nginx for www.viglet.org and site.viglet.cloud, SHA-keyed deploy), checked against the Vite build route by route.
 
 ## Block I — Viglet Cloud (beta) surface
 

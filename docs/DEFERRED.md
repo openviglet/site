@@ -20,6 +20,8 @@
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
+- ⏸ **W18** (deps: W17 ✅) **Deploy on Viglet Cloud as a site** — set aside (the owner runs the Cloud deploy and the Cloudflare DNS cutover.): deploy it, check site.viglet.cloud, move www.viglet.org and viglet.org DNS in Cloudflare, then retire the Pages deploy. → §VIII.2
+
 ## Block I — Viglet Cloud (beta) surface
 
 - ⏸ **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — set aside (the Turing site holds another session's open rebrand.): mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5

@@ -48,7 +48,7 @@ repo root:
 
 | Command | What it holds | When |
 |---|---|---|
-| `npm run build` | `prebuild` (`scripts/fetch-guides.mjs`), then `tsc --noEmit`, `next build` — which renders every route, llms.txt and the sitemap into `out/` — then `scripts/og-images.mjs`. | Every task that touches `src/`, `scripts/`, `public/` or a config. |
+| `npm run build` | `prebuild` (`scripts/fetch-guides.mjs`, then `scripts/og-images.mjs` into `public/og/`), then `tsc --noEmit` and `next build`, which renders every route, llms.txt and the sitemap into `out/`. | Every task that touches `src/`, `scripts/`, `public/` or a config. |
 | `roadkeep lint --baseline HEAD` | The governed files, judged on **what you added**. The repo arrived with standing findings (over-long `why`s, unknown deps); plain `lint` reports them all, `--baseline HEAD` forgives them by name. | Every task, without exception — it is the only gate a docs-only change has. |
 
 There is no test suite and no `npm run lint`; don't invent one. `npm run dev` /
