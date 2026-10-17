@@ -16,6 +16,7 @@ roadmap = "docs/ROADMAP.md"
 changelog = "docs/CHANGELOG.md"
 improvements = "docs/IMPROVEMENTS.md"
 strategy = "docs/STRATEGY.md"
+deferred = "docs/DEFERRED.md"
 
 [markers]
 open = ["📋", "💭", "⏳", "🛠"]

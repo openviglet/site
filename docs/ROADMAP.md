@@ -29,9 +29,8 @@
 
 ## Block A — Showcase & proof ("Built with Viglet")
 
-- 📋 **W1** (deps: —) **Cursarei case-study page** — `/showcase/cursarei`: what it does (~6.9k courses, 100+ institutions), the problem it solves and how each Viglet product powers a layer, so a buyer sees the stack working. → §II.1
-- 💭 **W3** (deps: W1) **Showcase index** — `/showcase`: a gallery of reference deployments (cursarei first), each card linking to a live demo and case study, seeding a logos trust bar on the home page. → §II.3
-- 💭 **W4** (deps: W1) **Live-demo CTA** — prominent "try it live" link to the running cursarei (and any future hosted demo) from the home hero and the Turing solution page. → §II.4
+- 💭 **W3** (deps: W1 ⏸) **Showcase index** — `/showcase`: a gallery of reference deployments (cursarei first), each card linking to a live demo and case study, seeding a logos trust bar on the home page. → §II.3
+- 💭 **W4** (deps: W1 ⏸) **Live-demo CTA** — prominent "try it live" link to the running cursarei (and any future hosted demo) from the home hero and the Turing solution page. → §II.4
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
@@ -54,13 +53,13 @@
 
 - 📋 **W38** (deps: —) **One entity, Turing first** — Turing leads the suite with Dumont and Shio framed around it, one identical descriptor per product everywhere (site, llms.txt, GitHub, product sites), and Dumont's name settled. → §XI.1
 - 📋 **W39** (deps: —) **Real prerender** — build the full HTML (body, `<h1>`, copy) for every route, since today `dist/<route>/index.html` has an empty body that AI crawlers read as nothing, staying on Vite + GitHub Pages. → §XI.2
-- 📋 **W40** (deps: W1, W39) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with docs.viglet.org and proven by the W1 case study. → §XI.3
+- 📋 **W40** (deps: W1 ⏸, W39) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with docs.viglet.org and proven by the W1 case study. → §XI.3
 - 📋 **W41** (deps: —) **Promise only what exists** — cut the partner page to "talk to us about partnering" until a program exists, and replace the home stats band with proof (the W1 case study) or remove it. → §XI.4
 - 💭 **W42** (deps: —) **Decide how www.viglet.org is measured** — GA fires only after consent since 19/07/2026, so the owner picks Search Console only or GA consent mode (cookieless pings), whose LGPD fit is the owner's call. → §XI.5
 
 ## Block F — Reference app / developer funnel
 
-- 💭 **W16** (deps: W1, W2 ✅) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet", a reference repo as the technical lead magnet that turns the devs who clone it into Dumont and Turing users. → §VII.1
+- 💭 **W16** (deps: W1 ⏸, W2 ✅) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet", a reference repo as the technical lead magnet that turns the devs who clone it into Dumont and Turing users. → §VII.1
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 

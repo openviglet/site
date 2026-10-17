@@ -52,12 +52,23 @@ front-end/content projection of that idea onto the marketing site.
 
 ### II.1 W1: Cursarei case-study page
 
-A `/showcase/cursarei` route. Structure: hero (one-line "what & for whom") →
-the numbers (courses, institutions, build-time pages) → "the problem" → **how
-each Viglet product powers a layer** (links to II.2 diagram) → live-demo CTA →
-"build your own" (links Block F). Data-driven from a `src/data/showcase.ts`
-entry so future case studies reuse the same page component. Grounding: only
-facts observable from the running app, no invented metrics.
+A `/showcase/cursarei` route. Structure: hero (one-line "what & for whom") → the numbers
+(courses, institutions, build-time pages) → "the problem" → **how each Viglet product
+powers a layer** (links to II.2 diagram) → live-demo CTA → "build your own" (links Block
+F). Data-driven from a `src/data/showcase.ts` entry so future case studies reuse the
+same page component. Grounding: only facts observable from the running app, no invented
+metrics.
+
+**Blocked on cursarei itself (checked 2026-10-17).** cursarei (https://cursarei.com.br)
+uses no Viglet product yet: its data comes from its own Python crawlers, search is
+Fuse.js + Orama, and its AI features call OpenAI directly. Its own roadmap plans the
+moves (Turing V00 to V04, Dumont V05, Shio V06), all still open. What is true today is
+only that it runs beside Turing and Shio in the `viglet/cloud` Docker compose, sharing
+Postgres, Redis and auth. The real numbers, from its build-time `catalogStats.json`:
+8,279 courses, 74 institutions, 30 areas, 348 cities; "~6.9k" was the static page count.
+Resume when cursarei's Turing integration (its V01 SN site) is live, and take the
+numbers from that file at that time. The repo is private, so the page links the live
+site, never GitHub.
 
 ### II.3 W3: Showcase index
 
