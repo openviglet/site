@@ -21,6 +21,7 @@
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
 - ⏸ **W18** (deps: W17 ✅) **Deploy on Viglet Cloud as a site** — set aside (the owner runs the Cloud deploy and the Cloudflare DNS cutover.): deploy it, check site.viglet.cloud, move www.viglet.org and viglet.org DNS in Cloudflare, then retire the Pages deploy. → §VIII.2
+- ⏸ **W19** (deps: W18 ✅) **Native AI API routes** — set aside (waits for the W18 cutover.): once on Next.js, W5–W7 become App Router API routes with content-keyed cache, daily budget and deterministic fallback after cursarei's `llmRuntime`, superseding Block B's external calls. → §VIII.3
 
 ## Block I — Viglet Cloud (beta) surface
 

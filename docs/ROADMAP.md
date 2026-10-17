@@ -34,7 +34,7 @@
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
-- ⏳ **W7** (deps: W6 ✅, W19) **Natural-language problem → product match** — match with a language model limited to the closed product list, as a W19 API route with the intent table as fallback. → §III.3
+- ⏳ **W7** (deps: W6 ✅, W19 ⏸) **Natural-language problem → product match** — match with a language model limited to the closed product list, as a W19 API route with the intent table as fallback. → §III.3
 
 ## Block C — Interactive product selection
 
@@ -61,8 +61,6 @@
 > server-side RAG, SQLite click/cache like cursarei) instead of calls to an
 > external endpoint, and makes viglet.org itself a Cloud reference deployment.
 > Rationale + migration plan → STRATEGY §VII; design → IMPROVEMENTS §VIII.
-
-- 💭 **W19** (deps: W17 ✅) **Native AI API routes** — once on Next.js, W5–W7 become App Router API routes with content-keyed cache, daily budget and deterministic fallback after cursarei's `llmRuntime`, superseding Block B's external calls. → §VIII.3
 
 ## Block I — Viglet Cloud (beta) surface
 
