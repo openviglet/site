@@ -231,13 +231,14 @@ reach people who will not create an account yet; otherwise retire this line.
 
 ### X.5 W33: [cross-repo] Cloud (beta) mention on turing.viglet.org
 
-Mirror the light mention on the Turing site so the two surfaces tell one story:
-a line in turing's `SelfHost` section ("or try it on Cloud (beta)") and a footer
-link. **Executed in the Turing repo** (`turing/2026.1/frontend/apps/site`), tracked
-here, the same cross-repo arrangement as Block E ↔ Turing Block O. Keep wording and
-Beta-labelling identical to viglet.org's so the brand voice is consistent.
-
----
+Mirror the light mention on the Turing site so the two surfaces tell one story: a line
+in turing's `SelfHost` section ("or try it on Cloud (beta)") and a footer link.
+**Executed in the Turing repo** (`turing/latest/frontend/apps/site`, the section is
+`src/components/sections/self-host.tsx`), tracked here, the same cross-repo arrangement
+as Block E ↔ Turing Block O. Keep wording and Beta-labelling identical to viglet.org's
+so the brand voice is consistent: copy the line W32 put on the download pages ("Prefer
+not to self-host? Run Turing on Viglet Cloud (beta)") and link the same sign-up,
+`https://console.viglet.cloud/?register=1`.
 
 ## XI. Block E (2026-10): Relevance pass
 

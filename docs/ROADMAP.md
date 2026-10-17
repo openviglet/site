@@ -81,8 +81,6 @@
 > D's privacy discipline (W10/W12) for the signup. turing.viglet.org gets the same
 > light mention (cross-repo, like Block E ↔ Turing Block O). Design → IMPROVEMENTS §X.
 
-- 💭 **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
-
 ## Non-goals (do NOT add as tasks)
 
 Binding constraints: see [IMPROVEMENTS.md](IMPROVEMENTS.md) §0 and

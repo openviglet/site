@@ -22,3 +22,4 @@
 ## Block I — Viglet Cloud (beta) surface
 
 - ⏸ **W31** (deps: W10 ✅, W12 ✅, W30 ✅) **Beta early-access capture** — set aside (owner decides if a list adds to console sign-up.): an LGPD-compliant "entrar na beta" email opt-in reusing Block D's capture and consent discipline (W10/W12), degrading gracefully while the site has no backend. → §X.3
+- ⏸ **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — set aside (the Turing site holds another session's open rebrand.): mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
