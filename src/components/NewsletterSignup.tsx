@@ -6,7 +6,7 @@ import { IconMail, IconCheck, IconLoader2, IconAlertTriangle } from '@tabler/ico
  *
  * The site is a static SPA with no backend (backend is gated on Block G), so
  * this submits to a third-party form service. The endpoint is read from
- * `VITE_NEWSLETTER_ENDPOINT` at build time; when it is not configured the whole
+ * `NEXT_PUBLIC_NEWSLETTER_ENDPOINT` at build time; when it is not configured the whole
  * component renders nothing, so no half-built form ships. Works with any service
  * that accepts a JSON POST (Formspree, Buttondown, Web3Forms, …).
  *
@@ -16,7 +16,7 @@ import { IconMail, IconCheck, IconLoader2, IconAlertTriangle } from '@tabler/ico
  * always resolves to a success or error state.
  */
 
-const ENDPOINT = import.meta.env.VITE_NEWSLETTER_ENDPOINT
+const ENDPOINT = process.env.NEXT_PUBLIC_NEWSLETTER_ENDPOINT
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'

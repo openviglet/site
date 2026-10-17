@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
 import { IconArrowRight, IconBook, IconRefresh } from '@tabler/icons-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -16,14 +16,14 @@ export default function ProductWizard() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const ready = Boolean(answers.have && answers.want)
   const result = ready ? recommend(answers) : null
-  const { hash } = useLocation()
   const ref = useRef<HTMLElement>(null)
 
-  // `/#which-product` (linked from /compare/): the SPA does not scroll to a hash
-  // on its own, and ScrollToTop has just sent the page to the top.
+  // `/#which-product` (linked from /compare/): on a client-side navigation the
+  // hash is already in the URL when the home mounts, but the section may render
+  // after the router's own scroll, so scroll to it here.
   useEffect(() => {
-    if (hash === '#which-product') ref.current?.scrollIntoView()
-  }, [hash])
+    if (window.location.hash === '#which-product') ref.current?.scrollIntoView()
+  }, [])
 
   return (
     <section ref={ref} id="which-product" className="py-20 px-6 bg-background border-t border-border">
@@ -36,7 +36,7 @@ export default function ProductWizard() {
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
             Answer three questions and get the product, or the combination, that fits.
             Or{' '}
-            <Link to="/compare/" className="font-semibold text-brand no-underline">
+            <Link href="/compare/" className="font-semibold text-brand no-underline">
               compare all three side by side
             </Link>
             .
@@ -101,7 +101,7 @@ export default function ProductWizard() {
                         </ul>
                         <div className="flex flex-wrap gap-4">
                           <Link
-                            to={product.permalink}
+                            href={product.permalink}
                             className={`flex items-center gap-1.5 text-sm font-semibold no-underline product-text-${pick.solution}`}
                           >
                             About {product.shortName}
@@ -136,7 +136,7 @@ export default function ProductWizard() {
                             {result.note.noteLink.label}
                           </a>
                         ) : (
-                          <Link to={result.note.noteLink.to} className="font-semibold text-brand no-underline">
+                          <Link href={result.note.noteLink.to} className="font-semibold text-brand no-underline">
                             {result.note.noteLink.label}
                           </Link>
                         )}

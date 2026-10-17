@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { IconArrowRight } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -47,7 +49,7 @@ export default function PartnerPage() {
               </a>
             </Button>
             <Button variant="ghost" size="lg" asChild>
-              <Link to="/">Explore Products</Link>
+              <Link href="/">Explore Products</Link>
             </Button>
           </div>
         </div>

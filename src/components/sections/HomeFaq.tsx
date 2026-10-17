@@ -7,10 +7,9 @@ import { getFaq } from '@/data/narrative'
  * `narrative.ts` `faq[]`. Uses native <details>/<summary> so it works without JS
  * and is accessible by default.
  *
- * The matching FAQPage JSON-LD is NOT emitted here. It ships in `index.html`'s
- * static <head> (kept on the home route by the prerender plugin) so crawlers see
- * it in the prerendered HTML. `narrative.ts` `faq[]` is the single source of
- * truth; index.html mirrors it verbatim.
+ * The matching FAQPage JSON-LD is NOT emitted here: the home route
+ * (src/app/page.tsx) builds it from the same `narrative.ts` `faq[]`, so the two
+ * cannot drift apart.
  */
 export default function HomeFaq() {
   const faq = getFaq()

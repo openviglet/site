@@ -36,12 +36,13 @@ jobs:
           # Newsletter / release-alert form-service endpoint (Block D W10/W11).
           # Set a repo secret NEWSLETTER_ENDPOINT to enable the footer signup;
           # when empty, the signup UI is not rendered.
-          VITE_NEWSLETTER_ENDPOINT: ${{ secrets.NEWSLETTER_ENDPOINT }}
+          NEXT_PUBLIC_NEWSLETTER_ENDPOINT: ${{ secrets.NEWSLETTER_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: dist
+          # `next build` with `output: 'export'` (W17) writes the static site here.
+          path: out
 
   deploy:
     needs: build

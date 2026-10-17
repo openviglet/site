@@ -3,24 +3,24 @@
 // At build time, render a per-route 1200×630 SVG (Viglet wordmark + page title
 // + brand/product gradient) and rasterize it to PNG. X / LinkedIn / Slack /
 // Facebook do NOT render SVG og:images, so we ship real PNGs. This runs AFTER
-// `vite build` (see package.json). The prerender plugin wires the matching
+// `next build` (see package.json); src/lib/seo.ts wires the matching
 // `og:image` / `twitter:image` tags per route.
 //
 // Defensive by design: if the optional `@resvg/resvg-js` dependency isn't
 // installed (e.g. a bare local build), we log a warning and skip WITHOUT failing
-// the build. The SVG is still written to dist/og/ as a fallback. CI installs
+// the build. The SVG is still written to out/og/ as a fallback. CI installs
 // the dep, so the deployed site always gets PNGs. The `id`s here MUST match the
-// ids the prerender plugin references (home, dumont, shio, turing, about,
+// ids src/lib/seo.ts references (home, dumont, shio, turing, about,
 // partner).
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-const DIST = resolve(process.cwd(), 'dist')
+const DIST = resolve(process.cwd(), 'out')
 const OUT = resolve(DIST, 'og')
 
 if (!existsSync(DIST)) {
-  console.warn('og-images: dist/ not found. Run after `vite build`. Skipping.')
+  console.warn('og-images: out/ not found. Run after `next build`. Skipping.')
   process.exit(0)
 }
 mkdirSync(OUT, { recursive: true })
@@ -221,4 +221,4 @@ for (const item of identities) {
   }
 }
 
-console.log(`og-images: wrote ${svgCount} SVG${Resvg ? ` + ${pngCount} PNG` : ' (PNG skipped)'} to dist/og/`)
+console.log(`og-images: wrote ${svgCount} SVG${Resvg ? ` + ${pngCount} PNG` : ' (PNG skipped)'} to out/og/`)

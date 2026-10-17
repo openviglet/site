@@ -4,8 +4,9 @@ _site
 .jekyll-metadata
 vendor
 /node_modules
-/dist
-/dist-ssr
+/.next
+/out
+next-env.d.ts
 
 # Claude Code local settings
 .claude/settings.local.json

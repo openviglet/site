@@ -1,4 +1,6 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import {
   IconBrandDocker,
   IconSettings,
@@ -29,8 +31,7 @@ import { getModulesBySolution } from '@/data/modules'
 import { getEssence } from '@/data/narrative'
 import { useGuides, getGuidesBySolution } from '@/data/guides'
 
-export default function SolutionPage() {
-  const { identifier = '' } = useParams<{ identifier: string }>()
+export default function SolutionPage({ identifier }: Readonly<{ identifier: string }>) {
   const solution = getSolution(identifier)
   // W15: cross-links into the docs blog integration/comparison guides for this
   // product. Dynamic: fetched from the docs endpoint (see data/guides.ts), with
@@ -39,7 +40,8 @@ export default function SolutionPage() {
   const allGuides = useGuides()
   const motionPaused = useIsMobileOrTablet()
 
-  if (!solution) return <Navigate to="/" replace />
+  // The route (src/app/[identifier]/page.tsx) 404s an unknown identifier.
+  if (!solution) return null
 
   const features = getFeaturesBySolution(identifier)
   const modules = getModulesBySolution(identifier)
@@ -113,7 +115,7 @@ export default function SolutionPage() {
                 )}
                 {solution.release && (
                   <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
-                    <Link to={`${solution.permalink}download/`}>
+                    <Link href={`${solution.permalink}download/`}>
                       <IconBrandDocker size={18} />
                       Run with Docker
                     </Link>
@@ -153,7 +155,7 @@ export default function SolutionPage() {
           <div className="grid sm:grid-cols-3 gap-4">
             {solution.release && (
               <Link
-                to={`${solution.permalink}download/`}
+                href={`${solution.permalink}download/`}
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
@@ -167,7 +169,7 @@ export default function SolutionPage() {
             )}
             {solution.release && (
               <Link
-                to={`${solution.permalink}release-notes/`}
+                href={`${solution.permalink}release-notes/`}
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
               >
                 <span className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0 product-bg-${identifier}`}>
@@ -396,7 +398,7 @@ export default function SolutionPage() {
             )}
             {solution.release && (
               <Link
-                to={`${solution.permalink}download/`}
+                href={`${solution.permalink}download/`}
                 className={`inline-flex items-center gap-2 px-6 py-3 font-bold rounded-xl transition-colors text-sm no-underline ${
                   solution.site
                     ? 'border border-white/30 text-white hover:bg-white/10'

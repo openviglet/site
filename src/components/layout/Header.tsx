@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { IconMenu2, IconX, IconExternalLink } from '@tabler/icons-react'
 import { solutions } from '@/data/solutions'
 import { Button } from '@/components/ui/button'
@@ -28,7 +28,7 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-6">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/logos/viglet.svg"
               alt="Viglet"
@@ -44,7 +44,7 @@ export default function Header() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                to={sol.permalink}
+                href={sol.permalink}
                 className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
               >
                 <span className="relative flex w-2 h-2 shrink-0">
@@ -59,7 +59,7 @@ export default function Header() {
           {/* CTA + Theme toggle */}
           <div className="hidden md:flex items-center gap-3 ml-auto">
             <Link
-              to="/contact/"
+              href="/contact/"
               className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               Contact
@@ -91,7 +91,7 @@ export default function Header() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                to={sol.permalink}
+                href={sol.permalink}
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted no-underline"
               >
@@ -101,7 +101,7 @@ export default function Header() {
             ))}
             <hr className="border-border my-2" />
             <Link
-              to="/contact/"
+              href="/contact/"
               onClick={() => setMenuOpen(false)}
               className="flex items-center px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium text-foreground no-underline"
             >

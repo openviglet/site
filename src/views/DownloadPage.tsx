@@ -1,4 +1,5 @@
-import { useParams, Navigate } from 'react-router-dom'
+'use client'
+
 import {
   IconSettings,
   IconBook,
@@ -28,12 +29,12 @@ import { getFeaturesBySolution } from '@/data/features'
 import { CommandBlock } from '@/components/Terminal'
 import { cloud } from '@/data/cloud'
 
-export default function DownloadPage() {
-  const { identifier = '' } = useParams<{ identifier: string }>()
+export default function DownloadPage({ identifier }: Readonly<{ identifier: string }>) {
   const solution = getSolution(identifier)
   const motionPaused = useIsMobileOrTablet()
 
-  if (!solution) return <Navigate to="/" replace />
+  // The route (src/app/[identifier]/download/page.tsx) 404s an unknown identifier.
+  if (!solution) return null
 
   const dlModules = getDownloadModulesBySolution(identifier)
   const solutionFeatures = getFeaturesBySolution(identifier)

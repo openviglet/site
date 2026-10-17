@@ -2,7 +2,7 @@
  * Consent-gated Google Analytics (Block D / W12).
  *
  * The site ships **no** analytics until the visitor explicitly opts in. The
- * gtag loader was removed from index.html and lives here, loaded only after
+ * gtag loader is not in the page head; it lives here, loaded only after
  * consent (LGPD/privacy-first, cursarei's ConsentBanner pattern). The choice is
  * persisted in localStorage so the banner appears once.
  */

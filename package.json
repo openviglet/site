@@ -4,10 +4,10 @@
   "version": "2026.2",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "next dev",
     "prebuild": "node scripts/fetch-guides.mjs",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx && node scripts/prerender-html.mjs && node scripts/og-images.mjs",
-    "preview": "vite preview"
+    "build": "tsc --noEmit && next build && node scripts/og-images.mjs",
+    "preview": "python -m http.server 4173 --directory out"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.24",
@@ -20,25 +20,22 @@
     "i18next": "^26.4.2",
     "i18next-browser-languagedetector": "^8.2.0",
     "lucide-react": "^1.48.0",
+    "next": "^16.4.2",
     "next-themes": "^0.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-i18next": "^17.0.15",
-    "react-router-dom": "^7.18.4",
     "sonner": "^2.0.8",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^6.1.1",
     "tailwindcss": "^4.1.11",
     "tw-animate-css": "^1.4.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.3.1",
-    "vite-plugin-static-copy": "^4.1.1"
+    "typescript": "^7.0.2"
   },
   "optionalDependencies": {
     "@resvg/resvg-js": "^2.6.2"

@@ -1,85 +1,30 @@
-import type { Plugin } from 'vite'
-import { readFileSync, writeFileSync } from 'fs'
-import { resolve } from 'path'
+import { solutions } from '@/data/solutions'
+import { comparisons } from '@/data/comparisons'
 
-interface ProductInfo {
-  identifier: string
-  fullName: string
-  shortName: string
-  description: string
-  release: string
-  logoSection: string
-  github: string
-}
-
-function extractProducts(solutionsPath: string): ProductInfo[] {
-  const src = readFileSync(solutionsPath, 'utf-8')
-  const blocks = src.split(/\{/).slice(1)
-  const products: ProductInfo[] = []
-
-  for (const block of blocks) {
-    const get = (key: string) => {
-      const m = block.match(new RegExp(`${key}:\\s*['"]([^'"]+)['"]`))
-      return m ? m[1] : ''
-    }
-    const id = get('identifier')
-    if (!id) continue
-    products.push({
-      identifier: id,
-      fullName: get('fullName'),
-      shortName: get('shortName'),
-      description: get('description'),
-      release: get('release'),
-      logoSection: get('logoSection'),
-      github: get('github') || `https://github.com/openviglet/${id}`,
-    })
-  }
-  return products
-}
-
-interface CompareInfo {
-  slug: string
-  title: string
-  description: string
-}
-
-/** Comparison landing pages (Block E / W14) from src/data/comparisons.ts. */
-function extractComparisons(comparisonsPath: string): CompareInfo[] {
-  const src = readFileSync(comparisonsPath, 'utf-8')
-  const blocks = src.split(/\{/).slice(1)
-  const out: CompareInfo[] = []
-  for (const block of blocks) {
-    const get = (key: string) => {
-      const m = block.match(new RegExp(`${key}:\\s*['"]([^'"]+)['"]`))
-      return m ? m[1] : ''
-    }
-    const slug = get('slug')
-    const title = get('metaTitle')
-    if (!slug || !title) continue
-    out.push({ slug, title, description: get('metaDescription') })
-  }
-  return out
-}
-
-function buildLlmTxt(products: ProductInfo[], comparisons: CompareInfo[]): string {
+/**
+ * The site's llms.txt (Block E), served at /llms.txt by src/app/llms.txt/route.ts
+ * and written to out/ at build time. Product and comparison entries come from
+ * src/data/*; the rest is the suite's positioning, word for word.
+ */
+export function buildLlmTxt(): string {
   const comparisonSection = comparisons.length
     ? `\n## Comparison & Positioning Pages\n\nLanding pages that answer high-intent evaluation queries directly:\n\n${comparisons
-        .map((c) => `- [${c.title}](https://www.viglet.org/compare/${c.slug}/): ${c.description}`)
+        .map((c) => `- [${c.metaTitle}](https://www.viglet.org/compare/${c.slug}/): ${c.metaDescription}`)
         .join('\n')}\n`
     : ''
 
-  const productSections = products
+  const productSections = solutions
     .map(
       (p) => `## ${p.fullName}
 
 > ${p.description}
 
-- Version: ${p.release}
+- Version: ${p.release ?? ''}
 - Product page: https://www.viglet.org/${p.identifier}/
 - Download: https://www.viglet.org/${p.identifier}/download/
 - Release notes: https://www.viglet.org/${p.identifier}/release-notes/
 - Documentation: https://docs.viglet.org/${p.identifier}/
-- GitHub: ${p.github}`,
+- GitHub: ${p.github ?? `https://github.com/openviglet/${p.identifier}`}`,
     )
     .join('\n\n')
 
@@ -98,7 +43,7 @@ Viglet makes three tools that work alone or together, led by Viglet Turing. All 
 
 One line per product: what it is and the job it does, word for word as the site says it.
 
-${products.map((p) => `- ${p.fullName}: ${p.description}`).join('\n')}
+${solutions.map((p) => `- ${p.fullName}: ${p.description}`).join('\n')}
 
 Earlier names: until October 2026 the products carried an acronym (Turing ES, Shio CMS and Dumont DEP). They are the same products.
 
@@ -206,18 +151,4 @@ Organizations that want to use Viglet Dumont, Shio or Turing can reach the Vigle
 
 - About page: https://www.viglet.org/about/
 `
-}
-
-export default function viteLlmTxt(): Plugin {
-  return {
-    name: 'vite-plugin-llmtxt',
-    closeBundle() {
-      const solutionsPath = resolve(__dirname, 'src/data/solutions.ts')
-      const products = extractProducts(solutionsPath)
-      const comparisons = extractComparisons(resolve(__dirname, 'src/data/comparisons.ts'))
-      const llmTxt = buildLlmTxt(products, comparisons)
-      writeFileSync(resolve(__dirname, 'dist/llms.txt'), llmTxt, 'utf-8')
-      console.log(`✓ llms.txt generated with ${products.length} products + ${comparisons.length} comparison pages`)
-    },
-  }
 }

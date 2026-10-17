@@ -1,4 +1,5 @@
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import VigletLogo from '@/components/VigletLogo'
 import type { Solution } from '@/data/solutions'
 
@@ -15,7 +16,7 @@ interface SolutionMenuProps {
 }
 
 export default function SolutionMenu({ solution }: SolutionMenuProps) {
-  const { pathname } = useLocation()
+  const pathname = usePathname()
   const base = solution.permalink
 
   const tabs = [
@@ -33,7 +34,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center gap-2 sm:gap-4 overflow-x-auto scrollbar-hide">
         {/* Brand */}
         <Link
-          to={base}
+          href={base}
           className={`flex items-center gap-2 text-foreground font-bold text-sm sm:text-base no-underline transition-colors shrink-0 mr-1 sm:mr-2 product-nav-link-${solution.identifier}`}
         >
           <VigletLogo identifier={solution.identifier} size={28} />
@@ -47,7 +48,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
             return (
               <Link
                 key={tab.to}
-                to={tab.to}
+                href={tab.to}
                 className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-sm sm:text-base font-medium transition-colors no-underline whitespace-nowrap shrink-0 ${
                   isActive
                     ? `product-tab-active-${solution.identifier} font-semibold`

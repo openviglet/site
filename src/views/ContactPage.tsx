@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { IconArrowRight, IconBook, IconMessageCircle, IconRocket, IconUsers } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -97,7 +99,7 @@ export default function ContactPage() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Fill out the form below and our team will get back to you.
               Building on Viglet as a company?{' '}
-              <Link to="/partner/" className="text-brand font-semibold">Talk to us about partnering</Link>.
+              <Link href="/partner/" className="text-brand font-semibold">Talk to us about partnering</Link>.
             </p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-8">

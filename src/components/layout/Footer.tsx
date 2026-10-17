@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 
 import { solutions } from '@/data/solutions'
@@ -21,12 +21,12 @@ export default function Footer() {
     <footer className="bg-slate-900 text-white pt-16 pb-0 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         {/* Release-alert / newsletter opt-in (W10/W11). Renders only when a
-            form-service endpoint is configured (VITE_NEWSLETTER_ENDPOINT). */}
+            form-service endpoint is configured (NEXT_PUBLIC_NEWSLETTER_ENDPOINT). */}
         <NewsletterSignup />
         <div className="vg-footer-grid pb-12 border-b border-white/8">
           {/* Brand column */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4 no-underline">
+            <Link href="/" className="flex items-center gap-2 mb-4 no-underline">
               <img
                 src="/logos/viglet.svg"
                 alt="Viglet"
@@ -76,7 +76,7 @@ export default function Footer() {
               {solutions.map((sol) => (
                 <li key={sol.identifier}>
                   <Link
-                    to={sol.permalink}
+                    href={sol.permalink}
                     className="group flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
                   >
                     <span className="relative flex w-2 h-2 shrink-0">
@@ -138,7 +138,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <Link
-                  to="/about/"
+                  href="/about/"
                   className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
                 >
                   About
@@ -146,7 +146,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/contact/"
+                  href="/contact/"
                   className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
                 >
                   Contact
@@ -154,7 +154,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/partner/"
+                  href="/partner/"
                   className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
                 >
                   Partner with us

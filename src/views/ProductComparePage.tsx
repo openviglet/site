@@ -1,4 +1,7 @@
-import { Link, useSearchParams } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { IconArrowRight, IconChevronDown, IconExternalLink } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -19,13 +22,36 @@ function parseList(value: string | null, known: string[]): string[] {
 }
 
 /**
+ * The page's query string, read after mount and kept in step with back/forward.
+ * Not next/navigation's `useSearchParams`: in a static export that hook renders
+ * only its Suspense fallback into the HTML, and this page's prerendered body
+ * (the full comparison) is what crawlers read.
+ */
+function useQueryString() {
+  const [search, setSearch] = useState('')
+  useEffect(() => {
+    const read = () => setSearch(window.location.search)
+    read()
+    window.addEventListener('popstate', read)
+    return () => window.removeEventListener('popstate', read)
+  }, [])
+  const params = new URLSearchParams(search)
+  function replace(next: URLSearchParams) {
+    const query = next.toString()
+    window.history.replaceState(window.history.state, '', query ? `?${query}` : window.location.pathname)
+    setSearch(query ? `?${query}` : '')
+  }
+  return [params, replace] as const
+}
+
+/**
  * `/compare/`: Dumont × Shio × Turing side by side (Block C / W9). The columns
  * shown (`?products=`) and the rows expanded (`?open=`) live in the query
  * string, so a comparison is shareable and back/forward restores it. Rows come
  * from `src/data/productComparison.ts`.
  */
 export default function ProductComparePage() {
-  const [params, setParams] = useSearchParams()
+  const [params, setParams] = useQueryString()
   const picked = parseList(params.get('products'), ALL)
   const shown = picked.length > 0 ? picked : ALL
   const open = new Set(parseList(params.get('open'), ROW_IDS))
@@ -40,7 +66,7 @@ export default function ProductComparePage() {
     }
     set('products', next.products, ALL)
     set('open', next.open, ROW_IDS)
-    setParams(p, { replace: true })
+    setParams(p)
   }
 
   function toggleProduct(id: string) {
@@ -109,7 +135,7 @@ export default function ProductComparePage() {
                   <th className="w-1/5 p-4" />
                   {columns.map((s) => (
                     <th key={s.identifier} scope="col" className="p-4 text-left align-bottom">
-                      <Link to={s.permalink} className="flex items-center gap-3 no-underline">
+                      <Link href={s.permalink} className="flex items-center gap-3 no-underline">
                         <VigletLogo identifier={s.identifier} size={36} />
                         <span>
                           <span className="block font-extrabold text-foreground">{s.fullName}</span>
@@ -161,7 +187,7 @@ export default function ProductComparePage() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <Link
-              to="/#which-product"
+              href="/#which-product"
               className="flex items-center justify-between gap-3 p-5 rounded-2xl border border-border bg-card hover:bg-muted transition-colors no-underline"
             >
               <span>
@@ -190,7 +216,7 @@ export default function ProductComparePage() {
               <ul className="space-y-2">
                 {comparisons.map((c) => (
                   <li key={c.slug}>
-                    <Link to={`/compare/${c.slug}/`} className="text-sm font-semibold text-brand no-underline">
+                    <Link href={`/compare/${c.slug}/`} className="text-sm font-semibold text-brand no-underline">
                       {c.h1}
                     </Link>
                   </li>

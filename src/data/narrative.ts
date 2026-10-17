@@ -328,11 +328,9 @@ export interface FaqItem {
  * alternative to Algolia / AEM search" queries Block E targets (GEO).
  *
  * SINGLE SOURCE OF TRUTH for the home FAQPage. The visible section (W26)
- * renders this array, and `index.html`'s static FAQPage JSON-LD **mirrors it**
- * verbatim so structured data matches on-page content (Google requires the FAQ
- * text to be present on the page). If you edit a Q&A here, update the JSON-LD in
- * `index.html` to match. The prerender plugin keeps that JSON-LD on the home
- * route only.
+ * renders this array, and the home route (src/app/page.tsx) builds its FAQPage
+ * JSON-LD from it, so structured data matches on-page content (Google requires
+ * the FAQ text to be present on the page).
  */
 export const faq: FaqItem[] = [
   {

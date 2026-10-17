@@ -1,4 +1,6 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import {
   IconBrandDocker,
@@ -94,8 +96,7 @@ function ChangeItem({ text, githubOrg }: Readonly<{ text: string; githubOrg?: st
   )
 }
 
-export default function ReleaseNotesPage() {
-  const { identifier = '' } = useParams<{ identifier: string }>()
+export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: string }>) {
   const solution = getSolution(identifier)
   const [releases, setReleases] = useState<Release[]>([])
   const [status, setStatus] = useState<'loading' | 'error' | 'done'>('loading')
@@ -118,7 +119,8 @@ export default function ReleaseNotesPage() {
 
   const motionPaused = useIsMobileOrTablet()
 
-  if (!solution) return <Navigate to="/" replace />
+  // The route (src/app/[identifier]/release-notes/page.tsx) 404s an unknown identifier.
+  if (!solution) return null
 
   const totalReleases = releases.length
   const latestDate = releases[0]?.pub_date ? formatDate(releases[0].pub_date) : null
@@ -153,7 +155,7 @@ export default function ReleaseNotesPage() {
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
                 {solution.release && (
                   <ProductButton identifier={identifier} size="lg" asChild>
-                    <Link to={`${solution.permalink}download/`}>
+                    <Link href={`${solution.permalink}download/`}>
                       <IconBrandDocker size={18} />
                       Run with Docker
                     </Link>
@@ -297,7 +299,7 @@ export default function ReleaseNotesPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             {solution.release && (
               <Link
-                to={`${solution.permalink}download/`}
+                href={`${solution.permalink}download/`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
               >
                 <IconBrandDocker size={16} />

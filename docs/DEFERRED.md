@@ -20,8 +20,6 @@
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
-- ⏸ **W17** (deps: —) **Migrate SPA → Next.js (App Router, SSG-first)** — set aside (needs a browser for a visual check.): port the 6 routes of [App.tsx](../src/App.tsx) to the App Router keeping the design system, Tailwind v4 and i18next, and reproduce llms.txt, sitemap and prerender with no SEO regression. → §VIII.1
-
 ## Block I — Viglet Cloud (beta) surface
 
 - ⏸ **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — set aside (the Turing site holds another session's open rebrand.): mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5

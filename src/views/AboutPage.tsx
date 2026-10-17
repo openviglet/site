@@ -1,5 +1,7 @@
+'use client'
+
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import {
   IconBrandGithub,
   IconArrowRight,
@@ -182,7 +184,7 @@ export default function AboutPage() {
               </a>
             </Button>
             <Button variant="ghost" size="lg" asChild>
-              <Link to="/">Explore Products</Link>
+              <Link href="/">Explore Products</Link>
             </Button>
           </div>
         </div>
@@ -245,7 +247,7 @@ export default function AboutPage() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                to={sol.permalink}
+                href={sol.permalink}
                 className="flex flex-col bg-card rounded-2xl border border-border p-6 hover:shadow-hover hover:-translate-y-1 transition-all no-underline group"
               >
                 <VigletLogo identifier={sol.identifier} size={52} className="mb-4" />
@@ -372,7 +374,7 @@ export default function AboutPage() {
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/partner/">
+              <Link href="/partner/">
                 <IconWorld size={16} />
                 Partner with us
               </Link>

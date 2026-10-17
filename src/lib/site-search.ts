@@ -23,7 +23,7 @@ import type { DocGuide } from '@/data/guides'
 export interface SearchEntry {
   title: string
   body: string
-  /** In-site route (react-router) or an absolute URL when `external`. */
+  /** In-site route or an absolute URL when `external`. */
   href: string
   external?: boolean
   /** Product identifier, for the accent dot. */

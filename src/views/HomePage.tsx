@@ -1,5 +1,7 @@
+'use client'
+
 import { useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { IconArrowRight, IconBrandDocker, IconBook } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -69,7 +71,7 @@ function LayoutRow({ sols }: Readonly<{ sols: Solution[] }>) {
       {sols.map((sol, i) => (
         <Link
           key={sol.identifier}
-          to={sol.permalink}
+          href={sol.permalink}
           className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${tilts[i]}`}
         >
           <VigletLogo identifier={sol.identifier} size={44} />
@@ -88,7 +90,7 @@ function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
   return (
     <div className="flex gap-3 h-[236px]">
       <Link
-        to={sols[0].permalink}
+        href={sols[0].permalink}
         className={`${CARD} flex flex-col justify-between w-[42%] p-5 -rotate-1 hover:rotate-0`}
       >
         <VigletLogo identifier={sols[0].identifier} size={48} />
@@ -101,7 +103,7 @@ function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
         {sols.slice(1).map((sol, i) => (
           <Link
             key={sol.identifier}
-            to={sol.permalink}
+            href={sol.permalink}
             className={`${CARD} flex flex-col justify-between flex-1 p-4 ${i === 0 ? 'translate-x-1 hover:translate-x-0' : '-translate-x-1 hover:translate-x-0'}`}
           >
             <VigletLogo identifier={sol.identifier} size={36} />
@@ -128,7 +130,7 @@ function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
       {sols.map((sol, i) => (
         <Link
           key={sol.identifier}
-          to={sol.permalink}
+          href={sol.permalink}
           className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${configs[i]}`}
         >
           <VigletLogo identifier={sol.identifier} size={44} />
@@ -154,7 +156,7 @@ function LayoutCascade({ sols }: Readonly<{ sols: Solution[] }>) {
       {sols.map((sol, i) => (
         <Link
           key={sol.identifier}
-          to={sol.permalink}
+          href={sol.permalink}
           className={`absolute ${CARD} flex flex-col justify-between p-5 ${positions[i]}`}
           style={{ minHeight: 108 }}
         >
@@ -174,7 +176,7 @@ function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
   return (
     <div className="grid grid-cols-5 grid-rows-2 gap-3 h-[228px]">
       <Link
-        to={sols[0].permalink}
+        href={sols[0].permalink}
         className={`${CARD} flex flex-col justify-between col-span-2 row-span-2 p-5`}
       >
         <VigletLogo identifier={sols[0].identifier} size={48} />
@@ -186,7 +188,7 @@ function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
       {sols.slice(1).map((sol) => (
         <Link
           key={sol.identifier}
-          to={sol.permalink}
+          href={sol.permalink}
           className={`${CARD} flex flex-row items-center gap-3 col-span-3 row-span-1 p-4`}
         >
           <VigletLogo identifier={sol.identifier} size={40} />
@@ -322,7 +324,7 @@ export default function HomePage() {
                   </p>
                   <div className="flex items-center justify-between">
                     <Link
-                      to={sol.permalink}
+                      href={sol.permalink}
                       className="flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors no-underline group"
                     >
                       Learn More

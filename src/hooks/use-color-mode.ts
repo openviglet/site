@@ -23,7 +23,7 @@ function readStoredMode(): ColorMode {
 export function useColorMode() {
   // Starts at 'light' on the server and on the first client render, so the
   // prerendered HTML hydrates without a mismatch (W39); the stored choice is
-  // read before paint. The inline script in index.html has already set
+  // read before paint. The inline script in src/app/layout.tsx has already set
   // data-theme, so there is no flash either way.
   const [colorMode, setColorModeState] = useState<ColorMode>('light')
 

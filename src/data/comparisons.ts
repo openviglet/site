@@ -26,10 +26,10 @@ import {
  * nuanced per-vendor detail to the docs comparison posts rather than asserting
  * specifics that could be wrong. No superlatives, no invented benchmarks.
  *
- * ⚠️ Build scripts (vite-plugin-sitemap / -spa-prerender / -llmtxt, og-images.mjs)
- * regex-extract `slug`, `metaTitle`, `metaDescription` from this file. Keep those
- * three fields as plain single-quoted strings with NO embedded quotes/apostrophes,
- * declared before any nested `{` in each object, or extraction breaks.
+ * ⚠️ scripts/og-images.mjs (plain Node, outside the bundle) regex-extracts `slug`,
+ * `h1` and `metaDescription` from this file. Keep those fields as plain
+ * single-quoted strings with NO embedded quotes/apostrophes, declared before any
+ * nested `{` in each object, or extraction breaks.
  */
 
 type Icon = ComponentType<{ size?: number; className?: string }>

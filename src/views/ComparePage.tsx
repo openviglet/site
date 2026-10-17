@@ -1,5 +1,6 @@
-import { useParams, Link, Navigate } from 'react-router-dom'
-import { useEffect } from 'react'
+'use client'
+
+import Link from 'next/link'
 import {
   IconArrowRight,
   IconBook,
@@ -23,37 +24,15 @@ import { getComparison } from '@/data/comparisons'
 import { getSolution, productColors } from '@/data/solutions'
 import { useGuides, getGuidesBySlugs } from '@/data/guides'
 
-export default function ComparePage() {
-  const { slug = '' } = useParams<{ slug: string }>()
+/** The FAQPage JSON-LD for this page is rendered by its route
+ *  (src/app/compare/[slug]/page.tsx), into the static HTML. */
+export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
   const comparison = getComparison(slug)
   const guides = useGuides()
   const motionPaused = useIsMobileOrTablet()
 
-  // FAQPage structured data for this comparison. It helps search engines and LLM
-  // assistants answer the high-intent queries these pages target (GEO). Injected
-  // client-side (the SPA has no SSR); removed on unmount so it never leaks onto
-  // another route. Mirrors the visible FAQ below.
-  useEffect(() => {
-    if (!comparison) return
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.dataset.comparisonFaq = comparison.slug
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: comparison.faq.map((f) => ({
-        '@type': 'Question',
-        name: f.q,
-        acceptedAnswer: { '@type': 'Answer', text: f.a },
-      })),
-    })
-    document.head.appendChild(script)
-    return () => {
-      script.remove()
-    }
-  }, [comparison])
-
-  if (!comparison) return <Navigate to="/" replace />
+  // The route 404s an unknown slug.
+  if (!comparison) return null
 
   const accent = comparison.accent
   const accentColor = productColors[accent] ?? '#4169e1'
@@ -85,7 +64,7 @@ export default function ComparePage() {
 
           <div className="flex flex-wrap gap-3 items-center justify-center">
             <ProductButton identifier={accent} size="lg" asChild>
-              <Link to="/turing/">
+              <Link href="/turing/">
                 <IconRocket size={18} />
                 Explore Turing
               </Link>
@@ -205,7 +184,7 @@ export default function ComparePage() {
               {products.map((p) => (
                 <Link
                   key={p.identifier}
-                  to={p.permalink}
+                  href={p.permalink}
                   className={`flex items-center gap-3 p-4 pr-6 rounded-2xl border border-border bg-card hover:-translate-y-0.5 transition-all no-underline product-card-${p.identifier}`}
                 >
                   <VigletLogo identifier={p.identifier} size={40} />
@@ -299,7 +278,7 @@ export default function ComparePage() {
               Explore Turing
             </a>
             <Link
-              to="/turing/download/"
+              href="/turing/download/"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
             >
               <IconBrandDocker size={16} />

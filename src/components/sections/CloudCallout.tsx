@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { IconBrandDocker, IconCloud, IconExternalLink } from '@tabler/icons-react'
 import { cloud } from '@/data/cloud'
 
@@ -39,7 +39,7 @@ export default function CloudCallout() {
             <IconExternalLink size={14} />
           </a>
           <Link
-            to="/turing/download/"
+            href="/turing/download/"
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border text-foreground text-sm font-bold no-underline hover:bg-muted transition-colors"
           >
             <IconBrandDocker size={16} />

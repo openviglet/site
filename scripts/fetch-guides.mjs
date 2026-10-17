@@ -9,7 +9,7 @@
 //
 // Best-effort by design: if the endpoint is unreachable or malformed (offline
 // build, docs mid-deploy), we KEEP the committed snapshot and exit 0: the build
-// never fails because of the docs site. Runs as `prebuild` (before vite build).
+// never fails because of the docs site. Runs as `prebuild` (before next build).
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'

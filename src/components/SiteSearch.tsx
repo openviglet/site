@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { IconSearch, IconX, IconExternalLink, IconSparkles, IconBulb } from '@tabler/icons-react'
 import { useGuides } from '@/data/guides'
 import { matchProducts } from '@/data/intents'
@@ -64,7 +65,7 @@ export default function SiteSearch({ className = '' }: Readonly<{ className?: st
 }
 
 function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
-  const navigate = useNavigate()
+  const router = useRouter()
   const guides = useGuides()
   const [query, setQuery] = useState('')
   const [live, setLive] = useState<{ query: string; results: LiveResult[] } | null>(null)
@@ -113,7 +114,7 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
     } else if (item.entry.external) {
       window.open(item.entry.href, '_blank', 'noopener')
     } else {
-      navigate(item.entry.href)
+      router.push(item.entry.href)
     }
     onClose()
   }
@@ -195,7 +196,7 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
                   return (
                     <Link
                       key={fit.solution}
-                      to={product.permalink}
+                      href={product.permalink}
                       onClick={onClose}
                       className={`flex items-start gap-3 p-3 rounded-xl border border-border bg-card hover:bg-muted transition-colors no-underline product-card-${fit.solution}`}
                     >
