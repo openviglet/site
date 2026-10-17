@@ -1,7 +1,7 @@
-# Last task number: `W40`
+# Last task number: `W42`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W41`; after assigning it, bump the number above and the log line below.
+> `W43`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,8 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W42**: Decide how www.viglet.org is measured (Block E), 2026-10-17
+- **W41**: Promise only what exists: partner page and stats band (Block E), 2026-10-17
 - **W40**: Home in searched words, AEM as the front door (Block E), 2026-10-17
 - **W39**: Real prerender, full body HTML per route (Block E), 2026-10-17
 - **W38**: One entity, Turing first (Block E), 2026-10-17

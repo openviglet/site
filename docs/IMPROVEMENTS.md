@@ -279,3 +279,33 @@ AEM posts on docs.viglet.org. Ship it with the W1 cursarei case study, the one
 working proof, with its figures taken from cursarei itself (§0 grounding: nothing
 invented). Measure in the Search Console, monthly: impressions and position of the
 three AEM queries against the 13/10/2026 baseline above.
+
+### XI.4 W41: Promise only what exists
+
+The partner page ([PartnerPage.tsx](../src/pages/PartnerPage.tsx)) promises dedicated
+partner success managers, priority support, a certification badge, sandbox
+environments, lead sharing, swag and a reply "within 2 business days". With one or
+two hours a week behind the site, each is a promise a partner can hold Viglet to.
+Until a program exists, the page says what is true: Viglet works with integrators
+and ISVs, and here is how to start the conversation (the contact form). Bring the
+tiers back when there is something behind them. On the home page, the stats band
+(3 open source projects, 100% open source, Apache 2.0, self-hosted) repeats what the
+headline already says; replace it with proof (the W1 case study) or remove it.
+
+### XI.5 W42: Decide how www.viglet.org is measured
+
+Since 19/07/2026 the site loads Google Analytics only after the visitor accepts
+(Block D, W12), and GA has received no event from www.viglet.org since then (read in
+the alegauss/visibility repository, VS20). The visitors are not gone, they are not
+counted. Two options, the owner's call:
+
+1. **Search Console only.** It already covers the site and is the number that counts
+   for search (it gave 3 clicks where GA showed 28 "google" visits in July 2026).
+   Nothing to build; site visits outside search stay unknown.
+2. **GA consent mode.** Before consent, GA sends cookieless, anonymous pings and models
+   the rest. It brings visit counts back, but whether it fits LGPD as the site
+   describes its analytics today is a legal judgment, and the consent banner text
+   would have to say so.
+
+Record the decision here and in the visibility repository's `CLAUDE.md`, where the
+measurement decisions live.

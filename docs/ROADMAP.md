@@ -55,6 +55,8 @@
 - 📋 **W38** (deps: none) **One entity, Turing first**: Turing leads the suite (order, home, examples) with Dumont and Shio framed by how they relate to it; one identical one-line descriptor per product everywhere (site, llms.txt, GitHub repo descriptions, the product sites); settle Dumont's "Extraction" vs "Exchange". → §XI.1
 - 📋 **W39** (deps: none) **Real prerender**: build the full page HTML (body, `<h1>`, copy) for every route, not only the `<head>`. Today `dist/<route>/index.html` has an empty body, so AI crawlers see nothing and Google crawled `/turing/` without indexing it. Stays on Vite + GitHub Pages. → §XI.2
 - 📋 **W40** (deps: W1, W39) **Home in searched words, AEM as the front door**: a home headline that names the problem people search for, the AEM page reworked around "aem search", "aem search engine" and "aem search component", cross-linked with the AEM posts on docs.viglet.org, shipped with the W1 cursarei case study as proof. → §XI.3
+- 📋 **W41** (deps: none) **Promise only what exists**: cut the partner page down to "talk to us about partnering" until a program exists (it promises dedicated managers, certification, sandboxes, lead sharing, swag and a 2-business-day reply), and replace the home stats band (3 projects · 100% open source · Apache 2.0 · self-hosted) with proof (the W1 case study) or remove it. → §XI.4
+- 💭 **W42** (deps: none) **Decide how www.viglet.org is measured**: since 19/07/2026 GA only fires after consent, so the host stopped being measured. Decision for the owner: Search Console only, or GA consent mode (cookieless pings), whose LGPD fit is the owner's call. → §XI.5
 
 ## Block F: Reference app / developer funnel
 
