@@ -62,6 +62,7 @@
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
 - **W6 (site data + live Turing docs)** — A header search (button, Ctrl+K or /) finds products, downloads, release notes, features, modules, comparisons and guides from src/data, and adds live Viglet Turing results over the Turing docs through @viglet/turing-sdk.
+- **W7 (keyword intent table in search)** — Typing a problem into the site search (for example preciso indexar minha intranet e adicionar busca com IA) now shows the products that fit, each with a reason, from a keyword intent table in English and Portuguese.
 
 ## Block C — Interactive product selection
 

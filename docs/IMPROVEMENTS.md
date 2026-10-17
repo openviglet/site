@@ -131,11 +131,16 @@ T1079), replace the `Promise.race` in `searchTuring`.
 ### III.3 W7: NL problem → product match
 
 cursarei's `nlFilters` pattern repurposed: free-text problem statement → matched
-product(s) + reasons. "preciso crawlear minha intranet e ter busca com IA" →
-Dumont + Turing. Backed by W6's retrieval; fallback to keyword detection over a
-small intent table.
+product(s) + reasons. "preciso crawlear minha intranet e ter busca com IA" → Dumont +
+Turing. Backed by W6's retrieval; fallback to keyword detection over a small intent
+table.
 
----
+**What landed (2026-10-17).** The keyword half: `src/data/intents.ts` (terms in English
+and Portuguese → product + a reason restating `features.ts`) and the "Products that fit"
+block at the top of the W6 search dialog. **What is left** is the model half, which
+needs a server: the `nlFilters` shape, where the model may only pick product ids from
+the closed list and the intent table is the fallback. It lands as a W19 API route, so
+the line waits on W19.
 
 ## IV. Block C: Interactive product selection
 

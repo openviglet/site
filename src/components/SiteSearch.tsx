@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { IconSearch, IconX, IconExternalLink, IconSparkles } from '@tabler/icons-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { IconSearch, IconX, IconExternalLink, IconSparkles, IconBulb } from '@tabler/icons-react'
 import { useGuides } from '@/data/guides'
+import { matchProducts } from '@/data/intents'
+import { getSolution } from '@/data/solutions'
+import VigletLogo from '@/components/VigletLogo'
 import { highlightParts, searchLocal, searchTuring, type LiveResult, type SearchEntry } from '@/lib/site-search'
 
 const LIVE_DEBOUNCE_MS = 250
@@ -69,6 +72,9 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
   const inputRef = useRef<HTMLInputElement>(null)
 
   const local = useMemo(() => searchLocal(query, guides), [query, guides])
+  // W7: a problem statement ("index my intranet and add AI search") names the
+  // products that fit, with a reason each, above the page results.
+  const fits = useMemo(() => matchProducts(query), [query])
   const trimmed = query.trim()
   const liveResults = live && live.query === trimmed ? live.results : []
   const liveLoading = trimmed.length >= 2 && (!live || live.query !== trimmed)
@@ -172,8 +178,37 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
         <div className="max-h-[60vh] overflow-y-auto p-2">
           {trimmed === '' && (
             <p className="px-3 py-6 text-sm text-muted-foreground text-center">
-              Try "AEM", "RAG", "GraphQL" or "Docker".
+              Try "AEM", "RAG" or "GraphQL", or describe your problem: "index our intranet and add AI search".
             </p>
+          )}
+
+          {fits.length > 0 && (
+            <div className="mb-2 pb-2 border-b border-border">
+              <p className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <IconBulb size={14} />
+                Products that fit
+              </p>
+              <div className="grid gap-2 px-1 sm:grid-cols-2">
+                {fits.map((fit) => {
+                  const product = getSolution(fit.solution)
+                  if (!product) return null
+                  return (
+                    <Link
+                      key={fit.solution}
+                      to={product.permalink}
+                      onClick={onClose}
+                      className={`flex items-start gap-3 p-3 rounded-xl border border-border bg-card hover:bg-muted transition-colors no-underline product-card-${fit.solution}`}
+                    >
+                      <VigletLogo identifier={fit.solution} size={32} />
+                      <span className="min-w-0">
+                        <span className="block text-sm font-bold text-foreground">{product.fullName}</span>
+                        <span className="block text-xs text-muted-foreground leading-relaxed">{fit.reasons.slice(0, 2).join(' ')}</span>
+                      </span>
+                    </Link>
+                  )
+                })}
+              </div>
+            </div>
           )}
 
           {local.length > 0 && (

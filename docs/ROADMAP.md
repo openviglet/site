@@ -34,7 +34,7 @@
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
-- 💭 **W7** (deps: W6 ✅) **Natural-language problem → product match** — "preciso indexar minha intranet e adicionar busca com IA" → returns Dumont + Turing with reasons (cursarei's `nlFilters` pattern, ported to product matching). → §III.3
+- ⏳ **W7** (deps: W6 ✅, W19) **Natural-language problem → product match** — match with a language model limited to the closed product list, as a W19 API route with the intent table as fallback. → §III.3
 
 ## Block C — Interactive product selection
 
