@@ -5,6 +5,7 @@ import { solutions } from '@/data/solutions'
 import { Button } from '@/components/ui/button'
 import { ColorModeToggle } from '@/components/ColorModeToggle'
 import VigletLogo from '@/components/VigletLogo'
+import SiteSearch from '@/components/SiteSearch'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -63,6 +64,7 @@ export default function Header() {
             >
               Contact
             </Link>
+            <SiteSearch />
             <ColorModeToggle />
             <Button asChild size="sm">
               <a href="https://docs.viglet.org" target="_blank" rel="noopener">
@@ -71,11 +73,12 @@ export default function Header() {
             </Button>
           </div>
 
-          {/* Mobile hamburger */}
+          {/* Mobile search + hamburger */}
+          <SiteSearch className="md:hidden ml-auto" />
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden ml-auto p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
+            className="md:hidden p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
             aria-label="Toggle menu"
           >
             {menuOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}

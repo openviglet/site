@@ -61,6 +61,8 @@
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
+- **W6 (site data + live Turing docs)** — A header search (button, Ctrl+K or /) finds products, downloads, release notes, features, modules, comparisons and guides from src/data, and adds live Viglet Turing results over the Turing docs through @viglet/turing-sdk.
+
 ## Block C — Interactive product selection
 
 ## Block F — Reference app / developer funnel

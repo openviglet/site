@@ -7,6 +7,7 @@
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
 - ⏸ **W5** (deps: —) **Product-finder copilot** — set aside (the demo indexes only Turing docs, not Dumont or Shio.): a chat widget that answers which Viglet product a visitor needs, doing RAG over docs.viglet.org through a Turing instance, falling back to a static decision tree when Turing is unavailable. → §III.1
+- ⏸ **W6** (deps: —) **Semantic site search** — set aside (the demo indexes only Turing docs, not Dumont or Shio.): index Dumont and Shio docs and the release notes on the Turing demo, so live results cover all three products. → §III.2
 
 ## Block C — Interactive product selection
 

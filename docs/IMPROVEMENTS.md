@@ -114,9 +114,19 @@ not a second decision tree.
 
 ### III.2 W6: Semantic site search
 
-Turing-powered search over products + release notes + docs. Replaces/augments any
-static filter. Every query exercises the product. **Fallback:** client-side
-fuzzy filter over the existing `src/data/*` (Fuse-style), so search always works.
+Turing-powered search over products + release notes + docs. Replaces/augments any static
+filter. Every query exercises the product. **Fallback:** client-side fuzzy filter over
+the existing `src/data/*` (Fuse-style), so search always works.
+
+**What landed (2026-10-17).** `src/lib/site-search.ts` + `SiteSearch.tsx`: the local
+index over `src/data/*` and the guides, and live results from the public demo
+(`turing-demo.viglet.org`, SN site `turing-docs`, CORS open to www.viglet.org) through
+`@viglet/turing-sdk`. **What is left** is content, not code: that SN site indexes only
+the Turing docs (27 documents), so a Dumont or Shio query gets no live results, and the
+release notes are not indexed anywhere. Resume when the demo indexes the Dumont and Shio
+docs (W5 waits on the same corpus); then point `TURING_DEMO_SITE` at it, or query one
+site per product. When the npm SDK ships `timeoutMs` and per-call signals (Turing
+T1079), replace the `Promise.race` in `searchTuring`.
 
 ### III.3 W7: NL problem → product match
 

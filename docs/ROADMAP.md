@@ -34,8 +34,7 @@
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
-- 💭 **W6** (deps: —) **Semantic site search** — Turing-powered search over products, release notes and docs, so every query is a micro-demo, with client-side filtering as the fallback. → §III.2
-- 💭 **W7** (deps: W6) **Natural-language problem → product match** — "preciso indexar minha intranet e adicionar busca com IA" → returns Dumont + Turing with reasons (cursarei's `nlFilters` pattern, ported to product matching). → §III.3
+- 💭 **W7** (deps: W6 ✅) **Natural-language problem → product match** — "preciso indexar minha intranet e adicionar busca com IA" → returns Dumont + Turing with reasons (cursarei's `nlFilters` pattern, ported to product matching). → §III.3
 
 ## Block C — Interactive product selection
 
