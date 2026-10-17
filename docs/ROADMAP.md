@@ -44,6 +44,18 @@
 - 📋 **W8** (deps: none) **"Which Viglet product?" wizard**: 2–3 question selector → recommends Dumont / Shio / Turing (or a combination) with rationale. Pure client-side; no backend. → §IV.1
 - 💭 **W9** (deps: none) **Product comparison table**: Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
 
+## Block E: Discoverability / GEO
+
+> **Origin (2026-10-17):** relevance pass from the alegauss/visibility analysis
+> (`estrategia/viglet.md`). Search Console reads about 8 clicks a month, nearly all
+> on the brand; the only generic queries with impressions are AEM ones, on page
+> four. Turing is the long-term relevance bet from 2027, through search and AI
+> assistants. Design → IMPROVEMENTS §XI.
+
+- 📋 **W38** (deps: none) **One entity, Turing first**: Turing leads the suite (order, home, examples) with Dumont and Shio framed by how they relate to it; one identical one-line descriptor per product everywhere (site, llms.txt, GitHub repo descriptions, the product sites); settle Dumont's "Extraction" vs "Exchange". → §XI.1
+- 📋 **W39** (deps: none) **Real prerender**: build the full page HTML (body, `<h1>`, copy) for every route, not only the `<head>`. Today `dist/<route>/index.html` has an empty body, so AI crawlers see nothing and Google crawled `/turing/` without indexing it. Stays on Vite + GitHub Pages. → §XI.2
+- 📋 **W40** (deps: W1, W39) **Home in searched words, AEM as the front door**: a home headline that names the problem people search for, the AEM page reworked around "aem search", "aem search engine" and "aem search component", cross-linked with the AEM posts on docs.viglet.org, shipped with the W1 cursarei case study as proof. → §XI.3
+
 ## Block F: Reference app / developer funnel
 
 - 💭 **W16** (deps: W1, W2) **Publish cursarei as an open-source starter**: "clone this to build an AI search portal on Viglet". A reference repo is the strongest technical lead-magnet; devs who clone it become Dumont/Turing users. Strategy/positioning in §I.5; mechanics gated. → §VII.1

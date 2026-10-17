@@ -1,7 +1,7 @@
-# Last task number: `W37`
+# Last task number: `W40`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W38`; after assigning it, bump the number above and the log line below.
+> `W41`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,9 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W40**: Home in searched words, AEM as the front door (Block E), 2026-10-17
+- **W39**: Real prerender, full body HTML per route (Block E), 2026-10-17
+- **W38**: One entity, Turing first (Block E), 2026-10-17
 - **W37**: Copy pass, no em dashes, capital V wordmark (Block H), 2026-10-17
 - **W36**: Product names without acronyms, category in words (Block H), 2026-10-17
 - **W35**: 2026 marks: cube product logos, flat Viglet V, favicons (Block H), 2026-10-17

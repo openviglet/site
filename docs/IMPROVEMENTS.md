@@ -222,3 +222,60 @@ a line in turing's `SelfHost` section ("or try it on Cloud (beta)") and a footer
 link. **Executed in the Turing repo** (`turing/2026.1/frontend/apps/site`), tracked
 here, the same cross-repo arrangement as Block E ↔ Turing Block O. Keep wording and
 Beta-labelling identical to viglet.org's so the brand voice is consistent.
+
+---
+
+## XI. Block E (2026-10): Relevance pass
+
+> **Context:** the numbers live in the alegauss/visibility repository
+> (`estrategia/viglet.md`, read 13/10/2026). Search Console for `sc-domain:viglet.org`
+> gave 0 to 8 clicks a month from April to September 2026, mostly on the brand
+> ("viglet" was 10 of about 25 clicks from July to 12/10). The only generic queries
+> with impressions are "aem search" (48), "aem search engine" (28) and "aem search
+> component" (21), at positions 34 to 44. Google crawled `www.viglet.org/turing/`
+> without indexing it and ignored its canonical to turing.viglet.org, because the
+> page arrives as an empty React shell. cursarei is the one Viglet-built site where
+> search clearly works (365 clicks and 43k impressions in September 2026).
+
+### XI.1 W38: One entity, Turing first
+
+Turing is the centre of the story: Dumont brings the content Turing indexes, Shio
+is the CMS of the same family. Today the suite is listed Dumont, Shio, Turing
+(`order` in [solutions.ts](../src/data/solutions.ts)) and the home treats the
+three as equals. Put Turing first everywhere and describe the other two by their
+relation to it. Assistants trust a fact they find written the same way in many
+places, so pick one one-line descriptor per product and use it verbatim on this
+site, in `llms.txt`, in the GitHub repository descriptions and topics (Shio's and
+Dumont's are just "Shio CMS Community Edition" / "Dumont DEP Community Edition"),
+and on turing/shio/dumont.viglet.org, which still carry the acronyms. Dumont is
+"Data Extraction Platform" here and "Data Exchange Platform" on its own site: pick
+one. The GitHub settings and the product sites are cross-repo, done by hand or in
+their repositories.
+
+### XI.2 W39: Real prerender
+
+[vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) writes a per-route
+`<head>` (title, description, OG, JSON-LD) but the body stays the empty app root:
+`dist/turing/index.html` and `dist/shio/index.html` have no text and no `<h1>`
+(checked 17/10/2026). Google renders JavaScript late and with less confidence; the
+AI crawlers mostly do not run it at all, so for them viglet.org is `llms.txt` and
+meta tags. Render each route to HTML at build time (React `renderToString` /
+`renderToPipeableStream` with a static router, then `hydrateRoot` on the client),
+keeping Vite and GitHub Pages. This is build-time only, so it respects the
+"no interim Node server" rule of Block G, and it does not replace W17: it gives
+the SPA the indexable HTML now. Done when every route's `index.html` carries its
+`<h1>` and body copy, the page hydrates without mismatch warnings, and the Search
+Console URL inspection of `/turing/` and `/shio/` shows the rendered text.
+
+### XI.3 W40: Home in searched words, AEM as the front door
+
+"Open Source Tools for Enterprise Intelligence" names a category nobody searches.
+People search "open source enterprise search", "Algolia alternative", "RAG chat
+self-hosted", and, the only ones already showing impressions, AEM search. Rewrite
+the home headline around the problem in those words, Turing first (W38). Make the
+AEM page the main landing: Dumont's AEM connector plus Turing's search, in the
+searched terms ("search component", "search engine"), linked both ways with the
+AEM posts on docs.viglet.org. Ship it with the W1 cursarei case study, the one
+working proof, with its figures taken from cursarei itself (§0 grounding: nothing
+invented). Measure in the Search Console, monthly: impressions and position of the
+three AEM queries against the 13/10/2026 baseline above.
