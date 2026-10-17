@@ -29,19 +29,19 @@
 
 ## Block A — Showcase & proof ("Built with Viglet")
 
-- 📋 **W1** (deps: —) **Cursarei case-study page** — `/showcase/cursarei`: what it does (~6.9k courses, 100+ institutions), the problem it solves, and how each Viglet product powers a layer. The single strongest conversion asset: a buyer *sees* the stack working. → §II.1
-- 💭 **W3** (deps: W1) **Showcase index** — `/showcase`: gallery of reference deployments (cursarei first), each card linking to a live demo + case study. Seeds a "logos" trust bar on the home page. → §II.3
+- 📋 **W1** (deps: —) **Cursarei case-study page** — `/showcase/cursarei`: what it does (~6.9k courses, 100+ institutions), the problem it solves and how each Viglet product powers a layer, so a buyer sees the stack working. → §II.1
+- 💭 **W3** (deps: W1) **Showcase index** — `/showcase`: a gallery of reference deployments (cursarei first), each card linking to a live demo and case study, seeding a logos trust bar on the home page. → §II.3
 - 💭 **W4** (deps: W1) **Live-demo CTA** — prominent "try it live" link to the running cursarei (and any future hosted demo) from the home hero and the Turing solution page. → §II.4
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
-- 💭 **W5** (deps: —) **Product-finder copilot** — chat widget "Qual produto Viglet eu preciso?" backed by a Turing instance doing RAG over `docs.viglet.org`. The feature *is* the demo: the chat the visitor uses is the product. Must fall back to a static decision-tree when the Turing endpoint is unavailable. → §III.1
-- 💭 **W6** (deps: —) **Semantic site search** — Turing-powered search over products + release notes + docs, replacing/augmenting any static search. Every query is a micro-demo. Graceful fallback to client-side filtering. → §III.2
+- 💭 **W5** (deps: —) **Product-finder copilot** — a chat widget that answers which Viglet product a visitor needs, doing RAG over docs.viglet.org through a Turing instance, falling back to a static decision tree when Turing is unavailable. → §III.1
+- 💭 **W6** (deps: —) **Semantic site search** — Turing-powered search over products, release notes and docs, so every query is a micro-demo, with client-side filtering as the fallback. → §III.2
 - 💭 **W7** (deps: W6) **Natural-language problem → product match** — "preciso indexar minha intranet e adicionar busca com IA" → returns Dumont + Turing with reasons (cursarei's `nlFilters` pattern, ported to product matching). → §III.3
 
 ## Block C — Interactive product selection
 
-- 📋 **W8** (deps: —) **"Which Viglet product?" wizard** — 2–3 question selector → recommends Dumont / Shio / Turing (or a combination) with rationale. Pure client-side; no backend. → §IV.1
+- 📋 **W8** (deps: —) **"Which Viglet product?" wizard** — a 2–3 question selector recommends Dumont, Shio, Turing or a combination with a rationale, client-side only, with no backend. → §IV.1
 - 💭 **W9** (deps: —) **Product comparison table** — Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
 
 ## Block E — Discoverability / GEO
@@ -52,15 +52,15 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 📋 **W38** (deps: —) **One entity, Turing first** — Turing leads the suite (order, home, examples) with Dumont and Shio framed by how they relate to it; one identical one-line descriptor per product everywhere (site, llms.txt, GitHub repo descriptions, the product sites); settle Dumont's "Extraction" vs "Exchange". → §XI.1
-- 📋 **W39** (deps: —) **Real prerender** — build the full page HTML (body, `<h1>`, copy) for every route, not only the `<head>`. Today `dist/<route>/index.html` has an empty body, so AI crawlers see nothing and Google crawled `/turing/` without indexing it. Stays on Vite + GitHub Pages. → §XI.2
-- 📋 **W40** (deps: W1, W39) **Home in searched words, AEM as the front door** — a home headline that names the problem people search for, the AEM page reworked around "aem search", "aem search engine" and "aem search component", cross-linked with the AEM posts on docs.viglet.org, shipped with the W1 cursarei case study as proof. → §XI.3
-- 📋 **W41** (deps: —) **Promise only what exists** — cut the partner page down to "talk to us about partnering" until a program exists (it promises dedicated managers, certification, sandboxes, lead sharing, swag and a 2-business-day reply), and replace the home stats band (3 projects · 100% open source · Apache 2.0 · self-hosted) with proof (the W1 case study) or remove it. → §XI.4
-- 💭 **W42** (deps: —) **Decide how www.viglet.org is measured** — since 19/07/2026 GA only fires after consent, so the host stopped being measured. Decision for the owner: Search Console only, or GA consent mode (cookieless pings), whose LGPD fit is the owner's call. → §XI.5
+- 📋 **W38** (deps: —) **One entity, Turing first** — Turing leads the suite with Dumont and Shio framed around it, one identical descriptor per product everywhere (site, llms.txt, GitHub, product sites), and Dumont's name settled. → §XI.1
+- 📋 **W39** (deps: —) **Real prerender** — build the full HTML (body, `<h1>`, copy) for every route, since today `dist/<route>/index.html` has an empty body that AI crawlers read as nothing, staying on Vite + GitHub Pages. → §XI.2
+- 📋 **W40** (deps: W1, W39) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with docs.viglet.org and proven by the W1 case study. → §XI.3
+- 📋 **W41** (deps: —) **Promise only what exists** — cut the partner page to "talk to us about partnering" until a program exists, and replace the home stats band with proof (the W1 case study) or remove it. → §XI.4
+- 💭 **W42** (deps: —) **Decide how www.viglet.org is measured** — GA fires only after consent since 19/07/2026, so the owner picks Search Console only or GA consent mode (cookieless pings), whose LGPD fit is the owner's call. → §XI.5
 
 ## Block F — Reference app / developer funnel
 
-- 💭 **W16** (deps: W1, W2) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet". A reference repo is the strongest technical lead-magnet; devs who clone it become Dumont/Turing users. Strategy/positioning in §I.5; mechanics gated. → §VII.1
+- 💭 **W16** (deps: W1, W2 ✅) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet", a reference repo as the technical lead magnet that turns the devs who clone it into Dumont and Turing users. → §VII.1
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
@@ -72,9 +72,9 @@
 > external endpoint, and makes viglet.org itself a Cloud reference deployment.
 > Rationale + migration plan → STRATEGY §VII; design → IMPROVEMENTS §VIII.
 
-- 💭 **W17** (deps: —) **Migrate SPA → Next.js (App Router, SSG-first)** — port the 6 pages ([App.tsx](../src/App.tsx) routes) to the App Router, keep `@viglet/viglet-design-system` + Tailwind v4 + i18next, and reproduce the three Vite plugins' output (`llms.txt`, sitemap, prerendered HTML) via Next equivalents (`app/llms.txt/route.ts`, `sitemap.ts`, static export/SSG). No visual/SEO regression is the bar. → §VIII.1
+- 💭 **W17** (deps: —) **Migrate SPA → Next.js (App Router, SSG-first)** — port the 6 routes of [App.tsx](../src/App.tsx) to the App Router keeping the design system, Tailwind v4 and i18next, and reproduce llms.txt, sitemap and prerender with no SEO regression. → §VIII.1
 - 💭 **W18** (deps: W17) **Deploy on Viglet Cloud as a site** — Dockerfile + Cloud wiring mirroring cursarei's deployment in the `viglet/cloud` repo; viglet.org becomes a managed Cloud site (proves the Cloud platform on our own marketing surface). → §VIII.2
-- 💭 **W19** (deps: W17) **Native AI API routes** — once on Next.js server, implement W5–W7 backends as App Router API routes (copilot, semantic search, NL match) with content-keyed cache + daily budget + deterministic fallback, following cursarei's `llmRuntime` pattern. Supersedes the "external Turing call" approach in Block B once shipped. → §VIII.3
+- 💭 **W19** (deps: W17) **Native AI API routes** — once on Next.js, W5–W7 become App Router API routes with content-keyed cache, daily budget and deterministic fallback after cursarei's `llmRuntime`, superseding Block B's external calls. → §VIII.3
 
 ## Block I — Viglet Cloud (beta) surface
 
@@ -88,11 +88,11 @@
 > D's privacy discipline (W10/W12) for the signup. turing.viglet.org gets the same
 > light mention (cross-repo, like Block E ↔ Turing Block O). Design → IMPROVEMENTS §X.
 
-- 📋 **W29** (deps: —) **Cloud as a surface (data + footer link)** — represent Viglet Cloud in the data layer (a `cloud` entry / `src/data/cloud.ts`: url, `beta: true`, one-liner) and add a "Cloud · Beta" link to the footer across all pages. Foundation for W30–W32. → §X.1
-- 💭 **W30** (deps: W29) **Home "Viglet Cloud (beta)" callout** — a small band (not a product card) framing hosted-vs-self-host, explicitly **Beta**, with an early-access CTA. Honest about the testing phase; no stability claims. → §X.2
-- 💭 **W31** (deps: W30, W10, W12) **Beta early-access capture** — low-friction "entrar na beta" email opt-in, LGPD-compliant, reusing Block D's capture + consent-banner discipline (W10/W12). Degrades gracefully while the site is a static SPA (no backend until Block G). → §X.3
-- 💭 **W32** (deps: W29) **"Or run on Cloud (beta)" on Download/Self-host** — a line on the Docker download pages presenting Cloud as the hosted alternative to `docker run`. Pairs the two delivery modes at the moment of intent. → §X.4
-- 💭 **W33** (deps: W29) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section ("or try it on Cloud (beta)") + footer. Tracked here; **executed in the turing repo** (`frontend/apps/site`). → §X.5
+- 📋 **W29** (deps: —) **Cloud as a surface (data + footer link)** — a `cloud` entry in the data layer (`src/data/cloud.ts`: url, `beta: true`, one-liner) plus a "Cloud · Beta" footer link on every page, the base for W30–W32. → §X.1
+- 💭 **W30** (deps: W29) **Home "Viglet Cloud (beta)" callout** — a small band, not a product card, framing hosted versus self-host, marked Beta with an early-access CTA and no stability claims. → §X.2
+- 💭 **W31** (deps: W10 ✅, W12 ✅, W30) **Beta early-access capture** — an LGPD-compliant "entrar na beta" email opt-in reusing Block D's capture and consent discipline (W10/W12), degrading gracefully while the site has no backend. → §X.3
+- 💭 **W32** (deps: W29) **"Or run on Cloud (beta)" on Download/Self-host** — a line on the Docker download pages offering Cloud as the hosted alternative to `docker run`, pairing the two delivery modes at the moment of intent. → §X.4
+- 💭 **W33** (deps: W29) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
 
 ## Non-goals (do NOT add as tasks)
 

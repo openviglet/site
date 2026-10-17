@@ -13,8 +13,29 @@ ref_scheme = "outline"
 
 [files]
 roadmap = "docs/ROADMAP.md"
+changelog = "docs/CHANGELOG.md"
 
 [markers]
 open = ["📋", "💭", "⏳", "🛠"]
 shipped = "✅"
 retired = "🗑"
+
+[ledger]
+# Turing's ledger shape: `- **W2** — <prose>`. No marker (the file itself says the work
+# shipped) and no bold symptom. Same em-dash rule as the roadmap: it is the separator.
+marker = false
+symptom = false
+
+[limits.changelog]
+# Entries written before the tool are paragraphs; `ship` copies a why already held to 200,
+# so only a hand-written `record` could use this room.
+why = 2000
+line = 2100
+
+[rules.changelog]
+# A shipped entry has no section to send a second sentence to.
+one_sentence = false
+terminator = false
+
+[install]
+wired = "0.2.515"

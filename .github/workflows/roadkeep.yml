@@ -1,0 +1,29 @@
+# The gate the write path already runs locally, called in CI through the action
+# roadkeep publishes rather than a copied `run:` block, which drifts per
+# repository. `roadkeep lint` exits 1 on a governed file that drifted, and that
+# exit code is the whole contract.
+#
+# Baselined, because `roadkeep lint` reported 29 finding(s) here when this
+# was written: the gate fails on what a branch adds and forgives the standing
+# debt by name, which is the only setting a late gate can be switched on under.
+# Drop the `baseline:` line — and the fetch-depth above it — the day `lint`
+# exits 0 on the default branch, and the gate is absolute.
+#
+# Yours from here: `with: {directory: .}` where roadkeep.toml is not at the root.
+name: roadkeep
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    name: roadkeep lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: alegauss/roadkeep@main
+        with:
+          # `base_ref` on a pull request, the default branch on a push — where
+          # the two coincide the diff is empty and the gate passes on the debt.
+          baseline: origin/${{ github.base_ref || github.event.repository.default_branch }}
