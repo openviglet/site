@@ -1,3 +1,5 @@
+import { cloud } from '@/data/cloud'
+
 /**
  * "Which Viglet product?" wizard (Block C / W8): three client-side questions
  * (what you have, what you want, who runs it) → the products that fit, with a
@@ -22,7 +24,7 @@ export interface WizardOption {
   reason?: string
   /** A note shown under the result (the "who runs it" question). */
   note?: string
-  /** Optional link for the note. */
+  /** Optional link for the note: an in-site route, or an absolute URL. */
   noteLink?: { label: string; to: string }
 }
 
@@ -99,8 +101,8 @@ export const wizardQuestions: WizardQuestion[] = [
       {
         id: 'hosted',
         label: 'We would rather someone hosted it',
-        note: 'Today every product is self-hosted with Docker. A managed Viglet Cloud option is on the roadmap.',
-        noteLink: { label: 'Talk to us', to: '/contact/' },
+        note: `${cloud.name} runs the products for you. It is in beta, so features may change.`,
+        noteLink: { label: 'Create a beta account', to: cloud.signUpUrl },
       },
     ],
   },

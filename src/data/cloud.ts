@@ -14,11 +14,14 @@ export interface CloudSurface {
   beta: boolean
   /** One line on what it is, for links and callouts. */
   oneLiner: string
+  /** Self-service sign-up: the console's Keycloak registration (`?register=1`). */
+  signUpUrl: string
 }
 
 export const cloud: CloudSurface = {
   name: 'Viglet Cloud',
   url: 'https://viglet.cloud',
   beta: true,
+  signUpUrl: 'https://console.viglet.cloud/?register=1',
   oneLiner: 'Viglet Turing, Shio and Dumont as a hosted service, run by Viglet.',
 }

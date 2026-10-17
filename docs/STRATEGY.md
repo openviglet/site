@@ -64,7 +64,7 @@ owner's go-ahead (it's their codebase).
 - **Privacy-first.** Analytics is opt-in (Block D, W12); LGPD-clean capture.
 - **The blog is not here.** Technical how-tos live on `docs.viglet.org`
   (Docusaurus); viglet.org is the positioning surface that links into them
-  (decided in Turing STRATEGY §X.2, do not relitigate).
+  (decided in section X.2 of the Turing repo's STRATEGY, do not relitigate).
 
 ---
 

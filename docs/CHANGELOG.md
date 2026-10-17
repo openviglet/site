@@ -76,3 +76,4 @@
 ## Block I — Viglet Cloud (beta) surface
 
 - **W29** — src/data/cloud.ts describes Viglet Cloud once (name, viglet.cloud, beta, one-liner) and every page's footer now lists Cloud with a Beta badge under Products.
+- **W30** — The home page has a Viglet Cloud band marked Beta that frames self-hosting with Docker versus hosting on Cloud, with Try the beta (console sign-up) and Run with Docker, and the FAQ and wizard now say Cloud is in beta.

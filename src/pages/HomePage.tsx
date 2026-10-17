@@ -15,6 +15,7 @@ import Outcomes from '@/components/sections/Outcomes'
 import StackWall from '@/components/sections/StackWall'
 import HomeFaq from '@/components/sections/HomeFaq'
 import ProductWizard from '@/components/sections/ProductWizard'
+import CloudCallout from '@/components/sections/CloudCallout'
 import { FloatingFormulasBg } from '@viglet/viglet-design-system'
 import DecorativeBackdrop from '@/components/DecorativeBackdrop'
 import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
@@ -350,6 +351,9 @@ export default function HomePage() {
 
       {/* ===== WHICH PRODUCT: three-question wizard (W8) ===== */}
       <ProductWizard />
+
+      {/* ===== HOSTED OR SELF-HOSTED: Viglet Cloud (beta) band (W30) ===== */}
+      <CloudCallout />
 
       {/* ===== HOW THE THREE CONNECT: pipeline band (W21 / W2) ===== */}
       <section className="py-20 px-6 bg-background border-t border-border">

@@ -131,9 +131,15 @@ export default function ProductWizard() {
                     {result.note.noteLink && (
                       <>
                         {' '}
-                        <Link to={result.note.noteLink.to} className="font-semibold text-brand no-underline">
-                          {result.note.noteLink.label}
-                        </Link>
+                        {/^https?:\/\//.test(result.note.noteLink.to) ? (
+                          <a href={result.note.noteLink.to} target="_blank" rel="noopener" className="font-semibold text-brand no-underline">
+                            {result.note.noteLink.label}
+                          </a>
+                        ) : (
+                          <Link to={result.note.noteLink.to} className="font-semibold text-brand no-underline">
+                            {result.note.noteLink.label}
+                          </Link>
+                        )}
                         .
                       </>
                     )}

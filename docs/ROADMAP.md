@@ -81,8 +81,7 @@
 > D's privacy discipline (W10/W12) for the signup. turing.viglet.org gets the same
 > light mention (cross-repo, like Block E ↔ Turing Block O). Design → IMPROVEMENTS §X.
 
-- 💭 **W30** (deps: W29 ✅) **Home "Viglet Cloud (beta)" callout** — a small band, not a product card, framing hosted versus self-host, marked Beta with an early-access CTA and no stability claims. → §X.2
-- 💭 **W31** (deps: W10 ✅, W12 ✅, W30) **Beta early-access capture** — an LGPD-compliant "entrar na beta" email opt-in reusing Block D's capture and consent discipline (W10/W12), degrading gracefully while the site has no backend. → §X.3
+- 💭 **W31** (deps: W10 ✅, W12 ✅, W30 ✅) **Beta early-access capture** — an LGPD-compliant "entrar na beta" email opt-in reusing Block D's capture and consent discipline (W10/W12), degrading gracefully while the site has no backend. → §X.3
 - 💭 **W32** (deps: W29 ✅) **"Or run on Cloud (beta)" on Download/Self-host** — a line on the Docker download pages offering Cloud as the hosted alternative to `docker run`, pairing the two delivery modes at the moment of intent. → §X.4
 - 💭 **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
 

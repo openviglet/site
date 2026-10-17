@@ -352,7 +352,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'How do I run it?',
-    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so there is no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap.',
+    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so there is no Java install and no manual setup. To have Viglet host it for you instead, Viglet Cloud is in beta at viglet.cloud.',
   },
   {
     q: 'Which sources can I index (Adobe AEM, WordPress, databases)?',
