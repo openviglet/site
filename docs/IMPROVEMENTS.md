@@ -94,12 +94,23 @@ any feature copy. Open in a new tab; label it as a reference deployment.
 ### III.1 W5: Product-finder copilot
 
 A chat widget answering "which Viglet product do I need?" via RAG over
-`docs.viglet.org`. The pitch writes itself: *the chat you're using is our
-product.* Mirror cursarei's `copilot.ts` (retrieval → grounded answer, IDs
-validated against a closed list) and `llmRuntime.ts` (content-keyed cache, daily
-budget, 20s timeout, fallback). **Fallback:** a static decision-tree
-("indexing? → Dumont"; "content? → Shio"; "search/AI? → Turing") rendered as
-chips. No superlatives; link every claim to a docs page.
+`docs.viglet.org`. The pitch writes itself: *the chat you're using is our product.*
+Mirror cursarei's `copilot.ts` (retrieval → grounded answer, IDs validated against a
+closed list) and `llmRuntime.ts` (content-keyed cache, daily budget, 20s timeout,
+fallback). **Fallback:** a static decision-tree ("indexing? → Dumont"; "content? →
+Shio"; "search/AI? → Turing") rendered as chips. No superlatives; link every claim to a
+docs page.
+
+**How to build it, and what blocks it (checked 2026-10-17).** No backend is needed:
+turing.viglet.org already streams live chat from the browser with `@viglet/turing-sdk`
+(`createChatController`) against the public `https://turing-demo.viglet.org/api`, and
+that instance's CORS already allows `https://www.viglet.org`. Copy the Turing site's
+`lib/turing-demo.ts` wiring and `chat-demo.tsx`'s refusal-to-fallback rewrite. The
+blocker is the corpus: the demo's `turing-docs` SN site indexes only
+docs.viglet.org/turing, and queries about Dumont or Shio return nothing, so the copilot
+could not ground two of its three answers. Resume when the demo indexes the Dumont and
+Shio docs too (a site of its own or a wider `turing-docs`). The fallback is W8's wizard,
+not a second decision tree.
 
 ### III.2 W6: Semantic site search
 

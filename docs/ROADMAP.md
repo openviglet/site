@@ -34,7 +34,6 @@
 
 ## Block B — Embedded AI (dogfood Turing on our own site)
 
-- 💭 **W5** (deps: —) **Product-finder copilot** — a chat widget that answers which Viglet product a visitor needs, doing RAG over docs.viglet.org through a Turing instance, falling back to a static decision tree when Turing is unavailable. → §III.1
 - 💭 **W6** (deps: —) **Semantic site search** — Turing-powered search over products, release notes and docs, so every query is a micro-demo, with client-side filtering as the fallback. → §III.2
 - 💭 **W7** (deps: W6) **Natural-language problem → product match** — "preciso indexar minha intranet e adicionar busca com IA" → returns Dumont + Turing with reasons (cursarei's `nlFilters` pattern, ported to product matching). → §III.3
 
