@@ -17,4 +17,6 @@
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
+- ⏸ **W17** (deps: —) **Migrate SPA → Next.js (App Router, SSG-first)** — set aside (needs a browser for a visual check.): port the 6 routes of [App.tsx](../src/App.tsx) to the App Router keeping the design system, Tailwind v4 and i18next, and reproduce llms.txt, sitemap and prerender with no SEO regression. → §VIII.1
+
 ## Block I — Viglet Cloud (beta) surface

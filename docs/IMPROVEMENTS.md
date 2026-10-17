@@ -164,16 +164,27 @@ tell one story. Depends on the cursarei owner's go-ahead (it's their codebase).
 ### VIII.1 W17: Migrate SPA → Next.js (App Router, SSG-first)
 
 Port the six routes ([src/App.tsx](../src/App.tsx)) to the App Router. **Keep:**
-`@viglet/viglet-design-system`, Tailwind v4, i18next, react-i18next, the
-data-driven `src/data/*` model. **Reproduce the build plugins' output** with Next
-equivalents: `app/llms.txt/route.ts` (port [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)),
+`@viglet/viglet-design-system`, Tailwind v4, i18next, react-i18next, the data-driven
+`src/data/*` model. **Reproduce the build plugins' output** with Next equivalents:
+`app/llms.txt/route.ts` (port [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)),
 `app/sitemap.ts` (port [vite-plugin-sitemap.ts](../vite-plugin-sitemap.ts)), and
 SSG/`generateStaticParams` for the per-route prerender that
-[vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) does today.
-**Bar:** zero visual and SEO regression (same URLs, same `<head>`, same JSON-LD,
-same `llms.txt`). cursarei is the working reference for every one of these
-patterns. Read it before designing. Keep dynamic segments matching today's
-trailing-slash routes (`/:identifier/`).
+[vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) does today. **Bar:**
+zero visual and SEO regression (same URLs, same `<head>`, same JSON-LD, same
+`llms.txt`). cursarei is the working reference for every one of these patterns. Read it
+before designing. Keep dynamic segments matching today's trailing-slash routes
+(`/:identifier/`).
+
+**What a port has to change (checked 2026-10-17).** Every page and the header import
+`react-router-dom` (`Link`, `useParams`, `useNavigate`, `useSearchParams`, `Navigate`);
+`useColorMode` reads `localStorage` while rendering, which throws on the server;
+`NewsletterSignup` reads `import.meta.env.VITE_NEWSLETTER_ENDPOINT` (the deploy workflow
+passes it); `vite-plugin-static-copy` copies `static_files/`; `index.html` carries the
+consent-gated GA and the home FAQ JSON-LD; and `scripts/og-images.mjs` and
+`scripts/fetch-guides.mjs` run around the build. Pushing `main` deploys GitHub Pages,
+and STRATEGY §VII.3 keeps Pages serving until Cloud (W18) serves identical content, so
+the port cannot land on `main` half done. Do it in a session with a browser for the
+visual check.
 
 ### VIII.2 W18: Deploy on Viglet Cloud as a site
 
