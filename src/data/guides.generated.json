@@ -55,8 +55,8 @@
     },
     {
       "slug": "turing-es-vs-coveo-lucidworks",
-      "title": "Viglet Turing vs. Coveo vs. Lucidworks Fusion",
-      "description": "A head-to-head comparison of three enterprise search platforms for large content portals (Coveo, Lucidworks Fusion, and the open-source Viglet Turing) on pricing, data residency, connectors, semantic search, and RAG.",
+      "title": "Coveo vs. Lucidworks Fusion (and an Open-Source Option)",
+      "description": "Coveo is managed SaaS priced per query; Lucidworks Fusion is licensed, Solr-based and runs in your perimeter. How they compare on pricing, data residency, connectors and RAG, plus Viglet Turing as the open-source alternative.",
       "url": "https://docs.viglet.org/blog/turing-es-vs-coveo-lucidworks/",
       "date": "2026-06-29",
       "tags": [
