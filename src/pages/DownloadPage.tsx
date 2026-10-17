@@ -26,6 +26,7 @@ import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { getDownloadModulesBySolution } from '@/data/modules'
 import { getFeaturesBySolution } from '@/data/features'
 import { CommandBlock } from '@/components/Terminal'
+import { cloud } from '@/data/cloud'
 
 export default function DownloadPage() {
   const { identifier = '' } = useParams<{ identifier: string }>()
@@ -88,6 +89,14 @@ export default function DownloadPage() {
               {runCmd && (
                 <div className="max-w-2xl mb-6">
                   <CommandBlock command={runCmd} />
+                  {/* W32: the hosted alternative, at the moment of intent. */}
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    Prefer not to self-host?{' '}
+                    <a href={cloud.signUpUrl} target="_blank" rel="noopener" className="font-semibold text-brand no-underline">
+                      Run {solution.shortName} on {cloud.name}
+                    </a>
+                    {cloud.beta && <> (beta)</>}.
+                  </p>
                 </div>
               )}
 

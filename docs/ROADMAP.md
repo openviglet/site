@@ -81,7 +81,6 @@
 > D's privacy discipline (W10/W12) for the signup. turing.viglet.org gets the same
 > light mention (cross-repo, like Block E ↔ Turing Block O). Design → IMPROVEMENTS §X.
 
-- 💭 **W32** (deps: W29 ✅) **"Or run on Cloud (beta)" on Download/Self-host** — a line on the Docker download pages offering Cloud as the hosted alternative to `docker run`, pairing the two delivery modes at the moment of intent. → §X.4
 - 💭 **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
 
 ## Non-goals (do NOT add as tasks)

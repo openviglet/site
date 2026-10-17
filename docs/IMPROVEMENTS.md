@@ -229,13 +229,6 @@ requires. Revisit as a native route after Block G.
 "Try the beta" goes there. An email list is only worth building if the owner wants to
 reach people who will not create an account yet; otherwise retire this line.
 
-### X.4 W32: "Or run on Cloud (beta)" on Download/Self-host
-
-At the moment of intent (the Docker download pages: [DownloadPage.tsx](../src/pages/DownloadPage.tsx)),
-add a single line pairing the two delivery modes: after the `docker run` quick-start,
-"prefer not to self-host? **Run it on Cloud (beta)**". Keeps Docker as the default,
-Cloud as the hosted alternative. Beta-labelled; links to the W30 callout / viglet.cloud.
-
 ### X.5 W33: [cross-repo] Cloud (beta) mention on turing.viglet.org
 
 Mirror the light mention on the Turing site so the two surfaces tell one story:
