@@ -162,6 +162,8 @@ export default function Footer() {
               </li>
               {[
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/company/viglet.com' },
+                // the game label (Cottony, Spinhold); one link, the products stay the centre
+                { label: 'Viglet Games', href: 'https://games.viglet.com/' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
