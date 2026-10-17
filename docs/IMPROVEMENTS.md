@@ -294,18 +294,6 @@ working proof, with its figures taken from cursarei itself (§0 grounding: nothi
 invented). Measure in the Search Console, monthly: impressions and position of the
 three AEM queries against the 13/10/2026 baseline above.
 
-### XI.4 W41: Promise only what exists
-
-The partner page ([PartnerPage.tsx](../src/pages/PartnerPage.tsx)) promises dedicated
-partner success managers, priority support, a certification badge, sandbox
-environments, lead sharing, swag and a reply "within 2 business days". With one or
-two hours a week behind the site, each is a promise a partner can hold Viglet to.
-Until a program exists, the page says what is true: Viglet works with integrators
-and ISVs, and here is how to start the conversation (the contact form). Bring the
-tiers back when there is something behind them. On the home page, the stats band
-(3 open source projects, 100% open source, Apache 2.0, self-hosted) repeats what the
-headline already says; replace it with proof (the W1 case study) or remove it.
-
 ### XI.5 W42: Decide how www.viglet.org is measured
 
 Since 19/07/2026 the site loads Google Analytics only after the visitor accepts

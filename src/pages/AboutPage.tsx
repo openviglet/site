@@ -374,7 +374,7 @@ export default function AboutPage() {
             <Button variant="outline" size="lg" asChild>
               <Link to="/partner/">
                 <IconWorld size={16} />
-                Become a Partner
+                Partner with us
               </Link>
             </Button>
             <Button variant="ghost" size="lg" asChild>

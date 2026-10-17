@@ -48,7 +48,7 @@ function tokens(value: string): string[] {
 const staticPages: SearchEntry[] = [
   { title: 'About Viglet', body: 'Who makes Dumont, Shio and Turing, and the history of the project.', href: '/about/', kind: 'Page' },
   { title: 'Contact', body: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.', href: '/contact/', kind: 'Page' },
-  { title: 'Partner Program', body: 'Partner with Viglet: technology, solution and community partners.', href: '/partner/', kind: 'Page' },
+  { title: 'Partner with Viglet', body: 'Integrators, consultancies and software vendors building on Turing, Dumont and Shio: current partners and how to start.', href: '/partner/', kind: 'Page' },
 ]
 
 /** Every in-site entry, built once from the data modules. */

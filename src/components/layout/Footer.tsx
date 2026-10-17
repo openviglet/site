@@ -157,7 +157,7 @@ export default function Footer() {
                   to="/partner/"
                   className="text-sm text-slate-400 hover:text-white transition-colors no-underline"
                 >
-                  Become a Partner
+                  Partner with us
                 </Link>
               </li>
               {[

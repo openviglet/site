@@ -113,8 +113,8 @@ const identities = [
   },
   {
     id: 'partner',
-    title: 'Partner Program',
-    subtitle: 'Join the Viglet partner ecosystem',
+    title: 'Partner with Viglet',
+    subtitle: 'Build on Turing, Dumont or Shio with us',
     acronym: '',
     grad: GRADIENTS.brand,
   },

@@ -40,6 +40,7 @@
 - **W34** — Model Catalog in the Turing module grid: Added a **Model Catalog** entry to the Turing modules in [modules.ts](../src/data/modules.ts) (linking `github.com/openviglet/model-catalog`), surfacing the vendor-neutral public LLM/embedding/rerank/media catalog that Turing reads for its model picker as an ecosystem piece alongside the SDKs / CLI / MCP server. Data-only (renders on the Turing SolutionPage via the existing external-link card; no route, so no sitemap/prerender change). Cross-repo with `openviglet/model-catalog`.
 - **W38 (this site and llms.txt)** — Turing now leads every list on viglet.org and in llms.txt, each product has one descriptor (solutions.ts) used verbatim on its cards, pages, meta, OG cards and llms.txt, and Dumont is the Data Exchange Platform, as in its own repo.
 - **W39 (build-time render and hydration)** — Every route's dist index.html now carries its rendered body, h1 and copy (16 files, from an SSR build of src/entry-server.tsx written in by scripts/prerender-html.mjs), and the browser hydrates it with no mismatch in a jsdom run of ten routes.
+- **W41** — The partner page now says Viglet works with integrators and vendors, that there is no formal program yet, shows the real partners and a form, with no tiers, perks or reply times, and the home stats band is gone.
 
 ## Block H — Conversion narrative & product essence
 

@@ -20,8 +20,8 @@ const staticRoutes: { path: string; title: string; description: string; ogId: st
   },
   {
     path: '/partner/',
-    title: 'Partner Program · Viglet',
-    description: 'The Viglet partner program has three tiers: technology, solution and community.',
+    title: 'Partner with Viglet · Viglet',
+    description: 'Viglet works with integrators, consultancies and software vendors that build on Turing, Dumont and Shio. Tell us about your project.',
     ogId: 'partner',
   },
   {

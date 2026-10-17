@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { IconBuildingStore, IconCode, IconUsers, IconRocket, IconCheck, IconArrowRight, IconPlus } from '@tabler/icons-react'
+import { IconArrowRight } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
@@ -10,74 +10,15 @@ import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import PartnerCard from '@/components/PartnerCard'
 import PartnerSpotlight from '@/components/PartnerSpotlight'
 import CognitoForm from '@/components/CognitoForm'
-import { partners, type PartnerTier } from '@/data/partners'
+import { partners } from '@/data/partners'
 
-const GHOST_TIERS: PartnerTier[] = [
-  'Technology Partner',
-  'Solution Partner',
-  'Community Partner',
-]
-
-const BENEFITS = [
-  {
-    icon: <IconRocket size={24} />,
-    title: 'Co-marketing & visibility',
-    description: 'A listing on viglet.org, joint case studies and co-branded content.',
-  },
-  {
-    icon: <IconCode size={24} />,
-    title: 'Early access to roadmap',
-    description: 'Early access to new features and beta releases, and a direct line to the engineering team.',
-  },
-  {
-    icon: <IconUsers size={24} />,
-    title: 'Partner community',
-    description: 'Join a network of technology integrators, consultancies, and ISVs building on top of the Viglet platform.',
-  },
-  {
-    icon: <IconBuildingStore size={24} />,
-    title: 'Dedicated support',
-    description: 'Access priority technical support, dedicated partner success managers, and integration documentation.',
-  },
-]
-
-const TIERS = [
-  {
-    name: 'Technology Partner',
-    description: 'ISVs and SaaS companies that integrate their products with Viglet Dumont, Viglet Shio or Viglet Turing.',
-    perks: [
-      'Listed in the partner directory',
-      'Integration certification badge',
-      'Access to sandbox environments',
-      'Joint go-to-market opportunities',
-    ],
-    cta: 'Apply as Technology Partner',
-  },
-  {
-    name: 'Solution Partner',
-    description: 'Consultancies and system integrators that implement and extend Viglet solutions for end customers.',
-    perks: [
-      'Partner co-sell motion',
-      'Sales enablement resources',
-      'Training & certification paths',
-      'Lead sharing program',
-    ],
-    cta: 'Apply as Solution Partner',
-    featured: true,
-  },
-  {
-    name: 'Community Partner',
-    description: 'Open source contributors, developer advocates and community builders who grow the Viglet community.',
-    perks: [
-      'Viglet swag & recognition',
-      'Speaker opportunities',
-      'Early release access',
-      'Community spotlight',
-    ],
-    cta: 'Apply as Community Partner',
-  },
-]
-
+/**
+ * `/partner/` (W41: promise only what exists). There is no formal partner
+ * program yet, so the page offers no tiers, perks or response times: it says
+ * Viglet works with integrators and ISVs, shows the partners that exist
+ * (`src/data/partners.ts`), and opens the conversation through the form.
+ * Bring tiers back when there is something behind them.
+ */
 export default function PartnerPage() {
   const motionPaused = useIsMobileOrTablet()
   return (
@@ -90,17 +31,18 @@ export default function PartnerPage() {
           <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
         </DecorativeBackdrop>
         <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <Badge variant="brand" className="mb-6">Partner Program</Badge>
+          <Badge variant="brand" className="mb-6">Partners</Badge>
           <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-            Build enterprise intelligence with us
+            Partner with Viglet
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join the Viglet partner program and help enterprises adopt open source enterprise search, data exchange and content management.
+            Viglet works with integrators, consultancies and software vendors that build on Turing, Dumont and Shio.
+            There is no formal partner program yet. If you have a project or an integration in mind, tell us about it.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>
               <a href="#apply">
-                Become a Partner
+                Talk to us about partnering
                 <IconArrowRight size={16} />
               </a>
             </Button>
@@ -111,141 +53,48 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* ===== BENEFITS ===== */}
-      <section className="py-20 px-6 bg-muted">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Why partner with Viglet</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              Everything you need to grow together
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BENEFITS.map((b) => (
-              <div key={b.title} className="bg-card rounded-2xl border border-border p-6">
-                <div className="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center mb-4">
-                  {b.icon}
-                </div>
-                <h3 className="font-bold text-foreground mb-2">{b.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{b.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== PARTNERS (the ones that exist) ===== */}
+      {partners.length > 0 && (
+        <section id="directory" className="py-20 px-6 bg-muted">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge variant="brand" className="mb-4">Who we work with</Badge>
+              <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+                Partners today
+              </h2>
+            </div>
 
-      {/* ===== TIERS ===== */}
-      <section className="py-20 px-6 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Partner tiers</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              Find your path in the ecosystem
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {TIERS.map((tier) => (
-              <div
-                key={tier.name}
-                className={`flex flex-col rounded-2xl border p-8 ${
-                  tier.featured
-                    ? 'border-brand bg-brand-bg shadow-hover'
-                    : 'border-border bg-card'
-                }`}
-              >
-                <h3 className={`text-lg font-extrabold mb-2 ${tier.featured ? 'text-brand' : 'text-foreground'}`}>
-                  {tier.name}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
-                  {tier.description}
-                </p>
-                <ul className="space-y-2.5 mb-8">
-                  {tier.perks.map((perk) => (
-                    <li key={perk} className="flex items-start gap-2 text-sm text-foreground">
-                      <IconCheck size={16} className="text-brand mt-0.5 shrink-0" />
-                      {perk}
-                    </li>
+            <div className="space-y-6">
+              {partners
+                .filter((p) => p.featured)
+                .map((partner) => (
+                  <PartnerSpotlight key={partner.name} partner={partner} />
+                ))}
+            </div>
+
+            {partners.some((p) => !p.featured) && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                {partners
+                  .filter((p) => !p.featured)
+                  .map((partner) => (
+                    <PartnerCard key={partner.name} partner={partner} />
                   ))}
-                </ul>
-                <Button
-                  variant={tier.featured ? 'default' : 'outline'}
-                  asChild
-                  className="w-full"
-                >
-                  <a href="#apply">
-                    {tier.cta}
-                  </a>
-                </Button>
               </div>
-            ))}
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* ===== PARTNER DIRECTORY ===== */}
-      <section id="directory" className="py-20 px-6 bg-muted">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-4">
-            <Badge variant="brand" className="mb-4">Our partners</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              Meet the ecosystem
-            </h2>
-          </div>
-          <p className="text-center text-muted-foreground leading-relaxed mb-12 max-w-2xl mx-auto">
-            The companies that build, implement and support Viglet in production.
-            This is how your organization will appear here once you join the program.
-          </p>
-
-          {/* Anchor partners get a full-width spotlight so the directory never
-              looks empty with only one entry. */}
-          <div className="space-y-6 mb-8">
-            {partners
-              .filter((p) => p.featured)
-              .map((partner) => (
-                <PartnerSpotlight key={partner.name} partner={partner} />
-              ))}
-          </div>
-
-          {/* Non-featured partners + "your company here" ghost slots (one per
-              tier) fill the grid and show prospects exactly how they'll
-              appear. */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partners
-              .filter((p) => !p.featured)
-              .map((partner) => (
-                <PartnerCard key={partner.name} partner={partner} />
-              ))}
-            {GHOST_TIERS.map((tier) => (
-              <a
-                key={tier}
-                href="#apply"
-                className="group flex flex-col items-center justify-center text-center rounded-2xl border-2 border-dashed border-border p-6 min-h-[240px] no-underline transition-colors hover:border-brand hover:bg-brand-bg/40"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl border-2 border-dashed border-border text-muted-foreground mb-4 transition-colors group-hover:border-brand group-hover:text-brand">
-                  <IconPlus size={22} />
-                </span>
-                <p className="font-bold text-foreground">Your company here</p>
-                <p className="text-sm text-muted-foreground mt-1">{tier}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-brand">
-                  Apply
-                  <IconArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== APPLICATION FORM ===== */}
+      {/* ===== CONTACT FORM ===== */}
       <section id="apply" className="py-20 px-6 bg-background">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <Badge variant="brand" className="mb-4">Apply now</Badge>
+            <Badge variant="brand" className="mb-4">Get in touch</Badge>
             <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-3">
-              Ready to partner with us?
+              Tell us what you have in mind
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Fill out the form below and our team will get back to you within 2 business days.
+              Who you are, what you build or deliver, and how Viglet fits in.
             </p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-8">

@@ -97,7 +97,7 @@ export default function ContactPage() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               Fill out the form below and our team will get back to you.
               Building on Viglet as a company?{' '}
-              <Link to="/partner/" className="text-brand font-semibold">See the partner program</Link>.
+              <Link to="/partner/" className="text-brand font-semibold">Talk to us about partnering</Link>.
             </p>
           </div>
           <div className="bg-card rounded-2xl border border-border p-8">

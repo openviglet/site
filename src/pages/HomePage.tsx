@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { IconArrowRight, IconPackage, IconCode, IconBrandDocker, IconBook } from '@tabler/icons-react'
+import { IconArrowRight, IconBrandDocker, IconBook } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
@@ -229,14 +229,6 @@ function HeroCards({ sols }: Readonly<{ sols: Solution[] }>) {
   return <div data-hero-layout={layout}>{cards}</div>
 }
 
-// ── Trust-bar items (stable keys, no array index) ───────────────────────────
-const TRUST_ITEMS = [
-  { key: 'projects', icon: <IconPackage size={20} className="text-brand" />, value: '3', label: 'Open Source Projects', bg: 'bg-brand-bg' },
-  { key: 'oss', icon: <IconCode size={20} className="text-brand" />, value: '100%', label: 'Open Source', bg: 'bg-brand-bg' },
-  { key: 'license', icon: <GitHubSvg size={20} className="text-emerald-600" />, value: 'Apache 2.0', label: 'License', bg: 'bg-emerald-50' },
-  { key: 'selfhost', icon: <IconBrandDocker size={20} className="text-sky-600" />, value: 'Self-hosted', label: 'Docker, your infra', bg: 'bg-sky-50' },
-] as const
-
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function HomePage() {
   const motionPaused = useIsMobileOrTablet()
@@ -286,24 +278,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== TRUST BAR ===== */}
-      <section className="border-y border-border bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap divide-x divide-border">
-            {TRUST_ITEMS.map((item) => (
-              <div key={item.key} className="flex items-center gap-4 flex-1 px-8 py-6 min-w-[180px]">
-                <span className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center shrink-0`}>
-                  {item.icon}
-                </span>
-                <div>
-                  <p className="text-xl font-extrabold text-foreground leading-none">{item.value}</p>
-                  <p className="text-sm text-muted-foreground mt-0.5">{item.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* The stats band (3 projects, 100% open source, Apache 2.0, self-hosted)
+          repeated the headline; it comes back only as proof, such as the W1
+          case study (W41). */}
 
       {/* ===== SEE: scripted product demo (W28) ===== */}
       <ScriptedDemo />

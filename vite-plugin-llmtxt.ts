@@ -184,9 +184,9 @@ Guides and comparisons on the Viglet blog, for anyone evaluating an open-source 
 - 2023: Dumont ships
 - 2025: Turing adds generative AI, RAG, and conversational search
 
-## Partner Program
+## Partners
 
-Three partner tiers: Technology Partner (ISVs integrating with Viglet), Solution Partner (consultancies implementing Viglet), and Community Partner (contributors and advocates).
+Viglet works with integrators, consultancies and software vendors that build on Turing, Dumont and Shio. There is no formal partner program; the partner page lists current partners and takes partnership requests.
 
 - Partner page: https://www.viglet.org/partner/
 
