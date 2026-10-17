@@ -1,0 +1,20 @@
+# viglet.org's roadkeep configuration. Mirrors Turing's (the docs system here is modeled
+# on it, see AGENTS.md), adjusted to what this repo's files already spell.
+#
+# docs/ROADMAP.md is read by a grammar, not just by people: the em dash in
+# `**Title** — why`, in `(deps: —)` and in `## Block A — Title` is the separator the
+# parser needs. The site's "no em dashes" copy rule (W37) does not apply to this file;
+# swapping them for colons made all 22 lines uncounted.
+
+prefix = "W"
+
+# IMPROVEMENTS.md numbers its rationale by an outline (§II.1), not by task id.
+ref_scheme = "outline"
+
+[files]
+roadmap = "docs/ROADMAP.md"
+
+[markers]
+open = ["📋", "💭", "⏳", "🛠"]
+shipped = "✅"
+retired = "🗑"
