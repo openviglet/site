@@ -176,15 +176,14 @@ before designing. Keep dynamic segments matching today's trailing-slash routes
 (`/:identifier/`).
 
 **What a port has to change (checked 2026-10-17).** Every page and the header import
-`react-router-dom` (`Link`, `useParams`, `useNavigate`, `useSearchParams`, `Navigate`);
-`useColorMode` reads `localStorage` while rendering, which throws on the server;
-`NewsletterSignup` reads `import.meta.env.VITE_NEWSLETTER_ENDPOINT` (the deploy workflow
-passes it); `vite-plugin-static-copy` copies `static_files/`; `index.html` carries the
-consent-gated GA and the home FAQ JSON-LD; and `scripts/og-images.mjs` and
-`scripts/fetch-guides.mjs` run around the build. Pushing `main` deploys GitHub Pages,
-and STRATEGY §VII.3 keeps Pages serving until Cloud (W18) serves identical content, so
-the port cannot land on `main` half done. Do it in a session with a browser for the
-visual check.
+`react-router-dom` (`Link`, `useParams`, `useNavigate`, `useSearchParams`, `Navigate`;
+W39 already split the routes into `AppRoutes` for a `StaticRouter`); `NewsletterSignup`
+reads `import.meta.env.VITE_NEWSLETTER_ENDPOINT` (the deploy workflow passes it);
+`vite-plugin-static-copy` copies `static_files/`; `index.html` carries the consent-gated
+GA and the home FAQ JSON-LD; and `scripts/og-images.mjs` and `scripts/fetch-guides.mjs`
+run around the build. Pushing `main` deploys GitHub Pages, and STRATEGY §VII.3 keeps
+Pages serving until Cloud (W18) serves identical content, so the port cannot land on
+`main` half done. Do it in a session with a browser for the visual check.
 
 ### VIII.2 W18: Deploy on Viglet Cloud as a site
 
@@ -271,20 +270,16 @@ their own repositories.
 
 ### XI.2 W39: Real prerender
 
-[vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) writes a per-route
-`<head>` (title, description, OG, JSON-LD) but the body stays the empty app root:
-`dist/turing/index.html` and `dist/shio/index.html` have no text and no `<h1>` (checked
-17/10/2026). Google renders JavaScript late and with less confidence; the AI crawlers
-mostly do not run it at all, so for them viglet.org is `llms.txt` and meta tags. Render
-each route to HTML at build time (React `renderToString` / `renderToPipeableStream` with
-a static router, then `hydrateRoot` on the client), keeping Vite and GitHub Pages. This
-is build-time only, so it respects the "no interim Node server" rule of Block G, and it
-does not replace W17: it gives the SPA the indexable HTML now. Done when every route's
-`index.html` carries its `<h1>` and body copy, the page hydrates without mismatch
-warnings, and the Search Console URL inspection of `/turing/` and `/shio/` shows the
-rendered text. Known blocker: `useColorMode` reads `localStorage` in its state
-initializer, so `renderToString` of any page with the header throws; move that read into
-an effect first.
+**What landed (2026-10-17).** `npm run build` now also builds `src/entry-server.tsx` for
+SSR, and `scripts/prerender-html.mjs` writes each route's rendered HTML into its
+`dist/<route>/index.html` (16 files, each with its own `<h1>` and copy); `src/main.tsx`
+hydrates it. A jsdom hydration run of ten routes reported no mismatch. The components
+that read the browser while rendering (`useColorMode`, `useIsMobileOrTablet`, the home
+hero's random layout) now start from a value the server can produce.
+
+**What is left** needs the deployed site and the Search Console account: run URL
+inspection on `/turing/` and `/shio/` after the next deploy and confirm the rendered
+text is what Google sees. If it is, ship this line plainly.
 
 ### XI.3 W40: Home in searched words, AEM as the front door
 

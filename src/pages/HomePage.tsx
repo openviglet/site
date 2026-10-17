@@ -204,16 +204,29 @@ function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
 const LAYOUTS = ['row', 'asymmetric', 'podium', 'cascade', 'bento'] as const
 type Layout = (typeof LAYOUTS)[number]
 
+/**
+ * The layout is random per render, but hydrating prerendered HTML (W39) must
+ * reuse the one the build picked, so it is read back from `data-hero-layout`
+ * when that markup is on the page. A client-side visit to `/` picks afresh.
+ */
+function pickLayout(): Layout {
+  if (typeof document !== 'undefined') {
+    const rendered = document.querySelector<HTMLElement>('[data-hero-layout]')?.dataset.heroLayout
+    const known = LAYOUTS.find((l) => l === rendered)
+    if (known) return known
+  }
+  return LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)]
+}
+
 function HeroCards({ sols }: Readonly<{ sols: Solution[] }>) {
-  const layout = useMemo<Layout>(
-    () => LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)],
-    [],
-  )
-  if (layout === 'row') return <LayoutRow sols={sols} />
-  if (layout === 'asymmetric') return <LayoutAsymmetric sols={sols} />
-  if (layout === 'podium') return <LayoutPodium sols={sols} />
-  if (layout === 'cascade') return <LayoutCascade sols={sols} />
-  return <LayoutBento sols={sols} />
+  const layout = useMemo<Layout>(pickLayout, [])
+  let cards
+  if (layout === 'row') cards = <LayoutRow sols={sols} />
+  else if (layout === 'asymmetric') cards = <LayoutAsymmetric sols={sols} />
+  else if (layout === 'podium') cards = <LayoutPodium sols={sols} />
+  else if (layout === 'cascade') cards = <LayoutCascade sols={sols} />
+  else cards = <LayoutBento sols={sols} />
+  return <div data-hero-layout={layout}>{cards}</div>
 }
 
 // ── Trust-bar items (stable keys, no array index) ───────────────────────────

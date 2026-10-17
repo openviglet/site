@@ -9,10 +9,9 @@ import { useState, useEffect } from 'react'
  */
 export function useIsMobileOrTablet(): boolean {
   const query = '(max-width: 1023px)'
-  const [isMobileOrTablet, setIsMobileOrTablet] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return window.matchMedia(query).matches
-  })
+  // false on the server and on the first client render, so prerendered HTML
+  // hydrates without a mismatch (W39); the effect reads the real viewport.
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
 
   useEffect(() => {
     const mq = window.matchMedia(query)

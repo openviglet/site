@@ -7,22 +7,30 @@ import viteSitemap from './vite-plugin-sitemap'
 import viteLlmTxt from './vite-plugin-llmtxt'
 import viteSpaPrerender from './vite-plugin-spa-prerender'
 
-export default defineConfig({
+export default defineConfig(({ command, isSsrBuild }) => ({
   plugins: [
     react(),
     tailwindcss(),
-    viteStaticCopy({
-      targets: [{ src: 'static_files', dest: '' }],
-    }),
-    viteSitemap(),
-    viteLlmTxt(),
-    viteSpaPrerender(),
+    // The SSR build (W39: `src/entry-server.tsx` → dist-ssr/) only feeds
+    // scripts/prerender-html.mjs; the site's own outputs come from the client
+    // build, so the copy and SEO plugins run there alone. Not in `vite` (dev)
+    // either: their closeBundle would rewrite dist/ when the dev server stops.
+    ...(command !== 'build' || isSsrBuild
+      ? []
+      : [
+          viteStaticCopy({
+            targets: [{ src: 'static_files', dest: '' }],
+          }),
+          viteSitemap(),
+          viteLlmTxt(),
+          viteSpaPrerender(),
+        ]),
   ],
   resolve: {
     alias: { '@': path.resolve(__dirname, './src') },
   },
   publicDir: 'public',
   build: {
-    outDir: 'dist',
+    outDir: isSsrBuild ? 'dist-ssr' : 'dist',
   },
-})
+}))

@@ -17,9 +17,14 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+/**
+ * The routes, without a router: the browser wraps them in `BrowserRouter`
+ * (below) and the build-time prerender (W39, `src/entry-server.tsx`) in a
+ * `StaticRouter`, so both render the same tree.
+ */
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <ConsentBanner />
       <Routes>
@@ -35,6 +40,14 @@ export default function App() {
         {/* Fallback */}
         <Route path="*" element={<HomePage />} />
       </Routes>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   )
 }

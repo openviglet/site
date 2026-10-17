@@ -5,6 +5,7 @@ _site
 vendor
 /node_modules
 /dist
+/dist-ssr
 
 # Claude Code local settings
 .claude/settings.local.json

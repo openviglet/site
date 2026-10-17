@@ -14,6 +14,7 @@
 ## Block E — Discoverability / GEO
 
 - ⏸ **W38** (deps: —) **One entity, Turing first** — set aside (needs the GitHub org admin and the product site repos.): copy the descriptors into the GitHub repo descriptions and topics and onto the three product sites, which still carry the acronyms. → §XI.1
+- ⏸ **W39** (deps: —) **Real prerender** — set aside (needs the deployed site and Search Console.): confirm with Search Console URL inspection of /turing/ and /shio/ after the next deploy that Google sees the rendered text. → §XI.2
 
 ## Block F — Reference app / developer funnel
 
