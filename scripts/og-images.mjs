@@ -119,6 +119,13 @@ const identities = [
     grad: GRADIENTS.brand,
   },
   {
+    id: 'compare',
+    title: 'Dumont, Shio and Turing side by side',
+    subtitle: 'What each reads, delivers and runs on',
+    acronym: '',
+    grad: GRADIENTS.brand,
+  },
+  {
     id: 'contact',
     title: 'Contact Viglet',
     subtitle: 'Use Dumont, Shio or Turing in your organization',

@@ -8,6 +8,7 @@ import PartnerPage from '@/pages/PartnerPage'
 import AboutPage from '@/pages/AboutPage'
 import ContactPage from '@/pages/ContactPage'
 import ComparePage from '@/pages/ComparePage'
+import ProductComparePage from '@/pages/ProductComparePage'
 import ConsentBanner from '@/components/ConsentBanner'
 
 function ScrollToTop() {
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/partner/" element={<PartnerPage />} />
         <Route path="/about/" element={<AboutPage />} />
         <Route path="/contact/" element={<ContactPage />} />
+        <Route path="/compare/" element={<ProductComparePage />} />
         <Route path="/compare/:slug/" element={<ComparePage />} />
         {/* Fallback */}
         <Route path="*" element={<HomePage />} />

@@ -159,6 +159,7 @@ For evaluators comparing Viglet with hosted search products:
 - Data residency and self-hosting: with SaaS search, your content lives in the vendor's cloud. With Viglet, indexed content and user queries stay on your own infrastructure, which matters in regulated industries.
 - Any search engine, any LLM: Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama. No engine or model lock-in.
 - No required bundle: the three products run independently. Adopt one and add the others when needed.
+- The three products side by side (what each reads, delivers and runs on): https://www.viglet.org/compare/
 ${comparisonSection}
 ## Guides & Comparisons: Enterprise Search for Adobe AEM & WordPress
 

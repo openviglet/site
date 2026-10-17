@@ -144,15 +144,6 @@ the line waits on W19.
 
 ## IV. Block C: Interactive product selection
 
-### IV.2 W9: Product comparison table
-
-Dumont × Shio × Turing side-by-side; expandable rows (cursarei `Compare`).
-Selection/filter state in the URL query string (cursarei `urlState.ts`) so a
-comparison is shareable and back/forward works. Rows: purpose, primary use case,
-deploy model, integrates-with, license. Facts only.
-
----
-
 ## VII. Block F: Reference app / developer funnel
 
 ### VII.1 W16: Publish cursarei as an open-source starter
@@ -286,16 +277,18 @@ their repositories.
 
 [vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) writes a per-route
 `<head>` (title, description, OG, JSON-LD) but the body stays the empty app root:
-`dist/turing/index.html` and `dist/shio/index.html` have no text and no `<h1>`
-(checked 17/10/2026). Google renders JavaScript late and with less confidence; the
-AI crawlers mostly do not run it at all, so for them viglet.org is `llms.txt` and
-meta tags. Render each route to HTML at build time (React `renderToString` /
-`renderToPipeableStream` with a static router, then `hydrateRoot` on the client),
-keeping Vite and GitHub Pages. This is build-time only, so it respects the
-"no interim Node server" rule of Block G, and it does not replace W17: it gives
-the SPA the indexable HTML now. Done when every route's `index.html` carries its
-`<h1>` and body copy, the page hydrates without mismatch warnings, and the Search
-Console URL inspection of `/turing/` and `/shio/` shows the rendered text.
+`dist/turing/index.html` and `dist/shio/index.html` have no text and no `<h1>` (checked
+17/10/2026). Google renders JavaScript late and with less confidence; the AI crawlers
+mostly do not run it at all, so for them viglet.org is `llms.txt` and meta tags. Render
+each route to HTML at build time (React `renderToString` / `renderToPipeableStream` with
+a static router, then `hydrateRoot` on the client), keeping Vite and GitHub Pages. This
+is build-time only, so it respects the "no interim Node server" rule of Block G, and it
+does not replace W17: it gives the SPA the indexable HTML now. Done when every route's
+`index.html` carries its `<h1>` and body copy, the page hydrates without mismatch
+warnings, and the Search Console URL inspection of `/turing/` and `/shio/` shows the
+rendered text. Known blocker: `useColorMode` reads `localStorage` in its state
+initializer, so `renderToString` of any page with the header throws; move that read into
+an effect first.
 
 ### XI.3 W40: Home in searched words, AEM as the front door
 

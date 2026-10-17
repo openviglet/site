@@ -13,6 +13,12 @@ import { resolve } from 'path'
 
 const staticRoutes: { path: string; title: string; description: string; ogId: string }[] = [
   {
+    path: '/compare/',
+    title: 'Compare Dumont, Shio and Turing · Viglet',
+    description: 'Viglet Dumont, Shio and Turing side by side: what each reads, delivers and runs on, and how they connect.',
+    ogId: 'compare',
+  },
+  {
     path: '/partner/',
     title: 'Partner Program · Viglet',
     description: 'The Viglet partner program has three tiers: technology, solution and community.',

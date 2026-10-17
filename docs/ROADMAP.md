@@ -38,8 +38,6 @@
 
 ## Block C — Interactive product selection
 
-- 💭 **W9** (deps: —) **Product comparison table** — Dumont × Shio × Turing side-by-side with expandable rows; filter/selection state preserved in the URL (cursarei's `Compare` + `urlState` pattern). → §IV.2
-
 ## Block E — Discoverability / GEO
 
 > **Origin (2026-10-17):** relevance pass from the alegauss/visibility analysis

@@ -67,6 +67,7 @@
 ## Block C — Interactive product selection
 
 - **W8** — The home page asks three questions (where the content is, what users get, who runs it) and recommends Dumont, Shio, Turing or a combination, with a reason per product and links to its page and docs, all client-side.
+- **W9** — /compare/ shows Dumont, Shio and Turing side by side (job, inputs, outputs, AI, SDKs, how it runs, license, release) with expandable rows, and the chosen columns and open rows live in the URL so a comparison is shareable.
 
 ## Block F — Reference app / developer funnel
 

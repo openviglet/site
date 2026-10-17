@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { IconArrowRight, IconBook, IconRefresh } from '@tabler/icons-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -16,9 +16,17 @@ export default function ProductWizard() {
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const ready = Boolean(answers.have && answers.want)
   const result = ready ? recommend(answers) : null
+  const { hash } = useLocation()
+  const ref = useRef<HTMLElement>(null)
+
+  // `/#which-product` (linked from /compare/): the SPA does not scroll to a hash
+  // on its own, and ScrollToTop has just sent the page to the top.
+  useEffect(() => {
+    if (hash === '#which-product') ref.current?.scrollIntoView()
+  }, [hash])
 
   return (
-    <section id="which-product" className="py-20 px-6 bg-background border-t border-border">
+    <section ref={ref} id="which-product" className="py-20 px-6 bg-background border-t border-border">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <Badge variant="brand" className="mb-4">Find your fit</Badge>
@@ -27,6 +35,11 @@ export default function ProductWizard() {
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
             Answer three questions and get the product, or the combination, that fits.
+            Or{' '}
+            <Link to="/compare/" className="font-semibold text-brand no-underline">
+              compare all three side by side
+            </Link>
+            .
           </p>
         </div>
 
