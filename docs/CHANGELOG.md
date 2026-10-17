@@ -41,6 +41,7 @@
 - **W38 (this site and llms.txt)** — Turing now leads every list on viglet.org and in llms.txt, each product has one descriptor (solutions.ts) used verbatim on its cards, pages, meta, OG cards and llms.txt, and Dumont is the Data Exchange Platform, as in its own repo.
 - **W39 (build-time render and hydration)** — Every route's dist index.html now carries its rendered body, h1 and copy (16 files, from an SSR build of src/entry-server.tsx written in by scripts/prerender-html.mjs), and the browser hydrates it with no mismatch in a jsdom run of ten routes.
 - **W41** — The partner page now says Viglet works with integrators and vendors, that there is no formal program yet, shows the real partners and a form, with no tiers, perks or reply times, and the home stats band is gone.
+- **W42** — The owner kept GA consent-only, with no consent-mode pings: Search Console is the search number, and visitors who decline stay uncounted.
 
 ## Block H — Conversion narrative & product essence
 
@@ -81,3 +82,4 @@
 - **W29** — src/data/cloud.ts describes Viglet Cloud once (name, viglet.cloud, beta, one-liner) and every page's footer now lists Cloud with a Beta badge under Products.
 - **W30** — The home page has a Viglet Cloud band marked Beta that frames self-hosting with Docker versus hosting on Cloud, with Try the beta (console sign-up) and Run with Docker, and the FAQ and wizard now say Cloud is in beta.
 - **W32** — Every Docker download page now says, under the docker run command, Prefer not to self-host? Run it on Viglet Cloud (beta), linking to the Cloud sign-up.
+- 🗑 **W31** — abandoned: Console sign-up already captures beta interest; a separate email list adds nothing, by the owner's call.

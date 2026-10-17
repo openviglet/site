@@ -213,21 +213,6 @@ tasks' notes when it lands.
 > product card, no primary CTA. It plants the seed and captures interested
 > evaluators without implying production stability. All copy obeys §0 grounding.
 
-### X.3 W31: Beta early-access capture
-
-A low-friction "**entrar na beta**" email opt-in, the highest-value light-touch move: it
-turns anonymous interest into a contactable early-access list. **Reuse Block D**: the
-W10 capture pattern + the W12 consent banner (LGPD/privacy-first, no analytics/marketing
-cookies without consent). While the site is a static SPA there is no backend, so submit
-to a privacy-respecting form endpoint or gate the whole feature behind availability, and
-**degrade gracefully** (never a hard error or a dead spinner), exactly as Block B
-requires. Revisit as a native route after Block G.
-
-**Check first (2026-10-17):** the Cloud console already takes self-service sign-up
-(`https://console.viglet.cloud/?register=1`, Keycloak registration), and the W30 band's
-"Try the beta" goes there. An email list is only worth building if the owner wants to
-reach people who will not create an account yet; otherwise retire this line.
-
 ### X.5 W33: [cross-repo] Cloud (beta) mention on turing.viglet.org
 
 Mirror the light mention on the Turing site so the two surfaces tell one story: a line
@@ -293,21 +278,3 @@ AEM posts on docs.viglet.org. Ship it with the W1 cursarei case study, the one
 working proof, with its figures taken from cursarei itself (§0 grounding: nothing
 invented). Measure in the Search Console, monthly: impressions and position of the
 three AEM queries against the 13/10/2026 baseline above.
-
-### XI.5 W42: Decide how www.viglet.org is measured
-
-Since 19/07/2026 the site loads Google Analytics only after the visitor accepts
-(Block D, W12), and GA has received no event from www.viglet.org since then (read in
-the alegauss/visibility repository, VS20). The visitors are not gone, they are not
-counted. Two options, the owner's call:
-
-1. **Search Console only.** It already covers the site and is the number that counts
-   for search (it gave 3 clicks where GA showed 28 "google" visits in July 2026).
-   Nothing to build; site visits outside search stay unknown.
-2. **GA consent mode.** Before consent, GA sends cookieless, anonymous pings and models
-   the rest. It brings visit counts back, but whether it fits LGPD as the site
-   describes its analytics today is a legal judgment, and the consent banner text
-   would have to say so.
-
-Record the decision here and in the visibility repository's `CLAUDE.md`, where the
-measurement decisions live.

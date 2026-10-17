@@ -15,7 +15,6 @@
 
 - ⏸ **W38** (deps: —) **One entity, Turing first** — set aside (needs the GitHub org admin and the product site repos.): copy the descriptors into the GitHub repo descriptions and topics and onto the three product sites, which still carry the acronyms. → §XI.1
 - ⏸ **W39** (deps: —) **Real prerender** — set aside (needs the deployed site and Search Console.): confirm with Search Console URL inspection of /turing/ and /shio/ after the next deploy that Google sees the rendered text. → §XI.2
-- ⏸ **W42** (deps: —) **Decide how www.viglet.org is measured** — set aside (the owner picks the option; LGPD fit is theirs.): GA fires only after consent since 19/07/2026, so the owner picks Search Console only or GA consent mode (cookieless pings), whose LGPD fit is the owner's call. → §XI.5
 
 ## Block F — Reference app / developer funnel
 
@@ -25,5 +24,4 @@
 
 ## Block I — Viglet Cloud (beta) surface
 
-- ⏸ **W31** (deps: W10 ✅, W12 ✅, W30 ✅) **Beta early-access capture** — set aside (owner decides if a list adds to console sign-up.): an LGPD-compliant "entrar na beta" email opt-in reusing Block D's capture and consent discipline (W10/W12), degrading gracefully while the site has no backend. → §X.3
 - ⏸ **W33** (deps: W29 ✅) **[cross-repo] Cloud (beta) mention on turing.viglet.org** — set aside (the Turing site holds another session's open rebrand.): mirror the light mention in turing's `SelfHost` section and footer, tracked here and executed in the turing repo (`frontend/apps/site`). → §X.5
