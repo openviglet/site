@@ -42,6 +42,7 @@
 - **W39 (build-time render and hydration)** — Every route's dist index.html now carries its rendered body, h1 and copy (16 files, from an SSR build of src/entry-server.tsx written in by scripts/prerender-html.mjs), and the browser hydrates it with no mismatch in a jsdom run of ten routes.
 - **W41** — The partner page now says Viglet works with integrators and vendors, that there is no formal program yet, shows the real partners and a form, with no tiers, perks or reply times, and the home stats band is gone.
 - **W42** — The owner kept GA consent-only, with no consent-mode pings: Search Console is the search number, and visitors who decline stay uncounted.
+- **W43** — The six product repos carry the solutions.ts descriptors and https homepages, turing-ce keeps its richer search-facing description, and Shio's topics drop angularjs and nashorn for react.
 
 ## Block H — Conversion narrative & product essence
 
