@@ -4,16 +4,16 @@ import { Badge } from '@/components/ui/badge'
 import VigletLogo from '@/components/VigletLogo'
 
 /**
- * Scripted product demo (Block H / W28) — "the product IS the hero visual"
- * (turing's strongest pattern), ported dependency-light. It runs a DETERMINISTIC
+ * Scripted product demo (Block H / W28): "the product IS the hero visual"
+ * (turing's strongest pattern), ported with few dependencies. It runs a DETERMINISTIC
  * scripted search-and-answer interaction over Viglet's own content: no backend,
- * no LLM call, and it never shows a broken or never-resolving state — every
- * scenario always resolves to a complete, grounded answer.
+ * no LLM call, and no broken or never-resolving state. Every scenario ends in a
+ * complete answer.
  *
  * When Block B (embedded Turing) or the Cloud migration lands, this can be
  * swapped for a real Turing-backed demo behind the same fallback discipline.
  *
- * Accessibility: honours `prefers-reduced-motion` — no typing animation and a
+ * Accessibility: honours `prefers-reduced-motion` with no typing animation and a
  * slower, calmer auto-advance; the answer is always fully present.
  */
 
@@ -28,7 +28,7 @@ interface Scenario {
   sources: Source[]
 }
 
-// Grounded in real product capabilities (features.ts / modules.ts) — no invented
+// Taken from real product capabilities (features.ts / modules.ts), with no invented
 // claims. These are demonstrations of the kind of answer Turing returns.
 const SCENARIOS: Scenario[] = [
   {
@@ -49,7 +49,7 @@ const SCENARIOS: Scenario[] = [
   {
     query: 'Can I build a site with search built in?',
     answer:
-      'Shio models your content, serves it over GraphQL, and indexes it automatically — so embedded search ships with the site.',
+      'Shio models your content, serves it over GraphQL and indexes it automatically, so the site ships with search built in.',
     sources: [
       { solution: 'shio', label: 'Shio · Search Ready' },
       { solution: 'shio', label: 'Shio · GraphQL' },
@@ -129,7 +129,7 @@ export default function ScriptedDemo() {
             Ask a question, get an answer
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-            A glimpse of Turing answering over indexed content — grounded, with the sources it used.
+            Viglet Turing answers from your indexed content and shows the sources it used.
           </p>
         </div>
 
@@ -145,7 +145,7 @@ export default function ScriptedDemo() {
             </div>
           </div>
 
-          {/* Answer area — fixed min-height so the layout never jumps or shows an
+          {/* Answer area: fixed min-height so the layout never jumps or shows an
               empty/never-resolving state */}
           <div className="px-5 py-5 min-h-[168px]">
             {phase === 'thinking' && (
@@ -206,7 +206,7 @@ export default function ScriptedDemo() {
         </div>
 
         <p className="text-center text-sm text-muted-foreground mt-5">
-          Scripted preview — want the real thing?{' '}
+          This preview is scripted.{' '}
           <a
             href="https://turing.viglet.org/#playground"
             target="_blank"

@@ -10,30 +10,30 @@
     <meta name="theme-color" content="#C2410C" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Analytics (Google Analytics) is consent-gated (LGPD/privacy-first) and
-         loaded at runtime only after the visitor opts in — see the ConsentBanner
-         component and src/lib/analytics.ts. Nothing tracks before consent. -->
-    <meta name="description" content="Viglet — Open Source Tools for Enterprise Intelligence" />
+         loaded at runtime only after the visitor opts in (see the ConsentBanner
+         component and src/lib/analytics.ts). Nothing tracks before consent. -->
+    <meta name="description" content="Open source data extraction, content management and semantic search, self-hosted with Docker." />
     <title>Viglet</title>
     <!-- Home canonical; the prerender plugin swaps it per route. Pins the www
          host so viglet.org → www.viglet.org consolidates onto one URL. -->
     <link rel="canonical" href="https://www.viglet.org/" />
-    <!-- Open Graph / Twitter — home defaults. The prerender plugin overrides
+    <!-- Open Graph / Twitter: home defaults. The prerender plugin overrides
          og:title / og:description / og:url / og:image + twitter:image per route,
          pointing at the build-time cards in /og/ (see scripts/og-images.mjs). -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Viglet" />
-    <meta property="og:title" content="Viglet — Open Source Tools for Enterprise Intelligence" />
-    <meta property="og:description" content="Data extraction, content management & semantic search — open source, self-hosted with Docker." />
+    <meta property="og:title" content="Viglet · Open Source Tools for Enterprise Intelligence" />
+    <meta property="og:description" content="Data extraction, content management and semantic search. Open source, self-hosted with Docker." />
     <meta property="og:url" content="https://www.viglet.org/" />
     <meta property="og:image" content="https://www.viglet.org/og/home.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Viglet — Open Source Tools for Enterprise Intelligence" />
-    <meta name="twitter:description" content="Data extraction, content management & semantic search — open source, self-hosted with Docker." />
+    <meta name="twitter:title" content="Viglet · Open Source Tools for Enterprise Intelligence" />
+    <meta name="twitter:description" content="Data extraction, content management and semantic search. Open source, self-hosted with Docker." />
     <meta name="twitter:image" content="https://www.viglet.org/og/home.png" />
-    <!-- FAQPage structured data — helps search engines and LLM assistants
+    <!-- FAQPage structured data. Helps search engines and LLM assistants
          answer high-intent questions about the Viglet suite (open-source
          enterprise search / data extraction / CMS for Adobe AEM & WordPress).
-         MIRRORS src/data/narrative.ts `faq[]` VERBATIM — the home FAQ section
+         MIRRORS src/data/narrative.ts `faq[]` VERBATIM. The home FAQ section
          (W26) renders the same Q&A visibly, so structured data matches on-page
          content. If you edit one, edit both. The prerender plugin keeps this
          block on the home route only. -->
@@ -47,7 +47,7 @@
             "name": "Do I need all three products?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. Each product runs independently — Turing for search and AI, Dumont to feed it content, and Shio to model and serve content. They're stronger together, but there's no lock-in and no required bundle."
+              "text": "No. Each product runs on its own: Viglet Turing for search and AI, Viglet Dumont to feed it content, and Viglet Shio to model and serve content. They also work together, but there is no lock-in and no required bundle."
             }
           },
           {
@@ -55,7 +55,7 @@
             "name": "Which Viglet product do I need?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Match the product to the job: Dumont extracts and moves data (indexing, ETL, connectors); Shio models and serves content (headless CMS, sites); Turing searches and answers (enterprise search, semantic navigation, AI chatbot)."
+              "text": "Match the product to the job: Viglet Dumont extracts and moves data (indexing, ETL, connectors); Viglet Shio models and serves content (headless CMS, sites); Viglet Turing searches and answers (enterprise search, semantic navigation, AI chatbot)."
             }
           },
           {
@@ -63,7 +63,7 @@
             "name": "Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, while getting faceted search, semantic/vector search and generative AI (RAG) in a single platform."
+              "text": "Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, and it includes faceted search, semantic/vector search and generative AI (RAG)."
             }
           },
           {
@@ -71,15 +71,15 @@
             "name": "How do I run it?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled inside the container — no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap."
+              "text": "One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so there is no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap."
             }
           },
           {
             "@type": "Question",
-            "name": "Which sources can I index — Adobe AEM, WordPress, databases?",
+            "name": "Which sources can I index (Adobe AEM, WordPress, databases)?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Adobe AEM, WordPress, SQL databases, file systems and any website via the web crawler are supported through Viglet Dumont, delivered into Apache Solr, Elasticsearch or Turing."
+              "text": "Viglet Dumont connects Adobe AEM, WordPress, SQL databases, file systems and any website through its web crawler, and delivers the content into Apache Solr, Elasticsearch or Viglet Turing."
             }
           },
           {
@@ -87,7 +87,7 @@
             "name": "Does it support semantic search and RAG with the LLM of my choice?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Turing bundles vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice — OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini — on SaaS or on-premises. Answers are grounded in your indexed content with citations."
+              "text": "Yes. Viglet Turing includes vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice (OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini), on SaaS or on-premises. Answers are grounded in your indexed content, with citations."
             }
           },
           {
@@ -95,7 +95,7 @@
             "name": "Where is my content stored?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "On your own infrastructure. Every product is self-hosted via Docker, so indexed content and user queries never leave your perimeter — important for regulated industries with data-residency requirements, unlike SaaS search where content lives in the vendor cloud."
+              "text": "On your own infrastructure. Every product is self-hosted with Docker, so indexed content and user queries never leave your perimeter. This matters for regulated industries with data-residency requirements, where SaaS search keeps content in the vendor's cloud."
             }
           }
         ]

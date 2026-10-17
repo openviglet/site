@@ -1,7 +1,7 @@
 /**
  * Consent-gated Google Analytics (Block D / W12).
  *
- * The site ships **no** analytics until the visitor explicitly opts in — the
+ * The site ships **no** analytics until the visitor explicitly opts in. The
  * gtag loader was removed from index.html and lives here, loaded only after
  * consent (LGPD/privacy-first, cursarei's ConsentBanner pattern). The choice is
  * persisted in localStorage so the banner appears once.
@@ -28,7 +28,7 @@ export function setConsent(consent: Consent): void {
   try {
     localStorage.setItem(CONSENT_KEY, consent)
   } catch {
-    /* storage blocked — honour the choice for this session only */
+    /* storage blocked: honour the choice for this session only */
   }
   if (consent === 'granted') loadAnalytics()
 }
@@ -40,7 +40,7 @@ export function reopenConsent(): void {
 
 let loaded = false
 
-/** Inject gtag.js and configure GA — idempotent, only ever called after consent. */
+/** Inject gtag.js and configure GA. Idempotent, only ever called after consent. */
 export function loadAnalytics(): void {
   if (loaded || typeof window === 'undefined') return
   loaded = true

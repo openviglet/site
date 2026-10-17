@@ -1,15 +1,15 @@
-# viglet.org — Improvements (design rationale)
+# viglet.org: Improvements (design rationale)
 
 > **What this file is:** the *design rationale* (the what & why) for **unshipped**
-> work — the spec behind each backlog item. One of four roadmap documents; keep
+> work, the spec behind each backlog item. One of four roadmap documents; keep
 > them in sync (see [../AGENTS.md](../AGENTS.md) → "Roadmap & docs maintenance").
 >
 > | File | Holds | One line per |
 > |---|---|---|
-> | [ROADMAP.md](ROADMAP.md) | **Task status** (single source of truth) — active backlog | task |
+> | [ROADMAP.md](ROADMAP.md) | **Task status** (single source of truth): active backlog | task |
 > | [CHANGELOG.md](CHANGELOG.md) | What has **shipped** (git is authoritative) | shipped task |
-> | [STRATEGY.md](STRATEGY.md) | Business/positioning (the bets, not the build) | — |
-> | **IMPROVEMENTS.md** (this file) | Design rationale for active sections | — |
+> | [STRATEGY.md](STRATEGY.md) | Business/positioning (the bets, not the build) | n/a |
+> | **IMPROVEMENTS.md** (this file) | Design rationale for active sections | n/a |
 >
 > **Founding rule:** once a task ships, remove its detail here and reduce it to a
 > one-line entry in CHANGELOG.md. Do not re-accrete shipped reports into this file.
@@ -48,25 +48,25 @@ front-end/content projection of that idea onto the marketing site.
 
 ---
 
-## II. Block A — Showcase & proof
+## II. Block A: Showcase & proof
 
-### II.1 W1 — Cursarei case-study page
+### II.1 W1: Cursarei case-study page
 
 A `/showcase/cursarei` route. Structure: hero (one-line "what & for whom") →
 the numbers (courses, institutions, build-time pages) → "the problem" → **how
 each Viglet product powers a layer** (links to II.2 diagram) → live-demo CTA →
 "build your own" (links Block F). Data-driven from a `src/data/showcase.ts`
 entry so future case studies reuse the same page component. Grounding: only
-facts observable from the running app — no invented metrics.
+facts observable from the running app, no invented metrics.
 
-### II.3 W3 — Showcase index
+### II.3 W3: Showcase index
 
 `/showcase` gallery; each card = {logo, one-liner, live-demo link, case-study
 link}. cursarei is card #1. Feeds a home-page trust strip ("Built with Viglet").
 Keep it data-driven; an empty gallery is worse than no page, so ship with ≥1 real
 entry.
 
-### II.4 W4 — Live-demo CTA
+### II.4 W4: Live-demo CTA
 
 The highest-leverage, lowest-effort item: a "try it live" link to the running
 cursarei from the home hero and the Turing solution page. A working search beats
@@ -74,13 +74,13 @@ any feature copy. Open in a new tab; label it as a reference deployment.
 
 ---
 
-## III. Block B — Embedded AI (dogfood Turing)
+## III. Block B: Embedded AI (dogfood Turing)
 
 > All three call a Turing instance *today* (external endpoint) and become native
 > API routes after Block G (W19). All three **must** ship a deterministic
-> fallback path — the visitor never sees an error if the LLM is down.
+> fallback path: the visitor never sees an error if the LLM is down.
 
-### III.1 W5 — Product-finder copilot
+### III.1 W5: Product-finder copilot
 
 A chat widget answering "which Viglet product do I need?" via RAG over
 `docs.viglet.org`. The pitch writes itself: *the chat you're using is our
@@ -90,13 +90,13 @@ budget, 20s timeout, fallback). **Fallback:** a static decision-tree
 ("indexing? → Dumont"; "content? → Shio"; "search/AI? → Turing") rendered as
 chips. No superlatives; link every claim to a docs page.
 
-### III.2 W6 — Semantic site search
+### III.2 W6: Semantic site search
 
 Turing-powered search over products + release notes + docs. Replaces/augments any
 static filter. Every query exercises the product. **Fallback:** client-side
 fuzzy filter over the existing `src/data/*` (Fuse-style), so search always works.
 
-### III.3 W7 — NL problem → product match
+### III.3 W7: NL problem → product match
 
 cursarei's `nlFilters` pattern repurposed: free-text problem statement → matched
 product(s) + reasons. "preciso crawlear minha intranet e ter busca com IA" →
@@ -105,16 +105,16 @@ small intent table.
 
 ---
 
-## IV. Block C — Interactive product selection
+## IV. Block C: Interactive product selection
 
-### IV.1 W8 — "Which Viglet product?" wizard
+### IV.1 W8: "Which Viglet product?" wizard
 
 2–3 question client-side selector (no backend) → recommends Dumont / Shio /
 Turing or a combo, with a one-paragraph rationale and links. The non-AI sibling
 of W5: instant, offline, always available. Questions branch on {what you have,
 what you want, who runs it}.
 
-### IV.2 W9 — Product comparison table
+### IV.2 W9: Product comparison table
 
 Dumont × Shio × Turing side-by-side; expandable rows (cursarei `Compare`).
 Selection/filter state in the URL query string (cursarei `urlState.ts`) so a
@@ -123,66 +123,66 @@ deploy model, integrates-with, license. Facts only.
 
 ---
 
-## VII. Block F — Reference app / developer funnel
+## VII. Block F: Reference app / developer funnel
 
-### VII.1 W16 — Publish cursarei as an open-source starter
+### VII.1 W16: Publish cursarei as an open-source starter
 
-A reference repo ("AI search portal on Viglet — clone & run") is the strongest
+A reference repo ("AI search portal on Viglet: clone & run") is the strongest
 *technical* lead-magnet: developers who clone it become Dumont/Turing users.
 Positioning in [STRATEGY.md](STRATEGY.md) §I.5. Mechanics (what to genericize,
 what to strip, license) gated until W1/W2 land so the case study and the repo
-tell one story. Depends on the cursarei owner's go-ahead — it's their codebase.
+tell one story. Depends on the cursarei owner's go-ahead (it's their codebase).
 
 ---
 
-## VIII. Block G — Next.js + Viglet Cloud migration
+## VIII. Block G: Next.js + Viglet Cloud migration
 
 > The platform shift that makes Block B native and turns viglet.org itself into a
 > Cloud reference deployment. Bet + sequencing in [STRATEGY.md](STRATEGY.md) §VII.
 
-### VIII.1 W17 — Migrate SPA → Next.js (App Router, SSG-first)
+### VIII.1 W17: Migrate SPA → Next.js (App Router, SSG-first)
 
 Port the six routes ([src/App.tsx](../src/App.tsx)) to the App Router. **Keep:**
 `@viglet/viglet-design-system`, Tailwind v4, i18next, react-i18next, the
 data-driven `src/data/*` model. **Reproduce the build plugins' output** with Next
-equivalents — `app/llms.txt/route.ts` (port [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)),
+equivalents: `app/llms.txt/route.ts` (port [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)),
 `app/sitemap.ts` (port [vite-plugin-sitemap.ts](../vite-plugin-sitemap.ts)), and
 SSG/`generateStaticParams` for the per-route prerender that
 [vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) does today.
 **Bar:** zero visual and SEO regression (same URLs, same `<head>`, same JSON-LD,
 same `llms.txt`). cursarei is the working reference for every one of these
-patterns — read it before designing. Keep dynamic segments matching today's
+patterns. Read it before designing. Keep dynamic segments matching today's
 trailing-slash routes (`/:identifier/`).
 
-### VIII.2 W18 — Deploy on Viglet Cloud as a site
+### VIII.2 W18: Deploy on Viglet Cloud as a site
 
 Add a Dockerfile (Next standalone output) and wire viglet.org into Viglet Cloud
-as a managed site — mirror cursarei's deployment (Dockerfile + config in the
+as a managed site. Mirror cursarei's deployment (Dockerfile + config in the
 `viglet/cloud` repo). Dogfooding: the marketing site runs on the Cloud platform
 it markets. Decommission the GitHub Pages deploy only after Cloud serves the same
 content at the same domain (CNAME cutover last).
 
-### VIII.3 W19 — Native AI API routes
+### VIII.3 W19: Native AI API routes
 
 With the server in place, implement W5–W7 backends as App Router route handlers,
 porting cursarei's `src/lib/llmRuntime.ts` discipline: SHA-keyed content cache
 (invalidates when source content changes), per-feature daily token budget,
 timeout, and **deterministic fallback on no-key / budget-exhausted / error**.
 Optionally SQLite (better-sqlite3) for click/cache as cursarei does. This
-supersedes the external-endpoint approach in Block B once shipped — update those
+supersedes the external-endpoint approach in Block B once shipped. Update those
 tasks' notes when it lands.
 
 ---
-## X. Block I — Viglet Cloud (beta) surface
+## X. Block I: Viglet Cloud (beta) surface
 
 > **Context:** Viglet Cloud is live but **beta / testing-only**. It is the 4th
 > surface in the channel model (STRATEGY §II): the *managed/hosted* delivery of the
 > same products, paired with self-host via Docker. The whole block is **light-touch
-> and honest** — a **Beta** badge on every mention, no over-promising, no 4th
+> and honest**: a **Beta** badge on every mention, no over-promising, no 4th
 > product card, no primary CTA. It plants the seed and captures interested
 > evaluators without implying production stability. All copy obeys §0 grounding.
 
-### X.1 W29 — Cloud as a surface (data + footer link)
+### X.1 W29: Cloud as a surface (data + footer link)
 
 Represent Cloud once, in data, so every mention stays consistent: a `src/data/cloud.ts`
 (or a `cloud` entry beside `solutions`) with `url` (viglet.cloud), `beta: true`, and
@@ -190,35 +190,35 @@ a one-line value prop. Add a "**Cloud · Beta**" link to the shared footer
 ([Footer.tsx](../src/components/layout/Footer.tsx)) so it appears site-wide. This is
 the low-risk foundation W30–W32 build on; nothing here claims stability.
 
-### X.2 W30 — Home "Viglet Cloud — beta" callout
+### X.2 W30: Home "Viglet Cloud (beta)" callout
 
-A small home band — **not** a product card in the suite — that frames the two
+A small home band (**not** a product card in the suite) that frames the two
 delivery modes: "self-host with Docker, or **run it on Cloud (beta)**". Carries an
 explicit `Beta` badge and an early-access CTA (W31). Honest about the testing phase;
 no SLAs, no "production-ready" language. Sits after the products section, before the
 community/CTA close.
 
-### X.3 W31 — Beta early-access capture
+### X.3 W31: Beta early-access capture
 
-A low-friction "**entrar na beta**" email opt-in — the highest-value light-touch
+A low-friction "**entrar na beta**" email opt-in, the highest-value light-touch
 move: it turns anonymous interest into a contactable early-access list. **Reuse
 Block D**: the W10 capture pattern + the W12 consent banner (LGPD/privacy-first, no
 analytics/marketing cookies without consent). While the site is a static SPA there
 is no backend, so submit to a privacy-respecting form endpoint or gate the whole
-feature behind availability — and **degrade gracefully** (never a hard error or a
+feature behind availability, and **degrade gracefully** (never a hard error or a
 dead spinner), exactly as Block B requires. Revisit as a native route after Block G.
 
-### X.4 W32 — "Or run on Cloud (beta)" on Download/Self-host
+### X.4 W32: "Or run on Cloud (beta)" on Download/Self-host
 
-At the moment of intent (the Docker download pages — [DownloadPage.tsx](../src/pages/DownloadPage.tsx)),
+At the moment of intent (the Docker download pages: [DownloadPage.tsx](../src/pages/DownloadPage.tsx)),
 add a single line pairing the two delivery modes: after the `docker run` quick-start,
-"prefer not to self-host? **Run it on Cloud — beta**". Keeps Docker as the default,
+"prefer not to self-host? **Run it on Cloud (beta)**". Keeps Docker as the default,
 Cloud as the hosted alternative. Beta-labelled; links to the W30 callout / viglet.cloud.
 
-### X.5 W33 — [cross-repo] Cloud (beta) mention on turing.viglet.org
+### X.5 W33: [cross-repo] Cloud (beta) mention on turing.viglet.org
 
 Mirror the light mention on the Turing site so the two surfaces tell one story:
-a line in turing's `SelfHost` section ("or try it on Cloud — beta") and a footer
+a line in turing's `SelfHost` section ("or try it on Cloud (beta)") and a footer
 link. **Executed in the Turing repo** (`turing/2026.1/frontend/apps/site`), tracked
-here — the same cross-repo arrangement as Block E ↔ Turing Block O. Keep wording and
+here, the same cross-repo arrangement as Block E ↔ Turing Block O. Keep wording and
 Beta-labelling identical to viglet.org's so the brand voice is consistent.

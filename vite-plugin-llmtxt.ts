@@ -64,7 +64,7 @@ function extractComparisons(comparisonsPath: string): CompareInfo[] {
 function buildLlmTxt(products: ProductInfo[], comparisons: CompareInfo[]): string {
   const comparisonSection = comparisons.length
     ? `\n## Comparison & Positioning Pages\n\nLanding pages that answer high-intent evaluation queries directly:\n\n${comparisons
-        .map((c) => `- [${c.title}](https://www.viglet.org/compare/${c.slug}/) — ${c.description}`)
+        .map((c) => `- [${c.title}](https://www.viglet.org/compare/${c.slug}/): ${c.description}`)
         .join('\n')}\n`
     : ''
 
@@ -85,9 +85,9 @@ function buildLlmTxt(products: ProductInfo[], comparisons: CompareInfo[]): strin
 
   return `# Viglet
 
-> Open source platform for enterprise intelligence — data extraction, content management, and semantic search.
+> Open source platform for enterprise intelligence: data extraction, content management and semantic search.
 
-Viglet provides three complementary tools that work independently or together. Built for developers, trusted by enterprises. 100% open source under the Apache 2.0 license, self-hosted from a single Docker image so your content never leaves your infrastructure.
+Viglet makes three tools that work alone or together. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, so your content stays on your infrastructure.
 
 - Website: https://www.viglet.org
 - Documentation: https://docs.viglet.org
@@ -96,76 +96,76 @@ Viglet provides three complementary tools that work independently or together. B
 
 ## Positioning
 
-One line per product — what it is and the job it does:
+One line per product: what it is and the job it does.
 
-- Viglet Turing — open-source enterprise search platform: faceted search, cited RAG and AI agents over your content, on any search engine and any LLM, self-hosted. A self-hosted, Apache-2.0 alternative to hosted search services such as Algolia, Coveo and Lucidworks.
-- Viglet Dumont — data extraction platform: connect any source (Adobe AEM, WordPress, SQL databases, file systems, the web) and deliver to any search engine, from source to destination — no bespoke ETL to build and maintain.
-- Viglet Shio — headless CMS: model content, deliver it over a versioned REST & GraphQL API with native cache and search, and render it with any framework.
+- Viglet Turing: open-source enterprise search. Faceted search, cited RAG and AI agents over your content, on any search engine and any LLM. A self-hosted, Apache 2.0 alternative to hosted search services such as Algolia, Coveo and Lucidworks.
+- Viglet Dumont: data extraction. It connects sources (Adobe AEM, WordPress, SQL databases, file systems, the web) to a search engine, so there is no custom ETL to build and maintain.
+- Viglet Shio: headless CMS. Model content, deliver it over a versioned REST and GraphQL API with native cache and search, and render it with any framework.
 
-Earlier names: until October 2026 the products carried an acronym — Turing ES, Shio CMS and Dumont DEP. They are the same products.
+Earlier names: until October 2026 the products carried an acronym (Turing ES, Shio CMS and Dumont DEP). They are the same products.
 
 ## Products
 
 ${productSections}
 
-## Viglet Dumont — Details
+## Viglet Dumont Details
 
-The Data Extraction Platform models data extraction flows as flights, connecting multiple sources to multiple targets through one unified pipeline — so there is no bespoke ETL glue code to build and maintain.
+Dumont models each extraction flow as a flight that connects multiple sources to multiple targets in one pipeline, so there is no ETL glue code to write and maintain.
 
 Sources: Adobe AEM, Adobe Edge Delivery Services (EDS), WordPress, SQL databases (JDBC), file-system assets, and any website via the web crawler.
-Targets: Viglet Turing, Apache Solr, Elasticsearch — switch engine by changing a single property.
+Targets: Viglet Turing, Apache Solr, Elasticsearch. Switch engine by changing a single property.
 Trust: per-field coverage and drift monitoring with field-level provenance; absent fields are omitted rather than sent as empty strings.
 
 Stack: Java 21 + Spring Boot. Port: 30130. Docker image: ghcr.io/openviglet/dumont-ce.
 
-## Viglet Shio — Details
+## Viglet Shio Details
 
-Headless content management system. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Shio CLI) and deliver them over a versioned Content Delivery API — REST and GraphQL — by id, by URL for slug routing, or by query, with caching and rate limiting.
+Headless content management system. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Shio CLI) and deliver them over a versioned REST and GraphQL Content Delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.
 
 Authoring: preview unpublished drafts with short-lived tokens, schedule content to go live, restore earlier versions, and fire outbound webhooks.
 Rendering: React and JavaScript SDKs for Next.js or any framework, plus inline editing through the Adobe Universal Editor bridge.
 
 Stack: Java 21 + Spring Boot. Port: 2710. Docker image: ghcr.io/openviglet/shio-ce.
 
-## Viglet Turing — Details
+## Viglet Turing Details
 
 Enterprise search with faceted, multilingual, typo-tolerant navigation and hybrid keyword + vector ranking (RRF), plus a chatbot that answers questions with citations grounded in your own content.
 
 Search engines: Apache Solr, Elasticsearch, or embedded Lucene.
 RAG: cited answers with a pluggable reranker, a relevance gate, and an optional groundedness check.
 AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
-LLMs: bring your own — OpenAI, Anthropic, Google Gemini, Azure OpenAI, or local Ollama.
+LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
 
 Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing-ce.
 
 ## Use Cases
 
-Common problems Viglet solves, and the product(s) that solve them:
+Common problems and the products that solve them:
 
-- Add enterprise search to an Adobe AEM site — Dumont indexes AEM content into Turing for faceted, semantic search and RAG answers.
-- Add search to a WordPress site — Dumont crawls/connects WordPress; Turing serves the search and AI answers.
-- Make an intranet, file shares or a SQL database searchable — Dumont connectors (file systems, JDBC, web crawler) feed Turing; no custom connector to write.
-- Answer questions over your own content (RAG chatbot) — Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
-- Replace a hosted/SaaS search vendor with self-hosted open source — run Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
-- Build a headless site with content modelling and built-in search — Shio models and delivers content over REST/GraphQL; Turing adds search.
-- Keep content and queries inside your perimeter (data residency) — every product is self-hosted via Docker, so nothing is sent to a vendor cloud.
+- Add enterprise search to an Adobe AEM site: Viglet Dumont indexes AEM content into Viglet Turing for faceted search, semantic search and RAG answers.
+- Add search to a WordPress site: Dumont connects to WordPress, and Turing serves the search and AI answers.
+- Make an intranet, file shares or a SQL database searchable: Dumont's connectors (file systems, JDBC, web crawler) feed Turing, with no custom connector to write.
+- Answer questions over your own content (RAG chatbot): Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
+- Replace a hosted search vendor with self-hosted open source: run Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
+- Build a headless site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Turing adds search.
+- Keep content and queries inside your perimeter (data residency): every product is self-hosted with Docker, so nothing is sent to a vendor cloud.
 
 ## Positioning & Comparisons
 
-Factual framing for evaluators comparing Viglet to hosted search products:
+For evaluators comparing Viglet with hosted search products:
 
-- Open-source alternative to Algolia, Coveo and Lucidworks — Viglet Turing is Apache-2.0 enterprise search you self-host, with faceted search, semantic/vector search and generative AI (RAG) in one platform, and no per-document or per-query pricing.
-- Enterprise search for Adobe AEM and WordPress — Dumont provides the connectors; Turing provides faceted navigation, semantic search and RAG on top.
-- Data residency and self-hosting — unlike SaaS search where content lives in the vendor cloud, indexed content and user queries stay on your own infrastructure — relevant for regulated industries.
-- Any search engine, any LLM — Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama; no engine or model lock-in.
-- No required bundle — the three products run independently; adopt one and add the others when needed.
+- Open-source alternative to Algolia, Coveo and Lucidworks: Viglet Turing is Apache 2.0 enterprise search you host yourself. Faceted search, semantic and vector search and generative AI (RAG) are in one platform, with no per-document or per-query pricing.
+- Enterprise search for Adobe AEM and WordPress: Viglet Dumont provides the connectors, and Turing adds faceted navigation, semantic search and RAG on top.
+- Data residency and self-hosting: with SaaS search, your content lives in the vendor's cloud. With Viglet, indexed content and user queries stay on your own infrastructure, which matters in regulated industries.
+- Any search engine, any LLM: Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama. No engine or model lock-in.
+- No required bundle: the three products run independently. Adopt one and add the others when needed.
 ${comparisonSection}
-## Guides & Comparisons — Enterprise Search for Adobe AEM & WordPress
+## Guides & Comparisons: Enterprise Search for Adobe AEM & WordPress
 
-In-depth guides and honest comparisons on the Viglet blog. Useful when evaluating an open-source alternative to Algolia, Coveo, or Lucidworks for AEM or WordPress search.
+Guides and comparisons on the Viglet blog, for anyone evaluating an open-source alternative to Algolia, Coveo or Lucidworks for AEM or WordPress search.
 
-- [How to Add Enterprise Search to Adobe AEM with Viglet Turing ES](https://docs.viglet.org/blog/enterprise-search-for-adobe-aem) — step-by-step guide: index AEM content with faceted navigation, semantic search, and RAG.
-- [Open-Source Alternatives to Algolia and Coveo for Adobe AEM](https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem) — compares Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch, and Turing on pricing, data residency, facets, semantic search, and RAG.
+- [How to Add Enterprise Search to Adobe AEM with Viglet Turing ES](https://docs.viglet.org/blog/enterprise-search-for-adobe-aem): a step-by-step guide to indexing AEM content with faceted navigation, semantic search and RAG.
+- [Open-Source Alternatives to Algolia and Coveo for Adobe AEM](https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem): compares Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch and Turing on pricing, data residency, facets, semantic search and RAG.
 - All guides: https://docs.viglet.org/blog
 
 ## Technology
@@ -193,7 +193,7 @@ Three partner tiers: Technology Partner (ISVs integrating with Viglet), Solution
 
 ## Contact
 
-Organizations that want to use Dumont, Shio or Turing can reach the Viglet team through the contact form.
+Organizations that want to use Viglet Dumont, Shio or Turing can reach the Viglet team through the contact form.
 
 - Contact page: https://www.viglet.org/contact/
 

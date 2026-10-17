@@ -34,7 +34,7 @@ export default function Header() {
               className="w-7 h-7"
             />
             <span className="font-brand text-lg font-extrabold text-foreground tracking-tight">
-              viglet
+              Viglet
             </span>
           </Link>
 
@@ -82,7 +82,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile nav — inside header but below the 16h bar */}
+        {/* Mobile nav: inside header but below the 16h bar */}
         {menuOpen && (
           <div className="md:hidden bg-background border-t border-border px-6 py-4 space-y-1 shadow-lg">
             {solutions.map((sol) => (
@@ -107,7 +107,7 @@ export default function Header() {
             <hr className="border-border my-2" />
             <div className="flex items-center gap-3 px-3 py-2.5">
               <ColorModeToggle />
-              <span className="text-sm text-muted-foreground">Tema</span>
+              <span className="text-sm text-muted-foreground">Theme</span>
             </div>
             <hr className="border-border my-2" />
             <a

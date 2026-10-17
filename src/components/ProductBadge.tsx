@@ -8,7 +8,7 @@ interface ProductBadgeProps {
 }
 
 /**
- * Badge styled with the product colour — matches the home-page brand badge size
+ * Badge styled with the product colour. Matches the home-page brand badge size
  * (solid fill, white text, uppercase, bold, letter-spaced).
  */
 export default function ProductBadge({ identifier, children, className = '' }: ProductBadgeProps) {

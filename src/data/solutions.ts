@@ -20,7 +20,7 @@ export interface Solution {
   downloadMessage?: string
   shortRelease?: string
   /** Docker image on the GitHub Container Registry, e.g. `ghcr.io/openviglet/turing-ce`.
-   *  Products are distributed exclusively as containers — no JAR downloads. */
+   *  Products ship only as containers; there are no JAR downloads. */
   dockerImage?: string
   runPort?: number
   appLogin?: string
@@ -56,7 +56,7 @@ export const solutions: Solution[] = [
     shortName: 'Dumont',
     memo:'Flow',
     fullName: 'Viglet Dumont',
-    description: 'The Data Extraction Platform — connect any source and deliver to any search engine, from source to destination.',
+    description: 'Data extraction platform: connect any source and deliver its content to any search engine.',
     downloadMessage: 'Run Dumont with Docker and explore your flight plan.',
     dockerImage: 'ghcr.io/openviglet/dumont-ce',
     runPort: 30130,
@@ -76,7 +76,7 @@ export const solutions: Solution[] = [
     category: 'Headless CMS',
     shortName: 'Shio',
     fullName: 'Viglet Shio',
-    description: 'Headless CMS — model content, deliver it over a versioned REST & GraphQL API, with native cache and search.',
+    description: 'Headless CMS: model content and deliver it over a versioned REST and GraphQL API, with native cache and search.',
     memo: 'Content',
     downloadMessage: 'Run Shio with Docker and create your site.',
     dockerImage: 'ghcr.io/openviglet/shio-ce',
@@ -100,7 +100,7 @@ export const solutions: Solution[] = [
     category: 'Enterprise Search',
     shortName: 'Turing',
     fullName: 'Viglet Turing',
-    description: 'Enterprise search, cited RAG and AI agents over your content — any search engine, any LLM, self-hosted.',
+    description: 'Enterprise search, cited RAG and AI agents over your content. Self-hosted, with your choice of search engine and LLM.',
     memo: 'Intelligence',
     downloadMessage: 'Run Turing with Docker and add more value to your content.',
     dockerImage: 'ghcr.io/openviglet/turing-ce',

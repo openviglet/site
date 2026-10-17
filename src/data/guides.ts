@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import generated from './guides.generated.json'
 
 /**
- * Docs blog guides (Block E / W14 + W15) — the cross-links into
+ * Docs blog guides (Block E / W14 + W15): the cross-links into
  * `docs.viglet.org/blog` that the comparison landing pages and the per-product
  * "Guides" section render.
  *
@@ -12,14 +12,14 @@ import generated from './guides.generated.json'
  * Drafts are excluded upstream, so we never link a post that would 404.
  *
  * Two layers, both grounded, so the UI is always correct and never blocks:
- *  1. **Committed snapshot** (`guides.generated.json`) — baked into the bundle so
+ *  1. **Committed snapshot** (`guides.generated.json`): baked into the bundle so
  *     the guides render on first paint (no spinner, no layout shift) and the site
  *     works offline / if the docs endpoint is briefly unavailable. It is
  *     refreshed at build time by `scripts/fetch-guides.mjs` (best-effort).
- *  2. **Runtime refresh** (`useGuides`) — fetches the live endpoint client-side
+ *  2. **Runtime refresh** (`useGuides`): fetches the live endpoint client-side
  *     and upgrades the list, so guides published after the last viglet.org build
  *     appear without a redeploy. Any failure degrades to the snapshot (ROADMAP
- *     § non-goals: dynamic features must degrade gracefully — never a hard error).
+ *     § non-goals: dynamic features must degrade gracefully, never with a hard error).
  */
 
 /** Live endpoint on the docs site (GitHub Pages serves it CORS-open: `*`). */
@@ -50,12 +50,12 @@ interface GuidesPayload {
   guides?: DocGuide[]
 }
 
-/** The baked snapshot — instant, always-available fallback. */
+/** The baked snapshot: an instant, always-available fallback. */
 export const bakedGuides: DocGuide[] = ((generated as GuidesPayload).guides ?? []).filter(
   (g) => g?.slug && g?.url && g?.title,
 )
 
-/** Guides relevant to a product identifier (W15 — per-product cross-links). */
+/** Guides relevant to a product identifier (W15, per-product cross-links). */
 export function getGuidesBySolution(guides: DocGuide[], identifier: string): DocGuide[] {
   return guides.filter((g) => g.solutions?.includes(identifier))
 }
@@ -94,7 +94,7 @@ export function useGuides(): DocGuide[] {
         if (fresh && !cancelled) setGuides(fresh)
       })
       .catch(() => {
-        /* keep the baked snapshot — offline / endpoint down / timeout */
+        /* keep the baked snapshot (offline, endpoint down, timeout) */
       })
       .finally(() => clearTimeout(timer))
 

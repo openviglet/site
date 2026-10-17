@@ -29,7 +29,7 @@
   }
 }
 
-/* Footer 4-column grid — `grid-cols-1` (unconditional) re-emitted by the DS
+/* Footer 4-column grid: `grid-cols-1` (unconditional) re-emitted by the DS
    CSS comes after our `md:grid-cols-[...]` in source order and would win. */
 .vg-footer-grid {
   display: grid;
@@ -46,15 +46,15 @@
   background-image: linear-gradient(135deg, #c2410c, #f97316);
 }
 
-/* Per-product classes — kept outside @layer so Tailwind never purges them */
+/* Per-product classes, kept outside @layer so Tailwind never purges them */
 
 /* Background colours (version pills, icon chips) */
-/* dumont=teal  shio=violet  turing=royalblue — the colours of the cube marks */
+/* dumont=teal  shio=violet  turing=royalblue: the colours of the cube marks */
 .product-bg-dumont { background-color: #0f766e; }
 .product-bg-shio   { background-color: #7c3aed; }
 .product-bg-turing { background-color: #4169e1; }
 
-/* Text colours — WCAG AA on white */
+/* Text colours: WCAG AA on white */
 .product-text-dumont { color: #0f766e; }   /* 5.5:1 */
 .product-text-shio   { color: #7c3aed; }   /* 5.7:1 */
 .product-text-turing { color: #4169e1; }   /* 4.6:1 */

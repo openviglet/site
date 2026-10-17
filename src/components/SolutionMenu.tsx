@@ -60,7 +60,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           })}
         </div>
 
-        {/* GitHub link — org only (product repos are not linked directly) */}
+        {/* GitHub link: org only (product repos are not linked directly) */}
         <div className="w-px h-5 bg-border shrink-0 hidden sm:block" />
         <a
           href="https://github.com/openviglet"

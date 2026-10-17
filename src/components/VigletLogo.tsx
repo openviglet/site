@@ -1,5 +1,5 @@
 /**
- * VigletLogo — product mark.
+ * VigletLogo: product mark.
  *
  * Each product is an isometric cube in its colour, its front-top corner cut in the
  * angle of the Viglet V, with the element symbol (Du / Sh / Tu) on its left face.

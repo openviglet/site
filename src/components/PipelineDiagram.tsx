@@ -2,12 +2,12 @@ import { IconArrowRight } from '@tabler/icons-react'
 import { getPipeline } from '@/data/narrative'
 
 /**
- * "Built with Viglet" pipeline diagram (Block H / W2) — the platform story
+ * "Built with Viglet" pipeline diagram (Block H / W2): the platform story
  * Dumont → Turing → Shio as a connected process flow.
  *
  * Deliberately distinct from the product-card grid: equal-height "process
  * cards" with a product-coloured top accent, a numbered step badge and a step
- * label (no product logo), joined by arrows — so it reads as a pipeline, not
+ * label (no product logo), joined by arrows, so it reads as a pipeline, not
  * "the products again". Data-driven from `narrative.ts`; product colours come
  * from the `product-*` utility classes (never inline). Consumed by the home
  * "how the three connect" band (W21) and reusable by any showcase (Block A).
@@ -20,7 +20,7 @@ export default function PipelineDiagram() {
       {stages.map((stage, i) => (
         <div key={stage.solution} className="contents">
           <div className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card hover:-translate-y-1 transition-all">
-            {/* Product-coloured top accent — the pipeline's visual signature */}
+            {/* Product-coloured top accent: the pipeline's visual signature */}
             <div className={`h-1.5 product-bg-${stage.solution}`} />
             <div className="flex flex-col flex-1 p-6">
               <div className="flex items-center gap-3 mb-4">

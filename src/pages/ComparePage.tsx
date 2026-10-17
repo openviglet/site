@@ -29,7 +29,7 @@ export default function ComparePage() {
   const guides = useGuides()
   const motionPaused = useIsMobileOrTablet()
 
-  // FAQPage structured data for this comparison — helps search engines and LLM
+  // FAQPage structured data for this comparison. It helps search engines and LLM
   // assistants answer the high-intent queries these pages target (GEO). Injected
   // client-side (the SPA has no SSR); removed on unmount so it never leaks onto
   // another route. Mirrors the visible FAQ below.
@@ -230,7 +230,7 @@ export default function ComparePage() {
                 Guides &amp; comparisons
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Step-by-step how-tos and honest, vendor-by-vendor comparisons on the Viglet blog.
+                Step-by-step how-tos and vendor-by-vendor comparisons on the Viglet blog.
               </p>
             </div>
 
@@ -284,10 +284,10 @@ export default function ComparePage() {
         <div className="absolute inset-0 download-hero-highlight" />
         <div className="max-w-4xl mx-auto py-16 px-6 text-center relative">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
-            Own your search — open source, self-hosted
+            Own your search: open source, self-hosted
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            Free, Apache 2.0, and ready to deploy from a single Docker image.
+            Free under Apache 2.0, deployed from a single Docker image.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a

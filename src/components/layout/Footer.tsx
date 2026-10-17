@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-0 font-sans">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Release-alert / newsletter opt-in (W10/W11) — renders only when a
+        {/* Release-alert / newsletter opt-in (W10/W11). Renders only when a
             form-service endpoint is configured (VITE_NEWSLETTER_ENDPOINT). */}
         <NewsletterSignup />
         <div className="vg-footer-grid pb-12 border-b border-white/8">
@@ -31,10 +31,10 @@ export default function Footer() {
                 alt="Viglet"
                 className="w-7 h-7"
               />
-              <span className="font-brand text-xl font-extrabold text-white tracking-tight">viglet</span>
+              <span className="font-brand text-xl font-extrabold text-white tracking-tight">Viglet</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs mb-6">
-              Open source tools for enterprise intelligence. Built for developers, trusted by enterprises.
+              Open source tools for enterprise intelligence.
             </p>
             <div className="flex gap-2.5">
               <a

@@ -6,7 +6,7 @@ import { resolve } from 'path'
  * Generates an index.html in every SPA route directory so that
  * GitHub Pages returns 200 instead of 404 for deep links.
  *
- * Each generated file is a copy of the root index.html — React Router
+ * Each generated file is a copy of the root index.html. React Router
  * handles the rest on the client side. Per-page <title> and
  * <meta description> are injected for basic SEO.
  */
@@ -14,19 +14,19 @@ import { resolve } from 'path'
 const staticRoutes: { path: string; title: string; description: string; ogId: string }[] = [
   {
     path: '/partner/',
-    title: 'Partner Program — Viglet',
-    description: 'Join the Viglet partner ecosystem — technology, solution, and community tiers.',
+    title: 'Partner Program · Viglet',
+    description: 'The Viglet partner program has three tiers: technology, solution and community.',
     ogId: 'partner',
   },
   {
     path: '/about/',
-    title: 'About — Viglet',
+    title: 'About · Viglet',
     description: 'Learn about Viglet, the open-source platform for enterprise intelligence.',
     ogId: 'about',
   },
   {
     path: '/contact/',
-    title: 'Contact — Viglet',
+    title: 'Contact · Viglet',
     description: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.',
     ogId: 'contact',
   },
@@ -34,7 +34,7 @@ const staticRoutes: { path: string; title: string; description: string; ogId: st
 
 /**
  * `descFn` receives the product's own one-liner from src/data/solutions.ts.
- * Boilerplate descriptions ("X — open-source enterprise intelligence by
+ * Boilerplate descriptions ("X, open-source enterprise intelligence by
  * Viglet.") repeated across every product are the kind Google discards in
  * favour of a snippet scraped off the rendered page, so each route states what
  * the product actually does.
@@ -46,18 +46,18 @@ const productSubRoutes: {
 }[] = [
   {
     suffix: '/',
-    titleFn: (n) => `${n} — Viglet`,
+    titleFn: (n) => `${n} · Viglet`,
     descFn: (n, d) => `${n}: ${d} Free and open source.`,
   },
   {
     suffix: '/download/',
-    titleFn: (n) => `Download ${n} — Viglet`,
+    titleFn: (n) => `Download ${n} · Viglet`,
     descFn: (n, d) => `Download and run the latest ${n} release with Docker. ${d}`,
   },
   {
     suffix: '/release-notes/',
-    titleFn: (n) => `Release Notes — ${n} — Viglet`,
-    descFn: (n, d) => `Changelog and release notes for ${n} — ${d}`,
+    titleFn: (n) => `Release Notes · ${n} · Viglet`,
+    descFn: (n, d) => `Changelog and release notes for ${n}. ${d}`,
   },
 ]
 
@@ -186,7 +186,7 @@ function injectCanonical(html: string, url: string): string {
 
 /**
  * The FAQPage JSON-LD (in index.html) is Turing-specific, so it belongs only
- * on the home page — not on the Dumont/Shio/About/Partner routes. The home is
+ * on the home page, not on the Dumont/Shio/About/Partner routes. The home is
  * dist/index.html (left untouched here); every other route is generated from
  * rootHtml, so strip the block out of those copies.
  */
@@ -211,7 +211,7 @@ export default function viteSpaPrerender(): Plugin {
 
       let count = 0
 
-      // Static routes — self-canonical to their absolute URL.
+      // Static routes self-canonicalise to their absolute URL.
       for (const route of staticRoutes) {
         const dir = resolve(distDir, route.path.replace(/^\//, ''))
         mkdirSync(dir, { recursive: true })
@@ -247,7 +247,7 @@ export default function viteSpaPrerender(): Plugin {
         }
       }
 
-      // Comparison landing pages (Block E / W14) — self-canonical; OG uses the
+      // Comparison landing pages (Block E / W14) self-canonicalise; OG uses the
       // per-page card in /og/compare-<slug>.png (see scripts/og-images.mjs).
       for (const cmp of comparisons) {
         const routePath = `/compare/${cmp.slug}/`

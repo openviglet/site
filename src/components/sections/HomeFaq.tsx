@@ -3,11 +3,11 @@ import { Badge } from '@/components/ui/badge'
 import { getFaq } from '@/data/narrative'
 
 /**
- * Home FAQ (Block H / W26) — honest, objection-pre-empting Q&A rendered from the
+ * Home FAQ (Block H / W26): Q&A that answers the usual objections, rendered from the
  * `narrative.ts` `faq[]`. Uses native <details>/<summary> so it works without JS
  * and is accessible by default.
  *
- * The matching FAQPage JSON-LD is NOT emitted here — it ships in `index.html`'s
+ * The matching FAQPage JSON-LD is NOT emitted here. It ships in `index.html`'s
  * static <head> (kept on the home route by the prerender plugin) so crawlers see
  * it in the prerendered HTML. `narrative.ts` `faq[]` is the single source of
  * truth; index.html mirrors it verbatim.
@@ -21,10 +21,10 @@ export default function HomeFaq() {
         <div className="text-center mb-12">
           <Badge variant="brand" className="mb-4">FAQ</Badge>
           <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-            Questions, answered honestly
+            Common questions
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-            No hype — the answers first.
+            Short, direct answers.
           </p>
         </div>
 

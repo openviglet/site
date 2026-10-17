@@ -8,7 +8,7 @@
 //
 // Defensive by design: if the optional `@resvg/resvg-js` dependency isn't
 // installed (e.g. a bare local build), we log a warning and skip WITHOUT failing
-// the build — the SVG is still written to dist/og/ as a fallback. CI installs
+// the build. The SVG is still written to dist/og/ as a fallback. CI installs
 // the dep, so the deployed site always gets PNGs. The `id`s here MUST match the
 // ids the prerender plugin references (home, dumont, shio, turing, about,
 // partner).
@@ -20,7 +20,7 @@ const DIST = resolve(process.cwd(), 'dist')
 const OUT = resolve(DIST, 'og')
 
 if (!existsSync(DIST)) {
-  console.warn('og-images: dist/ not found — run after `vite build`. Skipping.')
+  console.warn('og-images: dist/ not found. Run after `vite build`. Skipping.')
   process.exit(0)
 }
 mkdirSync(OUT, { recursive: true })
@@ -70,7 +70,7 @@ const products = extractProducts().map((p) => ({
   grad: GRADIENTS[p.id] ?? GRADIENTS.brand,
 }))
 
-/* ---- Comparison landing pages (Block E / W14) — grounded in comparisons.ts -- */
+/* ---- Comparison landing pages (Block E / W14), grounded in comparisons.ts -- */
 
 function extractComparisons() {
   const src = readFileSync(resolve(process.cwd(), 'src/data/comparisons.ts'), 'utf-8')
@@ -182,7 +182,7 @@ function svgFor(item) {
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
   ${acronymBadge}
-  <text x="${wordmarkX}" y="${wordmarkY}" font-family="Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="rgba(255,255,255,0.92)">viglet</text>
+  <text x="${wordmarkX}" y="${wordmarkY}" font-family="Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="rgba(255,255,255,0.92)">Viglet</text>
   <text font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">${titleTspans}</text>
   <text x="100" y="${titleStartY + titleLines.length * 76 + 6}" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.82)">${escapeXml(wrap(item.subtitle, 60, 1)[0] ?? '')}</text>
   <text x="100" y="560" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.65)">Open Source · Apache 2.0 · self-hosted with Docker</text>
@@ -196,7 +196,7 @@ try {
   ({ Resvg } = await import('@resvg/resvg-js'))
 } catch {
   console.warn(
-    'og-images: @resvg/resvg-js not installed — writing SVG fallbacks only, ' +
+    'og-images: @resvg/resvg-js not installed; writing SVG fallbacks only, ' +
       'skipping PNG rasterization.',
   )
 }

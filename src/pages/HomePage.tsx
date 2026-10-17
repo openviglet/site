@@ -81,7 +81,7 @@ function LayoutRow({ sols }: Readonly<{ sols: Solution[] }>) {
   )
 }
 
-// ── Layout 2: Asymmetric — tall card left, two stacked right ────────────────
+// ── Layout 2: Asymmetric. Tall card left, two stacked right ─────────────────
 function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
   return (
     <div className="flex gap-3 h-[236px]">
@@ -114,7 +114,7 @@ function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
   )
 }
 
-// ── Layout 3: Podium — centre card is featured ──────────────────────────────
+// ── Layout 3: Podium. Centre card is featured ───────────────────────────────
 function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
   const configs = [
     'scale-95 translate-y-5 opacity-80 hover:scale-100 hover:translate-y-0 hover:opacity-100',
@@ -140,7 +140,7 @@ function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
   )
 }
 
-// ── Layout 4: Cascade — diagonal staircase, hover lifts to front ────────────
+// ── Layout 4: Cascade. Diagonal staircase, hover lifts to front ─────────────
 function LayoutCascade({ sols }: Readonly<{ sols: Solution[] }>) {
   const positions = [
     'top-0 left-0 w-[65%] z-[1] hover:z-30 -rotate-1 hover:rotate-0',
@@ -247,7 +247,7 @@ export default function HomePage() {
               <span className="vg-gradient-text">Enterprise Intelligence</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Data extraction, content management, and semantic search — built for developers, trusted by enterprises.
+              Data extraction, content management and semantic search for developers. Open source, self-hosted.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button size="lg" asChild>
@@ -290,10 +290,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== SEE — scripted product demo (W28) ===== */}
+      {/* ===== SEE: scripted product demo (W28) ===== */}
       <ScriptedDemo />
 
-      {/* ===== OUTCOMES — what changes for you (W22) ===== */}
+      {/* ===== OUTCOMES: what changes for you (W22) ===== */}
       <Outcomes />
 
       {/* ===== PRODUCTS ===== */}
@@ -347,7 +347,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== HOW THE THREE CONNECT — pipeline band (W21 / W2) ===== */}
+      {/* ===== HOW THE THREE CONNECT: pipeline band (W21 / W2) ===== */}
       <section className="py-20 px-6 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -356,20 +356,20 @@ export default function HomePage() {
               How the three connect
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
-              Independently useful, stronger together: extract with Dumont, search and answer with Turing, model and serve with Shio.
+              Each one works alone. Together: extract with Viglet Dumont, search and answer with Viglet Turing, model and serve with Viglet Shio.
             </p>
           </div>
           <PipelineDiagram />
         </div>
       </section>
 
-      {/* ===== WORKS WITH YOUR STACK — pill wall (W25) ===== */}
+      {/* ===== WORKS WITH YOUR STACK: pill wall (W25) ===== */}
       <StackWall />
 
       {/* ===== FAQ (W26) ===== */}
       <HomeFaq />
 
-      {/* ===== CONVERT — closing CTA (W21) ===== */}
+      {/* ===== CONVERT: closing CTA (W21) ===== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950">
         <div className="max-w-4xl mx-auto py-20 px-6 text-center relative">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
@@ -380,7 +380,7 @@ export default function HomePage() {
           </p>
           {runLines.length > 0 && (
             <div className="max-w-2xl mx-auto mb-8 text-left">
-              <Terminal title="bash — viglet" lines={runLines} />
+              <Terminal title="bash · viglet" lines={runLines} />
             </div>
           )}
           <div className="flex flex-wrap gap-3 justify-center">
@@ -452,7 +452,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                Join the r/TuringES community — ask questions, share integrations, and discuss search engineering with fellow users.
+                Ask questions, share integrations and talk search engineering with other users on r/TuringES.
               </p>
               <span className="text-sm font-semibold text-[#FF4500]">Join on Reddit →</span>
             </a>

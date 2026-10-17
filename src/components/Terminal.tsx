@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { IconCopy, IconCheck } from '@tabler/icons-react'
 
 /**
- * Reusable terminal components (Block H / W23) — promoted from DownloadPage's
+ * Reusable terminal components (Block H / W23), promoted from DownloadPage's
  * private `CopyableCommand`. Two variants:
  *
- *  - `CommandBlock` — a single copy-to-clipboard command line (the original
+ *  - `CommandBlock`: a single copy-to-clipboard command line (the original
  *    DownloadPage look, kept pixel-identical so that page has no regression).
- *  - `Terminal` — a macOS-style faux terminal (traffic-light dots, monospace,
+ *  - `Terminal`: a macOS-style faux terminal (traffic-light dots, monospace,
  *    colored prompt/flag/comment spans) for dev credibility on the home and
  *    solution pages.
  *
@@ -57,7 +57,7 @@ function renderCmd(cmd: string) {
 
 /**
  * A macOS-style faux terminal window. `title` labels the title bar (e.g.
- * "bash — turing"); `lines` are rendered as `$ cmd  # comment` with colored
+ * "bash: turing"); `lines` are rendered as `$ cmd  # comment` with colored
  * prompt, flags and comments.
  */
 export default function Terminal({

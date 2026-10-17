@@ -10,7 +10,7 @@ import {
 
 /**
  * Privacy-first consent banner (Block D / W12). No analytics run until the
- * visitor accepts — on mount we only load GA if consent was *already* granted;
+ * visitor accepts: on mount we only load GA if consent was *already* granted;
  * otherwise the banner is shown and nothing is loaded. Accept and Decline are
  * equally prominent (LGPD: refusal must be as easy as acceptance). The choice
  * persists in localStorage; a "Cookie settings" footer link can reopen this.
@@ -47,7 +47,7 @@ export default function ConsentBanner() {
           <div className="flex-1 min-w-0">
             <p className="font-bold text-foreground mb-1">We respect your privacy</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              We use Google Analytics cookies only to understand how the site is used — never
+              We use Google Analytics cookies only to understand how the site is used, never
               for ads. Nothing is loaded until you choose. You can change this anytime from the
               footer.
             </p>

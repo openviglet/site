@@ -17,8 +17,8 @@ function initials(name: string): string {
  * Directory card for a single partner. Renders the logo when available and
  * falls back to name initials, so a newly added partner looks presentable
  * before its logo asset lands. Featured (anchor) partners get a highlighted
- * frame. This card is the reference we point prospective partners at — "this is
- * how you'll appear once listed."
+ * frame. We point prospective partners at this card: "this is how you'll
+ * appear once listed."
  */
 export default function PartnerCard({ partner }: Readonly<{ partner: Partner }>) {
   const [logoOk, setLogoOk] = useState(Boolean(partner.logo))

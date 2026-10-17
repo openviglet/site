@@ -32,7 +32,7 @@ import { useGuides, getGuidesBySolution } from '@/data/guides'
 export default function SolutionPage() {
   const { identifier = '' } = useParams<{ identifier: string }>()
   const solution = getSolution(identifier)
-  // W15 — cross-links into the docs blog integration/comparison guides for this
+  // W15: cross-links into the docs blog integration/comparison guides for this
   // product. Dynamic: fetched from the docs endpoint (see data/guides.ts), with
   // a baked snapshot fallback. Products with no published guide render nothing.
   // Called before the early return to satisfy the Rules of Hooks.
@@ -77,7 +77,7 @@ export default function SolutionPage() {
             <div className="flex-1 min-w-0 text-center md:text-left">
               {solution.release && (
                 <ProductBadge identifier={identifier} className="mb-4">
-                  v{solution.release} &mdash; Stable
+                  v{solution.release} · Stable
                 </ProductBadge>
               )}
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
@@ -88,8 +88,8 @@ export default function SolutionPage() {
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-                {/* When a dedicated product site exists, it's the primary CTA —
-                    this page is a portfolio teaser that funnels there. */}
+                {/* When a dedicated product site exists, it's the primary CTA.
+                    This page is a portfolio teaser that funnels there. */}
                 {solution.site && (
                   <ProductButton identifier={identifier} size="lg" asChild>
                     <a href={solution.site} rel="noopener">
@@ -161,7 +161,7 @@ export default function SolutionPage() {
                 </span>
                 <div>
                   <p className="font-bold text-foreground text-base">Run with Docker</p>
-                  <p className="text-xs text-muted-foreground">v{solution.release} &mdash; ghcr.io image</p>
+                  <p className="text-xs text-muted-foreground">v{solution.release} · ghcr.io image</p>
                 </div>
               </Link>
             )}
@@ -199,7 +199,7 @@ export default function SolutionPage() {
         </div>
       </section>
 
-      {/* ===== ESSENCE — per-product pillars (W24) ===== */}
+      {/* ===== ESSENCE: per-product pillars (W24) ===== */}
       {essence && (
         <section className="py-20 px-6 bg-muted border-t border-border">
           <div className="max-w-5xl mx-auto">
@@ -209,7 +209,7 @@ export default function SolutionPage() {
                 {solution.shortName}, in {essence.pillars.length} moves
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                The capabilities that define {solution.shortName} — not just a list of features.
+                What {solution.shortName} does, step by step.
               </p>
             </div>
 
@@ -234,7 +234,7 @@ export default function SolutionPage() {
             {/* Reusable terminal (W23): one-command quick start */}
             {terminalLines.length > 0 && (
               <div className="max-w-2xl mx-auto mt-12">
-                <Terminal title={`bash — ${identifier}`} lines={terminalLines} />
+                <Terminal title={`bash · ${identifier}`} lines={terminalLines} />
               </div>
             )}
           </div>
@@ -251,7 +251,7 @@ export default function SolutionPage() {
                 Built for enterprise
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Everything you need to power your {solution.shortName} deployment.
+                What ships with {solution.shortName}.
               </p>
             </div>
 
@@ -328,7 +328,7 @@ export default function SolutionPage() {
         </section>
       )}
 
-      {/* ===== GUIDES — cross-links into docs blog (W15) ===== */}
+      {/* ===== GUIDES: cross-links into docs blog (W15) ===== */}
       {guides.length > 0 && (
         <section className="py-20 px-6 bg-background border-t border-border">
           <div className="max-w-5xl mx-auto">
@@ -338,7 +338,7 @@ export default function SolutionPage() {
                 How-tos &amp; comparisons
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Step-by-step integration guides and honest comparisons on the Viglet blog.
+                Step-by-step integration guides and comparisons on the Viglet blog.
               </p>
             </div>
             <div className="grid sm:grid-cols-2 gap-5">
@@ -381,7 +381,7 @@ export default function SolutionPage() {
             Ready to try {solution.shortName}?
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            Free, open source, and ready to deploy. Get started in minutes.
+            Free and open source. One Docker command to get it running.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             {solution.site && (

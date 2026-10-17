@@ -17,7 +17,7 @@ import {
 } from '@tabler/icons-react'
 
 /**
- * Narrative content model (Block H / W20) — the single data source for the
+ * Narrative content model (Block H / W20): the single data source for the
  * conversion-narrative sections ported from turing.viglet.org's `site-content.ts`.
  *
  * Copy lives here; the sections (`Outcomes`, `Pipeline`, `Providers`, home FAQ,
@@ -32,7 +32,7 @@ import {
 type Icon = ComponentType<{ size?: number; className?: string }>
 
 /* -------------------------------------------------------------------------- */
-/* Outcomes (W22) — "what changes for you", results-first, not a feature list  */
+/* Outcomes (W22): "what changes for you", results-first, not a feature list   */
 /* -------------------------------------------------------------------------- */
 
 export interface Outcome {
@@ -41,33 +41,33 @@ export interface Outcome {
   title: string
   /** One line on how the suite delivers it. */
   body: string
-  /** Product the outcome maps to — drives the accent colour. */
+  /** Product the outcome maps to. Drives the accent colour. */
   solution: string
 }
 
 export const outcomes: Outcome[] = [
   {
     icon: IconSearch,
-    title: 'Find answers, not links',
-    body: 'Semantic navigation and a RAG chatbot return grounded answers over your own content — with citations — instead of a page of blue links to skim.',
+    title: 'Get cited answers from your content',
+    body: 'Semantic navigation and a RAG chatbot answer questions from your own content and cite the sources.',
     solution: 'turing',
   },
   {
     icon: IconDatabaseImport,
     title: 'Extract from any source, without glue code',
-    body: 'Connectors for Adobe AEM, WordPress, SQL databases, file systems and the web push content into your search engine — no bespoke ETL to build and maintain.',
+    body: 'Connectors for Adobe AEM, WordPress, SQL databases, file systems and the web push content into your search engine. There is no custom ETL to build and maintain.',
     solution: 'dumont',
   },
   {
     icon: IconLayoutGrid,
     title: 'Model content, ship a site',
-    body: 'Model your own post types, consume them headlessly over GraphQL, and serve a JavaScript site that ships with native cache and built-in search.',
+    body: 'Define your own post types, query them over GraphQL, and serve a JavaScript site with native cache and built-in search.',
     solution: 'shio',
   },
   {
     icon: IconLicense,
-    title: 'Own your stack — Apache 2.0, self-hosted',
-    body: 'Every product is open source under Apache 2.0 and runs from a single Docker image on your own infrastructure, so your content never leaves your perimeter.',
+    title: 'Own your stack: Apache 2.0, self-hosted',
+    body: 'Every product is open source under Apache 2.0 and runs from a single Docker image on your own infrastructure, so your content stays inside your perimeter.',
     solution: 'dumont',
   },
 ]
@@ -77,11 +77,11 @@ export function getOutcomes(): Outcome[] {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Pipeline (W2 / W21) — how Dumont → Turing → Shio connect as one platform    */
+/* Pipeline (W2 / W21): how Dumont → Turing → Shio connect as one platform     */
 /* -------------------------------------------------------------------------- */
 
 export interface PipelineStage {
-  /** Product identifier — drives logo + accent colour. */
+  /** Product identifier. Drives logo + accent colour. */
   solution: string
   /** Short verb-phrase step label. */
   step: string
@@ -91,8 +91,8 @@ export interface PipelineStage {
 
 /**
  * The reusable "Built with Viglet" pipeline: extract with Dumont → search &
- * answer with Turing → model & serve with Shio. This is the asset that turns
- * "three product pages" into one coherent platform story.
+ * answer with Turing → model & serve with Shio. It presents the three product
+ * pages as one platform.
  */
 export const pipeline: PipelineStage[] = [
   {
@@ -100,21 +100,21 @@ export const pipeline: PipelineStage[] = [
     step: 'Extract',
     title: 'Connect any source',
     description:
-      'Dumont crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, normalizing everything into one flow — from source to destination.',
+      'Viglet Dumont crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, and normalizes everything into one flow from source to destination.',
   },
   {
     solution: 'turing',
     step: 'Search & answer',
     title: 'Index, search, answer',
     description:
-      'Turing indexes that flow into Apache Solr, Elasticsearch or Lucene, adds faceted semantic navigation, and answers questions with a RAG chatbot grounded in your content.',
+      'Viglet Turing indexes that flow into Apache Solr, Elasticsearch or Lucene, adds faceted semantic navigation, and answers questions with a RAG chatbot grounded in your content.',
   },
   {
     solution: 'shio',
     step: 'Model & serve',
     title: 'Model & deliver content',
     description:
-      'Shio models the content behind it all, exposes it over GraphQL, and serves a cached, search-ready site — the editorial layer of the platform.',
+      'Viglet Shio models the content, exposes it over GraphQL, and serves a cached, search-ready site. It is the editorial layer of the platform.',
   },
 ]
 
@@ -123,7 +123,7 @@ export function getPipeline(): PipelineStage[] {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Per-product essence (W24) — pillars per product for SolutionPage            */
+/* Per-product essence (W24): pillars per product for SolutionPage             */
 /* -------------------------------------------------------------------------- */
 
 export interface Pillar {
@@ -147,28 +147,28 @@ export interface SolutionEssence {
  */
 export const essence: Record<string, SolutionEssence> = {
   dumont: {
-    tagline: 'The Data Extraction Platform — connect any source, deliver to any search engine, from source to destination.',
+    tagline: 'Data Extraction Platform: connect any source and deliver its content to any search engine.',
     pillars: [
       {
         icon: IconPuzzle,
         step: 'Connect',
         title: 'Any source, out of the box',
         description:
-          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler — no custom connector to write.',
+          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler. No custom connector to write.',
       },
       {
         icon: IconTransform,
         step: 'Model',
         title: 'Sources as a schema',
         description:
-          'Describe listings and detail pages with a declarative structured-source framework — or point Dumont at a URL and let it draft an extraction strategy you confirm.',
+          'Describe listings and detail pages with a declarative structured-source framework, or point Viglet Dumont at a URL and confirm the extraction strategy it drafts.',
       },
       {
         icon: IconArrowsShuffle,
         step: 'Deliver',
         title: 'Push to any search engine',
         description:
-          'Send the extracted flow to Viglet Turing, Apache Solr or Elasticsearch by changing a single property — no rewrite when your engine changes.',
+          'Send the extracted flow to Viglet Turing, Apache Solr or Elasticsearch by changing a single property. Switching engines needs no rewrite.',
       },
       {
         icon: IconShieldCheck,
@@ -180,21 +180,21 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   shio: {
-    tagline: 'The Headless CMS — model content, deliver it over REST & GraphQL, and render it with any framework.',
+    tagline: 'Headless CMS: model content, deliver it over REST and GraphQL, and render it with any framework.',
     pillars: [
       {
         icon: IconLayoutGrid,
         step: 'Model',
         title: 'Post types in the console or as code',
         description:
-          'Create post types with exactly the attributes you need — in the admin, or versioned as code with the Post Types DSL and the Shio CLI.',
+          'Create post types with exactly the attributes you need, in the admin or as versioned code with the Post Types DSL and the Shio CLI.',
       },
       {
         icon: IconApi,
         step: 'Deliver',
         title: 'Headless Content Delivery API',
         description:
-          'Consume content over a versioned delivery API — REST and GraphQL — by id, by URL for slug routing, or query, with caching and rate limiting.',
+          'Fetch content from a versioned REST and GraphQL delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.',
       },
       {
         icon: IconServerBolt,
@@ -213,7 +213,7 @@ export const essence: Record<string, SolutionEssence> = {
     ],
   },
   turing: {
-    tagline: 'The Enterprise Search platform — faceted search, cited RAG and AI agents over your content.',
+    tagline: 'Enterprise Search: faceted search, cited RAG answers and AI agents over your content.',
     pillars: [
       {
         icon: IconWorldSearch,
@@ -241,7 +241,7 @@ export const essence: Record<string, SolutionEssence> = {
         step: 'Run',
         title: 'Self-hosted, any LLM',
         description:
-          'Apache 2.0 on your own infrastructure — bring OpenAI, Anthropic, Gemini, Azure or local Ollama, multi-tenant and observable.',
+          'Runs on your own infrastructure under Apache 2.0, with OpenAI, Anthropic, Gemini, Azure or local Ollama models. Multi-tenant and observable.',
       },
     ],
   },
@@ -252,7 +252,7 @@ export function getEssence(identifier: string): SolutionEssence | undefined {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Providers (W25) — "works with your stack" pill wall                         */
+/* Providers (W25): "works with your stack" pill wall                          */
 /* -------------------------------------------------------------------------- */
 
 export interface Provider {
@@ -318,7 +318,7 @@ export function getProviderGroups(): ProviderGroup[] {
 }
 
 /* -------------------------------------------------------------------------- */
-/* FAQ (W26) — honest, objection-pre-empting Q&A (also emitted as JSON-LD)      */
+/* FAQ (W26): honest, objection-pre-empting Q&A (also emitted as JSON-LD)       */
 /* -------------------------------------------------------------------------- */
 
 export interface FaqItem {
@@ -327,10 +327,10 @@ export interface FaqItem {
 }
 
 /**
- * The home FAQ — honest, objection-pre-empting, and GEO-aware (it folds in the
- * "open-source alternative to Algolia / AEM search" queries Block E targets).
+ * The home FAQ. It answers common objections and folds in the "open-source
+ * alternative to Algolia / AEM search" queries Block E targets (GEO).
  *
- * ⚠️ SINGLE SOURCE OF TRUTH for the home FAQPage. The visible section (W26)
+ * SINGLE SOURCE OF TRUTH for the home FAQPage. The visible section (W26)
  * renders this array, and `index.html`'s static FAQPage JSON-LD **mirrors it**
  * verbatim so structured data matches on-page content (Google requires the FAQ
  * text to be present on the page). If you edit a Q&A here, update the JSON-LD in
@@ -340,31 +340,31 @@ export interface FaqItem {
 export const faq: FaqItem[] = [
   {
     q: 'Do I need all three products?',
-    a: "No. Each product runs independently — Turing for search and AI, Dumont to feed it content, and Shio to model and serve content. They're stronger together, but there's no lock-in and no required bundle.",
+    a: 'No. Each product runs on its own: Viglet Turing for search and AI, Viglet Dumont to feed it content, and Viglet Shio to model and serve content. They also work together, but there is no lock-in and no required bundle.',
   },
   {
     q: 'Which Viglet product do I need?',
-    a: 'Match the product to the job: Dumont extracts and moves data (indexing, ETL, connectors); Shio models and serves content (headless CMS, sites); Turing searches and answers (enterprise search, semantic navigation, AI chatbot).',
+    a: 'Match the product to the job: Viglet Dumont extracts and moves data (indexing, ETL, connectors); Viglet Shio models and serves content (headless CMS, sites); Viglet Turing searches and answers (enterprise search, semantic navigation, AI chatbot).',
   },
   {
     q: 'Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?',
-    a: 'Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, while getting faceted search, semantic/vector search and generative AI (RAG) in a single platform.',
+    a: 'Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, and it includes faceted search, semantic/vector search and generative AI (RAG).',
   },
   {
     q: 'How do I run it?',
-    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled inside the container — no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap.',
+    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so there is no Java install and no manual setup. A managed Viglet Cloud option is on the roadmap.',
   },
   {
-    q: 'Which sources can I index — Adobe AEM, WordPress, databases?',
-    a: 'Adobe AEM, WordPress, SQL databases, file systems and any website via the web crawler are supported through Viglet Dumont, delivered into Apache Solr, Elasticsearch or Turing.',
+    q: 'Which sources can I index (Adobe AEM, WordPress, databases)?',
+    a: 'Viglet Dumont connects Adobe AEM, WordPress, SQL databases, file systems and any website through its web crawler, and delivers the content into Apache Solr, Elasticsearch or Viglet Turing.',
   },
   {
     q: 'Does it support semantic search and RAG with the LLM of my choice?',
-    a: 'Yes. Turing bundles vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice — OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini — on SaaS or on-premises. Answers are grounded in your indexed content with citations.',
+    a: 'Yes. Viglet Turing includes vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice (OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini), on SaaS or on-premises. Answers are grounded in your indexed content, with citations.',
   },
   {
     q: 'Where is my content stored?',
-    a: 'On your own infrastructure. Every product is self-hosted via Docker, so indexed content and user queries never leave your perimeter — important for regulated industries with data-residency requirements, unlike SaaS search where content lives in the vendor cloud.',
+    a: "On your own infrastructure. Every product is self-hosted with Docker, so indexed content and user queries never leave your perimeter. This matters for regulated industries with data-residency requirements, where SaaS search keeps content in the vendor's cloud.",
   },
 ]
 

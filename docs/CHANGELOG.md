@@ -1,7 +1,7 @@
-# viglet.org — Shipped Ledger (CHANGELOG)
+# viglet.org: Shipped Ledger (CHANGELOG)
 
 > Concise index of work that has shipped. **`git log` is the authoritative
-> history** — this file is just a searchable map of *what* shipped and *where*
+> history**: this file is just a searchable map of *what* shipped and *where*
 > the rationale lived.
 >
 > Maintenance: when a task in [ROADMAP.md](ROADMAP.md) ships, move its one-line
@@ -9,45 +9,45 @@
 > from ROADMAP (and its design subsection from [IMPROVEMENTS.md](IMPROVEMENTS.md)).
 > See [../AGENTS.md](../AGENTS.md) → "Roadmap & docs maintenance".
 
-## Block 0 — Foundation (pre-roadmap, shipped)
+## Block 0: Foundation (pre-roadmap, shipped)
 
 > Work that predates this four-doc system, listed for context. These were not
 > `W`-numbered; the backlog numbering starts at `W1`.
 
-- **Stack migration** — site rebuilt as a **React 19 + Vite 8 + Tailwind v4** SPA
+- **Stack migration**: site rebuilt as a **React 19 + Vite 8 + Tailwind v4** SPA
   consuming `@viglet/viglet-design-system`, `react-router-dom` v7, and i18next
   (replaced the legacy Jekyll/Bootstrap/AngularJS site; root `README.md` still
   references the old `jekyll serve` and is stale).
-- **SEO/GEO build plugins** — [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)
+- **SEO/GEO build plugins**: [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)
   (emits `llms.txt`), [vite-plugin-sitemap.ts](../vite-plugin-sitemap.ts), and
   [vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) (static HTML
   per route for crawlers).
-- **Six routes** — home, solution (`/:identifier/`), download, release-notes,
+- **Six routes**: home, solution (`/:identifier/`), download, release-notes,
   partner, about ([src/App.tsx](../src/App.tsx)); data-driven from
   `src/data/{solutions,features,modules,categories}.ts`.
 - **feat(seo): Blog link in footer** → `docs.viglet.org/blog` (`50dfa49`).
-- **feat(seo): FAQPage JSON-LD + llms.txt enriched with blog guides** (`d9133a2`)
-  — partial credit toward **W13** (the blog-guide half of the enrichment).
+- **feat(seo): FAQPage JSON-LD + llms.txt enriched with blog guides** (`d9133a2`),
+  partial credit toward **W13** (the blog-guide half of the enrichment).
 - **fix(seo): scope FAQPage JSON-LD to the home page only** (`525a792`).
 
-## Block A — Showcase & proof
+## Block A: Showcase & proof
 
-- **W2 — "Built with Viglet" pipeline diagram** — reusable
+- **W2: "Built with Viglet" pipeline diagram**: reusable
   [PipelineDiagram.tsx](../src/components/PipelineDiagram.tsx) rendering the
   Dumont → Turing → Shio flow as product-coloured, numbered process cards.
   Data-driven from `narrative.ts`; consumed by the home "how the three connect"
   band (W21) and reusable by any future showcase (W1/W3).
 
-## Block D — Engagement & lead capture (privacy-first)
+## Block D: Engagement & lead capture (privacy-first)
 
-- **W12 — Consent banner (analytics opt-in).** Google Analytics no longer loads
-  unconditionally — the `gtag` snippet was removed from `index.html` and moved to
+- **W12: Consent banner (analytics opt-in).** Google Analytics no longer loads
+  unconditionally: the `gtag` snippet was removed from `index.html` and moved to
   [src/lib/analytics.ts](../src/lib/analytics.ts), loaded at runtime **only after
   the visitor opts in** ([ConsentBanner.tsx](../src/components/ConsentBanner.tsx),
   mounted globally in [App.tsx](../src/App.tsx)). Accept/Decline are equally
   prominent (LGPD), the choice persists in `localStorage`, and a "Cookie settings"
   footer control reopens the banner. Nothing tracks before consent.
-- **W10 + W11 — Release-alert / newsletter opt-in.** A single LGPD-compliant
+- **W10 + W11: Release-alert / newsletter opt-in.** A single LGPD-compliant
   signup ([NewsletterSignup.tsx](../src/components/NewsletterSignup.tsx)) in the
   footer: explicit **unchecked** consent, unsubscribe note, email validation,
   timeout-guarded submit (never a dead spinner), success/error states. Since the
@@ -55,13 +55,13 @@
   **form service**. **Activation (ops step):** set the `NEWSLETTER_ENDPOINT` repo
   secret (Formspree / Buttondown / Web3Forms …) → wired into the build as
   `VITE_NEWSLETTER_ENDPOINT` ([deploy.yml](../.github/workflows/deploy.yml),
-  [.env.example](../.env.example)). Until it's set the signup renders nothing —
+  [.env.example](../.env.example)). Until it's set the signup renders nothing:
   no half-built form ships. W10 (release alerts) and W11 (newsletter digest) are
   unified into one opt-in (`tags: ['release','newsletter']`).
 
-## Block E — Discoverability / GEO
+## Block E: Discoverability / GEO
 
-- **W13 — Enrich `llms.txt`.** [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)
+- **W13: Enrich `llms.txt`.** [vite-plugin-llmtxt.ts](../vite-plugin-llmtxt.ts)
   now emits, alongside the blog-guide half (`d9133a2`): a **Positioning** section
   (one grounded line per product), a **Use Cases** section (problem → product
   mapping), and a **Positioning & Comparisons** section carrying the
@@ -72,10 +72,10 @@
   Dumont's EDS source), and the Products-section GitHub links now use each
   solution's real `-ce` repo (via the `github` field) instead of a hardcoded
   `openviglet/<id>`. All copy obeys the §0 grounding rule.
-- **W14 — Comparison / positioning landing pages.** New `/compare/:slug/` route
+- **W14: Comparison / positioning landing pages.** New `/compare/:slug/` route
   ([ComparePage.tsx](../src/pages/ComparePage.tsx)) rendering data-driven pages
   from [comparisons.ts](../src/data/comparisons.ts) whose titles are the queries
-  evaluators type — "open-source alternative to Algolia/Coveo/Lucidworks" and
+  evaluators type: "open-source alternative to Algolia/Coveo/Lucidworks" and
   "enterprise search for Adobe AEM". Facts-only, non-disparaging tables (Viglet
   vs hosted SaaS), a "how it works" approach, per-page FAQ + client-injected
   FAQPage JSON-LD, and cross-links into the docs guides. Registered across every
@@ -84,7 +84,7 @@
   "Comparison & Positioning Pages" section) and per-page OG cards
   ([og-images.mjs](../scripts/og-images.mjs)). Cross-repo with Turing STRATEGY
   Block O.
-- **W15 — Cross-link product pages → docs guides.** A per-product "Guides"
+- **W15: Cross-link product pages → docs guides.** A per-product "Guides"
   section on [SolutionPage.tsx](../src/pages/SolutionPage.tsx) linking to the
   matching `docs.viglet.org/blog` integration/comparison guides (Turing + Dumont;
   Shio has no published guide, so the section hides). Tightens the GEO graph and
@@ -100,7 +100,7 @@
   offline-safe fallback. New guides appear without a viglet.org redeploy; any
   fetch failure degrades to the snapshot (§ non-goals: degrade gracefully).
   Product mapping comes from a `viglet_products` frontmatter field on each post.
-- **W34 — Model Catalog in the Turing module grid.** Added a **Model Catalog**
+- **W34: Model Catalog in the Turing module grid.** Added a **Model Catalog**
   entry to the Turing modules in [modules.ts](../src/data/modules.ts) (linking
   `github.com/openviglet/model-catalog`), surfacing the vendor-neutral public
   LLM/embedding/rerank/media catalog that Turing reads for its model picker as an
@@ -108,48 +108,48 @@
   Turing SolutionPage via the existing external-link card; no route, so no
   sitemap/prerender change). Cross-repo with `openviglet/model-catalog`.
 
-## Block H — Conversion narrative & product essence
+## Block H: Conversion narrative & product essence
 
 > Ported turing.viglet.org's conversion craft to the multi-product story with
 > **zero new runtime deps** (the OG rasterizer is an optional build-only dep).
 > Grounding rule held: no invented metrics. Design rationale was IMPROVEMENTS §IX
 > (removed on ship).
 
-- **W20 — Narrative content model** — typed
+- **W20: Narrative content model**: typed
   [src/data/narrative.ts](../src/data/narrative.ts) (`outcomes`, `pipeline`,
   `essence` pillars per product, `providerGroups`, `faq`) with `getX()` helpers.
   The foundation the sections below `map()` over.
-- **W21 — Home → conversion narrative** — [HomePage.tsx](../src/pages/HomePage.tsx)
+- **W21: Home → conversion narrative**: [HomePage.tsx](../src/pages/HomePage.tsx)
   restructured to *hook → see → outcomes → suite → how-the-three-connect →
   works-with-your-stack → FAQ → convert → community*, with a dark-gradient closing
-  CTA. (The compare-teaser sub-idea was skipped — its W9 comparison table isn't
+  CTA. (The compare-teaser sub-idea was skipped: its W9 comparison table isn't
   built yet, so it would have been a dead link.)
-- **W22 — Outcome-led section** — [Outcomes.tsx](../src/components/sections/Outcomes.tsx)
+- **W22: Outcome-led section**: [Outcomes.tsx](../src/components/sections/Outcomes.tsx)
   ("what changes for you"), results-first with product-accented cards.
-- **W23 — Reusable Terminal component** — [Terminal.tsx](../src/components/Terminal.tsx)
+- **W23: Reusable Terminal component**: [Terminal.tsx](../src/components/Terminal.tsx)
   (`Terminal` macOS faux-terminal + `CommandBlock`). DownloadPage's private
   `CopyableCommand` was promoted into it; reused on home (closing CTA) and each
   SolutionPage.
-- **W24 — Per-product essence on SolutionPage** — data-driven pillars +
+- **W24: Per-product essence on SolutionPage**: data-driven pillars +
   tagline per product on [SolutionPage.tsx](../src/pages/SolutionPage.tsx),
   from `narrative.ts` `essence`.
-- **W25 — "Works with your stack" pill wall** — [StackWall.tsx](../src/components/sections/StackWall.tsx),
+- **W25: "Works with your stack" pill wall**: [StackWall.tsx](../src/components/sections/StackWall.tsx),
   a grouped providers/tech grid (sources · engines · AI/LLMs · delivery).
-- **W26 — Home FAQ + FAQPage JSON-LD** — [HomeFaq.tsx](../src/components/sections/HomeFaq.tsx)
+- **W26: Home FAQ + FAQPage JSON-LD**: [HomeFaq.tsx](../src/components/sections/HomeFaq.tsx)
   renders `narrative.ts` `faq[]`; `index.html`'s static FAQPage JSON-LD now
   mirrors it verbatim (superset that folds in the Block E GEO Q&As), so
   structured data matches on-page content.
-- **W27 — Per-route OG social images** — build-time
+- **W27: Per-route OG social images**: build-time
   [scripts/og-images.mjs](../scripts/og-images.mjs) renders a per-identity
   1200×630 card (SVG → PNG via optional `@resvg/resvg-js`, defensive skip);
   [vite-plugin-spa-prerender.ts](../vite-plugin-spa-prerender.ts) injects
   per-route `og:image`/`twitter:image` (+ default OG tags in `index.html`).
-  Build-time only — no server (respects the Block G non-goal).
-- **W28 — Scripted product demo** — [ScriptedDemo.tsx](../src/components/sections/ScriptedDemo.tsx),
+  Build-time only: no server (respects the Block G non-goal).
+- **W28: Scripted product demo**: [ScriptedDemo.tsx](../src/components/sections/ScriptedDemo.tsx),
   a deterministic, always-resolving search-and-answer widget over Viglet's own
   content (the home "see" band). Reduced-motion safe; upgradeable to a real
   Turing-backed demo once Block B / Cloud lands.
-- **W35 — 2026 marks** — the periodic-table squares (too close to Adobe's icons)
+- **W35: 2026 marks**: the periodic-table squares (too close to Adobe's icons)
   became isometric cubes with the front-top corner cut in the angle of the Viglet
   V; [VigletLogo.tsx](../src/components/VigletLogo.tsx) now shows the SVGs in
   `public/logos/` (cube with symbol from 56 px, cube alone below). The flat Viglet
@@ -157,12 +157,18 @@
   every favicon; OG cards carry the cube (or the V). Shio moves to violet
   `#7c3aed` and Dumont to teal `#0f766e` across `index.css`, `solutions.ts` and the
   OG gradients, to match the cubes. The marks are generated by `make_marks.py`
-  in alegauss/visibility (`marca/logo/`) — regenerate there and copy, never edit
+  in alegauss/visibility (`marca/logo/`). Regenerate there and copy, never edit
   the SVGs by hand.
-- **W36 — Names without acronyms** — "Viglet Turing / Shio / Dumont" (first
+- **W36: Names without acronyms**: "Viglet Turing / Shio / Dumont" (first
   mention) and "Turing / Shio / Dumont" after it, everywhere the site writes them:
   data, pages, FAQ JSON-LD, llms.txt, prerender and OG text. What each product *is*
   now goes in words beside the name: `solutions.ts` `logoSection` (ES / CMS / DEP)
   became `category` (Enterprise Search / Headless CMS / Data Extraction Platform).
   llms.txt keeps one line naming the old forms, so assistants that learned
   "Turing ES" connect the two; the AEM blog post keeps its published title.
+- **W37: Copy pass and no em dashes**: every page, data file, FAQ (with its
+  JSON-LD mirror), llms.txt, meta tag, OG card, code comment and doc rewritten
+  in plain language (puffery and unsupported claims cut, no facts added), and
+  every em dash removed from the repository. `fetch-guides.mjs` turns em dashes
+  in blog titles into a colon or comma, so none comes back with a new post. The
+  wordmark next to the V reads "Viglet", capital V.

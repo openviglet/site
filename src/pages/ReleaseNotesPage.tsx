@@ -104,7 +104,7 @@ export default function ReleaseNotesPage() {
     if (!solution) return
     setStatus('loading')
     // Single source of truth: products with a dedicated site (e.g. Turing) own
-    // their changelog in their own repo and serve it from their domain — we
+    // their changelog in their own repo and serve it from their domain. We
     // fetch it cross-origin (GitHub Pages sends Access-Control-Allow-Origin: *).
     // Products without a site keep their locally curated JSON.
     const changelogUrl = solution.site
@@ -147,7 +147,7 @@ export default function ReleaseNotesPage() {
                 {solution.shortName} Release Notes
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                Track every improvement, fix, and new capability across all releases.
+                Every new feature, improvement and fix, release by release.
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
@@ -292,7 +292,7 @@ export default function ReleaseNotesPage() {
             Try the latest version
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            {solution.shortName} v{solution.release} is available now. Pull the image and get started in minutes.
+            {solution.shortName} v{solution.release} is available now. Pull the image and run it.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             {solution.release && (

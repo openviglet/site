@@ -22,12 +22,12 @@ const BENEFITS = [
   {
     icon: <IconRocket size={24} />,
     title: 'Co-marketing & visibility',
-    description: 'Get featured on viglet.org, joint case studies, and co-branded content that reaches our global developer and enterprise audience.',
+    description: 'A listing on viglet.org, joint case studies and co-branded content.',
   },
   {
     icon: <IconCode size={24} />,
     title: 'Early access to roadmap',
-    description: 'Stay ahead with early access to new features, beta releases, and direct communication with the engineering team.',
+    description: 'Early access to new features and beta releases, and a direct line to the engineering team.',
   },
   {
     icon: <IconUsers size={24} />,
@@ -44,7 +44,7 @@ const BENEFITS = [
 const TIERS = [
   {
     name: 'Technology Partner',
-    description: 'ISVs and SaaS companies that integrate their products with Dumont, Shio, or Turing.',
+    description: 'ISVs and SaaS companies that integrate their products with Viglet Dumont, Viglet Shio or Viglet Turing.',
     perks: [
       'Listed in the partner directory',
       'Integration certification badge',
@@ -67,7 +67,7 @@ const TIERS = [
   },
   {
     name: 'Community Partner',
-    description: 'Open source contributors, developer advocates, and community builders who amplify the Viglet ecosystem.',
+    description: 'Open source contributors, developer advocates and community builders who grow the Viglet community.',
     perks: [
       'Viglet swag & recognition',
       'Speaker opportunities',
@@ -92,10 +92,10 @@ export default function PartnerPage() {
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <Badge variant="brand" className="mb-6">Partner Program</Badge>
           <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-            Build the future of enterprise intelligence — together
+            Build enterprise intelligence with us
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Join the Viglet partner ecosystem and help enterprises unlock the power of open source data extraction, content management, and semantic search.
+            Join the Viglet partner program and help enterprises adopt open source data extraction, content management and semantic search.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>
@@ -207,7 +207,7 @@ export default function PartnerPage() {
           </div>
 
           {/* Non-featured partners + "your company here" ghost slots (one per
-              tier) — fills the grid and shows prospects exactly how they'll
+              tier) fill the grid and show prospects exactly how they'll
               appear. */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {partners

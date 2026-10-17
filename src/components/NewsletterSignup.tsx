@@ -7,12 +7,12 @@ import { IconMail, IconCheck, IconLoader2, IconAlertTriangle } from '@tabler/ico
  * The site is a static SPA with no backend (backend is gated on Block G), so
  * this submits to a third-party form service. The endpoint is read from
  * `VITE_NEWSLETTER_ENDPOINT` at build time; when it is not configured the whole
- * component renders nothing — no half-built form ships. Works with any service
+ * component renders nothing, so no half-built form ships. Works with any service
  * that accepts a JSON POST (Formspree, Buttondown, Web3Forms, …).
  *
  * LGPD / privacy-first: explicit, UNCHECKED consent checkbox (submit disabled
  * until it's ticked and the email is valid), a clear purpose + unsubscribe note,
- * and no pre-selection. Never a dead spinner — the request has a timeout and
+ * and no pre-selection. Never a dead spinner: the request has a timeout and
  * always resolves to a success or error state.
  */
 
@@ -118,7 +118,7 @@ function NewsletterForm({ endpoint }: Readonly<{ endpoint: string }>) {
           className="mt-0.5 accent-brand shrink-0"
         />
         <span className="text-xs text-slate-400 leading-relaxed">
-          I agree to receive occasional emails about Viglet releases and guides. Unsubscribe anytime — no spam.
+          I agree to receive occasional emails about Viglet releases and guides. Unsubscribe anytime.
         </span>
       </label>
 

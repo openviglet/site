@@ -1,5 +1,5 @@
 /**
- * Viglet partner ecosystem — the single source of truth for every partner shown
+ * Viglet partners: the single source of truth for every partner shown
  * across the site (the /partner directory today; reusable elsewhere).
  *
  * Adding a partner = append an entry here. The UI (PartnerCard) renders a logo
@@ -28,7 +28,7 @@ export interface Partner {
   services: string[]
   /** Path under /public, e.g. "/partners/sumware.svg". Omit to render initials. */
   logo?: string
-  /** e.g. "Brazil" — optional locality signal for buyers. */
+  /** e.g. "Brazil". Optional locality signal for buyers. */
   location?: string
   /** Anchor partner: pinned first and visually highlighted. */
   featured?: boolean
@@ -40,7 +40,7 @@ export const partners: Partner[] = [
     tier: 'Solution Partner',
     url: 'https://sumware.com.br',
     summary:
-      'Solution partner for Viglet — implementation, custom development and commercial support.',
+      'Solution partner for Viglet: implementation, custom development and commercial support.',
     services: [
       'Viglet implementation & integration',
       'Commercial support & SLAs',

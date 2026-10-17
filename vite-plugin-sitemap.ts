@@ -53,7 +53,7 @@ function buildSitemap(products: ProductMeta[], compareSlugs: string[]): string {
   for (const product of products) {
     for (const sub of productSubRoutes) {
       // Skip the landing page of products that canonicalise to a dedicated
-      // site — listing a URL that declares another canonical is a contradictory
+      // site: listing a URL that declares another canonical is a contradictory
       // signal. Sub-pages self-canonicalise, so they stay.
       if (sub === '/' && product.site) continue
       urls.push({
@@ -63,7 +63,7 @@ function buildSitemap(products: ProductMeta[], compareSlugs: string[]): string {
     }
   }
 
-  // Comparison / positioning landing pages (GEO surface) — high priority.
+  // Comparison / positioning landing pages (GEO surface), high priority.
   for (const slug of compareSlugs) {
     urls.push({ loc: `${SITE_URL}/compare/${slug}/`, priority: '0.8' })
   }

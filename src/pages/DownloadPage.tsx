@@ -40,7 +40,7 @@ export default function DownloadPage() {
   // Products are distributed exclusively as Docker images on the GitHub
   // Container Registry (ghcr.io). Everything below is derived from `dockerImage`.
   const image = solution.dockerImage
-  // Tag is omitted — Docker defaults to `:latest`, and this keeps the shown
+  // Tag is omitted: Docker defaults to `:latest`, and this keeps the shown
   // commands consistent with the bare image name in the info bar below.
   const port = solution.runPort
   const pullCmd = image ? `docker pull ${image}` : ''
@@ -72,7 +72,7 @@ export default function DownloadPage() {
 
             <div className="flex-1 min-w-0 text-center md:text-left">
               <ProductBadge identifier={identifier} className="mb-4">
-                v{solution.release} &mdash; Stable
+                v{solution.release} · Stable
               </ProductBadge>
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 Run {solution.shortName}
@@ -84,7 +84,7 @@ export default function DownloadPage() {
                 <p className="text-base text-muted-foreground mb-6 max-w-2xl">{solution.downloadMessage}</p>
               )}
 
-              {/* One command to run it — no download, no install. */}
+              {/* One command to run it. No download, no install. */}
               {runCmd && (
                 <div className="max-w-2xl mb-6">
                   <CommandBlock command={runCmd} />
@@ -115,7 +115,7 @@ export default function DownloadPage() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <IconCheck size={14} />
-                    No install &mdash; runtime bundled
+                    No install, runtime bundled
                   </span>
                 </div>
               )}
@@ -175,7 +175,7 @@ export default function DownloadPage() {
                 Up and running in minutes
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Three simple steps to get {solution.shortName} running with Docker.
+                Three steps to get {solution.shortName} running with Docker.
               </p>
             </div>
 
@@ -192,7 +192,7 @@ export default function DownloadPage() {
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Pull the latest {solution.shortName} image from the GitHub Container Registry. The container ships with everything bundled — no Java, no manual setup.
+                    Pull the latest {solution.shortName} image from the GitHub Container Registry. The container bundles the runtime, so you install no Java and do no manual setup.
                   </p>
                   <CommandBlock command={pullCmd} />
                 </CardContent>
@@ -246,7 +246,7 @@ export default function DownloadPage() {
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Dive into the official documentation to discover all {solution.shortName} features, environment variables, and production deployment with Docker Compose.
+                    The documentation covers {solution.shortName} features, environment variables and production deployment with Docker Compose.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {solution.getStarted && (
@@ -275,7 +275,7 @@ export default function DownloadPage() {
                 What's included
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-                Everything you get out of the box with {solution.shortName}.
+                What ships with {solution.shortName}.
               </p>
             </div>
 
@@ -362,7 +362,7 @@ export default function DownloadPage() {
             Ready to get started?
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            {solution.shortName} is open source and free to use. Pull the image and start building today.
+            {solution.shortName} is open source and free to use. Pull the image and run it.
           </p>
           {runCmd && (
             <div className="max-w-xl mx-auto mb-8 text-left">

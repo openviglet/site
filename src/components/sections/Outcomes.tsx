@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { getOutcomes } from '@/data/narrative'
 
 /**
- * Outcome-led section (Block H / W22) — "what changes for you". Leads with
+ * Outcome-led section (Block H / W22): "what changes for you". Leads with
  * results, not feature lists, with a self-justifying subhead (turing's OUTCOMES
  * pattern). Data-driven from `narrative.ts`; every outcome is grounded in a real
  * product capability. Product accent comes from the `product-*` utility classes.
@@ -20,7 +20,7 @@ export default function Outcomes() {
             What changes for you
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-            A capability list is easy to skim past. Here's what the suite actually changes for your team and your users.
+            What your team and your users get from the suite.
           </p>
         </div>
 

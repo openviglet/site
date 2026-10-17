@@ -26,13 +26,13 @@ const VALUES = [
     icon: <IconCode size={22} />,
     title: 'Open by default',
     description:
-      'Every line of code is public. We believe great enterprise software should be auditable, forkable, and ownable — not locked behind a paywall.',
+      'Every line of code is public. You can audit it, fork it and run it without a paywall.',
   },
   {
     icon: <IconLock size={22} />,
     title: 'Enterprise-grade reliability',
     description:
-      'Open source does not mean amateur. Viglet products are built with production-readiness in mind: stable APIs, documented releases, and clear upgrade paths.',
+      'Viglet products are built for production: stable APIs, documented releases and clear upgrade paths.',
   },
   {
     icon: <IconUsers size={22} />,
@@ -44,7 +44,7 @@ const VALUES = [
     icon: <IconHeart size={22} />,
     title: 'Developer happiness',
     description:
-      'Viglet tools are designed so that a single developer can get from zero to running in minutes, without ops overhead or vendor onboarding calls.',
+      'A single developer can get a Viglet tool running in minutes, without ops overhead or vendor onboarding calls.',
   },
 ]
 
@@ -59,19 +59,19 @@ const MILESTONES = [
     year: '2018',
     title: 'Turing born',
     description:
-      'The first public release of Turing brought semantic search, faceted navigation, and NLP-assisted queries to the open source world.',
+      'The first public release of Viglet Turing, with semantic search, faceted navigation and NLP-assisted queries.',
   },
   {
     year: '2020',
     title: 'Shio launched',
     description:
-      'Shio added headless content management with GraphQL APIs, native caching, and deep integration with Turing\'s search layer.',
+      'Viglet Shio added headless content management with GraphQL APIs, native caching and integration with the Turing search layer.',
   },
   {
     year: '2023',
     title: 'Dumont ships',
     description:
-      'Dumont completed the trinity — a data extraction platform that feeds structured data into the rest of the Viglet ecosystem.',
+      'Viglet Dumont, a data extraction platform, feeds structured data into Turing and Shio.',
   },
   {
     year: '2025',
@@ -91,7 +91,7 @@ const STACK_ITEMS = [
 ]
 
 /**
- * "Meet the founder" — puts a name and a face behind what the timeline calls a
+ * "Meet the founder" puts a name and a face behind what the timeline calls a
  * "personal project". Viglet stays the protagonist: an independent open-source
  * project. Sumware is introduced as one of its solution partners (implementation
  * & support), not its owner. Alexandre is Founder of Viglet and CEO of Sumware.
@@ -129,14 +129,14 @@ function FounderSection() {
           </p>
           <blockquote className="text-lg text-muted-foreground leading-relaxed mb-4">
             “I started Viglet to give any team enterprise-grade search and content
-            tooling without vendor lock-in — fully open source, yours to own and
+            tooling without vendor lock-in: fully open source, yours to own and
             run on your own infrastructure.”
           </blockquote>
           <p className="text-muted-foreground leading-relaxed mb-8">
             Viglet is an independent open-source project.{' '}
             <strong className="text-foreground">Sumware</strong>, my consultancy,
-            is one of its solution partners — helping teams that want
-            implementation, custom development or an SLA adopt Viglet in production.
+            is one of its solution partners. It helps teams that want
+            implementation, custom development or an SLA run Viglet in production.
           </p>
           <a
             href="https://sumware.com.br"
@@ -171,8 +171,8 @@ export default function AboutPage() {
             <span className="vg-gradient-text">enterprise intelligence</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Viglet was built on a simple belief: every team deserves world-class data extraction,
-            content management, and enterprise search — without vendor lock-in or enterprise pricing.
+            Viglet gives any team data extraction, content management and enterprise search,
+            without vendor lock-in or enterprise pricing.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>
@@ -197,10 +197,9 @@ export default function AboutPage() {
               Democratize enterprise-grade software
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Large enterprises spend millions of dollars on proprietary platforms for search,
-              content, and data pipelines. Viglet exists to level the playing field — giving
-              any team, regardless of budget, the same capabilities with full control over
-              their infrastructure and data.
+              Search, content and data pipelines usually come from proprietary platforms with
+              enterprise price tags. Viglet gives any team, whatever its budget, the same kind
+              of tools, with full control over its infrastructure and data.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               We maintain everything under the Apache 2.0 license, so you can deploy on-premise,
@@ -238,7 +237,7 @@ export default function AboutPage() {
               Three products, one ecosystem
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-              Each product solves a distinct problem and integrates seamlessly with the others.
+              Each product solves one problem and connects to the other two.
             </p>
           </div>
 
@@ -332,7 +331,7 @@ export default function AboutPage() {
               Built on proven open source
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-              Viglet stands on the shoulders of giants — battle-tested open source projects used by millions.
+              Viglet is built on established open source projects.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -362,8 +361,8 @@ export default function AboutPage() {
             Get involved
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
-            Viglet is shaped by its community. Whether you file a bug, improve documentation,
-            build an integration, or just star a repo — every contribution matters.
+            File a bug, improve the documentation, build an integration or star a repo.
+            All of it shapes what Viglet becomes.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>

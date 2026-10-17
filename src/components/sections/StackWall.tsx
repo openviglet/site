@@ -2,11 +2,11 @@ import { Badge } from '@/components/ui/badge'
 import { getProviderGroups } from '@/data/narrative'
 
 /**
- * "Works with your stack" pill wall (Block H / W25) — a providers/tech grid
+ * "Works with your stack" pill wall (Block H / W25): a providers/tech grid
  * grouped by role (sources, search engines, AI/LLMs, delivery), derived from
  * `modules.ts` / `features.ts` via `narrative.ts`. Answers "does it fit *my*
  * environment?" at a glance. Objective names only; each pill's dot uses the
- * provider's own brand colour (data-driven, not a design-system token — these
+ * provider's own brand colour (data-driven, not a design-system token: these
  * are third-party marks, so an inline colour is correct here).
  */
 export default function StackWall() {
@@ -21,7 +21,7 @@ export default function StackWall() {
             Works with your stack
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-            Connect the sources you already run, index into the engine you already operate, and answer with the LLM you already trust.
+            Use the content sources, search engine and LLM you already have.
           </p>
         </div>
 
