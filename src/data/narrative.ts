@@ -341,7 +341,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'Which Viglet product do I need?',
-    a: 'Match the product to the job: Viglet Dumont extracts and moves data (indexing, ETL, connectors); Viglet Shio models and serves content (headless CMS, sites); Viglet Turing searches and answers (enterprise search, semantic navigation, AI chatbot).',
+    a: 'Match the product to the job: Viglet Dumont extracts and moves data (indexing, ETL, connectors); Viglet Shio models and serves content (CMS, sites, delivery API); Viglet Turing searches and answers (enterprise search, semantic navigation, AI chatbot).',
   },
   {
     q: 'Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?',

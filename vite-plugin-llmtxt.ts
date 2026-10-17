@@ -129,7 +129,7 @@ Stack: Java 21 + Spring Boot. Port: 30130. Docker image: ghcr.io/openviglet/dumo
 
 ## Viglet Shio Details
 
-Headless content management system. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Shio CLI) and deliver them over a versioned REST and GraphQL Content Delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.
+Agent-ready content management system, run from the console or by a coding agent over MCP. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Shio CLI) and deliver them over a versioned REST and GraphQL Content Delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.
 
 Authoring: preview unpublished drafts with short-lived tokens, schedule content to go live, restore earlier versions, and fire outbound webhooks.
 Rendering: React and JavaScript SDKs for Next.js or any framework, plus inline editing through the Adobe Universal Editor bridge.
@@ -145,7 +145,7 @@ Common problems and the products that solve them:
 - Make an intranet, file shares or a SQL database searchable: Dumont's connectors (file systems, JDBC, web crawler) feed Turing, with no custom connector to write.
 - Answer questions over your own content (RAG chatbot): Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
 - Replace a hosted search vendor with self-hosted open source: run Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
-- Build a headless site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Turing adds search.
+- Build a content site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Turing adds search.
 - Keep content and queries inside your perimeter (data residency): every product is self-hosted with Docker, so nothing is sent to a vendor cloud.
 
 ## Positioning & Comparisons
