@@ -9,7 +9,9 @@ export interface Solution {
   githubOrg?: string
   release?: string
   logoAcronym: string
-  logoSection: string
+  /** What the product is, in words. The names dropped their acronyms (ES / CMS /
+   *  DEP) in October 2026, so the category says it beside the name instead. */
+  category: string
   shortName: string
   memo: string
   fullName: string
@@ -41,7 +43,7 @@ export const productColors: Record<string, string> = {
 export const solutions: Solution[] = [
   {
     identifier: 'dumont',
-    title: 'Viglet Dumont DEP',
+    title: 'Viglet Dumont',
     status: 'stable',
     order: 1,
     permalink: '/dumont/',
@@ -50,19 +52,19 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     release: '2026.2.16',
     logoAcronym: 'Du',
-    logoSection: 'DEP',
-    shortName: 'Dumont DEP',
+    category: 'Data Extraction Platform',
+    shortName: 'Dumont',
     memo:'Flow',
-    fullName: 'Viglet Dumont DEP',
+    fullName: 'Viglet Dumont',
     description: 'The Data Extraction Platform — connect any source and deliver to any search engine, from source to destination.',
-    downloadMessage: 'Run Dumont DEP with Docker and explore your flight plan.',
+    downloadMessage: 'Run Dumont with Docker and explore your flight plan.',
     dockerImage: 'ghcr.io/openviglet/dumont-ce',
     runPort: 30130,
     installationSteps: true,
   },
   {
     identifier: 'shio',
-    title: 'Viglet Shio CMS',
+    title: 'Viglet Shio',
     status: 'stable',
     order: 2,
     permalink: '/shio/',
@@ -71,12 +73,12 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     release: '0.3.8',
     logoAcronym: 'Sh',
-    logoSection: 'CMS',
-    shortName: 'Shio CMS',
-    fullName: 'Viglet Shio CMS',
+    category: 'Headless CMS',
+    shortName: 'Shio',
+    fullName: 'Viglet Shio',
     description: 'Headless CMS — model content, deliver it over a versioned REST & GraphQL API, with native cache and search.',
     memo: 'Content',
-    downloadMessage: 'Run Shio CMS with Docker and create your site.',
+    downloadMessage: 'Run Shio with Docker and create your site.',
     dockerImage: 'ghcr.io/openviglet/shio-ce',
     runPort: 2710,
     appLogin: 'admin',
@@ -85,7 +87,7 @@ export const solutions: Solution[] = [
   },
   {
     identifier: 'turing',
-    title: 'Viglet Turing ES',
+    title: 'Viglet Turing',
     status: 'stable',
     order: 3,
     permalink: '/turing/',
@@ -95,12 +97,12 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     release: '2026.2.6',
     logoAcronym: 'Tu',
-    logoSection: 'ES',
-    shortName: 'Turing ES',
-    fullName: 'Viglet Turing ES',
+    category: 'Enterprise Search',
+    shortName: 'Turing',
+    fullName: 'Viglet Turing',
     description: 'Enterprise search, cited RAG and AI agents over your content — any search engine, any LLM, self-hosted.',
     memo: 'Intelligence',
-    downloadMessage: 'Run Turing ES with Docker and add more value to your content.',
+    downloadMessage: 'Run Turing with Docker and add more value to your content.',
     dockerImage: 'ghcr.io/openviglet/turing-ce',
     runPort: 2700,
     installationSteps: true,

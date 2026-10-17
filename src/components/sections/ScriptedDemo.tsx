@@ -29,12 +29,12 @@ interface Scenario {
 }
 
 // Grounded in real product capabilities (features.ts / modules.ts) — no invented
-// claims. These are demonstrations of the kind of answer Turing ES returns.
+// claims. These are demonstrations of the kind of answer Turing returns.
 const SCENARIOS: Scenario[] = [
   {
     query: 'How do I index Adobe AEM content?',
     answer:
-      'Use the Dumont DEP AEM source to extract pages, fragments and assets, then deliver them to Turing ES (or your own Solr / Elasticsearch index) for search.',
+      'Use the Dumont AEM source to extract pages, fragments and assets, then deliver them to Turing (or your own Solr / Elasticsearch index) for search.',
     sources: [
       { solution: 'dumont', label: 'Dumont · AEM Source' },
       { solution: 'turing', label: 'Turing · Semantic Navigation' },
@@ -43,13 +43,13 @@ const SCENARIOS: Scenario[] = [
   {
     query: 'Which LLMs can the chatbot use?',
     answer:
-      'Turing ES supports OpenAI/ChatGPT, Ollama, Anthropic and Google Gemini, with Retrieval-Augmented Generation grounded in your indexed content.',
+      'Turing supports OpenAI/ChatGPT, Ollama, Anthropic and Google Gemini, with Retrieval-Augmented Generation grounded in your indexed content.',
     sources: [{ solution: 'turing', label: 'Turing · Generative AI' }],
   },
   {
     query: 'Can I build a site with search built in?',
     answer:
-      'Shio CMS models your content, serves it over GraphQL, and indexes it automatically — so embedded search ships with the site.',
+      'Shio models your content, serves it over GraphQL, and indexes it automatically — so embedded search ships with the site.',
     sources: [
       { solution: 'shio', label: 'Shio · Search Ready' },
       { solution: 'shio', label: 'Shio · GraphQL' },
@@ -129,7 +129,7 @@ export default function ScriptedDemo() {
             Ask a question, get an answer
           </h2>
           <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-            A glimpse of Turing ES answering over indexed content — grounded, with the sources it used.
+            A glimpse of Turing answering over indexed content — grounded, with the sources it used.
           </p>
         </div>
 

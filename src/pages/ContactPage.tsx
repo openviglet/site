@@ -13,7 +13,7 @@ const TOPICS = [
   {
     icon: <IconRocket size={24} />,
     title: 'Evaluating a product',
-    description: 'Tell us what you need to solve and we will help you pick between Dumont DEP, Shio CMS and Turing ES.',
+    description: 'Tell us what you need to solve and we will help you pick between Dumont, Shio and Turing.',
   },
   {
     icon: <IconMessageCircle size={24} />,
@@ -44,7 +44,7 @@ export default function ContactPage() {
             Want to use Viglet in your organization?
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Tell us about your project. We will answer questions about Dumont DEP, Shio CMS and Turing ES and help you get started.
+            Tell us about your project. We will answer questions about Dumont, Shio and Turing and help you get started.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" asChild>

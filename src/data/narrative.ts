@@ -100,21 +100,21 @@ export const pipeline: PipelineStage[] = [
     step: 'Extract',
     title: 'Connect any source',
     description:
-      'Dumont DEP crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, normalizing everything into one flow — from source to destination.',
+      'Dumont crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, normalizing everything into one flow — from source to destination.',
   },
   {
     solution: 'turing',
     step: 'Search & answer',
     title: 'Index, search, answer',
     description:
-      'Turing ES indexes that flow into Apache Solr, Elasticsearch or Lucene, adds faceted semantic navigation, and answers questions with a RAG chatbot grounded in your content.',
+      'Turing indexes that flow into Apache Solr, Elasticsearch or Lucene, adds faceted semantic navigation, and answers questions with a RAG chatbot grounded in your content.',
   },
   {
     solution: 'shio',
     step: 'Model & serve',
     title: 'Model & deliver content',
     description:
-      'Shio CMS models the content behind it all, exposes it over GraphQL, and serves a cached, search-ready site — the editorial layer of the platform.',
+      'Shio models the content behind it all, exposes it over GraphQL, and serves a cached, search-ready site — the editorial layer of the platform.',
   },
 ]
 
@@ -168,7 +168,7 @@ export const essence: Record<string, SolutionEssence> = {
         step: 'Deliver',
         title: 'Push to any search engine',
         description:
-          'Send the extracted flow to Viglet Turing ES, Apache Solr or Elasticsearch by changing a single property — no rewrite when your engine changes.',
+          'Send the extracted flow to Viglet Turing, Apache Solr or Elasticsearch by changing a single property — no rewrite when your engine changes.',
       },
       {
         icon: IconShieldCheck,
@@ -340,15 +340,15 @@ export interface FaqItem {
 export const faq: FaqItem[] = [
   {
     q: 'Do I need all three products?',
-    a: "No. Each product runs independently — Turing ES for search and AI, Dumont DEP to feed it content, and Shio CMS to model and serve content. They're stronger together, but there's no lock-in and no required bundle.",
+    a: "No. Each product runs independently — Turing for search and AI, Dumont to feed it content, and Shio to model and serve content. They're stronger together, but there's no lock-in and no required bundle.",
   },
   {
     q: 'Which Viglet product do I need?',
-    a: 'Match the product to the job: Dumont DEP extracts and moves data (indexing, ETL, connectors); Shio CMS models and serves content (headless CMS, sites); Turing ES searches and answers (enterprise search, semantic navigation, AI chatbot).',
+    a: 'Match the product to the job: Dumont extracts and moves data (indexing, ETL, connectors); Shio models and serves content (headless CMS, sites); Turing searches and answers (enterprise search, semantic navigation, AI chatbot).',
   },
   {
     q: 'Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?',
-    a: 'Yes. Viglet Turing ES is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, while getting faceted search, semantic/vector search and generative AI (RAG) in a single platform.',
+    a: 'Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, while getting faceted search, semantic/vector search and generative AI (RAG) in a single platform.',
   },
   {
     q: 'How do I run it?',
@@ -356,11 +356,11 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'Which sources can I index — Adobe AEM, WordPress, databases?',
-    a: 'Adobe AEM, WordPress, SQL databases, file systems and any website via the web crawler are supported through Viglet Dumont DEP, delivered into Apache Solr, Elasticsearch or Turing ES.',
+    a: 'Adobe AEM, WordPress, SQL databases, file systems and any website via the web crawler are supported through Viglet Dumont, delivered into Apache Solr, Elasticsearch or Turing.',
   },
   {
     q: 'Does it support semantic search and RAG with the LLM of my choice?',
-    a: 'Yes. Turing ES bundles vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice — OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini — on SaaS or on-premises. Answers are grounded in your indexed content with citations.',
+    a: 'Yes. Turing bundles vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice — OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini — on SaaS or on-premises. Answers are grounded in your indexed content with citations.',
   },
   {
     q: 'Where is my content stored?',

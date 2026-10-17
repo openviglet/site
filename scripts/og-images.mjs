@@ -121,7 +121,7 @@ const identities = [
   {
     id: 'contact',
     title: 'Contact Viglet',
-    subtitle: 'Use Dumont DEP, Shio CMS or Turing ES in your organization',
+    subtitle: 'Use Dumont, Shio or Turing in your organization',
     acronym: '',
     grad: GRADIENTS.brand,
   },

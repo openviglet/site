@@ -44,7 +44,7 @@ const BENEFITS = [
 const TIERS = [
   {
     name: 'Technology Partner',
-    description: 'ISVs and SaaS companies that integrate their products with Dumont DEP, Shio CMS, or Turing ES.',
+    description: 'ISVs and SaaS companies that integrate their products with Dumont, Shio, or Turing.',
     perks: [
       'Listed in the partner directory',
       'Integration certification badge',

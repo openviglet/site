@@ -57,19 +57,19 @@ const MILESTONES = [
   },
   {
     year: '2018',
-    title: 'Turing ES born',
+    title: 'Turing born',
     description:
-      'The first public release of Turing ES brought semantic search, faceted navigation, and NLP-assisted queries to the open source world.',
+      'The first public release of Turing brought semantic search, faceted navigation, and NLP-assisted queries to the open source world.',
   },
   {
     year: '2020',
-    title: 'Shio CMS launched',
+    title: 'Shio launched',
     description:
-      'Shio CMS added headless content management with GraphQL APIs, native caching, and deep integration with Turing\'s search layer.',
+      'Shio added headless content management with GraphQL APIs, native caching, and deep integration with Turing\'s search layer.',
   },
   {
     year: '2023',
-    title: 'Dumont DEP ships',
+    title: 'Dumont ships',
     description:
       'Dumont completed the trinity — a data extraction platform that feeds structured data into the rest of the Viglet ecosystem.',
   },
@@ -77,14 +77,14 @@ const MILESTONES = [
     year: '2025',
     title: 'Generative AI era',
     description:
-      'Turing ES 2025 ships built-in Generative AI support: RAG pipelines, LLM connectors, and a conversational search interface out of the box.',
+      'Turing 2025 ships built-in Generative AI support: RAG pipelines, LLM connectors, and a conversational search interface out of the box.',
   },
 ]
 
 const STACK_ITEMS = [
   { label: 'Java + Spring Boot', detail: 'Core runtime for all products' },
   { label: 'Apache Solr / OpenSearch', detail: 'Search & indexing backends' },
-  { label: 'GraphQL', detail: 'Shio CMS content API' },
+  { label: 'GraphQL', detail: 'Shio content API' },
   { label: 'React + Vite', detail: 'Frontend & admin UIs' },
   { label: 'Apache 2.0', detail: 'License for all repositories' },
   { label: 'GitHub Actions', detail: 'CI/CD and release automation' },

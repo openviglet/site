@@ -27,7 +27,7 @@ const staticRoutes: { path: string; title: string; description: string; ogId: st
   {
     path: '/contact/',
     title: 'Contact — Viglet',
-    description: 'Talk to the Viglet team about using Dumont DEP, Shio CMS or Turing ES in your organization.',
+    description: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.',
     ogId: 'contact',
   },
 ]

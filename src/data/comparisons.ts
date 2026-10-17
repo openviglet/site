@@ -94,15 +94,15 @@ export const comparisons: Comparison[] = [
     slug: 'open-source-alternative-to-algolia',
     metaTitle: 'Open-Source Alternative to Algolia, Coveo and Lucidworks — Viglet',
     metaDescription:
-      'Viglet Turing ES is open-source, self-hosted enterprise search under Apache 2.0 — faceted search, semantic and vector search and cited RAG, with no per-document or per-query pricing.',
+      'Viglet Turing is open-source, self-hosted enterprise search under Apache 2.0 — faceted search, semantic and vector search and cited RAG, with no per-document or per-query pricing.',
     h1: 'The open-source alternative to Algolia, Coveo and Lucidworks',
     eyebrow: 'Enterprise search',
     accent: 'turing',
     intro:
-      'Hosted search services like Algolia, Coveo and Lucidworks are powerful — and priced per record and per query, with your content indexed in the vendor cloud. Viglet Turing ES is open-source enterprise search you run yourself: faceted navigation, semantic and vector search, and cited RAG answers, on your own infrastructure under the Apache 2.0 license.',
+      'Hosted search services like Algolia, Coveo and Lucidworks are powerful — and priced per record and per query, with your content indexed in the vendor cloud. Viglet Turing is open-source enterprise search you run yourself: faceted navigation, semantic and vector search, and cited RAG answers, on your own infrastructure under the Apache 2.0 license.',
     products: ['turing', 'dumont'],
     table: {
-      vigletHeader: 'Viglet Turing ES',
+      vigletHeader: 'Viglet Turing',
       otherHeader: 'Hosted SaaS search',
       rows: [
         {
@@ -150,7 +150,7 @@ export const comparisons: Comparison[] = [
         {
           icon: IconPlugConnected,
           label: 'Source connectors',
-          viglet: 'Via Dumont DEP — Adobe AEM, WordPress, SQL databases, file systems and the web',
+          viglet: 'Via Dumont — Adobe AEM, WordPress, SQL databases, file systems and the web',
           other: 'Vendor connectors and crawlers',
         },
       ],
@@ -158,13 +158,13 @@ export const comparisons: Comparison[] = [
     approach: [
       {
         step: 'Extract',
-        title: 'Connect your sources with Dumont DEP',
+        title: 'Connect your sources with Dumont',
         body: 'Ready-to-use connectors pull content from Adobe AEM, WordPress, SQL databases, file systems and the web into one flow — no bespoke ETL to build and maintain.',
       },
       {
         step: 'Index & search',
-        title: 'Index into Turing ES',
-        body: 'Turing ES indexes the flow into Apache Solr, Elasticsearch or Lucene and serves faceted, multilingual, typo-tolerant search with hybrid keyword + vector ranking.',
+        title: 'Index into Turing',
+        body: 'Turing indexes the flow into Apache Solr, Elasticsearch or Lucene and serves faceted, multilingual, typo-tolerant search with hybrid keyword + vector ranking.',
       },
       {
         step: 'Answer',
@@ -179,12 +179,12 @@ export const comparisons: Comparison[] = [
     ],
     faq: [
       {
-        q: 'Is Viglet Turing ES really free?',
-        a: 'Turing ES is open source under the Apache 2.0 license — there are no license fees and no per-document or per-query charges. Your cost is the infrastructure you choose to run it on.',
+        q: 'Is Viglet Turing really free?',
+        a: 'Turing is open source under the Apache 2.0 license — there are no license fees and no per-document or per-query charges. Your cost is the infrastructure you choose to run it on.',
       },
       {
         q: 'Can it do semantic search and RAG like the hosted vendors?',
-        a: 'Yes. Turing ES bundles vector/semantic search (hybrid keyword + vector ranking with RRF) and Retrieval-Augmented Generation that returns cited answers grounded in your content, with the LLM of your choice.',
+        a: 'Yes. Turing bundles vector/semantic search (hybrid keyword + vector ranking with RRF) and Retrieval-Augmented Generation that returns cited answers grounded in your content, with the LLM of your choice.',
       },
       {
         q: 'How is data residency handled?',
@@ -192,7 +192,7 @@ export const comparisons: Comparison[] = [
       },
       {
         q: 'Do I have to replace my search engine?',
-        a: 'No. Turing ES runs on Apache Solr, Elasticsearch or embedded Lucene — you can keep the engine you already operate and change it later by switching a single property.',
+        a: 'No. Turing runs on Apache Solr, Elasticsearch or embedded Lucene — you can keep the engine you already operate and change it later by switching a single property.',
       },
     ],
   },
@@ -200,12 +200,12 @@ export const comparisons: Comparison[] = [
     slug: 'enterprise-search-for-aem',
     metaTitle: 'Enterprise Search for Adobe AEM — Viglet',
     metaDescription:
-      'Add faceted, semantic search and cited RAG answers to Adobe Experience Manager with open-source Viglet — Dumont DEP indexes AEM content into Turing ES, self-hosted under Apache 2.0.',
+      'Add faceted, semantic search and cited RAG answers to Adobe Experience Manager with open-source Viglet — Dumont indexes AEM content into Turing, self-hosted under Apache 2.0.',
     h1: 'Enterprise search for Adobe AEM',
     eyebrow: 'Adobe AEM',
     accent: 'turing',
     intro:
-      'Adobe Experience Manager manages your content; it does not ship a faceted, semantic search experience out of the box. Viglet adds one, open source and self-hosted: Dumont DEP connects AEM and indexes it into Turing ES, which serves faceted navigation, semantic and vector search, and cited RAG answers over your AEM content.',
+      'Adobe Experience Manager manages your content; it does not ship a faceted, semantic search experience out of the box. Viglet adds one, open source and self-hosted: Dumont connects AEM and indexes it into Turing, which serves faceted navigation, semantic and vector search, and cited RAG answers over your AEM content.',
     products: ['dumont', 'turing'],
     table: {
       vigletHeader: 'Viglet on AEM',
@@ -214,7 +214,7 @@ export const comparisons: Comparison[] = [
         {
           icon: IconPlugConnected,
           label: 'AEM connector',
-          viglet: 'Dumont DEP connector for Adobe AEM (and Adobe Edge Delivery Services)',
+          viglet: 'Dumont connector for Adobe AEM (and Adobe Edge Delivery Services)',
           other: 'Vendor connector or a custom crawler',
         },
         {
@@ -264,13 +264,13 @@ export const comparisons: Comparison[] = [
     approach: [
       {
         step: 'Connect',
-        title: 'Index AEM with Dumont DEP',
+        title: 'Index AEM with Dumont',
         body: 'The Dumont connector for Adobe AEM (and Adobe Edge Delivery Services) extracts pages and assets and normalizes them into one flow — with per-field coverage and drift monitoring so silent layout changes are caught.',
       },
       {
         step: 'Search',
-        title: 'Serve faceted, semantic search with Turing ES',
-        body: 'Turing ES indexes the AEM flow into Apache Solr, Elasticsearch or Lucene and adds faceted, multilingual navigation plus embedding-based vector search over your AEM content.',
+        title: 'Serve faceted, semantic search with Turing',
+        body: 'Turing indexes the AEM flow into Apache Solr, Elasticsearch or Lucene and adds faceted, multilingual navigation plus embedding-based vector search over your AEM content.',
       },
       {
         step: 'Answer',
@@ -286,19 +286,19 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         q: 'Does AEM not already have search?',
-        a: 'AEM includes full-text query capabilities for authoring and delivery, but not a turn-key faceted, semantic, typo-tolerant search experience with RAG answers. Viglet adds that layer on top, indexing AEM content into Turing ES.',
+        a: 'AEM includes full-text query capabilities for authoring and delivery, but not a turn-key faceted, semantic, typo-tolerant search experience with RAG answers. Viglet adds that layer on top, indexing AEM content into Turing.',
       },
       {
         q: 'How does Viglet get content out of AEM?',
-        a: 'Dumont DEP has a ready-to-use connector for Adobe AEM (and Adobe Edge Delivery Services). It extracts pages and assets into a flow and delivers them to Turing ES, Apache Solr or Elasticsearch — no custom connector to write.',
+        a: 'Dumont has a ready-to-use connector for Adobe AEM (and Adobe Edge Delivery Services). It extracts pages and assets into a flow and delivers them to Turing, Apache Solr or Elasticsearch — no custom connector to write.',
       },
       {
         q: 'Can I add semantic and vector search to AEM?',
-        a: 'Yes. Turing ES adds embedding-based vector search and semantic navigation over indexed AEM content, combined with keyword ranking (RRF) — all self-hosted.',
+        a: 'Yes. Turing adds embedding-based vector search and semantic navigation over indexed AEM content, combined with keyword ranking (RRF) — all self-hosted.',
       },
       {
         q: 'Where does the AEM content end up?',
-        a: 'On your own infrastructure. Turing ES and its search engine run from Docker inside your perimeter, so AEM content and user queries are never sent to a vendor cloud.',
+        a: 'On your own infrastructure. Turing and its search engine run from Docker inside your perimeter, so AEM content and user queries are never sent to a vendor cloud.',
       },
     ],
   },

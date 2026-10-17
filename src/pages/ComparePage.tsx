@@ -87,7 +87,7 @@ export default function ComparePage() {
             <ProductButton identifier={accent} size="lg" asChild>
               <Link to="/turing/">
                 <IconRocket size={18} />
-                Explore Turing ES
+                Explore Turing
               </Link>
             </ProductButton>
             <ProductButton identifier={accent} productVariant="ghost" size="lg" asChild>
@@ -296,7 +296,7 @@ export default function ComparePage() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
             >
               <IconRocket size={16} />
-              Explore Turing ES
+              Explore Turing
             </a>
             <Link
               to="/turing/download/"
