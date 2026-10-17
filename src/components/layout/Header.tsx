@@ -29,7 +29,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
-              src="/static_files/img/viglet_logo_sm.png"
+              src="/logos/viglet.svg"
               alt="Viglet"
               className="w-7 h-7"
             />

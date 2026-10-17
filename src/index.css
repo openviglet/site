@@ -49,55 +49,55 @@
 /* Per-product classes — kept outside @layer so Tailwind never purges them */
 
 /* Background colours (version pills, icon chips) */
-/* dumont=darkgreen  shio=tomato  turing=royalblue */
-.product-bg-dumont { background-color: #006400; }
-.product-bg-shio   { background-color: #ff6347; }
+/* dumont=teal  shio=violet  turing=royalblue — the colours of the cube marks */
+.product-bg-dumont { background-color: #0f766e; }
+.product-bg-shio   { background-color: #7c3aed; }
 .product-bg-turing { background-color: #4169e1; }
 
-/* Text colours — WCAG AA on white (darkened for shio) */
-.product-text-dumont { color: #006400; }   /* 7.4:1 */
-.product-text-shio   { color: #c73e00; }   /* 5.1:1 — darker tomato */
+/* Text colours — WCAG AA on white */
+.product-text-dumont { color: #0f766e; }   /* 5.5:1 */
+.product-text-shio   { color: #7c3aed; }   /* 5.7:1 */
 .product-text-turing { color: #4169e1; }   /* 4.6:1 */
 
 /* Hero gradient backgrounds (download page) */
-.product-hero-dumont { background: linear-gradient(135deg, #003300 0%, #006400 100%); }
-.product-hero-shio   { background: linear-gradient(135deg, #cc2200 0%, #ff6347 100%); }
+.product-hero-dumont { background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%); }
+.product-hero-shio   { background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%); }
 .product-hero-turing { background: linear-gradient(135deg, #1a3a9e 0%, #4169e1 100%); }
 
 /* Glow blobs */
-.product-blob-dumont { background: radial-gradient(circle, rgba(0,100,0,0.09) 0%, transparent 70%); }
-.product-blob-shio   { background: radial-gradient(circle, rgba(255,99,71,0.09) 0%, transparent 70%); }
+.product-blob-dumont { background: radial-gradient(circle, rgba(15,118,110,0.09) 0%, transparent 70%); }
+.product-blob-shio   { background: radial-gradient(circle, rgba(124,58,237,0.09) 0%, transparent 70%); }
 .product-blob-turing { background: radial-gradient(circle, rgba(65,105,225,0.09) 0%, transparent 70%); }
 
 /* ── Product-coloured buttons (override Tailwind gradient + shadow) ──────── */
-.product-btn-dumont { background: linear-gradient(135deg, #004d00, #006400) !important; box-shadow: 0 4px 14px 0 rgba(0,100,0,0.35) !important; }
-.product-btn-dumont:hover { background: linear-gradient(135deg, #003800, #004d00) !important; box-shadow: 0 10px 25px -5px rgba(0,100,0,0.40) !important; }
-.product-btn-shio   { background: linear-gradient(135deg, #cc2f1a, #ff6347) !important; box-shadow: 0 4px 14px 0 rgba(255,99,71,0.35) !important; }
-.product-btn-shio:hover   { background: linear-gradient(135deg, #a82210, #e0533a) !important; box-shadow: 0 10px 25px -5px rgba(255,99,71,0.40) !important; }
+.product-btn-dumont { background: linear-gradient(135deg, #115e59, #0f766e) !important; box-shadow: 0 4px 14px 0 rgba(15,118,110,0.35) !important; }
+.product-btn-dumont:hover { background: linear-gradient(135deg, #134e4a, #115e59) !important; box-shadow: 0 10px 25px -5px rgba(15,118,110,0.40) !important; }
+.product-btn-shio   { background: linear-gradient(135deg, #6d28d9, #7c3aed) !important; box-shadow: 0 4px 14px 0 rgba(124,58,237,0.35) !important; }
+.product-btn-shio:hover   { background: linear-gradient(135deg, #5b21b6, #6d28d9) !important; box-shadow: 0 10px 25px -5px rgba(124,58,237,0.40) !important; }
 .product-btn-turing { background: linear-gradient(135deg, #2e52c0, #4169e1) !important; box-shadow: 0 4px 14px 0 rgba(65,105,225,0.35) !important; }
 .product-btn-turing:hover { background: linear-gradient(135deg, #1e3e9e, #2e52c0) !important; box-shadow: 0 10px 25px -5px rgba(65,105,225,0.40) !important; }
 
 /* ── Product-coloured ghost buttons (text + border) ─────────────────────── */
-.product-btn-ghost-dumont { color: #006400 !important; border-color: rgba(0,100,0,0.35) !important; }
-.product-btn-ghost-dumont:hover { background-color: rgba(0,100,0,0.07) !important; border-color: #006400 !important; }
-.product-btn-ghost-shio   { color: #c73e00 !important; border-color: rgba(199,62,0,0.35) !important; }
-.product-btn-ghost-shio:hover   { background-color: rgba(199,62,0,0.07) !important; border-color: #c73e00 !important; }
+.product-btn-ghost-dumont { color: #0f766e !important; border-color: rgba(15,118,110,0.35) !important; }
+.product-btn-ghost-dumont:hover { background-color: rgba(15,118,110,0.07) !important; border-color: #0f766e !important; }
+.product-btn-ghost-shio   { color: #7c3aed !important; border-color: rgba(124,58,237,0.35) !important; }
+.product-btn-ghost-shio:hover   { background-color: rgba(124,58,237,0.07) !important; border-color: #7c3aed !important; }
 .product-btn-ghost-turing { color: #4169e1 !important; border-color: rgba(65,105,225,0.35) !important; }
 .product-btn-ghost-turing:hover { background-color: rgba(65,105,225,0.07) !important; border-color: #4169e1 !important; }
 
 /* ── SolutionMenu: active tab ────────────────────────────────────────────── */
-.product-tab-active-dumont { background-color: rgba(0,100,0,0.08) !important; color: #006400 !important; }
-.product-tab-active-shio   { background-color: rgba(199,62,0,0.08) !important; color: #c73e00 !important; }
+.product-tab-active-dumont { background-color: rgba(15,118,110,0.08) !important; color: #0f766e !important; }
+.product-tab-active-shio   { background-color: rgba(124,58,237,0.08) !important; color: #7c3aed !important; }
 .product-tab-active-turing { background-color: rgba(65,105,225,0.08) !important; color: #4169e1 !important; }
 
 /* ── SolutionMenu: brand name hover ─────────────────────────────────────── */
-.product-nav-link-dumont:hover { color: #006400 !important; }
-.product-nav-link-shio:hover   { color: #c73e00 !important; }
+.product-nav-link-dumont:hover { color: #0f766e !important; }
+.product-nav-link-shio:hover   { color: #7c3aed !important; }
 .product-nav-link-turing:hover { color: #4169e1 !important; }
 
 /* ── Product-coloured card hover shadows ────────────────────────────────── */
-.product-card-dumont:hover { box-shadow: 0 10px 25px -5px rgba(0,100,0,0.18) !important; }
-.product-card-shio:hover   { box-shadow: 0 10px 25px -5px rgba(255,99,71,0.18) !important; }
+.product-card-dumont:hover { box-shadow: 0 10px 25px -5px rgba(15,118,110,0.18) !important; }
+.product-card-shio:hover   { box-shadow: 0 10px 25px -5px rgba(124,58,237,0.18) !important; }
 .product-card-turing:hover { box-shadow: 0 10px 25px -5px rgba(65,105,225,0.18) !important; }
 
 /* ── Download hero highlight ────────────────────────────────────────────── */
@@ -110,15 +110,18 @@
   opacity: 0.35;
 }
 
-/* ── VigletLogo glow animation ──────────────────────────────────────────── */
-.vg-logo-glow {
-  animation: vg-glow 2s ease-in-out both infinite;
+/* ── VigletLogo glow: a slow, soft light around the cube at hero sizes ──── */
+.vg-cube-glow {
+  animation: vg-cube-glow 4s ease-in-out infinite;
 }
 
-@keyframes vg-glow {
-  0%,  100% { text-shadow: 0 0 8px snow, 0 -25px 50px tomato,  -25px 25px 50px yellow, 25px 25px 50px tomato; }
-  33%        { text-shadow: 0 0 8px snow, 0 -25px 50px cyan,    -25px 25px 50px tomato, 25px 25px 50px cyan;   }
-  66%        { text-shadow: 0 0 8px snow, 0 -25px 50px yellow,  -25px 25px 50px cyan,   25px 25px 50px yellow; }
+@keyframes vg-cube-glow {
+  0%, 100% { filter: drop-shadow(0 10px 24px rgba(255, 222, 173, 0.35)); }
+  50%      { filter: drop-shadow(0 14px 40px rgba(255, 222, 173, 0.65)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vg-cube-glow { animation: none; filter: drop-shadow(0 10px 24px rgba(255, 222, 173, 0.4)); }
 }
 
 /* ── Hide scrollbar but keep scroll ───────────────────────────────────── */

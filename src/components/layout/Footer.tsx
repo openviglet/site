@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4 no-underline">
               <img
-                src="/static_files/img/viglet_logo_sm.png"
+                src="/logos/viglet.svg"
                 alt="Viglet"
                 className="w-7 h-7"
               />

@@ -51,9 +51,18 @@ function extractProducts() {
 // Gradient stops mirror the `.product-hero-*` / theme-color values in index.css.
 const GRADIENTS = {
   brand: ['#C2410C', '#F97316'],
-  dumont: ['#003300', '#006400'],
-  shio: ['#cc2200', '#ff6347'],
+  dumont: ['#134e4a', '#0f766e'],
+  shio: ['#4c1d95', '#7c3aed'],
   turing: ['#1a3a9e', '#4169e1'],
+}
+
+/** The inside of a mark in public/logos/ (the cube, or the Viglet V), to nest in the OG
+ *  image as its own <svg>; '' when the file is missing, so the badge just drops out. */
+function markBody(name) {
+  const file = resolve(process.cwd(), 'public/logos', `${name}.svg`)
+  if (!existsSync(file)) return ''
+  const m = readFileSync(file, 'utf-8').match(/<svg[^>]*>([\s\S]*)<\/svg>/)
+  return m ? m[1].replace(/<title[\s\S]*?<\/title>/, '') : ''
 }
 
 const products = extractProducts().map((p) => ({
@@ -150,13 +159,14 @@ function svgFor(item) {
     .map((l, i) => `<tspan x="100" y="${titleStartY + i * 76}">${escapeXml(l)}</tspan>`)
     .join('')
 
-  const acronymBadge = item.acronym
-    ? `<rect x="100" y="90" width="104" height="104" rx="26" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
-       <text x="152" y="162" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#ffffff" text-anchor="middle">${escapeXml(item.acronym)}</text>`
+  // the product's cube when the page is a product, the Viglet V otherwise
+  const body = markBody(item.acronym ? item.id : 'viglet')
+  const acronymBadge = body
+    ? `<svg x="92" y="82" width="120" height="120" viewBox="0 0 512 512">${body}</svg>`
     : ''
 
-  const wordmarkY = item.acronym ? 150 : 150
-  const wordmarkX = item.acronym ? 230 : 100
+  const wordmarkY = 150
+  const wordmarkX = body ? 230 : 100
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
