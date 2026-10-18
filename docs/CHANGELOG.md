@@ -43,6 +43,7 @@
 - **W41** — The partner page now says Viglet works with integrators and vendors, that there is no formal program yet, shows the real partners and a form, with no tiers, perks or reply times, and the home stats band is gone.
 - **W42** — The owner kept GA consent-only, with no consent-mode pings: Search Console is the search number, and visitors who decline stay uncounted.
 - **W43** — The six product repos carry the solutions.ts descriptors and https homepages, turing-ce keeps its richer search-facing description, and Shio's topics drop angularjs and nashorn for react.
+- **W44** — gtag pushes the arguments object gtag.js reads, so a visitor who accepts the banner is counted in GA again; nothing loads before a choice, as W42 decided.
 
 ## Block H — Conversion narrative & product essence
 

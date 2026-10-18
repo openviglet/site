@@ -1,7 +1,7 @@
-# Last task number: `W43`
+# Last task number: `W44`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W44`; after assigning it, bump the number above and the log line below.
+> `W45`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W44**: GA counts nothing after consent: gtag pushed arrays (Block E), 2026-10-17
 - **W43**: Product repos on GitHub carry the descriptors, the GitHub half of W38 (Block E), 2026-10-17
 - **W42**: Decide how www.viglet.org is measured (Block E), 2026-10-17
 - **W41**: Promise only what exists: partner page and stats band (Block E), 2026-10-17

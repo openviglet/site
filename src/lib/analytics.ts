@@ -52,8 +52,12 @@ export function loadAnalytics(): void {
   document.head.appendChild(script)
 
   w.dataLayer = w.dataLayer || []
-  function gtag(...args: unknown[]) {
-    w.dataLayer.push(args)
+  // W44: gtag.js runs only `arguments` objects found on the data layer as commands. A rest-args
+  // array is read as a plain data-layer message, so `js` and `config` never reached GA.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function gtag(..._args: unknown[]) {
+    // eslint-disable-next-line prefer-rest-params
+    w.dataLayer.push(arguments)
   }
   w.gtag = gtag
   gtag('js', new Date())
