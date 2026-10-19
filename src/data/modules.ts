@@ -9,16 +9,16 @@ export interface Module {
 
 export const modules: Module[] = [
   // Dumont sources
-  { title: 'AEM Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Extracts pages, fragments and assets from Adobe AEM for search indexing.' },
-  { title: 'Asset Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Makes documents and media files on file systems searchable.' },
-  { title: 'Database Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Ingests and synchronizes records from SQL databases.' },
-  { title: 'Web Crawler Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Crawls public or private websites and extracts structured content, with robots.txt/sitemap discovery and conditional re-crawl.' },
-  { title: 'Adobe EDS Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Index Adobe Edge Delivery Services (Franklin/Helix) sites, with sitemap discovery, sheet parsing, path filters and facet enrichment.' },
-  { title: 'WordPress Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Pushes WordPress posts and pages to your search engine automatically.' },
+  { title: 'AEM Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont', description: 'Extracts pages, fragments and assets from Adobe AEM for search indexing.' },
+  { title: 'Asset Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont', description: 'Makes documents and media files on file systems searchable.' },
+  { title: 'Database Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont', description: 'Ingests and synchronizes records from SQL databases.' },
+  { title: 'Web Crawler Source', solution: 'dumont', download: true, githubUrl: 'https://github.com/openviglet/dumont', description: 'Crawls public or private websites and extracts structured content, with robots.txt/sitemap discovery and conditional re-crawl.' },
+  { title: 'Adobe EDS Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont', description: 'Index Adobe Edge Delivery Services (Franklin/Helix) sites, with sitemap discovery, sheet parsing, path filters and facet enrichment.' },
+  { title: 'WordPress Source', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont', description: 'Pushes WordPress posts and pages to your search engine automatically.' },
   // Dumont targets
-  { title: 'Elastic Search Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Pushes extracted content to Elasticsearch.' },
-  { title: 'Solr Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Pushes extracted content to Apache Solr.' },
-  { title: 'Turing Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont-ce', description: 'Pushes extracted content to Viglet Turing for semantic search and AI answers.' },
+  { title: 'Elastic Search Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont', description: 'Pushes extracted content to Elasticsearch.' },
+  { title: 'Solr Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont', description: 'Pushes extracted content to Apache Solr.' },
+  { title: 'Turing Target', solution: 'dumont', githubUrl: 'https://github.com/openviglet/dumont', description: 'Pushes extracted content to Viglet Turing for semantic search and AI answers.' },
   // Shio modules
   { title: 'React SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-react-sdk', description: 'Use the Content Delivery API from React with hooks (useShioPost, useShioChildren, useShioQuery, useShioSites) and a ShioProvider.' },
   { title: 'JavaScript SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-editor-cors', description: 'Framework-agnostic client with the Adobe Universal Editor bridge, for inline visual editing on any externally rendered page.' },
@@ -31,7 +31,7 @@ export const modules: Module[] = [
   { title: 'React SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-react-sdk', description: 'React 19 headless hooks and UI components for search, chat and autocomplete, with full TypeScript support.' },
   { title: 'JavaScript SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-sdk', description: 'Framework-agnostic, zero-dependency vanilla-JS client. Works in Adobe EDS blocks, a plain <script>, or any bundler.' },
   { title: 'Turing CLI', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-cli', description: 'Zero-dependency developer CLI: scaffold a project, run a local stack, deploy agents/flows/tools/skills, and run YAML eval suites.' },
-  { title: 'Java SDK', solution: 'turing', githubUrl: 'https://github.com/openviglet/turing-ce', description: 'Java library to index and query Turing from JVM applications.' },
+  { title: 'Java SDK', solution: 'turing', githubUrl: 'https://github.com/openviglet/turing', description: 'Java library to index and query Turing from JVM applications.' },
   { title: 'MCP Server & Client', solution: 'turing', githubUrl: 'https://docs.viglet.org/turing/', description: 'Expose Turing search as an MCP server for any MCP-aware client, and connect agents out to federated MCP servers.' },
   { title: 'Model Catalog', solution: 'turing', githubUrl: 'https://github.com/openviglet/model-catalog', description: 'Vendor-neutral public catalog of LLM, embedding, rerank and media models: context windows, capabilities, indicative pricing and deprecations. Turing reads it to enrich the model picker and warn on retired models.' },
   { title: 'Shio', solution: 'turing', githubUrl: 'https://www.viglet.org/shio/', description: 'Viglet Shio integrates with Turing: choose which attributes get indexed while modeling post types.' },
