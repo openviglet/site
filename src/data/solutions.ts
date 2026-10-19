@@ -36,6 +36,10 @@ export interface Solution {
   /** Dedicated product marketing site (e.g. turing.viglet.org). When set, the
    *  solution page funnels visitors here as the primary CTA instead of docs. */
   site?: string
+  /** Where the release notes are read from when the product publishes its own
+   *  changelog (cross-origin JSON). Unset: the curated
+   *  `/static_files/json/<identifier>/changelog.json`. */
+  changelogUrl?: string
 }
 
 export const productColors: Record<string, string> = {
@@ -54,6 +58,7 @@ export const solutions: Solution[] = [
     permalink: '/turing/',
     getStarted: 'https://docs.viglet.org/turing/',
     site: 'https://turing.viglet.org',
+    changelogUrl: 'https://turing.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/turing',
     githubOrg: 'openviglet',
     release: '2026.2.6',
@@ -75,6 +80,7 @@ export const solutions: Solution[] = [
     order: 2,
     permalink: '/dumont/',
     getStarted: 'https://docs.viglet.org/dumont/',
+    site: 'https://dumont.viglet.org',
     github: 'https://github.com/openviglet/dumont',
     githubOrg: 'openviglet',
     release: '2026.2.16',
@@ -96,6 +102,7 @@ export const solutions: Solution[] = [
     order: 3,
     permalink: '/shio/',
     getStarted: 'https://docs.viglet.org/shio/',
+    site: 'https://shio.viglet.org',
     github: 'https://github.com/openviglet/shio',
     githubOrg: 'openviglet',
     release: '0.3.8',
