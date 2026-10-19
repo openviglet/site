@@ -20,6 +20,23 @@
       ]
     },
     {
+      "slug": "rag-enterprise-content-turing-mcp",
+      "title": "RAG Over Enterprise Content with Viglet Turing and MCP",
+      "description": "Combine retrieval-augmented generation over your indexed enterprise content with the Model Context Protocol (MCP), so AI agents can search your AEM, WordPress, and database content as a first-class tool.",
+      "url": "https://docs.viglet.org/blog/rag-enterprise-content-turing-mcp/",
+      "date": "2026-07-20",
+      "tags": [
+        "RAG",
+        "MCP",
+        "Enterprise Search",
+        "Semantic Search",
+        "Open Source"
+      ],
+      "solutions": [
+        "turing"
+      ]
+    },
+    {
       "slug": "semantic-vector-search-aem",
       "title": "Semantic & Vector Search in Adobe AEM with Viglet Turing",
       "description": "Go beyond keyword search on Adobe Experience Manager content: add embedding-based vector search and semantic navigation with an open-source platform, on your own infrastructure.",
@@ -67,6 +84,23 @@
       ],
       "solutions": [
         "turing"
+      ]
+    },
+    {
+      "slug": "enterprise-search-for-wordpress",
+      "title": "Adding Enterprise Search to WordPress with Viglet Turing",
+      "description": "Index WordPress posts, pages, and custom post types into an open-source enterprise search engine with faceted navigation and semantic search: a self-hosted alternative to Algolia and ElasticPress.",
+      "url": "https://docs.viglet.org/blog/enterprise-search-for-wordpress/",
+      "date": "2026-06-22",
+      "tags": [
+        "WordPress",
+        "Enterprise Search",
+        "Semantic Search",
+        "Open Source"
+      ],
+      "solutions": [
+        "turing",
+        "dumont"
       ]
     },
     {
