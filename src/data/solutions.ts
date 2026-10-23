@@ -81,6 +81,7 @@ export const solutions: Solution[] = [
     permalink: '/dumont/',
     getStarted: 'https://docs.viglet.org/dumont/',
     site: 'https://dumont.viglet.org',
+    changelogUrl: 'https://dumont.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/dumont',
     githubOrg: 'openviglet',
     release: '2026.2.16',
