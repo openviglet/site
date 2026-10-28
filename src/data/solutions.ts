@@ -104,6 +104,7 @@ export const solutions: Solution[] = [
     permalink: '/shio/',
     getStarted: 'https://docs.viglet.org/shio/',
     site: 'https://shio.viglet.org',
+    changelogUrl: 'https://shio.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/shio',
     githubOrg: 'openviglet',
     release: '0.3.8',
