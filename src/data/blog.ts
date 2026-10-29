@@ -70,6 +70,8 @@ export const blogTags: Record<string, BlogTag> = {
   'open-source': { label: 'Open Source', description: 'Apache 2.0 open-source software.' },
   'vector-search': { label: 'Vector Search', description: 'Embedding-based vector and kNN search.' },
   mcp: { label: 'MCP', description: 'Model Context Protocol tools and agents over enterprise content.' },
+  cms: { label: 'CMS', description: 'Content management with Viglet Shio, for people and AI agents.' },
+  'data-integration': { label: 'Data Integration', description: 'Connecting content sources to a search index with Viglet Dumont.' },
 }
 
 /** Every published post, newest first. */
