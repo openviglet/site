@@ -31,7 +31,7 @@ experience *and* a grounded RAG/agent capability, on your own infrastructure.
 
 A search query and a RAG prompt both need the same thing: the most relevant
 passages from your content. Turing already maintains that index (faceted,
-multi-language, [semantically ranked](https://turing.viglet.org/docs/semantic-navigation/)), so RAG
+multi-language, [semantically ranked](https://openviglet.github.io/turing/docs/semantic-navigation/)), so RAG
 reuses it instead of standing up a parallel store:
 
 ![Diagram: RAG and search are the same retrieval problem](/blog/diagrams/rag-enterprise-content-turing-mcp.svg)
@@ -39,7 +39,7 @@ reuses it instead of standing up a parallel store:
 ## Built-in RAG over your content
 
 With content indexed (see the
-[AEM guide](/blog/enterprise-search-for-adobe-aem/)), turning on [RAG](https://turing.viglet.org/docs/rag/)
+[AEM guide](/blog/enterprise-search-for-adobe-aem/)), turning on [RAG](https://openviglet.github.io/turing/docs/rag/)
 gives grounded answers with citations, using the LLM of your choice: OpenAI,
 Ollama, Anthropic, or Gemini:
 
@@ -53,10 +53,10 @@ infrastructure.
 
 ## MCP: your search as a tool for any agent
 
-The [Model Context Protocol](https://turing.viglet.org/docs/mcp-servers/) is an open standard that lets
+The [Model Context Protocol](https://openviglet.github.io/turing/docs/mcp-servers/) is an open standard that lets
 AI models call tools on external servers. Turing uses MCP in two directions:
 
-1. **As an MCP client**: an [AI Agent](https://turing.viglet.org/docs/ai-agents/) in Turing can
+1. **As an MCP client**: an [AI Agent](https://openviglet.github.io/turing/docs/ai-agents/) in Turing can
    connect to external MCP servers (over `HTTP` or `stdio`) and use their tools
    alongside its 27 built-in tools. That can be a company knowledge system, a
    proprietary API, or any public MCP server, with no custom code inside Turing.
@@ -79,8 +79,8 @@ agents.
 
 ## Next steps
 
-- 📘 [What is RAG in Turing](https://turing.viglet.org/docs/rag/)
-- 📗 [MCP Servers](https://turing.viglet.org/docs/mcp-servers/) · [AI Agents](https://turing.viglet.org/docs/ai-agents/)
+- 📘 [What is RAG in Turing](https://openviglet.github.io/turing/docs/rag/)
+- 📗 [MCP Servers](https://openviglet.github.io/turing/docs/mcp-servers/) · [AI Agents](https://openviglet.github.io/turing/docs/ai-agents/)
 - 📙 [Index Adobe AEM](/blog/enterprise-search-for-adobe-aem/) to build the retrieval layer
 - ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 

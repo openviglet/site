@@ -75,7 +75,7 @@ answers. With SaaS you often add a separate AI tier (and a separate bill).
 Turing bundles faceted search, **vector/semantic search**, and **RAG** with
 your choice of LLM (OpenAI, Ollama, Anthropic, Gemini) in one Apache-2.0
 platform, so answers are grounded in your AEM content with citations, on your
-own infrastructure. See the [RAG guide](https://turing.viglet.org/docs/rag/).
+own infrastructure. See the [RAG guide](https://openviglet.github.io/turing/docs/rag/).
 
 ## When to pick which
 

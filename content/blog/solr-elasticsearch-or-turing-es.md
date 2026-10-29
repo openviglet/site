@@ -33,7 +33,7 @@ competitor to Solr/Elasticsearch. It runs **on** them.
 ![Diagram: Two different layers](/blog/diagrams/solr-elasticsearch-or-turing-es.svg)
 
 Turing is the **platform** layer, and its engine backend is
-[pluggable](https://turing.viglet.org/docs/search-engine/): you can run it on **Apache Solr**,
+[pluggable](https://openviglet.github.io/turing/docs/search-engine/): you can run it on **Apache Solr**,
 **Elasticsearch**, or an embedded **Lucene** engine, and switch without
 rewriting your application.
 
@@ -66,10 +66,10 @@ Turing adds, on top of the engine you choose:
 - **Connectors** for [Adobe AEM](https://openviglet.github.io/dumont/docs/connectors/aem/), WordPress, databases,
   file systems, and web crawl, with event-driven sync and tag → facet mapping.
 - **Semantic + vector search** and **RAG** with your LLM
-  ([guide](https://turing.viglet.org/docs/rag/)), instead of building an AI tier separately.
+  ([guide](https://openviglet.github.io/turing/docs/rag/)), instead of building an AI tier separately.
 - **Multi-language, faceting, autocomplete, spotlights, targeting** out of the
-  box via [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/).
-- **AI agents** with 27 tools and [MCP](https://turing.viglet.org/docs/mcp-servers/) support.
+  box via [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/).
+- **AI agents** with 27 tools and [MCP](https://openviglet.github.io/turing/docs/mcp-servers/) support.
 - An **admin console**, SDKs (Java, JS/TS), and a REST/GraphQL API.
 
 All open source under Apache 2.0, self-hosted, and engine-agnostic, so the
@@ -92,7 +92,7 @@ docker pull ghcr.io/openviglet/turing-ce:latest
 docker run -p 2700:2700 ghcr.io/openviglet/turing-ce:latest
 ```
 
-- 📘 [Pluggable search engine](https://turing.viglet.org/docs/search-engine/)
+- 📘 [Pluggable search engine](https://openviglet.github.io/turing/docs/search-engine/)
 - 📗 [Open-source alternatives to Algolia/Coveo for AEM](/blog/open-source-alternative-to-algolia-for-aem/)
 - ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 

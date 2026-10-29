@@ -141,7 +141,7 @@ curl "http://localhost:2700/api/sn/wp-search/chat?q=How+do+I+reset+my+password"
 ## Next steps
 
 - 📘 [WordPress Connector: full reference](https://openviglet.github.io/dumont/docs/connectors/wordpress/)
-- 📗 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) and [RAG](https://turing.viglet.org/docs/rag/) guides
+- 📗 [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/) and [RAG](https://openviglet.github.io/turing/docs/rag/) guides
 - 📙 [How to add enterprise search to Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the same approach for the other major CMS
 - ⭐ [Star Turing on GitHub](https://github.com/openviglet/turing)
 - 💬 [Ask in GitHub Discussions](https://github.com/openviglet/turing/discussions)

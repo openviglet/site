@@ -18,7 +18,7 @@ import {
 
 /**
  * Narrative content model (Block H / W20): the single data source for the
- * conversion-narrative sections ported from turing.viglet.org's `site-content.ts`.
+ * conversion-narrative sections ported from openviglet.github.io/turing's `site-content.ts`.
  *
  * Copy lives here; the sections (`Outcomes`, `Pipeline`, `Providers`, home FAQ,
  * per-product essence) are pure `map()` over these arrays. Follows the existing

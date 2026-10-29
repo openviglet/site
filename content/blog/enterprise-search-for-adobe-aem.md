@@ -28,7 +28,7 @@ This guide shows the open-source alternative: indexing AEM into
 search platform you self-host, with semantic navigation and generative AI built in.
 
 For what AEM search with Viglet Turing looks like on a live site, start at
-**[turing.viglet.org/aem-search](https://turing.viglet.org/aem-search/)**; this
+**[openviglet.github.io/turing/aem-search](https://openviglet.github.io/turing/aem-search/)**; this
 guide is the how-to behind it.
 
 <!-- truncate -->
@@ -188,8 +188,8 @@ a third party.
 ## Next steps
 
 - 📘 [AEM Connector: full reference](https://openviglet.github.io/dumont/docs/connectors/aem/) (event listeners, QueryBuilder, custom extractors)
-- 📗 [Turing: AEM Integration](https://turing.viglet.org/docs/integration-aem/)
-- 📙 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) and [RAG](https://turing.viglet.org/docs/rag/) guides
+- 📗 [Turing: AEM Integration](https://openviglet.github.io/turing/docs/integration-aem/)
+- 📙 [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/) and [RAG](https://openviglet.github.io/turing/docs/rag/) guides
 - ⭐ [Star Turing on GitHub](https://github.com/openviglet/turing) (it genuinely helps others find it)
 - 💬 [Ask in GitHub Discussions](https://github.com/openviglet/turing/discussions)
 
