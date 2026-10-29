@@ -11,7 +11,9 @@ interface PageMeta {
   /** Absolute canonical URL; og:url follows it. */
   canonical: string
   /** The build-time card in /og/{ogId}.png (see scripts/og-images.mjs). */
-  ogId: string
+  ogId?: string
+  /** A fixed image in public/ (e.g. '/og-banner.png') used instead of a build-time card. */
+  ogImage?: string
   /** og:/twitter: title and description, when they differ from the page's. */
   ogTitle?: string
   ogDescription?: string
@@ -26,7 +28,8 @@ interface PageMeta {
 export function pageMetadata(meta: PageMeta): Metadata {
   const ogTitle = meta.ogTitle ?? meta.title
   const ogDescription = meta.ogDescription ?? meta.description
-  const image = `${SITE_ORIGIN}/og/${meta.ogId}.png`
+  const imagePath = meta.ogImage ?? `/og/${meta.ogId}.png`
+  const image = SITE_ORIGIN + imagePath
   return {
     title: { absolute: meta.title },
     description: meta.description,
@@ -52,7 +55,7 @@ export const homeMetadata = pageMetadata({
   title: 'Viglet',
   description: 'Open source enterprise search, data exchange and content management, self-hosted with Docker.',
   canonical: `${SITE_ORIGIN}/`,
-  ogId: 'home',
+  ogImage: '/og-banner.png',
   ogTitle: 'Viglet · Open Source Tools for Enterprise Intelligence',
   ogDescription: 'Enterprise search, data exchange and content management. Open source, self-hosted with Docker.',
 })

@@ -11,8 +11,8 @@
 // installed (e.g. a bare local build), we log a warning and skip WITHOUT failing
 // the build. The SVG is still written to public/og/ as a fallback. CI installs
 // the dep, so the deployed site always gets PNGs. The `id`s here MUST match the
-// ids src/lib/seo.ts references (home, dumont, shio, turing, about,
-// partner).
+// ids src/lib/seo.ts references (dumont, shio, turing, about, partner, ...);
+// the home page uses the static public/og-banner.png instead.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -90,14 +90,8 @@ function extractComparisons() {
   return out
 }
 
+// The home page uses the committed public/og-banner.png instead of a generated card.
 const identities = [
-  {
-    id: 'home',
-    title: 'Open Source Tools for Enterprise Intelligence',
-    subtitle: 'Enterprise search, data exchange & content management',
-    acronym: '',
-    grad: GRADIENTS.brand,
-  },
   ...products,
   {
     id: 'about',
