@@ -33,7 +33,7 @@ export interface Solution {
   pdfGetStarted?: string
   installationSteps?: boolean
   serviceUrl?: string
-  /** Dedicated product marketing site (e.g. turing.viglet.org). When set, the
+  /** Dedicated product marketing site (e.g. openviglet.github.io/turing/). When set, the
    *  solution page funnels visitors here as the primary CTA instead of docs. */
   site?: string
   /** Where the release notes are read from when the product publishes its own
@@ -57,8 +57,8 @@ export const solutions: Solution[] = [
     order: 1,
     permalink: '/turing/',
     getStarted: 'https://docs.viglet.org/turing/',
-    site: 'https://turing.viglet.org',
-    changelogUrl: 'https://turing.viglet.org/changelog.json',
+    site: 'https://openviglet.github.io/turing/',
+    changelogUrl: 'https://openviglet.github.io/turing/changelog.json',
     github: 'https://github.com/openviglet/turing',
     githubOrg: 'openviglet',
     release: '2026.2.6',
@@ -80,8 +80,8 @@ export const solutions: Solution[] = [
     order: 2,
     permalink: '/dumont/',
     getStarted: 'https://docs.viglet.org/dumont/',
-    site: 'https://dumont.viglet.org',
-    changelogUrl: 'https://dumont.viglet.org/changelog.json',
+    site: 'https://openviglet.github.io/dumont/',
+    changelogUrl: 'https://openviglet.github.io/dumont/changelog.json',
     github: 'https://github.com/openviglet/dumont',
     githubOrg: 'openviglet',
     release: '2026.2.16',
@@ -103,8 +103,8 @@ export const solutions: Solution[] = [
     order: 3,
     permalink: '/shio/',
     getStarted: 'https://docs.viglet.org/shio/',
-    site: 'https://shio.viglet.org',
-    changelogUrl: 'https://shio.viglet.org/changelog.json',
+    site: 'https://openviglet.github.io/shio/',
+    changelogUrl: 'https://openviglet.github.io/shio/changelog.json',
     github: 'https://github.com/openviglet/shio',
     githubOrg: 'openviglet',
     release: '0.3.8',

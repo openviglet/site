@@ -208,12 +208,12 @@ export default function ScriptedDemo() {
         <p className="text-center text-sm text-muted-foreground mt-5">
           This preview is scripted.{' '}
           <a
-            href="https://turing.viglet.org/#playground"
+            href="https://openviglet.github.io/turing/#playground"
             target="_blank"
             rel="noopener"
             className="inline-flex items-center gap-1 font-semibold text-brand hover:text-brand-dark transition-colors no-underline"
           >
-            Try it live on turing.viglet.org
+            Try it live on the Turing site
             <IconArrowRight size={14} />
           </a>
         </p>

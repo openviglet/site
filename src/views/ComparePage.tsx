@@ -270,7 +270,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="https://turing.viglet.org"
+              href="https://openviglet.github.io/turing/"
               rel="noopener"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
             >

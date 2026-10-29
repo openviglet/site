@@ -116,7 +116,7 @@ export const productPages = {
 
 /**
  * The product landing canonicalises to the dedicated product site when one
- * exists (e.g. /turing/ → turing.viglet.org), so search engines treat that site
+ * exists (e.g. /turing/ → openviglet.github.io/turing/), so search engines treat that site
  * as the primary version; every other product page self-canonicalises. The OG
  * card is always the product's own.
  */
