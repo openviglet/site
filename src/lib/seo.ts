@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { Solution } from '@/data/solutions'
 import type { FaqItem } from '@/data/narrative'
+import { blogAuthors, blogDescription, blogTags, type BlogPostMeta } from '@/data/blog'
 
 /** Absolute origin this site is served from (see CNAME). Used for canonicals. */
 export const SITE_ORIGIN = 'https://www.viglet.org'
@@ -17,6 +18,9 @@ interface PageMeta {
   /** og:/twitter: title and description, when they differ from the page's. */
   ogTitle?: string
   ogDescription?: string
+  keywords?: string[]
+  /** A blog post (W46): og:type article, with its date, authors and tags. */
+  article?: { publishedTime: string; authors: string[]; tags: string[] }
 }
 
 /**
@@ -30,18 +34,19 @@ export function pageMetadata(meta: PageMeta): Metadata {
   const ogDescription = meta.ogDescription ?? meta.description
   const imagePath = meta.ogImage ?? `/og/${meta.ogId}.png`
   const image = SITE_ORIGIN + imagePath
+  const og = {
+    siteName: 'Viglet',
+    title: ogTitle,
+    description: ogDescription,
+    url: meta.canonical,
+    images: [image],
+  }
   return {
     title: { absolute: meta.title },
     description: meta.description,
+    ...(meta.keywords?.length ? { keywords: meta.keywords } : {}),
     alternates: { canonical: meta.canonical },
-    openGraph: {
-      type: 'website',
-      siteName: 'Viglet',
-      title: ogTitle,
-      description: ogDescription,
-      url: meta.canonical,
-      images: [image],
-    },
+    openGraph: meta.article ? { ...og, type: 'article', ...meta.article } : { ...og, type: 'website' },
     twitter: {
       card: 'summary_large_image',
       title: ogTitle,
@@ -81,6 +86,11 @@ export const staticPages = {
     path: '/contact/',
     title: 'Contact · Viglet',
     description: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.',
+  },
+  blog: {
+    path: '/blog/',
+    title: 'Blog · Viglet',
+    description: blogDescription,
   },
 } as const
 
@@ -134,6 +144,55 @@ export function productPageMetadata(solution: Solution, page: keyof typeof produ
   })
 }
 
+/** A blog post's metadata (W46); its OG card is /og/blog-{slug}.png. */
+export function blogPostMetadata(post: BlogPostMeta): Metadata {
+  return pageMetadata({
+    title: `${post.title} · Viglet Blog`,
+    description: post.description,
+    canonical: `${SITE_ORIGIN}${post.url}`,
+    ogId: `blog-${post.slug}`,
+    ogTitle: post.title,
+    keywords: post.keywords,
+    article: {
+      publishedTime: post.date,
+      authors: post.authors.map((a) => blogAuthors[a]?.name ?? a),
+      tags: post.tags.map((t) => blogTags[t]?.label ?? t),
+    },
+  })
+}
+
+/** A tag page (/blog/tags/{tag}/) shares the blog's OG card. */
+export function blogTagMetadata(tag: string): Metadata {
+  const label = blogTags[tag]?.label ?? tag
+  return pageMetadata({
+    title: `${label} · Viglet Blog`,
+    description: blogTags[tag]?.description ?? `Viglet blog posts tagged ${label}.`,
+    canonical: `${SITE_ORIGIN}/blog/tags/${tag}/`,
+    ogId: 'blog',
+  })
+}
+
+/** BlogPosting structured data for one post, escaped like `faqJsonLd`. */
+export function blogPostingJsonLd(post: BlogPostMeta): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    url: `${SITE_ORIGIN}${post.url}`,
+    mainEntityOfPage: `${SITE_ORIGIN}${post.url}`,
+    image: `${SITE_ORIGIN}/og/blog-${post.slug}.png`,
+    keywords: post.keywords.join(', '),
+    author: post.authors.map((a) => ({
+      '@type': 'Person',
+      name: blogAuthors[a]?.name ?? a,
+      url: blogAuthors[a]?.url,
+    })),
+    publisher: { '@type': 'Organization', name: 'Viglet', url: SITE_ORIGIN },
+  }).replaceAll('<', String.raw`\u003c`)
+}
+
 /** FAQPage structured data, built from the same Q&A the page renders. `<` is
  *  escaped so no answer text can close the inline <script> it goes into. */
 export function faqJsonLd(items: readonly FaqItem[]): string {
@@ -145,5 +204,5 @@ export function faqJsonLd(items: readonly FaqItem[]): string {
       name: f.q,
       acceptedAnswer: { '@type': 'Answer', text: f.a },
     })),
-  }).replaceAll('<', String.raw`<`)
+  }).replaceAll('<', String.raw`\u003c`)
 }

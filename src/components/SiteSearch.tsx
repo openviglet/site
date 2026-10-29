@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboa
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { IconSearch, IconX, IconExternalLink, IconSparkles, IconBulb } from '@tabler/icons-react'
-import { useGuides } from '@/data/guides'
 import { matchProducts } from '@/data/intents'
 import { getSolution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
@@ -66,13 +65,12 @@ export default function SiteSearch({ className = '' }: Readonly<{ className?: st
 
 function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
   const router = useRouter()
-  const guides = useGuides()
   const [query, setQuery] = useState('')
   const [live, setLive] = useState<{ query: string; results: LiveResult[] } | null>(null)
   const [active, setActive] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const local = useMemo(() => searchLocal(query, guides), [query, guides])
+  const local = useMemo(() => searchLocal(query), [query])
   // W7: a problem statement ("index my intranet and add AI search") names the
   // products that fit, with a reason each, above the page results.
   const fits = useMemo(() => matchProducts(query), [query])

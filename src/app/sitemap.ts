@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { solutions } from '@/data/solutions'
 import { comparisons } from '@/data/comparisons'
+import { blogPosts, usedTags } from '@/data/blog'
 import { productPages, SITE_ORIGIN, staticPages } from '@/lib/seo'
 
 export const dynamic = 'force-static'
@@ -28,6 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Comparison / positioning landing pages (GEO surface), high priority.
   for (const c of comparisons) {
     urls.push({ url: `${SITE_ORIGIN}/compare/${c.slug}/`, lastModified, priority: 0.8 })
+  }
+
+  // Blog posts carry their own date; tag pages are listings.
+  for (const p of blogPosts) {
+    urls.push({ url: `${SITE_ORIGIN}${p.url}`, lastModified: p.date, priority: 0.7 })
+  }
+  for (const t of usedTags()) {
+    urls.push({ url: `${SITE_ORIGIN}/blog/tags/${t}/`, lastModified, priority: 0.4 })
   }
 
   return urls

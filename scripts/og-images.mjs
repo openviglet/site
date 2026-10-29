@@ -90,6 +90,19 @@ function extractComparisons() {
   return out
 }
 
+/* ---- Blog (W46): one card per post, from the index blog-index.mjs wrote ---- */
+
+function extractBlogPosts() {
+  const { posts } = JSON.parse(readFileSync(resolve(process.cwd(), 'src/data/blog.generated.json'), 'utf-8'))
+  return posts.map((p) => ({
+    id: `blog-${p.slug}`,
+    title: p.title,
+    subtitle: 'Viglet Blog',
+    acronym: '',
+    grad: GRADIENTS[p.solutions[0]] ?? GRADIENTS.brand,
+  }))
+}
+
 // The home page uses the committed public/og-banner.png instead of a generated card.
 const identities = [
   ...products,
@@ -121,7 +134,15 @@ const identities = [
     acronym: '',
     grad: GRADIENTS.brand,
   },
+  {
+    id: 'blog',
+    title: 'Viglet Blog',
+    subtitle: 'Enterprise search, RAG and AI agents, in practice',
+    acronym: '',
+    grad: GRADIENTS.brand,
+  },
   ...extractComparisons(),
+  ...extractBlogPosts(),
 ]
 
 /* ---- SVG template ---------------------------------------------------------- */

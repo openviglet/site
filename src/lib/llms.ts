@@ -1,10 +1,11 @@
 import { solutions } from '@/data/solutions'
 import { comparisons } from '@/data/comparisons'
+import { blogPosts } from '@/data/blog'
 
 /**
  * The site's llms.txt (Block E), served at /llms.txt by src/app/llms.txt/route.ts
- * and written to out/ at build time. Product and comparison entries come from
- * src/data/*; the rest is the suite's positioning, word for word.
+ * and written to out/ at build time. Product, comparison and blog entries come
+ * from src/data/*; the rest is the suite's positioning, word for word.
  */
 export function buildLlmTxt(): string {
   const comparisonSection = comparisons.length
@@ -108,9 +109,8 @@ ${comparisonSection}
 
 Guides and comparisons on the Viglet blog, for anyone evaluating an open-source alternative to Algolia, Coveo or Lucidworks for AEM or WordPress search.
 
-- [How to Add Enterprise Search to Adobe AEM with Viglet Turing ES](https://docs.viglet.org/blog/enterprise-search-for-adobe-aem): a step-by-step guide to indexing AEM content with faceted navigation, semantic search and RAG.
-- [Open-Source Alternatives to Algolia and Coveo for Adobe AEM](https://docs.viglet.org/blog/open-source-alternative-to-algolia-for-aem): compares Algolia, Coveo, Lucidworks, raw Solr/Elasticsearch and Turing on pricing, data residency, facets, semantic search and RAG.
-- All guides: https://docs.viglet.org/blog
+${blogPosts.map((p) => `- [${p.title}](https://www.viglet.org${p.url}): ${p.description}`).join('\n')}
+- All guides: https://www.viglet.org/blog/
 
 ## Technology
 

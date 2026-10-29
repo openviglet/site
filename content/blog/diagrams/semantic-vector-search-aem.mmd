@@ -1,0 +1,9 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px', 'lineColor': '#64748b'}}}%%
+flowchart LR
+    Q["Query"] --> E["Embedding model"]
+    DOC["AEM content"] --> E
+    E --> V["Vector store<br/><small>kNN search</small>"]
+    V --> R["Ranked results<br/><small>by meaning</small>"]
+
+    classDef b fill:#dbeafe,stroke:#4A90D9,color:#1a1a1a;
+    class Q,DOC,E,V,R b;

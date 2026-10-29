@@ -1,0 +1,12 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px', 'lineColor': '#64748b'}}}%%
+flowchart TB
+    APP["Your application / site"]
+    PLAT["<b>Enterprise search platform</b><br/><small>connectors · facets · semantic · RAG · admin UI</small>"]
+    ENG["<b>Search engine</b><br/><small>Apache Solr · Elasticsearch · Lucene</small>"]
+
+    APP --> PLAT --> ENG
+
+    classDef a fill:#dbeafe,stroke:#4A90D9,color:#1a1a1a;
+    classDef p fill:#ede9fe,stroke:#9B6EC5,color:#1a1a1a;
+    classDef e fill:#dcfce7,stroke:#50B86C,color:#1a1a1a;
+    class APP a; class PLAT p; class ENG e;

@@ -15,9 +15,17 @@ roadmap docs**. Keep it lean: reference material belongs in `docs/`.
   use design-system components/tokens; **never inline colors**.
 - **Routing**: one folder per route under [src/app/](src/app/) (home,
   `[identifier]/` with download and release-notes, compare, partner, about,
-  contact). Each `page.tsx` holds the route's metadata and renders a client view
+  contact, blog). Each `page.tsx` holds the route's metadata and renders a client view
   from [src/views/](src/views/).
 - **i18n**: `i18next` + `react-i18next`.
+- **Blog** (`/blog/`): one Markdown file per post in [content/blog/](content/blog/)
+  (frontmatter: `slug` = file name, `date`, `title`, `description`, `authors`,
+  `tags`, `keywords`, optional `viglet_products`). `scripts/blog-index.mjs`
+  indexes the frontmatter into `src/data/blog.generated.json` (`predev` /
+  `prebuild`; commit it), [src/lib/blog.ts](src/lib/blog.ts) renders the body at
+  build time. Authors and tags are in [src/data/blog.ts](src/data/blog.ts).
+  Diagrams: a `.mmd` in `content/blog/diagrams/`, then
+  `node scripts/render-blog-diagrams.mjs` (commit the SVG it writes).
 - **Content is data-driven**: `src/data/{solutions,features,modules,categories}.ts`:
   add a product/feature by editing data, not by hand-writing pages.
 - **SEO/GEO outputs** (do not remove), all read from `src/data/*`:
@@ -38,7 +46,7 @@ roadmap docs**. Keep it lean: reference material belongs in `docs/`.
 ```bash
 npm install
 npm run dev        # next dev server
-npm run build      # prebuild (guides, OG cards → public/og) + tsc + next build → out/
+npm run build      # prebuild (blog index, OG cards → public/og) + tsc + next build → out/
 npm run preview    # serve out/ on http://localhost:4173 (needs Python)
 # the Cloud build: SITE_OUTPUT=server npm run build, then SITE_OUTPUT=server npm start
 ```
@@ -101,5 +109,6 @@ the Turing repo's `T` numbers.
   patterns Block G needs.
 - **Turing** (`d:\Git\viglet\turing\2026.1`): Block E (GEO) is the cross-repo
   counterpart of Turing's STRATEGY Block O, which already names this repo.
-- **docs.viglet.org** (`vigletdocs.github.io`): home of the technical blog the
-  product pages link into.
+- **docs.viglet.org** (`vigletdocs.github.io`): the blog's former home. Its
+  `docusaurus.config.ts` redirects each old `/blog/…` address here
+  (`BLOG_MOVED_*`), so a post's slug or tag key must never change.

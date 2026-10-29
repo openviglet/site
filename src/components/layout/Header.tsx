@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { IconMenu2, IconX, IconExternalLink } from '@tabler/icons-react'
@@ -59,6 +61,12 @@ export default function Header() {
           {/* CTA + Theme toggle */}
           <div className="hidden md:flex items-center gap-3 ml-auto">
             <Link
+              href="/blog/"
+              className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              Blog
+            </Link>
+            <Link
               href="/contact/"
               className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
@@ -100,6 +108,13 @@ export default function Header() {
               </Link>
             ))}
             <hr className="border-border my-2" />
+            <Link
+              href="/blog/"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium text-foreground no-underline"
+            >
+              Blog
+            </Link>
             <Link
               href="/contact/"
               onClick={() => setMenuOpen(false)}

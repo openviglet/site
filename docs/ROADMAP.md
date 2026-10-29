@@ -79,10 +79,9 @@
 Binding constraints: see [IMPROVEMENTS.md](IMPROVEMENTS.md) §0 and
 [STRATEGY.md](STRATEGY.md) §I.6 for the full text. Summary:
 
-- **No blog on viglet.org.** The technical blog lives on `docs.viglet.org`
-  (Docusaurus, native blog plugin). viglet.org links *into* it. Building editorial
-  tooling in this custom SPA is days of work and dilutes the docs' authority
-  (Turing STRATEGY §X.2, decided).
+- **No blog tooling beyond Markdown files.** The blog moved here (W46) as
+  Markdown in `content/blog/`, prerendered by Next.js. No CMS, editor or second
+  framework (Astro etc.) for it.
 - **Backend is gated on the Block G migration.** *Today* the site is a static SPA
   (Vite → GitHub Pages), so AI features (W5–W7) call an external Turing instance
   over HTTP. *After* W17/W18 (Next.js on Viglet Cloud), they become native API

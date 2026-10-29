@@ -1,0 +1,10 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px', 'lineColor': '#64748b'}}}%%
+flowchart LR
+    AEM["Adobe AEM<br/><small>pages · DAM · fragments</small>"] --> DEP["Dumont<br/><small>AEM connector</small>"]
+    OTHER["WordPress · databases<br/>file shares · APIs"] --> DEP
+    DEP --> TUR["Turing<br/><small>hybrid index + LLM</small>"]
+    TUR --> SEARCH["Search results<br/><small>facets · semantic</small>"]
+    TUR --> CHAT["Cited answers<br/><small>streaming chat</small>"]
+
+    classDef b fill:#dbeafe,stroke:#4A90D9,color:#1a1a1a;
+    class AEM,OTHER,DEP,TUR,SEARCH,CHAT b;

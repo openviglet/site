@@ -17,8 +17,8 @@ import {
  * ("open-source alternative to Algolia", "enterprise search for Adobe AEM"). They
  * are the GEO surface that ties "Viglet" to those queries (STRATEGY §I.4,
  * cross-repo with Turing STRATEGY Block O). Each
- * page cross-links *into* the published docs blog guides (`guides.ts`), which are
- * the real conversion path (the how-tos live on docs.viglet.org, not here).
+ * page cross-links *into* the blog's how-to guides (`blog.ts`, by `guideSlugs`),
+ * which are the real conversion path.
  *
  * GROUNDING RULE (ROADMAP § non-goals): facts only, no disparagement. The
  * comparison tables contrast objective, verifiable dimensions; the competitor
@@ -83,7 +83,7 @@ export interface Comparison {
   table: CompareTable
   /** How Viglet delivers it, as ordered steps. */
   approach: Approach[]
-  /** Docs blog guide slugs to cross-link (must be published, see guides.ts). */
+  /** Blog post slugs to cross-link (content/blog/{slug}.md; unknown ones are skipped). */
   guideSlugs: string[]
   /** Page-specific FAQ (GEO-friendly). */
   faq: CompareFaq[]

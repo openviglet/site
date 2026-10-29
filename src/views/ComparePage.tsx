@@ -7,7 +7,6 @@ import {
   IconBrandDocker,
   IconBrandOpenSource,
   IconCheck,
-  IconExternalLink,
   IconRocket,
   IconScale,
 } from '@tabler/icons-react'
@@ -22,13 +21,12 @@ import ProductButton from '@/components/ProductButton'
 import VigletLogo from '@/components/VigletLogo'
 import { getComparison } from '@/data/comparisons'
 import { getSolution, productColors } from '@/data/solutions'
-import { useGuides, getGuidesBySlugs } from '@/data/guides'
+import { getPostsBySlugs } from '@/data/blog'
 
 /** The FAQPage JSON-LD for this page is rendered by its route
  *  (src/app/compare/[slug]/page.tsx), into the static HTML. */
 export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
   const comparison = getComparison(slug)
-  const guides = useGuides()
   const motionPaused = useIsMobileOrTablet()
 
   // The route 404s an unknown slug.
@@ -36,7 +34,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
   const accent = comparison.accent
   const accentColor = productColors[accent] ?? '#4169e1'
-  const relatedGuides = getGuidesBySlugs(guides, comparison.guideSlugs)
+  const relatedGuides = getPostsBySlugs(comparison.guideSlugs)
   const products = comparison.products
     .map((id) => getSolution(id))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
@@ -199,7 +197,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
         </div>
       </section>
 
-      {/* ===== GUIDES (cross-link into docs blog) ===== */}
+      {/* ===== GUIDES (cross-link into the blog) ===== */}
       {relatedGuides.length > 0 && (
         <section className="py-20 px-6 bg-background border-b border-border">
           <div className="max-w-5xl mx-auto">
@@ -215,19 +213,14 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
             <div className="grid sm:grid-cols-2 gap-5">
               {relatedGuides.map((g) => (
-                <a
+                <Link
                   key={g.slug}
                   href={g.url}
-                  target="_blank"
-                  rel="noopener"
                   className={`group flex flex-col bg-card border border-border rounded-2xl p-6 hover:-translate-y-0.5 transition-all no-underline product-card-${accent}`}
                 >
-                  <p className="font-bold text-foreground mb-1.5 flex items-start gap-2">
-                    {g.title}
-                    <IconExternalLink size={14} className="text-muted-foreground shrink-0 mt-1" />
-                  </p>
+                  <p className="font-bold text-foreground mb-1.5">{g.title}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">{g.description}</p>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

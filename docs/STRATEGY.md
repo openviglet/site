@@ -62,9 +62,11 @@ owner's go-ahead (it's their codebase).
 - **No invented claims.** Mirror cursarei's grounding rule: no superlatives, no
   unverifiable benchmarks; comparisons state objective facts only.
 - **Privacy-first.** Analytics is opt-in (Block D, W12); LGPD-clean capture.
-- **The blog is not here.** Technical how-tos live on `docs.viglet.org`
-  (Docusaurus); viglet.org is the positioning surface that links into them
-  (decided in section X.2 of the Turing repo's STRATEGY, do not relitigate).
+- **The blog is here (W46, 2026-10).** The integration how-tos and comparisons
+  moved from `docs.viglet.org/blog` to `www.viglet.org/blog/`, so the guides the
+  comparison pages link into build authority on the same domain. This reverses
+  the earlier split decided in the Turing repo's STRATEGY. Product documentation stays on each
+  product's own docs site.
 
 ---
 
@@ -74,7 +76,7 @@ owner's go-ahead (it's their codebase).
 |---|---|---|
 | **viglet.org** (this repo) | **Hub / portfolio for all products**: positioning, comparison, **showcase**, lead capture, embedded AI demo. Top of funnel; funnels into the dedicated product sites via `solution.site`. | React+Vite SPA today → **Next.js on Viglet Cloud** (§VII). Emits `llms.txt`. |
 | **turing.viglet.org** (+ future dumont/shio) | **Dedicated product site**: the *essence* deep-dive of one product. Linked as the primary CTA from that product's page on viglet.org (`solution.site`). | React+Vite+Tailwind (same stack), own SSG/prerender. |
-| **docs.viglet.org** | Technical blog + integration how-tos (the conversion path GEO links into). | Docusaurus 3, native blog plugin. |
+| **viglet.org/blog** | Integration how-tos and comparisons (the conversion path GEO links into). Moved from docs.viglet.org, which redirects the old addresses (W46). | Markdown in this repo, prerendered by Next.js. |
 | **viglet.cloud** | **Managed/hosted delivery** of the products: the "run it for me" option beside self-host via Docker. **Beta / testing-only (2026-07)**: light-touch, honest exposure (Block I). | `viglet/cloud` repo (Next.js 15 + Docker). |
 | **Off-domain** | Strongest GEO lever: GitHub (the cursarei starter repo), directories, dev communities. | Where independent corroboration is born. |
 

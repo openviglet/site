@@ -1,0 +1,10 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '13px', 'lineColor': '#64748b'}}}%%
+flowchart LR
+    SRC["AEM · WordPress · DB · files"] --> IDX["Turing index<br/><small>keyword + vector</small>"]
+    IDX --> SRCH["Search UI"]
+    IDX --> RAG["RAG answers<br/><small>grounded + cited</small>"]
+    IDX --> MCP["MCP tools<br/><small>for any agent</small>"]
+
+    classDef a fill:#dbeafe,stroke:#4A90D9,color:#1a1a1a;
+    classDef b fill:#ede9fe,stroke:#9B6EC5,color:#1a1a1a;
+    class SRC,IDX a; class SRCH,RAG,MCP b;

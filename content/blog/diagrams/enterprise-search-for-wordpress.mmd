@@ -1,0 +1,15 @@
+%%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'lineColor': '#64748b'}}}%%
+flowchart LR
+    WP["<b>WordPress</b><br/><small>publish / update / delete</small>"]
+    PLG["<b>Viglet Dumont</b><br/><small>PHP plugin</small>"]
+    TUR["<b>Turing</b><br/><small>Solr / Lucene</small>"]
+
+    WP -->|"post hooks"| PLG
+    PLG -->|"HTTP POST"| TUR
+
+    classDef wp fill:#dbeafe,stroke:#4A90D9,color:#1a1a1a;
+    classDef plg fill:#ede9fe,stroke:#9B6EC5,color:#1a1a1a;
+    classDef tur fill:#dcfce7,stroke:#50B86C,color:#1a1a1a;
+    class WP wp;
+    class PLG plg;
+    class TUR tur;

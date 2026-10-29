@@ -20,7 +20,9 @@
 
 Mirror of [ROADMAP.md](ROADMAP.md) → Non-goals; check before proposing work.
 
-- The technical blog lives on `docs.viglet.org` (Docusaurus), **not** here.
+- The blog lives here, as Markdown in `content/blog/` rendered at build time
+  (W46). No CMS or editorial tooling for it, and no second framework (Astro
+  etc.): Next.js already prerenders every post.
 - Backend is gated on the Block G migration; until then AI calls an external
   Turing instance and degrades gracefully. No interim bespoke Node server.
 - Keep the `llms.txt` / sitemap / prerender plugins (or their Next.js equivalents

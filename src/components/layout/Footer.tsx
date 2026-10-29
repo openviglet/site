@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react'
 
@@ -112,9 +114,13 @@ export default function Footer() {
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-white mb-4">Resources</p>
             <ul className="space-y-2.5">
+              <li>
+                <Link href="/blog/" className="text-sm text-slate-400 hover:text-white transition-colors no-underline">
+                  Blog
+                </Link>
+              </li>
               {[
                 { label: 'Documentation', href: 'https://docs.viglet.org' },
-                { label: 'Blog', href: 'https://docs.viglet.org/blog' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (

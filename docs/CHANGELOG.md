@@ -45,6 +45,7 @@
 - **W43** — The six product repos carry the solutions.ts descriptors and https homepages, turing-ce keeps its richer search-facing description, and Shio's topics drop angularjs and nashorn for react.
 - **W44** — gtag pushes the arguments object gtag.js reads, so a visitor who accepts the banner is counted in GA again; nothing loads before a choice, as W42 decided.
 - **W45** — The Shio and Dumont pages lead with Explore to shio.viglet.org and dumont.viglet.org, canonicalise there as Turing does, and keep their curated release notes until SH1248 and D143 publish changelog.json.
+- **W46** — Posts render statically at /blog/, with tag pages, RSS, OG cards, sitemap and llms.txt entries; docs.viglet.org/blog redirects to them.
 
 ## Block H — Conversion narrative & product essence
 

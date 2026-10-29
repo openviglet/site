@@ -3,14 +3,14 @@ import { solutions, getSolution } from '@/data/solutions'
 import { features } from '@/data/features'
 import { modules } from '@/data/modules'
 import { comparisons } from '@/data/comparisons'
-import type { DocGuide } from '@/data/guides'
+import { blogPosts } from '@/data/blog'
 
 /**
  * Site search (Block B / W6): two layers, so search always answers.
  *
  *  1. **Local index** over the site's own data (`src/data/*`): products, their
  *     download and release-notes pages, features, modules, comparison pages,
- *     the static pages and the docs-blog guides. Scored in the browser, no
+ *     the static pages and the blog posts. Scored in the browser, no
  *     network, so it works offline and when Turing is down.
  *  2. **Live Viglet Turing** results from the public demo instance
  *     (`turing-demo.viglet.org`, SN site `turing-docs`) through the product's own
@@ -49,6 +49,7 @@ const staticPages: SearchEntry[] = [
   { title: 'About Viglet', body: 'Who makes Dumont, Shio and Turing, and the history of the project.', href: '/about/', kind: 'Page' },
   { title: 'Contact', body: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.', href: '/contact/', kind: 'Page' },
   { title: 'Partner with Viglet', body: 'Integrators, consultancies and software vendors building on Turing, Dumont and Shio: current partners and how to start.', href: '/partner/', kind: 'Page' },
+  { title: 'Blog', body: 'Guides and comparisons on enterprise search, semantic search, RAG and AI agents.', href: '/blog/', kind: 'Page' },
 ]
 
 /** Every in-site entry, built once from the data modules. */
@@ -69,24 +70,23 @@ function buildLocalIndex(): SearchEntry[] {
   for (const c of comparisons) {
     entries.push({ title: c.h1, body: c.metaDescription, href: `/compare/${c.slug}/`, solution: c.accent, kind: 'Comparison' })
   }
+  for (const p of blogPosts) {
+    entries.push({ title: p.title, body: p.description, href: p.url, solution: p.solutions[0], kind: 'Guide' })
+  }
   return entries
 }
 
 const localIndex = buildLocalIndex()
 
-function guideEntries(guides: DocGuide[]): SearchEntry[] {
-  return guides.map((g) => ({ title: g.title, body: g.description, href: g.url, external: true, solution: g.solutions?.[0], kind: 'Guide' }))
-}
-
 /**
  * Scores the local index. Every query word must prefix-match a word of the
  * entry (AND semantics); a title hit weighs more than a body hit.
  */
-export function searchLocal(query: string, guides: DocGuide[], limit = 8): SearchEntry[] {
+export function searchLocal(query: string, limit = 8): SearchEntry[] {
   const words = tokens(query)
   if (words.length === 0) return []
   const scored: { entry: SearchEntry; score: number }[] = []
-  for (const entry of [...localIndex, ...guideEntries(guides)]) {
+  for (const entry of localIndex) {
     const title = tokens(entry.title)
     const body = tokens(entry.body)
     let score = 0
