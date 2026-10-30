@@ -23,7 +23,7 @@ export const modules: Module[] = [
   { title: 'React SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-react-sdk', description: 'Use the Content Delivery API from React with hooks (useShioPost, useShioChildren, useShioQuery, useShioSites) and a ShioProvider.' },
   { title: 'JavaScript SDK', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio-editor-cors', description: 'Framework-agnostic client with the Adobe Universal Editor bridge, for inline visual editing on any externally rendered page.' },
   { title: 'Shio CLI', solution: 'shio', githubUrl: 'https://www.npmjs.com/package/@viglet/shio', description: 'Scaffold an app (create-shio-app) and manage your content model as code: push and pull post types with drift detection.' },
-  { title: 'Next.js', solution: 'shio', githubUrl: 'https://docs.viglet.org/shio/', description: 'Render content with Next.js (App Router) using the delivery API and the React SDK, with slug routing through post-by-URL.' },
+  { title: 'Next.js', solution: 'shio', githubUrl: 'https://openviglet.github.io/shio/docs/headless/nextjs-starter/', description: 'Render content with Next.js (App Router) using the delivery API and the React SDK, with slug routing through post-by-URL.' },
   { title: 'Turing', solution: 'shio', githubUrl: 'https://www.viglet.org/turing/', description: 'Viglet Shio integrates with Viglet Turing: choose which attributes get indexed while modeling post types, for enterprise search and AI.' },
   { title: 'Webhooks', solution: 'shio', description: 'Outbound webhooks notify your application when content is published or unpublished, so you can revalidate caches or rebuild pages.' },
   // Turing modules
@@ -32,7 +32,7 @@ export const modules: Module[] = [
   { title: 'JavaScript SDK', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-sdk', description: 'Framework-agnostic, zero-dependency vanilla-JS client. Works in Adobe EDS blocks, a plain <script>, or any bundler.' },
   { title: 'Turing CLI', solution: 'turing', githubUrl: 'https://www.npmjs.com/package/@viglet/turing-cli', description: 'Zero-dependency developer CLI: scaffold a project, run a local stack, deploy agents/flows/tools/skills, and run YAML eval suites.' },
   { title: 'Java SDK', solution: 'turing', githubUrl: 'https://github.com/openviglet/turing', description: 'Java library to index and query Turing from JVM applications.' },
-  { title: 'MCP Server & Client', solution: 'turing', githubUrl: 'https://docs.viglet.org/turing/', description: 'Expose Turing search as an MCP server for any MCP-aware client, and connect agents out to federated MCP servers.' },
+  { title: 'MCP Server & Client', solution: 'turing', githubUrl: 'https://openviglet.github.io/turing/docs/mcp-servers/', description: 'Expose Turing search as an MCP server for any MCP-aware client, and connect agents out to federated MCP servers.' },
   { title: 'Model Catalog', solution: 'turing', githubUrl: 'https://github.com/openviglet/model-catalog', description: 'Vendor-neutral public catalog of LLM, embedding, rerank and media models: context windows, capabilities, indicative pricing and deprecations. Turing reads it to enrich the model picker and warn on retired models.' },
   { title: 'Shio', solution: 'turing', githubUrl: 'https://www.viglet.org/shio/', description: 'Viglet Shio integrates with Turing: choose which attributes get indexed while modeling post types.' },
 ]

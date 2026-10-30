@@ -380,9 +380,7 @@ export default function AboutPage() {
               </Link>
             </Button>
             <Button variant="ghost" size="lg" asChild>
-              <a href="https://docs.viglet.org" target="_blank" rel="noopener">
-                Read the Docs
-              </a>
+              <Link href="/docs/">Read the Docs</Link>
             </Button>
           </div>
         </div>

@@ -108,7 +108,7 @@ export default function ProductWizard() {
                             <IconArrowRight size={14} />
                           </Link>
                           <a
-                            href={product.getStarted}
+                            href={product.docs}
                             target="_blank"
                             rel="noopener"
                             className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground hover:text-foreground no-underline"

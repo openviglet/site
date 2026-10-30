@@ -119,8 +119,12 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link href="/docs/" className="text-sm text-slate-400 hover:text-white transition-colors no-underline">
+                  Documentation
+                </Link>
+              </li>
               {[
-                { label: 'Documentation', href: 'https://docs.viglet.org' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (

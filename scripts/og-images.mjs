@@ -135,6 +135,13 @@ const identities = [
     grad: GRADIENTS.brand,
   },
   {
+    id: 'docs',
+    title: 'Viglet Documentation',
+    subtitle: 'Get started with Turing, Dumont and Shio',
+    acronym: '',
+    grad: GRADIENTS.brand,
+  },
+  {
     id: 'blog',
     title: 'Viglet Blog',
     subtitle: 'Enterprise search, RAG and AI agents, in practice',

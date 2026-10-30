@@ -266,9 +266,7 @@ export default function HomePage() {
                 </a>
               </Button>
               <Button variant="ghost" size="lg" asChild>
-                <a href="https://docs.viglet.org" target="_blank" rel="noopener">
-                  Read the Docs
-                </a>
+                <Link href="/docs/">Read the Docs</Link>
               </Button>
             </div>
           </div>
@@ -391,16 +389,14 @@ export default function HomePage() {
               <IconBrandDocker size={16} />
               Explore the products
             </a>
-            <a
-              href="https://docs.viglet.org"
-              target="_blank"
-              rel="noopener"
+            <Link
+              href="/docs/"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
             >
               <IconBook size={16} />
               Read the Docs
               <IconArrowRight size={16} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

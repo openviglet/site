@@ -15,7 +15,7 @@ roadmap docs**. Keep it lean: reference material belongs in `docs/`.
   use design-system components/tokens; **never inline colors**.
 - **Routing**: one folder per route under [src/app/](src/app/) (home,
   `[identifier]/` with download and release-notes, compare, partner, about,
-  contact, blog). Each `page.tsx` holds the route's metadata and renders a client view
+  contact, blog, docs). Each `page.tsx` holds the route's metadata and renders a client view
   from [src/views/](src/views/).
 - **i18n**: `i18next` + `react-i18next`.
 - **Blog** (`/blog/`): one Markdown file per post in [content/blog/](content/blog/)
@@ -109,6 +109,9 @@ the Turing repo's `T` numbers.
   patterns Block G needs.
 - **Turing** (`d:\Git\viglet\turing\2026.1`): Block E (GEO) is the cross-repo
   counterpart of Turing's STRATEGY Block O, which already names this repo.
-- **docs.viglet.org** (`vigletdocs.github.io`): the blog's former home. Its
+- **Product docs** live on each product's site, `openviglet.github.io/<id>/docs/`
+  (`docs` / `getStarted` in `src/data/solutions.ts`); generic "Get Started" and
+  "Documentation" links go to the on-site `/docs/` hub (W47).
+- **docs.viglet.org** (`vigletdocs.github.io`): retired; the blog's former home. Its
   `docusaurus.config.ts` redirects each old `/blog/…` address here
   (`BLOG_MOVED_*`), so a post's slug or tag key must never change.

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { IconArrowRight, IconChevronDown, IconExternalLink } from '@tabler/icons-react'
+import { IconArrowRight, IconChevronDown } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
@@ -196,18 +196,16 @@ export default function ProductComparePage() {
               </span>
               <IconArrowRight size={18} className="text-muted-foreground shrink-0" />
             </Link>
-            <a
-              href="https://docs.viglet.org"
-              target="_blank"
-              rel="noopener"
+            <Link
+              href="/docs/"
               className="flex items-center justify-between gap-3 p-5 rounded-2xl border border-border bg-card hover:bg-muted transition-colors no-underline"
             >
               <span>
                 <span className="block font-bold text-foreground">Read the documentation</span>
                 <span className="block text-sm text-muted-foreground">Install guides and references for all three products.</span>
               </span>
-              <IconExternalLink size={18} className="text-muted-foreground shrink-0" />
-            </a>
+              <IconArrowRight size={18} className="text-muted-foreground shrink-0" />
+            </Link>
           </div>
 
           {comparisons.length > 0 && (

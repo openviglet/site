@@ -24,7 +24,8 @@ export function buildLlmTxt(): string {
 - Product page: https://www.viglet.org/${p.identifier}/
 - Download: https://www.viglet.org/${p.identifier}/download/
 - Release notes: https://www.viglet.org/${p.identifier}/release-notes/
-- Documentation: https://docs.viglet.org/${p.identifier}/
+- Documentation: ${p.docs}
+- Getting started: ${p.getStarted}
 - GitHub: ${p.github ?? `https://github.com/openviglet/${p.identifier}`}`,
     )
     .join('\n\n')
@@ -36,7 +37,7 @@ export function buildLlmTxt(): string {
 Viglet makes three tools that work alone or together, led by Viglet Turing. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, so your content stays on your infrastructure.
 
 - Website: https://www.viglet.org
-- Documentation: https://docs.viglet.org
+- Documentation: https://www.viglet.org/docs/ (links each product's own docs)
 - GitHub: https://github.com/openviglet
 - License: Apache 2.0
 

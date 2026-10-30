@@ -56,10 +56,10 @@ export default function ContactPage() {
               </a>
             </Button>
             <Button variant="ghost" size="lg" asChild>
-              <a href="https://docs.viglet.org" target="_blank" rel="noopener">
+              <Link href="/docs/">
                 <IconBook size={16} />
                 Read the docs
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

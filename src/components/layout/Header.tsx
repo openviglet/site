@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { IconMenu2, IconX, IconExternalLink } from '@tabler/icons-react'
+import { IconMenu2, IconX, IconArrowRight } from '@tabler/icons-react'
 import { solutions } from '@/data/solutions'
 import { Button } from '@/components/ui/button'
 import { ColorModeToggle } from '@/components/ColorModeToggle'
@@ -75,9 +75,7 @@ export default function Header() {
             <SiteSearch />
             <ColorModeToggle />
             <Button asChild size="sm">
-              <a href="https://docs.viglet.org" target="_blank" rel="noopener">
-                Get Started
-              </a>
+              <Link href="/docs/">Get Started</Link>
             </Button>
           </div>
 
@@ -128,14 +126,13 @@ export default function Header() {
               <span className="text-sm text-muted-foreground">Theme</span>
             </div>
             <hr className="border-border my-2" />
-            <a
-              href="https://docs.viglet.org"
-              target="_blank"
-              rel="noopener"
+            <Link
+              href="/docs/"
+              onClick={() => setMenuOpen(false)}
               className="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-brand no-underline"
             >
-              Get Started <IconExternalLink size={12} />
-            </a>
+              Get Started <IconArrowRight size={12} />
+            </Link>
           </div>
         )}
       </header>

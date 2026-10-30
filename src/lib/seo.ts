@@ -87,6 +87,11 @@ export const staticPages = {
     title: 'Contact · Viglet',
     description: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.',
   },
+  docs: {
+    path: '/docs/',
+    title: 'Documentation · Viglet',
+    description: 'Get started with Viglet Turing, Dumont and Shio: the getting-started guide, installation guide, developer guide and REST API of each product.',
+  },
   blog: {
     path: '/blog/',
     title: 'Blog · Viglet',

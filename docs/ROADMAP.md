@@ -46,7 +46,7 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 📋 **W40** (deps: W1 ⏸, W39 ✅) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with docs.viglet.org and proven by the W1 case study. → §XI.3
+- 📋 **W40** (deps: W1 ⏸, W39 ✅) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with the Turing and Dumont AEM docs and proven by the W1 case study. → §XI.3
 
 ## Block F — Reference app / developer funnel
 

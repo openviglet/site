@@ -259,9 +259,9 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
                     The documentation covers {solution.shortName} features, environment variables and production deployment with Docker Compose.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    {solution.getStarted && (
+                    {solution.docs && (
                       <ProductButton identifier={identifier} size="sm" asChild>
-                        <a href={solution.getStarted} target="_blank" rel="noopener">
+                        <a href={solution.docs} target="_blank" rel="noopener">
                           <IconBook size={14} />
                           Read the Docs
                         </a>
@@ -391,9 +391,9 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
                 View on GHCR
               </a>
             )}
-            {solution.getStarted && (
+            {solution.docs && (
               <a
-                href={solution.getStarted}
+                href={solution.docs}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"

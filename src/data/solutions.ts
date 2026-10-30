@@ -4,6 +4,10 @@ export interface Solution {
   status: 'stable' | 'beta'
   order: number
   permalink: string
+  /** The product's documentation, on its own site (openviglet.github.io/<id>/docs/).
+   *  docs.viglet.org, the former shared docs site, was retired in October 2026. */
+  docs: string
+  /** The first page a newcomer reads: the docs' getting-started introduction. */
   getStarted: string
   github?: string
   githubOrg?: string
@@ -56,7 +60,8 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 1,
     permalink: '/turing/',
-    getStarted: 'https://docs.viglet.org/turing/',
+    docs: 'https://openviglet.github.io/turing/docs/',
+    getStarted: 'https://openviglet.github.io/turing/docs/getting-started/intro/',
     site: 'https://openviglet.github.io/turing/',
     changelogUrl: 'https://openviglet.github.io/turing/changelog.json',
     github: 'https://github.com/openviglet/turing',
@@ -79,7 +84,8 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 2,
     permalink: '/dumont/',
-    getStarted: 'https://docs.viglet.org/dumont/',
+    docs: 'https://openviglet.github.io/dumont/docs/',
+    getStarted: 'https://openviglet.github.io/dumont/docs/getting-started/intro/',
     site: 'https://openviglet.github.io/dumont/',
     changelogUrl: 'https://openviglet.github.io/dumont/changelog.json',
     github: 'https://github.com/openviglet/dumont',
@@ -102,7 +108,8 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 3,
     permalink: '/shio/',
-    getStarted: 'https://docs.viglet.org/shio/',
+    docs: 'https://openviglet.github.io/shio/docs/',
+    getStarted: 'https://openviglet.github.io/shio/docs/getting-started/intro/',
     site: 'https://openviglet.github.io/shio/',
     changelogUrl: 'https://openviglet.github.io/shio/changelog.json',
     github: 'https://github.com/openviglet/shio',

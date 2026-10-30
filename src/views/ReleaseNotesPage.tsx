@@ -303,9 +303,9 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
                 Run {solution.shortName} with Docker
               </Link>
             )}
-            {solution.getStarted && (
+            {solution.docs && (
               <a
-                href={solution.getStarted}
+                href={solution.docs}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"

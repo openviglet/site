@@ -49,6 +49,7 @@ const staticPages: SearchEntry[] = [
   { title: 'About Viglet', body: 'Who makes Dumont, Shio and Turing, and the history of the project.', href: '/about/', kind: 'Page' },
   { title: 'Contact', body: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.', href: '/contact/', kind: 'Page' },
   { title: 'Partner with Viglet', body: 'Integrators, consultancies and software vendors building on Turing, Dumont and Shio: current partners and how to start.', href: '/partner/', kind: 'Page' },
+  { title: 'Documentation', body: 'Get started, install and develop with Turing, Dumont and Shio: the documentation of each product.', href: '/docs/', kind: 'Page' },
   { title: 'Blog', body: 'Guides and comparisons on enterprise search, semantic search, RAG and AI agents.', href: '/blog/', kind: 'Page' },
 ]
 

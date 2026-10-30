@@ -68,7 +68,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
               </Link>
             </ProductButton>
             <ProductButton identifier={accent} productVariant="ghost" size="lg" asChild>
-              <a href="https://docs.viglet.org/turing/" target="_blank" rel="noopener">
+              <a href="https://openviglet.github.io/turing/docs/getting-started/intro/" target="_blank" rel="noopener">
                 <IconBook size={18} />
                 Get Started
               </a>

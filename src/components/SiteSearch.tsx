@@ -265,10 +265,10 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
 
           {trimmed !== '' && local.length === 0 && !liveLoading && liveResults.length === 0 && (
             <p className="px-3 py-6 text-sm text-muted-foreground text-center">
-              Nothing found for "{trimmed}". The full documentation is at{' '}
-              <a href="https://docs.viglet.org" target="_blank" rel="noopener" className="text-brand font-semibold">
-                docs.viglet.org
-              </a>
+              Nothing found for "{trimmed}". Each product's full documentation is linked from{' '}
+              <Link href="/docs/" onClick={onClose} className="text-brand font-semibold">
+                the docs page
+              </Link>
               .
             </p>
           )}

@@ -1,7 +1,7 @@
-# Last task number: `W46`
+# Last task number: `W47`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W47`; after assigning it, bump the number above and the log line below.
+> `W48`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W47**: Docs links move off docs.viglet.org to each product's openviglet.github.io docs, with a /docs/ hub (Block F), 2026-10-30
 - **W46**: Blog moved from docs.viglet.org to www.viglet.org/blog (Block E), 2026-10-29
 - **W45**: Explore buttons to shio.viglet.org and dumont.viglet.org (Block E), 2026-10-19
 - **W44**: GA counts nothing after consent: gtag pushed arrays (Block E), 2026-10-17

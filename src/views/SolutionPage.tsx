@@ -178,9 +178,9 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
                 </div>
               </Link>
             )}
-            {solution.getStarted && (
+            {solution.docs && (
               <a
-                href={solution.getStarted}
+                href={solution.docs}
                 target="_blank"
                 rel="noopener"
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
@@ -399,9 +399,9 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
                 Run {solution.shortName} with Docker
               </Link>
             )}
-            {solution.getStarted && (
+            {solution.docs && (
               <a
-                href={solution.getStarted}
+                href={solution.docs}
                 target="_blank"
                 rel="noopener"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
