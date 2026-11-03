@@ -88,8 +88,8 @@ Solr-vs-Elasticsearch decision stops being a lock-in.
 ## Try it
 
 ```bash
-docker pull ghcr.io/openviglet/turing-ce:latest
-docker run -p 2700:2700 ghcr.io/openviglet/turing-ce:latest
+docker pull ghcr.io/openviglet/turing:latest
+docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 ```
 
 - 📘 [Pluggable search engine](https://openviglet.github.io/turing/docs/search-engine/)

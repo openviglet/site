@@ -64,8 +64,8 @@ Three components, each documented in full:
 The fastest path is Docker:
 
 ```bash
-docker pull ghcr.io/openviglet/turing-ce:latest
-docker run -p 2700:2700 ghcr.io/openviglet/turing-ce:latest
+docker pull ghcr.io/openviglet/turing:latest
+docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 ```
 
 Open `http://localhost:2700/console` and set the admin password on first run

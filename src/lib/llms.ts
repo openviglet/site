@@ -62,7 +62,7 @@ RAG: cited answers with a pluggable reranker, a relevance gate, and an optional 
 AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
 LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
 
-Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing-ce.
+Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing.
 
 ## Viglet Dumont Details
 
@@ -72,7 +72,7 @@ Sources: Adobe AEM, Adobe Edge Delivery Services (EDS), WordPress, SQL databases
 Targets: Viglet Turing, Apache Solr, Elasticsearch. Switch engine by changing a single property.
 Trust: per-field coverage and drift monitoring with field-level provenance; absent fields are omitted rather than sent as empty strings.
 
-Stack: Java 21 + Spring Boot. Port: 30130. Docker image: ghcr.io/openviglet/dumont-ce.
+Stack: Java 21 + Spring Boot. Port: 30130. Docker image: ghcr.io/openviglet/dumont.
 
 ## Viglet Shio Details
 
@@ -81,7 +81,7 @@ Agent-ready content management system, run from the console or by a coding agent
 Authoring: preview unpublished drafts with short-lived tokens, schedule content to go live, restore earlier versions, and fire outbound webhooks.
 Rendering: React and JavaScript SDKs for Next.js or any framework, plus inline editing through the Adobe Universal Editor bridge.
 
-Stack: Java 21 + Spring Boot. Port: 2710. Docker image: ghcr.io/openviglet/shio-ce.
+Stack: Java 21 + Spring Boot. Port: 2710. Docker image: ghcr.io/openviglet/shio.
 
 ## Use Cases
 

@@ -102,8 +102,8 @@ makes this light) and commercial support is optional rather than bundled.
 ## Try it
 
 ```bash
-docker pull ghcr.io/openviglet/turing-ce:latest
-docker run -p 2700:2700 ghcr.io/openviglet/turing-ce:latest
+docker pull ghcr.io/openviglet/turing:latest
+docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 ```
 
 - ⚖️ [Turing vs Algolia, Coveo, Lucidworks, Elasticsearch and DIY RAG](https://openviglet.github.io/turing/compare/#coveo-vs-lucidworks): the full capability matrix

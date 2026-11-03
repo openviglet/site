@@ -47,7 +47,7 @@ claude mcp add shio -- npx -y @viglet/shio mcp
 To try it locally, one container is enough:
 
 ```bash
-docker run -p 2710:2710 -e SHIO_ADMIN_PASSWORD=shio123 ghcr.io/openviglet/shio-ce:latest
+docker run -p 2710:2710 -e SHIO_ADMIN_PASSWORD=shio123 ghcr.io/openviglet/shio:latest
 ```
 
 ## What the agent gets

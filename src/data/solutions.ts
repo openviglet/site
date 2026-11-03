@@ -27,7 +27,7 @@ export interface Solution {
 
   downloadMessage?: string
   shortRelease?: string
-  /** Docker image on the GitHub Container Registry, e.g. `ghcr.io/openviglet/turing-ce`.
+  /** Docker image on the GitHub Container Registry, e.g. `ghcr.io/openviglet/turing`.
    *  Products ship only as containers; there are no JAR downloads. */
   dockerImage?: string
   runPort?: number
@@ -74,7 +74,7 @@ export const solutions: Solution[] = [
     fullName: 'Viglet Turing',
     description: 'Enterprise search, cited RAG and AI agents over your content. Self-hosted, with your choice of search engine and LLM.',
     downloadMessage: 'Run Turing with Docker and add more value to your content.',
-    dockerImage: 'ghcr.io/openviglet/turing-ce',
+    dockerImage: 'ghcr.io/openviglet/turing',
     runPort: 2700,
     installationSteps: true,
   },
@@ -98,7 +98,7 @@ export const solutions: Solution[] = [
     fullName: 'Viglet Dumont',
     description: 'Data exchange platform: connects your sources and delivers their content to Viglet Turing or any other search engine.',
     downloadMessage: 'Run Dumont with Docker and explore your flight plan.',
-    dockerImage: 'ghcr.io/openviglet/dumont-ce',
+    dockerImage: 'ghcr.io/openviglet/dumont',
     runPort: 30130,
     installationSteps: true,
   },
@@ -122,7 +122,7 @@ export const solutions: Solution[] = [
     description: 'Agent-ready CMS: models content, renders pages or delivers them over a versioned REST and GraphQL API, and indexes it in Viglet Turing for search.',
     memo: 'Content',
     downloadMessage: 'Run Shio with Docker and create your site.',
-    dockerImage: 'ghcr.io/openviglet/shio-ce',
+    dockerImage: 'ghcr.io/openviglet/shio',
     runPort: 2710,
     appLogin: 'admin',
     appPassword: 'admin',
