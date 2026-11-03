@@ -1,6 +1,32 @@
 {
   "posts": [
     {
+      "slug": "run-your-cms-from-claude-code-shio",
+      "title": "Run Your CMS from Claude Code: Viglet Shio over MCP",
+      "description": "Viglet Shio is an open source CMS built so an AI coding agent can drive it: 12 MCP tools, content as Markdown files, errors that say how to fix the call, and a review queue so the curator still decides what goes live.",
+      "url": "/blog/run-your-cms-from-claude-code-shio/",
+      "date": "2026-11-03",
+      "authors": [
+        "alexandre"
+      ],
+      "tags": [
+        "cms",
+        "mcp",
+        "open-source"
+      ],
+      "keywords": [
+        "agent-ready CMS",
+        "CMS for AI agents",
+        "Claude Code CMS",
+        "MCP CMS",
+        "headless CMS MCP server",
+        "open source headless CMS"
+      ],
+      "solutions": [
+        "shio"
+      ]
+    },
+    {
       "slug": "turing-aem-search",
       "title": "Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People",
       "description": "Your AEM search box is the most honest feedback channel you own, and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0.",

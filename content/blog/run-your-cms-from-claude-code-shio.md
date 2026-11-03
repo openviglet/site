@@ -1,6 +1,5 @@
 ---
 date: 2026-11-03
-draft: true
 slug: run-your-cms-from-claude-code-shio
 title: "Run Your CMS from Claude Code: Viglet Shio over MCP"
 description: "Viglet Shio is an open source CMS built so an AI coding agent can drive it: 12 MCP tools, content as Markdown files, errors that say how to fix the call, and a review queue so the curator still decides what goes live."
