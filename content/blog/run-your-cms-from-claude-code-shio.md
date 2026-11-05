@@ -21,7 +21,7 @@ about what it did wrong, and in the end it can't check its own work without aski
 you to open a browser. Those CMSs were built for a person clicking through a web UI,
 and the API came later.
 
-[**Viglet Shio**](https://openviglet.github.io/shio/) starts from the agent. Every
+[**Viglet Shio**](https://shio.viglet.org/) starts from the agent. Every
 capability ships first as an MCP tool, then as files and CLI, then as REST, and only
 then in the console. A person can still run all of it from the console; the agent
 just doesn't have to.
@@ -85,8 +85,8 @@ npm create @viglet/shio-app@latest my-site
 
 ## Next steps
 
-- 📘 [Shio with Claude Code](https://openviglet.github.io/shio/claude-code/)
-- 📗 [How Shio compares to Contentful, Sanity, Strapi and WordPress](https://openviglet.github.io/shio/compare/)
+- 📘 [Shio with Claude Code](https://shio.viglet.org/claude-code/)
+- 📗 [How Shio compares to Contentful, Sanity, Strapi and WordPress](https://shio.viglet.org/compare/)
 - ⭐ [Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
 
 *Viglet Shio is an open source, agent-ready CMS: people run it from the console, AI

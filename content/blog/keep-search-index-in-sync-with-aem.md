@@ -22,7 +22,7 @@ have to be updated, removed pages have to go, and nobody notices when one of tho
 quietly stops happening. The usual symptom is a search result that leads to a 404,
 or a page everyone can see on the site and nobody can find.
 
-[**Viglet Dumont**](https://openviglet.github.io/dumont/) is the open source
+[**Viglet Dumont**](https://dumont.viglet.org/) is the open source
 connector layer of the Viglet suite. It reads AEM, WordPress, databases, files and
 web sites, and keeps their content indexed in Viglet Turing, Apache Solr or
 Elasticsearch. This post is about the second half of that sentence: *keeps*.
@@ -77,7 +77,7 @@ last run, and writes nothing. Only a draft you confirm gets indexed.
 
 ## Next steps
 
-- 📘 [Dumont documentation](https://openviglet.github.io/dumont/docs/)
+- 📘 [Dumont documentation](https://dumont.viglet.org/docs/)
 - 📗 [Enterprise search for Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the search side with Turing
 - ⭐ [Dumont on GitHub](https://github.com/openviglet/dumont) (Apache 2.0)
 

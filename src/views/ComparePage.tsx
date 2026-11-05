@@ -68,7 +68,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
               </Link>
             </ProductButton>
             <ProductButton identifier={accent} productVariant="ghost" size="lg" asChild>
-              <a href="https://openviglet.github.io/turing/docs/getting-started/intro/" target="_blank" rel="noopener">
+              <a href="https://turing.viglet.org/docs/getting-started/intro/" target="_blank" rel="noopener">
                 <IconBook size={18} />
                 Get Started
               </a>
@@ -263,7 +263,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
-              href="https://openviglet.github.io/turing/"
+              href="https://turing.viglet.org/"
               rel="noopener"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
             >

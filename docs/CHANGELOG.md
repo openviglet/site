@@ -80,6 +80,7 @@
 ## Block F — Reference app / developer funnel
 
 - **W47** — A /docs/ hub page is the target of every generic Get Started and Documentation link; product links go to openviglet.github.io/<id>/docs/.
+- **W48** — Product, docs and blog links use <id>.viglet.org; models.viglet.org is linked from the footer, Turing modules, llms.txt and a blog post.
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 

@@ -4,7 +4,7 @@ export interface Solution {
   status: 'stable' | 'beta'
   order: number
   permalink: string
-  /** The product's documentation, on its own site (openviglet.github.io/<id>/docs/).
+  /** The product's documentation, on its own site (<id>.viglet.org/docs/).
    *  docs.viglet.org, the former shared docs site, was retired in October 2026. */
   docs: string
   /** The first page a newcomer reads: the docs' getting-started introduction. */
@@ -37,7 +37,7 @@ export interface Solution {
   pdfGetStarted?: string
   installationSteps?: boolean
   serviceUrl?: string
-  /** Dedicated product marketing site (e.g. openviglet.github.io/turing/). When set, the
+  /** Dedicated product marketing site (e.g. turing.viglet.org/). When set, the
    *  solution page funnels visitors here as the primary CTA instead of docs. */
   site?: string
   /** Where the release notes are read from when the product publishes its own
@@ -60,10 +60,10 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 1,
     permalink: '/turing/',
-    docs: 'https://openviglet.github.io/turing/docs/',
-    getStarted: 'https://openviglet.github.io/turing/docs/getting-started/intro/',
-    site: 'https://openviglet.github.io/turing/',
-    changelogUrl: 'https://openviglet.github.io/turing/changelog.json',
+    docs: 'https://turing.viglet.org/docs/',
+    getStarted: 'https://turing.viglet.org/docs/getting-started/intro/',
+    site: 'https://turing.viglet.org/',
+    changelogUrl: 'https://turing.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/turing',
     githubOrg: 'openviglet',
     release: '2026.2.6',
@@ -84,10 +84,10 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 2,
     permalink: '/dumont/',
-    docs: 'https://openviglet.github.io/dumont/docs/',
-    getStarted: 'https://openviglet.github.io/dumont/docs/getting-started/intro/',
-    site: 'https://openviglet.github.io/dumont/',
-    changelogUrl: 'https://openviglet.github.io/dumont/changelog.json',
+    docs: 'https://dumont.viglet.org/docs/',
+    getStarted: 'https://dumont.viglet.org/docs/getting-started/intro/',
+    site: 'https://dumont.viglet.org/',
+    changelogUrl: 'https://dumont.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/dumont',
     githubOrg: 'openviglet',
     release: '2026.2.16',
@@ -108,10 +108,10 @@ export const solutions: Solution[] = [
     status: 'stable',
     order: 3,
     permalink: '/shio/',
-    docs: 'https://openviglet.github.io/shio/docs/',
-    getStarted: 'https://openviglet.github.io/shio/docs/getting-started/intro/',
-    site: 'https://openviglet.github.io/shio/',
-    changelogUrl: 'https://openviglet.github.io/shio/changelog.json',
+    docs: 'https://shio.viglet.org/docs/',
+    getStarted: 'https://shio.viglet.org/docs/getting-started/intro/',
+    site: 'https://shio.viglet.org/',
+    changelogUrl: 'https://shio.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/shio',
     githubOrg: 'openviglet',
     release: '0.3.8',

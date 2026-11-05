@@ -44,7 +44,7 @@ broadly; this one zooms into the enterprise-portal end of the market.
 | **Search engine** | Proprietary index | Solr-based | **Pluggable: Solr / Elasticsearch / Lucene** |
 | **Semantic / vector** | ✅ | ✅ | ✅ |
 | **RAG (AI answers)** | ✅ | ✅ | ✅ (built-in, your LLM) |
-| **AEM connector** | ✅ first-class | Connector | ✅ ([Viglet Dumont](https://openviglet.github.io/dumont/docs/connectors/aem/)) |
+| **AEM connector** | ✅ first-class | Connector | ✅ ([Viglet Dumont](https://dumont.viglet.org/docs/connectors/aem/)) |
 | **AI agents + tools** | Relevance/ML focus | ML pipelines | ✅ agents, 27 tools, MCP |
 
 ## Where each one wins
@@ -70,8 +70,8 @@ Turing keeps your content on **your own infrastructure** under Apache 2.0,
 with no per-query bill. It bundles faceted search, semantic/vector search, and
 **RAG** with the LLM of your choice (OpenAI, Ollama, Anthropic, Gemini) in one
 platform, plus **AI agents** with 27 built-in tools and
-[MCP server](https://openviglet.github.io/turing/docs/mcp-servers/) support. Its search backend is
-[pluggable](https://openviglet.github.io/turing/docs/search-engine/): run on Apache Solr, Elasticsearch, or the
+[MCP server](https://turing.viglet.org/docs/mcp-servers/) support. Its search backend is
+[pluggable](https://turing.viglet.org/docs/search-engine/): run on Apache Solr, Elasticsearch, or the
 embedded Lucene engine. The trade-off is that you operate it yourself (Docker
 makes this light) and commercial support is optional rather than bundled.
 
@@ -86,7 +86,7 @@ makes this light) and commercial support is optional rather than bundled.
    semantic search, RAG, and agents together. With the others you often add an
    AI tier (and a bill) separately.
 4. **Connector quality.** All three index AEM; Turing does it through
-   [Dumont](https://openviglet.github.io/dumont/docs/connectors/aem/) with event-driven sync and automatic
+   [Dumont](https://dumont.viglet.org/docs/connectors/aem/) with event-driven sync and automatic
    tag → facet mapping.
 
 ## When to pick which
@@ -106,9 +106,9 @@ docker pull ghcr.io/openviglet/turing:latest
 docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 ```
 
-- ⚖️ [Turing vs Algolia, Coveo, Lucidworks, Elasticsearch and DIY RAG](https://openviglet.github.io/turing/compare/#coveo-vs-lucidworks): the full capability matrix
+- ⚖️ [Turing vs Algolia, Coveo, Lucidworks, Elasticsearch and DIY RAG](https://turing.viglet.org/compare/#coveo-vs-lucidworks): the full capability matrix
 - 📘 [Adobe AEM enterprise search guide](/blog/enterprise-search-for-adobe-aem/)
-- 📗 [RAG over your content](https://openviglet.github.io/turing/docs/rag/) · [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/)
+- 📗 [RAG over your content](https://turing.viglet.org/docs/rag/) · [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/)
 - ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and

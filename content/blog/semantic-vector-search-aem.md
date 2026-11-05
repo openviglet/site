@@ -27,7 +27,7 @@ shows how to add vector/semantic search and RAG on top, all open source, on
 your own infrastructure.
 
 For the overview of AEM search with Viglet Turing, with a live demo, see
-**[openviglet.github.io/turing/aem-search](https://openviglet.github.io/turing/aem-search/)**.
+**[turing.viglet.org/aem-search](https://turing.viglet.org/aem-search/)**.
 
 <!-- truncate -->
 
@@ -45,8 +45,8 @@ search *and* semantic ranking on the same AEM content.
 ## Step 1: Configure an embedding model
 
 Turing talks to multiple embedding providers. In the admin console under
-**Generative AI**, configure an [LLM instance](https://openviglet.github.io/turing/docs/llm-instances/) and an
-[embedding model](https://openviglet.github.io/turing/docs/embedding-models/):
+**Generative AI**, configure an [LLM instance](https://turing.viglet.org/docs/llm-instances/) and an
+[embedding model](https://turing.viglet.org/docs/embedding-models/):
 
 | Provider | Embedding support |
 |---|---|
@@ -59,10 +59,15 @@ Using **Ollama** keeps embedding generation entirely on your own hardware, so no
 content leaves your infrastructure, which matters for regulated AEM author
 content.
 
+To compare embedding models before you pick one (context window, capabilities,
+indicative pricing, deprecations), see the vendor-neutral
+[Viglet Model Catalog](https://models.viglet.org/), the same catalog Turing reads
+to fill its model picker.
+
 ## Step 2: Pick an embedding store
 
 The vectors need somewhere to live. Turing supports pluggable
-[embedding stores](https://openviglet.github.io/turing/docs/embedding-stores/), including an **embedded Lucene
+[embedding stores](https://turing.viglet.org/docs/embedding-stores/), including an **embedded Lucene
 vector store** that needs no extra infrastructure, ideal for getting started.
 For larger corpora you can point it at a dedicated vector database.
 
@@ -72,15 +77,15 @@ For larger corpora you can point it at a dedicated vector database.
 
 ## Step 3: Embed your AEM content
 
-When AEM content flows in through the [Dumont connector](https://openviglet.github.io/dumont/docs/connectors/aem/),
+When AEM content flows in through the [Dumont connector](https://dumont.viglet.org/docs/connectors/aem/),
 Turing generates embeddings for each document and writes them to the store.
 Re-indexing an existing AEM site re-embeds it with your chosen model, with no
 changes to the connector configuration.
 
 ## Step 4: Query semantically (and add RAG)
 
-With embeddings in place, [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/)
-ranks results by meaning, and you can layer [RAG](https://openviglet.github.io/turing/docs/rag/) on top for
+With embeddings in place, [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/)
+ranks results by meaning, and you can layer [RAG](https://turing.viglet.org/docs/rag/) on top for
 grounded conversational answers over your AEM content:
 
 ```bash
@@ -104,8 +109,8 @@ your own infrastructure.
 ## Next steps
 
 - 📘 [Index Adobe AEM into Turing](/blog/enterprise-search-for-adobe-aem/) (start here)
-- 📗 [Embedding models](https://openviglet.github.io/turing/docs/embedding-models/) · [Embedding stores](https://openviglet.github.io/turing/docs/embedding-stores/)
-- 📙 [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/) · [RAG](https://openviglet.github.io/turing/docs/rag/)
+- 📗 [Embedding models](https://turing.viglet.org/docs/embedding-models/) · [Embedding stores](https://turing.viglet.org/docs/embedding-stores/)
+- 📙 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) · [RAG](https://turing.viglet.org/docs/rag/)
 - ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and

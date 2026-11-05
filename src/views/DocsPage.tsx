@@ -24,7 +24,7 @@ import { solutions } from '@/data/solutions'
 
 /**
  * The docs hub (/docs/). Each product publishes its documentation on its own
- * site (openviglet.github.io/<id>/docs/); this page is the one address the
+ * site (<id>.viglet.org/docs/); this page is the one address the
  * site's generic "Get Started" and "Documentation" links point at, replacing
  * the retired shared docs.viglet.org. The paths below exist in all three docs.
  */

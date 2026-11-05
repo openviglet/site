@@ -18,11 +18,11 @@ viglet_products: [dumont, turing, shio]
 Most content platforms come as one product you buy whole. The Viglet suite is three
 open source products, each doing one step, each usable without the others:
 
-- **Move it**: [Viglet Dumont](https://openviglet.github.io/dumont/) brings content
+- **Move it**: [Viglet Dumont](https://dumont.viglet.org/) brings content
   in from the systems you already have.
-- **Find it**: [Viglet Turing](https://openviglet.github.io/turing/) makes it
+- **Find it**: [Viglet Turing](https://turing.viglet.org/) makes it
   searchable, and answerable with AI.
-- **Publish it**: [Viglet Shio](https://openviglet.github.io/shio/) is the CMS that
+- **Publish it**: [Viglet Shio](https://shio.viglet.org/) is the CMS that
   people and AI agents publish from.
 
 All three are Apache 2.0 and self-hosted.

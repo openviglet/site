@@ -125,6 +125,8 @@ export default function Footer() {
                 </Link>
               </li>
               {[
+                // public LLM/embedding/rerank catalog that Turing reads (was openviglet.github.io/model-catalog)
+                { label: 'Model Catalog', href: 'https://models.viglet.org/' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },
               ].map((link) => (

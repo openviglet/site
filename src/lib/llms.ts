@@ -61,6 +61,7 @@ Search engines: Apache Solr, Elasticsearch, or embedded Lucene.
 RAG: cited answers with a pluggable reranker, a relevance gate, and an optional groundedness check.
 AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
 LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
+Model Catalog: https://models.viglet.org/ is a vendor-neutral public catalog of LLM, embedding, rerank and media models (context windows, capabilities, indicative pricing, deprecations). Turing reads it to fill its model picker and warn on retired models.
 
 Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing.
 
@@ -144,6 +145,7 @@ Organizations that want to use Viglet Dumont, Shio or Turing can reach the Vigle
 
 ## Community
 
+- Model Catalog: https://models.viglet.org/
 - GitHub: https://github.com/openviglet
 - Reddit: https://www.reddit.com/r/TuringES/
 - LinkedIn: https://www.linkedin.com/company/viglet.com

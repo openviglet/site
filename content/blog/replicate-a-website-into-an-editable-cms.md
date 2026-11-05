@@ -20,7 +20,7 @@ nobody wrote down its content model, and rebuilding it by hand takes months. The
 result is either a pixel copy nobody can edit or an editable site that no longer
 looks like the original.
 
-[**Viglet Shio**](https://openviglet.github.io/shio/) treats that as a choice you
+[**Viglet Shio**](https://shio.viglet.org/) treats that as a choice you
 make per block, not once for the whole site.
 
 <!-- truncate -->
@@ -72,7 +72,7 @@ for any front end.
 
 ## Next steps
 
-- 📘 [Replicate a site with Shio](https://openviglet.github.io/shio/replicate/)
+- 📘 [Replicate a site with Shio](https://shio.viglet.org/replicate/)
 - 📗 [Run your CMS from Claude Code](/blog/run-your-cms-from-claude-code-shio/)
 - ⭐ [Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
 

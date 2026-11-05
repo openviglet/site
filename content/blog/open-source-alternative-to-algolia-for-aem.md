@@ -35,7 +35,7 @@ it doesn't.
 | **Coveo** | Per query / seat (SaaS, enterprise) | Coveo cloud | ✅ | ✅ | ✅ | ✅ (first-class) |
 | **Lucidworks Fusion** | License + infra | Self-host / cloud | ✅ | ✅ | ✅ | Connector |
 | **Raw Solr / Elasticsearch** | Free / infra | Self-host | ✅ (DIY) | ✅ (DIY) | ❌ (build it) | ❌ (build it) |
-| **Viglet Turing** | Free (Apache 2.0) + optional support | **Your infrastructure** | ✅ (auto from AEM tags) | ✅ | ✅ (built-in) | ✅ ([Viglet Dumont](https://openviglet.github.io/dumont/docs/connectors/aem/)) |
+| **Viglet Turing** | Free (Apache 2.0) + optional support | **Your infrastructure** | ✅ (auto from AEM tags) | ✅ | ✅ (built-in) | ✅ ([Viglet Dumont](https://dumont.viglet.org/docs/connectors/aem/)) |
 
 ## The real decision axes
 
@@ -61,7 +61,7 @@ raw Solr/ES all index **inside your perimeter**.
 A search engine is only as good as how cleanly it ingests AEM. The hard parts:
 real-time sync on publish, tags → facets, multi-language paths, author *and*
 publish environments, and **cascade re-indexing** when a shared fragment
-changes. Turing handles these through [Dumont](https://openviglet.github.io/dumont/docs/connectors/aem/)
+changes. Turing handles these through [Dumont](https://dumont.viglet.org/docs/connectors/aem/)
 out of the box: OSGi event listeners, `infinity.json` traversal, automatic tag
 facets, and dependency-tracked cascade re-indexing.
 
@@ -75,7 +75,7 @@ answers. With SaaS you often add a separate AI tier (and a separate bill).
 Turing bundles faceted search, **vector/semantic search**, and **RAG** with
 your choice of LLM (OpenAI, Ollama, Anthropic, Gemini) in one Apache-2.0
 platform, so answers are grounded in your AEM content with citations, on your
-own infrastructure. See the [RAG guide](https://openviglet.github.io/turing/docs/rag/).
+own infrastructure. See the [RAG guide](https://turing.viglet.org/docs/rag/).
 
 ## When to pick which
 
@@ -95,7 +95,7 @@ Indexing AEM into Turing takes about 15 minutes, and there's a
 [step-by-step guide using the WKND reference site](/blog/enterprise-search-for-adobe-aem/).
 
 - ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
-- 📘 [AEM Connector docs](https://openviglet.github.io/dumont/docs/connectors/aem/)
+- 📘 [AEM Connector docs](https://dumont.viglet.org/docs/connectors/aem/)
 - 💬 [GitHub Discussions](https://github.com/openviglet/turing/discussions)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and

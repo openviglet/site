@@ -109,7 +109,7 @@ the Turing repo's `T` numbers.
   patterns Block G needs.
 - **Turing** (`d:\Git\viglet\turing\2026.1`): Block E (GEO) is the cross-repo
   counterpart of Turing's STRATEGY Block O, which already names this repo.
-- **Product docs** live on each product's site, `openviglet.github.io/<id>/docs/`
+- **Product docs** live on each product's site, `<id>.viglet.org/docs/`
   (`docs` / `getStarted` in `src/data/solutions.ts`); generic "Get Started" and
   "Documentation" links go to the on-site `/docs/` hub (W47).
 - **docs.viglet.org** (`vigletdocs.github.io`): retired; the blog's former home. Its

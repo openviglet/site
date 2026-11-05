@@ -31,7 +31,7 @@ generative AI (RAG), and your content staying on your own infrastructure.
 
 ## The connector is a WordPress plugin, not a Java service
 
-The [Adobe AEM connector](https://openviglet.github.io/dumont/docs/connectors/aem/) is a Java plugin loaded into
+The [Adobe AEM connector](https://dumont.viglet.org/docs/connectors/aem/) is a Java plugin loaded into
 the Viglet Dumont process. The WordPress connector works differently: it is a
 **PHP plugin you install directly inside WordPress**. It talks to Turing over
 HTTP, so there is no separate connector JAR to run.
@@ -68,7 +68,7 @@ content will land in.
 Download `viglet-dumont-<version>.zip` from the
 [Dumont releases](https://github.com/openviglet/dumont/releases) and upload it under
 **Plugins → Add New → Upload Plugin** (or install it with Composer or WP-CLI, see the
-[reference](https://openviglet.github.io/dumont/docs/connectors/wordpress/#install)). Then activate it.
+[reference](https://dumont.viglet.org/docs/connectors/wordpress/#install)). Then activate it.
 
 ## Step 3: Connect to Turing
 
@@ -140,8 +140,8 @@ curl "http://localhost:2700/api/sn/wp-search/chat?q=How+do+I+reset+my+password"
 
 ## Next steps
 
-- 📘 [WordPress Connector: full reference](https://openviglet.github.io/dumont/docs/connectors/wordpress/)
-- 📗 [Semantic Navigation](https://openviglet.github.io/turing/docs/semantic-navigation/) and [RAG](https://openviglet.github.io/turing/docs/rag/) guides
+- 📘 [WordPress Connector: full reference](https://dumont.viglet.org/docs/connectors/wordpress/)
+- 📗 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) and [RAG](https://turing.viglet.org/docs/rag/) guides
 - 📙 [How to add enterprise search to Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the same approach for the other major CMS
 - ⭐ [Star Turing on GitHub](https://github.com/openviglet/turing)
 - 💬 [Ask in GitHub Discussions](https://github.com/openviglet/turing/discussions)
