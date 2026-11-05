@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import DownloadPage from '@/views/DownloadPage'
 import { getSolution, solutions } from '@/data/solutions'
-import { productPageMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { productPageJsonLd, productPageMetadata } from '@/lib/seo'
 
 type Props = { params: Promise<{ identifier: string }> }
 
@@ -18,6 +19,12 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function Page({ params }: Props) {
   const { identifier } = await params
-  if (!getSolution(identifier)) notFound()
-  return <DownloadPage identifier={identifier} />
+  const solution = getSolution(identifier)
+  if (!solution) notFound()
+  return (
+    <>
+      <JsonLd data={productPageJsonLd(solution, 'download')} />
+      <DownloadPage identifier={identifier} />
+    </>
+  )
 }

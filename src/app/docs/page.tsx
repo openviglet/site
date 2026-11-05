@@ -1,8 +1,14 @@
 import DocsPage from '@/views/DocsPage'
-import { staticPageMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { staticPageJsonLd, staticPageMetadata } from '@/lib/seo'
 
 export const metadata = staticPageMetadata('docs')
 
 export default function Page() {
-  return <DocsPage />
+  return (
+    <>
+      <JsonLd data={staticPageJsonLd('docs')} />
+      <DocsPage />
+    </>
+  )
 }

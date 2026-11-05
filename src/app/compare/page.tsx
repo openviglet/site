@@ -1,8 +1,14 @@
 import ProductComparePage from '@/views/ProductComparePage'
-import { staticPageMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { staticPageJsonLd, staticPageMetadata } from '@/lib/seo'
 
 export const metadata = staticPageMetadata('compare')
 
 export default function Page() {
-  return <ProductComparePage />
+  return (
+    <>
+      <JsonLd data={staticPageJsonLd('compare')} />
+      <ProductComparePage />
+    </>
+  )
 }

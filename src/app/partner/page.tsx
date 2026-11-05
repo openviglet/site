@@ -1,8 +1,14 @@
 import PartnerPage from '@/views/PartnerPage'
-import { staticPageMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { staticPageJsonLd, staticPageMetadata } from '@/lib/seo'
 
 export const metadata = staticPageMetadata('partner')
 
 export default function Page() {
-  return <PartnerPage />
+  return (
+    <>
+      <JsonLd data={staticPageJsonLd('partner')} />
+      <PartnerPage />
+    </>
+  )
 }

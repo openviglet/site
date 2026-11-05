@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation'
 import BlogPostPage from '@/views/BlogPostPage'
 import { blogPosts, getPost } from '@/data/blog'
 import { renderPost } from '@/lib/blog'
-import { blogPostingJsonLd, blogPostMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { blogPostingJsonLd, blogPostMetadata, blogPostPageJsonLd } from '@/lib/seo'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -23,7 +24,8 @@ export default async function Page({ params }: Props) {
   const { html, readingMinutes } = await renderPost(post.slug)
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: blogPostingJsonLd(post) }} />
+      <JsonLd data={blogPostingJsonLd(post)} />
+      <JsonLd data={blogPostPageJsonLd(post)} />
       <BlogPostPage post={post} html={html} readingMinutes={readingMinutes} />
     </>
   )

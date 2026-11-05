@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import ConsentBanner from '@/components/ConsentBanner'
-import { SITE_ORIGIN } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { SITE_ORIGIN, siteJsonLd } from '@/lib/seo'
 import '@/index.css'
 
 export const metadata: Metadata = {
@@ -42,6 +43,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en" suppressHydrationWarning>
       <body>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Organization + WebSite structured data, on every page (W49). */}
+        <JsonLd data={siteJsonLd()} />
         <ConsentBanner />
         {children}
       </body>

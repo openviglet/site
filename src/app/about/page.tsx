@@ -1,8 +1,14 @@
 import AboutPage from '@/views/AboutPage'
-import { staticPageMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { staticPageJsonLd, staticPageMetadata } from '@/lib/seo'
 
 export const metadata = staticPageMetadata('about')
 
 export default function Page() {
-  return <AboutPage />
+  return (
+    <>
+      <JsonLd data={staticPageJsonLd('about')} />
+      <AboutPage />
+    </>
+  )
 }

@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation'
 import BlogIndexPage from '@/views/BlogIndexPage'
 import { blogTags, getPostsByTag, usedTags } from '@/data/blog'
-import { blogTagMetadata } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
+import { blogTagJsonLd, blogTagMetadata } from '@/lib/seo'
 
 type Props = { params: Promise<{ tag: string }> }
 
@@ -19,5 +20,11 @@ export default async function Page({ params }: Props) {
   const { tag } = await params
   const info = blogTags[tag]
   if (!info) notFound()
-  return <BlogIndexPage posts={getPostsByTag(tag)} heading={info.label} intro={info.description} activeTag={tag} />
+  const posts = getPostsByTag(tag)
+  return (
+    <>
+      <JsonLd data={blogTagJsonLd(tag, posts)} />
+      <BlogIndexPage posts={posts} heading={info.label} intro={info.description} activeTag={tag} />
+    </>
+  )
 }
