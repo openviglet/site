@@ -244,19 +244,6 @@ hero's random layout) now start from a value the server can produce.
 inspection on `/turing/` and `/shio/` after the next deploy and confirm the rendered
 text is what Google sees. If it is, ship this line plainly.
 
-### XI.9 W54: Browser verification of revised journeys
-
-Browser inspection was interrupted because Computer Use could not establish the Chrome
-URL. Builds and HTML checks passed, but screenshots, mobile behavior and keyboard
-interactions were not verified. When a policy-compatible browser session is available,
-inspect the home at narrow mobile, tablet and desktop widths in light and dark modes.
-Check menu expansion, visible focus, manual preview switching, the optional wizard and
-its deep link, integration arrows, consent choices, blog next steps and the contact form
-loading/fallback. Check clipping, overlap, horizontal overflow, text readability and
-target size. Record observed evidence and fix demonstrated defects within this scope. Do
-not substitute a build result for visual evidence or bypass browser access checks. A
-completed task requires actual browser verification.
-
 ### XI.10 W55: Live measurement verification
 
 This task requires the revised site to be published and access to its GA property.
@@ -282,3 +269,17 @@ captured baseline where possible and explain any missing baseline. Do not infer 
 from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
+
+### XI.12 W57: Discoverable product overviews
+
+Retain /turing/, /dumont/ and /shio/ as concise portfolio summaries, as selected by the
+owner on 2026-11-07. Each page should explain the problem it solves, when to choose it,
+how it relates to the other products and what is needed to start. Offer direct links to
+the dedicated product site, a relevant demonstration or guide, installation, release
+notes and implementation contact. Remove the repeated long feature/module narrative from
+these summaries; detailed capability content remains on the dedicated product sites.
+Restore local overview links in header and footer and add an explicit overview link on
+each home product card, while keeping direct demo and installation actions. Preserve all
+existing URLs and canonical rules. Keep product-specific content typed and data-driven.
+Validate all three routes, local links, mobile navigation and direct evaluation actions
+with Playwright, and run both output builds.

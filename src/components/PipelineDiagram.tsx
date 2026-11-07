@@ -10,7 +10,7 @@ export default function PipelineDiagram() {
           <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr] md:items-center">
             <div>
               <p className="text-sm text-muted-foreground mb-2">{connection.source}</p>
-              <h3 className={`font-bold product-text-${connection.solution}`}>{connection.action}</h3>
+              <h3 className="font-bold text-foreground">{connection.action}</h3>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground md:flex-col md:text-center md:max-w-48">
               <span>{connection.payload}</span>

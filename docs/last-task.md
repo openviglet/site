@@ -1,7 +1,7 @@
-# Last task number: `W56`
+# Last task number: `W57`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W57`; after assigning it, bump the number above and the log line below.
+> `W58`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W57**: Restore discoverable local product overviews (Block E), 2026-11-07
 - **W56**: Review journey outcomes (Block E), 2026-11-07
 - **W55**: Live measurement verification (Block E), 2026-11-07
 - **W54**: Browser verification of revised journeys (Block E), 2026-11-07

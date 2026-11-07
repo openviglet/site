@@ -42,7 +42,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1 flex-1">
+          <nav className="hidden lg:flex items-center gap-1 flex-1">
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
@@ -59,7 +59,7 @@ export default function Header() {
           </nav>
 
           {/* CTA + Theme toggle */}
-          <div className="hidden md:flex items-center gap-3 ml-auto">
+          <div className="hidden lg:flex items-center gap-3 ml-auto">
             <Link
               href="/blog/"
               className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
@@ -80,11 +80,11 @@ export default function Header() {
           </div>
 
           {/* Mobile search + hamburger */}
-          <SiteSearch className="md:hidden ml-auto" />
+          <SiteSearch className="lg:hidden ml-auto" />
           <button
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
+            className="lg:hidden p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
@@ -95,7 +95,7 @@ export default function Header() {
 
         {/* Mobile nav: inside header but below the 16h bar */}
         {menuOpen && (
-          <div id="mobile-navigation" className="md:hidden bg-background border-t border-border px-6 py-4 space-y-1 shadow-lg">
+          <div id="mobile-navigation" className="lg:hidden bg-background border-t border-border px-6 py-4 space-y-1 shadow-lg">
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}

@@ -46,7 +46,7 @@ export default function HomePage() {
                 const product = getSolution(path.product)!
                 return (
                   <article key={path.product} className={`rounded-2xl border border-border bg-card p-6 flex flex-col product-card-${path.product}`}>
-                    <div className="flex items-center gap-3 mb-5"><VigletLogo identifier={path.product} size={40} /><p className={`font-semibold product-text-${path.product}`}>{product.fullName}</p></div>
+                    <div className="flex items-center gap-3 mb-5"><VigletLogo identifier={path.product} size={40} /><p className="font-semibold text-foreground">{product.fullName}</p></div>
                     <h3 className="text-xl font-bold text-foreground">{path.job}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{path.description}</p>
                     <a href={path.href} data-viglet-action={path.product === 'turing' ? 'demo_open' : 'product_open'} data-viglet-product={path.product} data-viglet-placement="home_products" className="inline-flex items-center gap-2 text-brand font-semibold text-sm">{path.action}<IconArrowRight size={16} /></a>
