@@ -21,33 +21,33 @@ export interface Intent {
   solution: string
   terms: string[]
   reason: string
-  /** A source with its own Turing integration must not trigger generic ingestion advice. */
+  /** A source with its own Viglet Turing integration must not trigger generic ingestion advice. */
   excludeTerms?: string[]
 }
 
 export const intents: Intent[] = [
-  // ── Dumont: get content out of a source ──────────────────────────────────
-  { solution: 'dumont', terms: ['aem', 'adobe experience manager'], reason: 'Dumont’s AEM source extracts pages, fragments and assets from Adobe AEM for indexing.' },
-  { solution: 'turing', terms: ['wordpress', 'woocommerce'], reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Turing, without Dumont.' },
-  { solution: 'dumont', terms: ['intranet', 'crawl', 'crawler', 'website', 'web site', 'rastrear'], reason: 'Dumont’s web crawler extracts structured content from public or private websites.' },
-  { solution: 'dumont', terms: ['database', 'banco de dados', 'sql', 'jdbc', 'tabela'], reason: 'Dumont’s database source ingests and synchronizes records from SQL databases.' },
-  { solution: 'dumont', terms: ['file share', 'filesystem', 'file system', 'arquivos', 'documentos', 'pdf'], reason: 'Dumont’s asset source makes documents and media on file systems searchable.' },
-  { solution: 'dumont', terms: ['edge delivery', 'eds', 'franklin', 'helix'], reason: 'Dumont indexes Adobe Edge Delivery Services sites.' },
-  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Dumont connects supported sources to a search engine through configured connectors and field mappings.' },
-  { solution: 'dumont', terms: ['solr', 'elasticsearch'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Dumont delivers extracted content to Apache Solr or Elasticsearch by changing one property.' },
+  // ── Viglet Dumont: get content out of a source ──────────────────────────────────
+  { solution: 'dumont', terms: ['aem', 'adobe experience manager'], reason: 'Viglet Dumont’s AEM source extracts pages, fragments and assets from Adobe AEM for indexing.' },
+  { solution: 'turing', terms: ['wordpress', 'woocommerce'], reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Viglet Turing, without Viglet Dumont.' },
+  { solution: 'dumont', terms: ['intranet', 'crawl', 'crawler', 'website', 'web site', 'rastrear'], reason: 'Viglet Dumont’s web crawler extracts structured content from public or private websites.' },
+  { solution: 'dumont', terms: ['database', 'banco de dados', 'sql', 'jdbc', 'tabela'], reason: 'Viglet Dumont’s database source ingests and synchronizes records from SQL databases.' },
+  { solution: 'dumont', terms: ['file share', 'filesystem', 'file system', 'arquivos', 'documentos', 'pdf'], reason: 'Viglet Dumont’s asset source makes documents and media on file systems searchable.' },
+  { solution: 'dumont', terms: ['edge delivery', 'eds', 'franklin', 'helix'], reason: 'Viglet Dumont indexes Adobe Edge Delivery Services sites.' },
+  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Viglet Dumont connects supported sources to a search engine through configured connectors and field mappings.' },
+  { solution: 'dumont', terms: ['solr', 'elasticsearch'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Viglet Dumont delivers extracted content to Apache Solr or Elasticsearch by changing one property.' },
 
-  // ── Turing: search and answer ────────────────────────────────────────────
-  { solution: 'turing', terms: ['search', 'busca', 'buscar', 'pesquisa', 'pesquisar', 'facet', 'faceta', 'filtro'], reason: 'Turing serves faceted, multilingual, typo-tolerant search on Solr, Elasticsearch or Lucene.' },
-  { solution: 'turing', terms: ['semantic', 'semantica', 'vector', 'vetor', 'embedding'], reason: 'Turing ranks keyword and vector matches together (hybrid RRF).' },
-  { solution: 'turing', terms: ['ai', 'ia', 'inteligencia artificial', 'rag', 'chatbot', 'chat', 'answer', 'resposta', 'perguntas', 'llm', 'gpt', 'openai', 'gemini', 'ollama'], reason: 'Turing answers questions from your content with cited RAG, on the LLM you choose.' },
-  { solution: 'turing', terms: ['agent', 'agente', 'mcp'], reason: 'Turing agents call your tools, run skills in a sandbox and federate over MCP.' },
-  { solution: 'turing', terms: ['algolia', 'coveo', 'lucidworks'], reason: 'Turing is a self-hosted, Apache 2.0 alternative to hosted search services.' },
+  // ── Viglet Turing: search and answer ────────────────────────────────────────────
+  { solution: 'turing', terms: ['search', 'busca', 'buscar', 'pesquisa', 'pesquisar', 'facet', 'faceta', 'filtro'], reason: 'Viglet Turing serves faceted, multilingual, typo-tolerant search on Solr, Elasticsearch or Lucene.' },
+  { solution: 'turing', terms: ['semantic', 'semantica', 'vector', 'vetor', 'embedding'], reason: 'Viglet Turing ranks keyword and vector matches together (hybrid RRF).' },
+  { solution: 'turing', terms: ['ai', 'ia', 'inteligencia artificial', 'rag', 'chatbot', 'chat', 'answer', 'resposta', 'perguntas', 'llm', 'gpt', 'openai', 'gemini', 'ollama'], reason: 'Viglet Turing answers questions from your content with cited RAG, on the LLM you choose.' },
+  { solution: 'turing', terms: ['agent', 'agente', 'mcp'], reason: 'Viglet Turing agents call your tools, run skills in a sandbox and federate over MCP.' },
+  { solution: 'turing', terms: ['algolia', 'coveo', 'lucidworks'], reason: 'Viglet Turing is a self-hosted, Apache 2.0 alternative to hosted search services.' },
 
-  // ── Shio: model and serve content ────────────────────────────────────────
-  { solution: 'shio', terms: ['cms', 'headless', 'gerenciar conteudo', 'manage content', 'content model', 'modelar', 'post type'], reason: 'Shio models your own post types, in the console or as code.' },
-  { solution: 'shio', terms: ['graphql', 'rest api', 'content api', 'delivery api'], reason: 'Shio delivers content over a versioned REST and GraphQL API.' },
-  { solution: 'shio', terms: ['build a site', 'new site', 'criar site', 'criar um site', 'next js', 'nextjs'], reason: 'Shio renders content with Next.js or any framework through its React and JavaScript SDKs.' },
-  { solution: 'shio', terms: ['publish', 'publicar', 'preview', 'draft', 'rascunho', 'agendar', 'schedule', 'editor'], reason: 'Shio previews drafts, schedules publishing and edits pages inline.' },
+  // ── Viglet Shio: model and serve content ────────────────────────────────────────
+  { solution: 'shio', terms: ['cms', 'headless', 'gerenciar conteudo', 'manage content', 'content model', 'modelar', 'post type'], reason: 'Viglet Shio models your own post types, in the console or as code.' },
+  { solution: 'shio', terms: ['graphql', 'rest api', 'content api', 'delivery api'], reason: 'Viglet Shio delivers content over a versioned REST and GraphQL API.' },
+  { solution: 'shio', terms: ['build a site', 'new site', 'criar site', 'criar um site', 'next js', 'nextjs'], reason: 'Viglet Shio renders content with Next.js or any framework through its React and JavaScript SDKs.' },
+  { solution: 'shio', terms: ['publish', 'publicar', 'preview', 'draft', 'rascunho', 'agendar', 'schedule', 'editor'], reason: 'Viglet Shio previews drafts, schedules publishing and edits pages inline.' },
 ]
 
 export interface ProductMatch {

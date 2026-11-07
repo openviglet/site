@@ -28,7 +28,7 @@
     },
     {
       "slug": "turing-aem-search",
-      "title": "Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People",
+      "title": "Viglet Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People",
       "description": "Your AEM search box is the most honest feedback channel you own, and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0.",
       "url": "/blog/turing-aem-search/",
       "date": "2026-07-27",
@@ -131,7 +131,7 @@
       ],
       "keywords": [
         "Solr vs Elasticsearch",
-        "Solr vs Elasticsearch vs Turing",
+        "Solr vs Elasticsearch vs Viglet Turing",
         "which search engine to choose",
         "enterprise search platform",
         "open source search engine",
@@ -164,7 +164,7 @@
         "Lucidworks Fusion alternative",
         "enterprise search comparison",
         "open source enterprise search",
-        "Turing ES vs Coveo"
+        "Viglet Turing ES vs Coveo"
       ],
       "solutions": [
         "turing"
@@ -218,7 +218,7 @@
         "Lucidworks alternative",
         "AEM search engine comparison",
         "enterprise search for AEM",
-        "Algolia vs Coveo vs Turing"
+        "Algolia vs Coveo vs Viglet Turing"
       ],
       "solutions": [
         "turing"

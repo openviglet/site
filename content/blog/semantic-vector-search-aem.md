@@ -39,12 +39,12 @@ ones, so it matches on *meaning*:
 
 ![Diagram: Keyword vs. semantic: what changes](/blog/diagrams/semantic-vector-search-aem.svg)
 
-In Turing this runs alongside the keyword index, so you get faceted keyword
+In Viglet Turing this runs alongside the keyword index, so you get faceted keyword
 search *and* semantic ranking on the same AEM content.
 
 ## Step 1: Configure an embedding model
 
-Turing talks to multiple embedding providers. In the admin console under
+Viglet Turing talks to multiple embedding providers. In the admin console under
 **Generative AI**, configure an [LLM instance](https://turing.viglet.org/docs/llm-instances/) and an
 [embedding model](https://turing.viglet.org/docs/embedding-models/):
 
@@ -61,12 +61,12 @@ content.
 
 To compare embedding models before you pick one (context window, capabilities,
 indicative pricing, deprecations), see the vendor-neutral
-[Viglet Model Catalog](https://models.viglet.org/), the same catalog Turing reads
+[Viglet Model Catalog](https://models.viglet.org/), the same catalog Viglet Turing reads
 to fill its model picker.
 
 ## Step 2: Pick an embedding store
 
-The vectors need somewhere to live. Turing supports pluggable
+The vectors need somewhere to live. Viglet Turing supports pluggable
 [embedding stores](https://turing.viglet.org/docs/embedding-stores/), including an **embedded Lucene
 vector store** that needs no extra infrastructure, ideal for getting started.
 For larger corpora you can point it at a dedicated vector database.
@@ -77,8 +77,8 @@ For larger corpora you can point it at a dedicated vector database.
 
 ## Step 3: Embed your AEM content
 
-When AEM content flows in through the [Dumont connector](https://dumont.viglet.org/docs/connectors/aem/),
-Turing generates embeddings for each document and writes them to the store.
+When AEM content flows in through the [Viglet Dumont connector](https://dumont.viglet.org/docs/connectors/aem/),
+Viglet Turing generates embeddings for each document and writes them to the store.
 Re-indexing an existing AEM site re-embeds it with your chosen model, with no
 changes to the connector configuration.
 
@@ -108,10 +108,10 @@ your own infrastructure.
 
 ## Next steps
 
-- 📘 [Index Adobe AEM into Turing](/blog/enterprise-search-for-adobe-aem/) (start here)
+- 📘 [Index Adobe AEM into Viglet Turing](/blog/enterprise-search-for-adobe-aem/) (start here)
 - 📗 [Embedding models](https://turing.viglet.org/docs/embedding-models/) · [Embedding stores](https://turing.viglet.org/docs/embedding-stores/)
 - 📙 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) · [RAG](https://turing.viglet.org/docs/rag/)
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and
 generative AI. Index Adobe AEM, add embedding-based vector search and RAG, and

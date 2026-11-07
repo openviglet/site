@@ -38,7 +38,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
       {/* ===== HERO ===== */}
       <PageHero label={comparison.eyebrow} title={comparison.h1} description={comparison.intro}>
-        <Button size="lg" asChild><a href={comparison.slug === 'enterprise-search-for-aem' ? 'https://turing.viglet.org/aem-search/' : 'https://turing.viglet.org/#playground'} data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="comparison">Try Turing in context</a></Button>
+        <Button size="lg" asChild><a href={comparison.slug === 'enterprise-search-for-aem' ? 'https://turing.viglet.org/aem-search/' : 'https://turing.viglet.org/#playground'} data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="comparison">Try Viglet Turing in context</a></Button>
         <Button size="lg" variant="outline" asChild><a href="https://turing.viglet.org/docs/getting-started/intro/" data-viglet-action="setup_guide_open" data-viglet-product="turing" data-viglet-placement="comparison">Read the setup guide</a></Button>
       </PageHero>
 
@@ -137,7 +137,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
                 >
                   <VigletLogo identifier={p.identifier} size={40} />
                   <div>
-                    <p className="font-bold text-foreground text-sm">{p.shortName}</p>
+                    <p className="font-bold text-foreground text-sm">{p.fullName}</p>
                     <p className="text-xs text-muted-foreground">{p.memo}</p>
                   </div>
                 </Link>
@@ -207,7 +207,7 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
           <h2 className="text-3xl font-bold text-foreground">Evaluate it on your own content</h2>
           <p className="mt-3 text-muted-foreground">Start with the setup guide or explore the product demonstration.</p>
           <div className="flex flex-wrap gap-3 mt-6">
-            <Button size="lg" asChild><a href="https://turing.viglet.org/">Explore Turing</a></Button>
+            <Button size="lg" asChild><a href="https://turing.viglet.org/">Explore Viglet Turing</a></Button>
             <Button size="lg" variant="outline" asChild><Link href="/turing/download/"><IconBrandDocker size={16} /> Run with Docker <IconArrowRight size={16} /></Link></Button>
           </div>
         </div>

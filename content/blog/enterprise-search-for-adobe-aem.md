@@ -35,7 +35,7 @@ guide is the how-to behind it.
 
 ## What you'll build
 
-By the end you'll have AEM pages flowing into a Turing search index, with:
+By the end you'll have AEM pages flowing into a Viglet Turing search index, with:
 
 - **Faceted search**: AEM tags become filterable facets automatically
 - **Real-time sync**: pages re-index the moment they're published in AEM
@@ -44,10 +44,10 @@ By the end you'll have AEM pages flowing into a Turing search index, with:
 
 ## The architecture in one picture
 
-Turing doesn't crawl AEM directly. A dedicated connector,
+Viglet Turing doesn't crawl AEM directly. A dedicated connector,
 [**Viglet Dumont**](https://www.viglet.org/dumont/), sits between them: an
-OSGi bundle inside AEM emits events, and the Dumont connector fetches the
-content and indexes it into Turing.
+OSGi bundle inside AEM emits events, and the Viglet Dumont connector fetches the
+content and indexes it into Viglet Turing.
 
 ![Diagram: The architecture in one picture](/blog/diagrams/enterprise-search-for-adobe-aem.svg)
 
@@ -56,10 +56,10 @@ Three components, each documented in full:
 | Component | Runs where | Job |
 |---|---|---|
 | **AEM Event Listener** | Inside AEM (OSGi bundle) | Notifies the connector on publish/modify/delete |
-| **AEM Connector Plugin** | Dumont process | Fetches content from AEM, indexes into Turing |
-| **Integration Instance** | Turing admin console | Proxy config + monitoring |
+| **AEM Connector Plugin** | Viglet Dumont process | Fetches content from AEM, indexes into Viglet Turing |
+| **Integration Instance** | Viglet Turing admin console | Proxy config + monitoring |
 
-## Step 1: Run Turing
+## Step 1: Run Viglet Turing
 
 The fastest path is Docker:
 
@@ -72,9 +72,9 @@ Open `http://localhost:2700/console` and set the admin password on first run
 (`TURING_ADMIN_PASSWORD` env var). Create a **Semantic Navigation (SN) Site**.
 This is the index your AEM content will land in.
 
-## Step 2: Configure the AEM source in Dumont
+## Step 2: Configure the AEM source in Viglet Dumont
 
-In the Turing admin console, go to **Enterprise Search → Integration** and
+In the Viglet Turing admin console, go to **Enterprise Search → Integration** and
 add an AEM instance. The key source fields:
 
 | Field | Example | Notes |
@@ -82,7 +82,7 @@ add an AEM instance. The key source fields:
 | Endpoint | `http://localhost:4502` | Your AEM author or publish instance |
 | Root Path | `/content/wknd` | Where traversal starts |
 | Content Type | `cq:Page` | What to index |
-| SN Site (Publish) | `wknd-search` | The Turing index to feed |
+| SN Site (Publish) | `wknd-search` | The Viglet Turing index to feed |
 
 That's it for the happy path. AEM **tags are converted to facets
 automatically**, with no field mapping required.
@@ -104,7 +104,7 @@ curl -X POST http://localhost:30130/api/v2/aem/index/WKND \
 
 The connector calls AEM's `infinity.json` to read the full JCR node tree,
 pulls `jcr:content.tags.json` for facets, traverses children, and sends each
-page through the Dumont pipeline into Turing.
+page through the Viglet Dumont pipeline into Viglet Turing.
 
 For **large content trees**, switch from tree traversal to AEM's QueryBuilder
 discovery, which finds all pages in bulk and processes them in parallel:
@@ -118,21 +118,21 @@ dumont:
 ## Step 4: Real-time sync (production)
 
 For production, install the `aem-server` OSGi bundle inside AEM. It subscribes
-to AEM's replication and page events and notifies Dumont automatically:
+to AEM's replication and page events and notifies Viglet Dumont automatically:
 
-| AEM event | Dumont action |
+| AEM event | Viglet Dumont action |
 |---|---|
 | Page activated (published) | `PUBLISHING` |
 | Page deactivated | `UNPUBLISHING` |
 | Page created / modified | `INDEXING` |
 | DAM asset modified | `INDEXING` |
 
-Configure the bundle in AEM's Web Console (**Host** = your Dumont URL,
+Configure the bundle in AEM's Web Console (**Host** = your Viglet Dumont URL,
 **Config Name** = the source name). From then on, publishing a page in AEM
 re-indexes it within seconds, with no cron and no full re-crawl.
 
 > **Tip: cascade re-indexing.** When a shared component or experience fragment
-> changes, every page that references it can go stale. Turing/Dumont can track
+> changes, every page that references it can go stale. Viglet Turing/Viglet Dumont can track
 > `/content/*` dependencies and automatically re-index dependents. Enable
 > `dumont.dependencies.enabled=true` and run a Reindex All to populate the
 > dependency graph.
@@ -165,7 +165,7 @@ filter panel.
 
 ## Step 6 (optional): Conversational answers (RAG)
 
-Because Turing already holds your AEM content, turning on **RAG** gives you
+Because Viglet Turing already holds your AEM content, turning on **RAG** gives you
 grounded AI answers with citations, over your own content, on your own
 infrastructure, with the LLM of your choice (OpenAI, Ollama, Anthropic, Gemini):
 
@@ -188,9 +188,9 @@ a third party.
 ## Next steps
 
 - 📘 [AEM Connector: full reference](https://dumont.viglet.org/docs/connectors/aem/) (event listeners, QueryBuilder, custom extractors)
-- 📗 [Turing: AEM Integration](https://turing.viglet.org/docs/integration-aem/)
+- 📗 [Viglet Turing: AEM Integration](https://turing.viglet.org/docs/integration-aem/)
 - 📙 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) and [RAG](https://turing.viglet.org/docs/rag/) guides
-- ⭐ [Star Turing on GitHub](https://github.com/openviglet/turing) (it genuinely helps others find it)
+- ⭐ [Star Viglet Turing on GitHub](https://github.com/openviglet/turing) (it genuinely helps others find it)
 - 💬 [Ask in GitHub Discussions](https://github.com/openviglet/turing/discussions)
 
 *Viglet Turing is open-source (Apache 2.0) enterprise search with semantic

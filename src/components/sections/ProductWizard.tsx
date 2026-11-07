@@ -112,7 +112,7 @@ export default function ProductWizard() {
                             href={product.permalink}
                             className={`flex items-center gap-1.5 text-sm font-semibold no-underline product-text-${pick.solution}`}
                           >
-                            About {product.shortName}
+                            About {product.fullName}
                             <IconArrowRight size={14} />
                           </Link>
                           <a

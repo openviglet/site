@@ -127,13 +127,13 @@ const identities = [
   {
     id: 'partner',
     title: 'Partner with Viglet',
-    subtitle: 'Build on Turing, Dumont or Shio with us',
+    subtitle: 'Build on Viglet Turing, Viglet Dumont or Viglet Shio with us',
     acronym: '',
     grad: GRADIENTS.brand,
   },
   {
     id: 'compare',
-    title: 'Dumont, Shio and Turing side by side',
+    title: 'Viglet Dumont, Viglet Shio and Viglet Turing side by side',
     subtitle: 'What each reads, delivers and runs on',
     acronym: '',
     grad: GRADIENTS.brand,
@@ -141,14 +141,14 @@ const identities = [
   {
     id: 'contact',
     title: 'Contact Viglet',
-    subtitle: 'Use Dumont, Shio or Turing in your organization',
+    subtitle: 'Use Viglet Dumont, Viglet Shio or Viglet Turing in your organization',
     acronym: '',
     grad: GRADIENTS.brand,
   },
   {
     id: 'docs',
     title: 'Viglet Documentation',
-    subtitle: 'Get started with Turing, Dumont and Shio',
+    subtitle: 'Get started with Viglet Turing, Viglet Dumont and Viglet Shio',
     acronym: '',
     grad: GRADIENTS.brand,
   },

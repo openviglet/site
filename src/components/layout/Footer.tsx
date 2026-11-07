@@ -85,7 +85,7 @@ export default function Footer() {
                       <span className={`absolute inline-flex h-full w-full rounded-full opacity-0 group-hover:opacity-75 group-hover:animate-ping product-bg-${sol.identifier}`} />
                       <span className={`relative inline-flex w-2 h-2 rounded-full product-bg-${sol.identifier}`} />
                     </span>
-                    {sol.shortName}
+                    {sol.fullName}
                   </Link>
                 </li>
               ))}
@@ -125,7 +125,7 @@ export default function Footer() {
                 </Link>
               </li>
               {[
-                // public LLM/embedding/rerank catalog that Turing reads (was openviglet.github.io/model-catalog)
+                // public LLM/embedding/rerank catalog that Viglet Turing reads (was openviglet.github.io/model-catalog)
                 { label: 'Model Catalog', href: 'https://models.viglet.org/' },
                 { label: 'GitHub', href: 'https://github.com/openviglet' },
                 { label: 'Reddit', href: 'https://www.reddit.com/r/TuringES/' },

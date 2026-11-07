@@ -47,7 +47,7 @@ dumont:
 ## A successful run is not a correct index
 
 A job that ends with "success" tells you it ran. It doesn't tell you the index is
-right. Dumont checks the index itself:
+right. Viglet Dumont checks the index itself:
 
 - **Per-field coverage between runs.** If a selector stops matching after a layout
   change, the run raises a drift flag naming the field, instead of indexing pages
@@ -59,7 +59,7 @@ right. Dumont checks the index itself:
 ## Never de-index on a guess
 
 The expensive mistake is removing live pages because one crawl failed to reach
-them. Dumont doesn't do that. An incomplete run never de-indexes what it didn't
+them. Viglet Dumont doesn't do that. An incomplete run never de-indexes what it didn't
 reach. A scheduled audit compares the source, the connector's ledger and the index:
 documents that never landed or went stale are requeued, and a document still
 indexed after leaving the source goes into a dated report that you review and
@@ -70,16 +70,16 @@ than an empty page, and a row it won't accept is reported, not dropped.
 
 ## Try a dry run first
 
-Point the onboarding wizard at a URL and Dumont infers the source's shape and a
+Point the onboarding wizard at a URL and Viglet Dumont infers the source's shape and a
 field manifest for you to correct. A dry run then shows what indexing *would*
 produce, with per-field coverage, the records it would skip and a diff against the
 last run, and writes nothing. Only a draft you confirm gets indexed.
 
 ## Next steps
 
-- 📘 [Dumont documentation](https://dumont.viglet.org/docs/)
-- 📗 [Enterprise search for Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the search side with Turing
-- ⭐ [Dumont on GitHub](https://github.com/openviglet/dumont) (Apache 2.0)
+- 📘 [Viglet Dumont documentation](https://dumont.viglet.org/docs/)
+- 📗 [Enterprise search for Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the search side with Viglet Turing
+- ⭐ [Viglet Dumont on GitHub](https://github.com/openviglet/dumont) (Apache 2.0)
 
 *Viglet Dumont is an open source data exchange platform: it connects AEM,
 databases, files and web sites to Viglet Turing, Solr or Elasticsearch, and keeps

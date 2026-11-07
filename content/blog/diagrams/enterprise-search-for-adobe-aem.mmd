@@ -1,8 +1,8 @@
 %%{init: {'theme': 'base', 'themeVariables': {'fontSize': '14px', 'lineColor': '#64748b'}}}%%
 flowchart LR
     AEM["<b>AEM</b><br/><small>Event Listener (OSGi)</small>"]
-    DUM["<b>Dumont</b><br/><small>AEM Connector</small>"]
-    TUR["<b>Turing</b><br/><small>Solr / Lucene</small>"]
+    DUM["<b>Viglet Dumont</b><br/><small>AEM Connector</small>"]
+    TUR["<b>Viglet Turing</b><br/><small>Solr / Lucene</small>"]
 
     AEM -->|"page published<br/>POST /api/v2/aem/index"| DUM
     DUM -->|"index pipeline"| TUR

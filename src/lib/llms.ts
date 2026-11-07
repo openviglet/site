@@ -49,7 +49,7 @@ One line per product: what it is and the job it does, word for word as the site 
 
 ${solutions.map((p) => `- ${p.fullName}: ${p.description}`).join('\n')}
 
-Earlier names: until October 2026 the products carried an acronym (Turing ES, Shio CMS and Dumont DEP). They are the same products.
+Earlier names: until October 2026 the products carried an acronym (Viglet Turing ES, Viglet Shio CMS and Viglet Dumont DEP). They are the same products.
 
 ## Products
 
@@ -63,13 +63,13 @@ Search engines: Apache Solr, Elasticsearch, or embedded Lucene.
 RAG: cited answers with a pluggable reranker, a relevance gate, and an optional groundedness check.
 AI agents: configurable agents call your tools, run Anthropic-standard skills in a sandbox, federate over MCP, and use each provider's native server-side tools.
 LLMs: bring your own (OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama).
-Model Catalog: https://models.viglet.org/ is a vendor-neutral public catalog of LLM, embedding, rerank and media models (context windows, capabilities, indicative pricing, deprecations). Turing reads it to fill its model picker and warn on retired models.
+Model Catalog: https://models.viglet.org/ is a vendor-neutral public catalog of LLM, embedding, rerank and media models (context windows, capabilities, indicative pricing, deprecations). Viglet Turing reads it to fill its model picker and warn on retired models.
 
 Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/openviglet/turing.
 
 ## Viglet Dumont Details
 
-Dumont models each extraction flow as a flight that connects multiple sources to multiple targets in one pipeline, using configured source and target connectors.
+Viglet Dumont models each extraction flow as a flight that connects multiple sources to multiple targets in one pipeline, using configured source and target connectors.
 
 Sources: Adobe AEM, Adobe Edge Delivery Services (EDS), SQL databases (JDBC), file-system assets, and websites accessible to the web crawler.
 Targets: Viglet Turing, Apache Solr, Elasticsearch. Switch engine by changing a single property.
@@ -79,7 +79,7 @@ Stack: Java 21 + Spring Boot. Port: 30130. Docker image: ghcr.io/openviglet/dumo
 
 ## Viglet Shio Details
 
-Agent-ready content management system, run from the console or by a coding agent over MCP. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Shio CLI) and deliver them over a versioned REST and GraphQL Content Delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.
+Agent-ready content management system, run from the console or by a coding agent over MCP. Model your own post types (in the admin console or versioned as code with the Post Types DSL and the Viglet Shio CLI) and deliver them over a versioned REST and GraphQL Content Delivery API by id, by URL for slug routing, or by query, with caching and rate limiting.
 
 Authoring: preview unpublished drafts with short-lived tokens, schedule content to go live, restore earlier versions, and fire outbound webhooks.
 Rendering: React and JavaScript SDKs for Next.js or any framework, plus inline editing through the Adobe Universal Editor bridge.
@@ -91,11 +91,11 @@ Stack: Java 21 + Spring Boot. Port: 2710. Docker image: ghcr.io/openviglet/shio.
 Common problems and the products that solve them:
 
 - Add enterprise search to an Adobe AEM site: Viglet Dumont indexes AEM content into Viglet Turing for faceted search, semantic search and RAG answers.
-- Add search to a WordPress site: the Viglet Turing Search plugin connects WordPress and WooCommerce directly to Turing; no Dumont process is required. Documentation: https://turing.viglet.org/docs/integrations/wordpress/.
-- Make an intranet, file shares or a SQL database searchable: Dumont's connectors (file systems, JDBC, web crawler) feed Turing, using supported connectors and configured field mappings.
-- Answer questions over your own content (RAG chatbot): Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
-- Replace a hosted search vendor with self-hosted open source: run Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
-- Build a content site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Turing adds search.
+- Add search to a WordPress site: the Viglet Turing Search plugin connects WordPress and WooCommerce directly to Viglet Turing; no Viglet Dumont process is required. Documentation: https://turing.viglet.org/docs/integrations/wordpress/.
+- Make an intranet, file shares or a SQL database searchable: Viglet Dumont's connectors (file systems, JDBC, web crawler) feed Viglet Turing, using supported connectors and configured field mappings.
+- Answer questions over your own content (RAG chatbot): Viglet Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
+- Replace a hosted search vendor with self-hosted open source: run Viglet Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
+- Build a content site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Viglet Turing adds search.
 - Keep content and queries inside your perimeter (data residency): configure self-hosted storage, local models and embeddings, and review external tools; external providers receive the data needed for enabled requests.
 
 ## Positioning & Comparisons
@@ -103,9 +103,9 @@ Common problems and the products that solve them:
 For evaluators comparing Viglet with hosted search products:
 
 - Open-source alternative to Algolia, Coveo and Lucidworks: Viglet Turing is Apache 2.0 enterprise search you host yourself. Faceted search, semantic and vector search and generative AI (RAG) are in one platform, with no per-document or per-query pricing.
-- Enterprise search for Adobe AEM: Dumont provides the connector to Turing. For WordPress and WooCommerce, the Turing plugin integrates directly; Turing supplies search and cited answers.
+- Enterprise search for Adobe AEM: Viglet Dumont provides the connector to Viglet Turing. For WordPress and WooCommerce, the Viglet Turing plugin integrates directly; Viglet Turing supplies search and cited answers.
 - Data residency and self-hosting: self-hosting controls storage; processing stays local only when models, embeddings and integrations are configured accordingly.
-- Any search engine, any LLM: Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama. No engine or model lock-in.
+- Any search engine, any LLM: Viglet Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama. No engine or model lock-in.
 - No required bundle: the three products run independently. Adopt one and add the others when needed.
 - The three products side by side (what each reads, delivers and runs on): https://www.viglet.org/compare/
 ${comparisonSection}
@@ -120,7 +120,7 @@ ${blogPosts.map((p) => `- [${p.title}](https://www.viglet.org${p.url}): ${p.desc
 
 - Backend: Java 21 + Spring Boot
 - Search: Apache Solr / Elasticsearch
-- Content API: GraphQL (Shio)
+- Content API: GraphQL (Viglet Shio)
 - Frontend: React + Vite
 - Deployment: Docker, Docker Compose, Kubernetes
 - CI/CD: GitHub Actions
@@ -128,20 +128,20 @@ ${blogPosts.map((p) => `- [${p.title}](https://www.viglet.org${p.url}): ${p.desc
 ## History
 
 - 2017: Viglet founded
-- 2018: Turing first public release
-- 2020: Shio launched
-- 2023: Dumont ships
-- 2025: Turing adds generative AI, RAG, and conversational search
+- 2018: Viglet Turing first public release
+- 2020: Viglet Shio launched
+- 2023: Viglet Dumont ships
+- 2025: Viglet Turing adds generative AI, RAG, and conversational search
 
 ## Partners
 
-Viglet works with integrators, consultancies and software vendors that build on Turing, Dumont and Shio. There is no formal partner program; the partner page lists current partners and takes partnership requests.
+Viglet works with integrators, consultancies and software vendors that build on Viglet Turing, Viglet Dumont and Viglet Shio. There is no formal partner program; the partner page lists current partners and takes partnership requests.
 
 - Partner page: https://www.viglet.org/partner/
 
 ## Contact
 
-Organizations that want to use Viglet Dumont, Shio or Turing can reach the Viglet team through the contact form.
+Organizations that want to use Viglet Dumont, Viglet Shio or Viglet Turing can reach the Viglet team through the contact form.
 
 - Contact page: https://www.viglet.org/contact/
 

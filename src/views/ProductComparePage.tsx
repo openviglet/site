@@ -46,7 +46,7 @@ function useQueryString() {
 }
 
 /**
- * `/compare/`: Dumont × Shio × Turing side by side (Block C / W9). The columns
+ * `/compare/`: Viglet Dumont × Viglet Shio × Viglet Turing side by side (Block C / W9). The columns
  * shown (`?products=`) and the rows expanded (`?open=`) live in the query
  * string, so a comparison is shareable and back/forward restores it. Rows come
  * from `src/data/productComparison.ts`.
@@ -108,7 +108,7 @@ export default function ProductComparePage() {
                       on ? `product-bg-${s.identifier} text-white border-transparent` : 'border-border bg-card text-muted-foreground hover:bg-muted'
                     }`}
                   >
-                    {s.shortName}
+                    {s.fullName}
                   </button>
                 )
               })}

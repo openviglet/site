@@ -284,18 +284,17 @@ verification. Record observed issues, fix scoped presentation regressions, and r
 concise QA report. Finish with static/server builds, internal-link checks and roadkeep
 lint. No deployment or claims of conversion uplift are part of this task.
 
-### XI.18 W64: Full product names across the site
+### XI.19 W65: Typography instead of decorative chips
 
-Apply the permanent brand decision in STRATEGY.md section I.7, made by the owner on
-2026-11-07: always use Viglet Turing, Viglet Dumont and Viglet Shio. Review every
-user-facing route and content surface, including header/footer, buttons, product
-navigation, summaries, install/release pages, comparisons, search/wizard messages, blog
-prose and headings, diagram labels, metadata, social-card copy and llms.txt. Derive
-product labels from fullName in the typed data model and remove the shortened
-display-name path so future UI cannot silently revert to bare names. Preserve technical
-identifiers, package names, commands, URL paths, published slugs, tag keys and
-historical facts; use the full brand prefix even when explaining historical display
-names. Regenerate the committed blog index and affected diagram assets. Verify all
-rendered route families and structured data for standalone short names with a text-aware
-check, and inspect representative mobile/desktop layouts for wrapping after the longer
-labels. Run both builds. Do not rewrite governed roadmap history as marketing copy.
+The owner rejected decorative pill/chip styling as a generic visual cue on 2026-11-07.
+Replace non-interactive capsule labels in the homepage, shared heroes and section
+headings with restrained typographic eyebrows: plain text, normal spacing, no pill
+border or fill. Product identity, logo, title and hierarchy should carry the page.
+Present license and beta information as simple metadata. Blog tags can be plain
+separated links; interactive tag/product filters should use clear underline or tab-style
+selection with aria-current/aria-pressed retained. Do not remove useful filters or
+status meaning, and do not disguise controls as static labels. Review shared Badge usage
+so decorative labels do not return through another page. Keep the design-system colors
+and the full product names. Verify the resulting visual hierarchy, selected states,
+keyboard focus and mobile wrapping with Playwright, and run the build. Record the
+preference in design guidance for future changes.

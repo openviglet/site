@@ -38,7 +38,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           className={`flex items-center gap-2 text-foreground font-bold text-sm sm:text-base no-underline transition-colors shrink-0 mr-1 sm:mr-2 product-nav-link-${solution.identifier}`}
         >
           <VigletLogo identifier={solution.identifier} size={28} />
-          <span className="hidden sm:inline">{solution.shortName}</span>
+          <span className="hidden sm:inline">{solution.fullName}</span>
         </Link>
 
         {/* Tabs */}

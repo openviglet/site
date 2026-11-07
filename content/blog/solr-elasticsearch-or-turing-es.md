@@ -7,7 +7,7 @@ authors: [alexandre]
 tags: [comparison, enterprise-search, semantic-search, open-source]
 keywords:
   - Solr vs Elasticsearch
-  - Solr vs Elasticsearch vs Turing
+  - Solr vs Elasticsearch vs Viglet Turing
   - which search engine to choose
   - enterprise search platform
   - open source search engine
@@ -32,7 +32,7 @@ competitor to Solr/Elasticsearch. It runs **on** them.
 
 ![Diagram: Two different layers](/blog/diagrams/solr-elasticsearch-or-turing-es.svg)
 
-Turing is the **platform** layer, and its engine backend is
+Viglet Turing is the **platform** layer, and its engine backend is
 [pluggable](https://turing.viglet.org/docs/search-engine/): you can run it on **Apache Solr**,
 **Elasticsearch**, or an embedded **Lucene** engine, and switch without
 rewriting your application.
@@ -59,13 +59,13 @@ Elasticsearch's ecosystem leads. Both are excellent engines, and both leave the
 - You're prepared to build the ingestion pipeline, faceting UI, multi-language
   handling, and any AI layer yourself.
 
-## When you want the platform layer (Turing)
+## When you want the platform layer (Viglet Turing)
 
-Turing adds, on top of the engine you choose:
+Viglet Turing adds, on top of the engine you choose:
 
 - **Connectors** for [Adobe AEM](https://dumont.viglet.org/docs/connectors/aem/), databases,
-  file systems and web crawl through Dumont. WordPress and WooCommerce use the
-  [Turing plugin](https://turing.viglet.org/wordpress/) directly.
+  file systems and web crawl through Viglet Dumont. WordPress and WooCommerce use the
+  [Viglet Turing plugin](https://turing.viglet.org/wordpress/) directly.
 - **Semantic + vector search** and **RAG** with your LLM
   ([guide](https://turing.viglet.org/docs/rag/)), instead of building an AI tier separately.
 - **Multi-language, faceting, autocomplete, spotlights, targeting** out of the
@@ -81,10 +81,10 @@ Solr-vs-Elasticsearch decision stops being a lock-in.
 1. **Do you need a platform or just an engine?** If you'll build connectors,
    facets, and an AI layer yourself, pick an engine. If you want those provided,
    pick a platform.
-2. **If platform → Turing**, then choose the engine underneath by workload:
+2. **If platform → Viglet Turing**, then choose the engine underneath by workload:
    Solr for content/faceted search, Elasticsearch/OpenSearch if you're
    standardizing on that ecosystem, Lucene for a zero-dependency embedded setup.
-3. **Licensing matters**: Solr and Turing are Apache 2.0 end to end.
+3. **Licensing matters**: Solr and Viglet Turing are Apache 2.0 end to end.
 
 ## Try it
 
@@ -95,7 +95,7 @@ docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 
 - 📘 [Pluggable search engine](https://turing.viglet.org/docs/search-engine/)
 - 📗 [Open-source alternatives to Algolia/Coveo for AEM](/blog/open-source-alternative-to-algolia-for-aem/)
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is an open-source enterprise search platform that runs on
 Apache Solr, Elasticsearch, or Lucene, adding connectors, faceted and semantic

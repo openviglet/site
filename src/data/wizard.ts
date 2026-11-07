@@ -8,7 +8,7 @@ import { cloud } from '@/data/cloud'
  * The first two answers each name a product; the result is their union in
  * pipeline order (extract → search → serve). The third adds a note on how it
  * runs. A `links` sentence is only written for a pair that really integrates
- * (Dumont's Turing target, Shio's Turing indexing). Dumont does not feed Shio,
+ * (Viglet Dumont's Viglet Turing target, Viglet Shio's Viglet Turing indexing). Viglet Dumont does not feed Viglet Shio,
  * so that pair gets no sentence.
  *
  * Grounding rule (ROADMAP § non-goals): every line restates `features.ts`,
@@ -49,7 +49,7 @@ export const wizardQuestions: WizardQuestion[] = [
         id: 'wordpress',
         label: 'In WordPress or WooCommerce',
         solution: 'turing',
-        reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Turing; Dumont is not required.',
+        reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Viglet Turing; Viglet Dumont is not required.',
       },
       {
         id: 'engine',
@@ -116,8 +116,8 @@ export const wizardQuestions: WizardQuestion[] = [
 
 /** Sentences for the pairs that integrate, keyed by `a+b` in pipeline order. */
 const links: Record<string, string> = {
-  'dumont+turing': 'They connect directly: Dumont’s Turing target pushes the extracted content into Turing.',
-  'turing+shio': 'They connect directly: while modeling post types in Shio you choose which attributes Turing indexes.',
+  'dumont+turing': 'They connect directly: Viglet Dumont’s Viglet Turing target pushes the extracted content into Viglet Turing.',
+  'turing+shio': 'They connect directly: while modeling post types in Viglet Shio you choose which attributes Viglet Turing indexes.',
 }
 
 const pipelineOrder = ['dumont', 'turing', 'shio']

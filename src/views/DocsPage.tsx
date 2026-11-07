@@ -78,7 +78,7 @@ export default function DocsPage() {
                       className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted no-underline"
                     >
                       <span className="text-muted-foreground"><IconBook size={16} /></span>
-                      All {s.shortName} docs
+                      All {s.fullName} docs
                       <IconExternalLink size={12} className="text-muted-foreground ml-auto" />
                     </a>
                   </li>

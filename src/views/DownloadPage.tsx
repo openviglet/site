@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
@@ -23,9 +23,9 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
       <Header />
       <SolutionMenu solution={solution} />
       <main id="main-content" className="flex-1">
-        <ProductPageHero solution={solution} label="Docker installation" title={`Run ${solution.shortName}`} description={`Start an evaluation instance with Docker. Follow the official ${solution.shortName} setup guide for configuration and production deployment.`}>
-          <Button size="lg" asChild><a href={solution.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="download">Read the {solution.shortName} setup guide</a></Button>
-          <Button size="lg" variant="outline" asChild><Link href={solution.permalink}>{solution.shortName} overview</Link></Button>
+        <ProductPageHero solution={solution} label="Docker installation" title={`Run ${solution.fullName}`} description={`Start an evaluation instance with Docker. Follow the official ${solution.fullName} setup guide for configuration and production deployment.`}>
+          <Button size="lg" asChild><a href={solution.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="download">Read the {solution.fullName} setup guide</a></Button>
+          <Button size="lg" variant="outline" asChild><Link href={solution.permalink}>{solution.fullName} overview</Link></Button>
         </ProductPageHero>
         <div className="max-w-5xl mx-auto px-6 py-10">
           <p className="mt-4 text-sm text-muted-foreground">You need Docker Engine or Docker Desktop, access to the container registry, and port {port} available on your host.</p>
@@ -40,13 +40,13 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
             <h2 id="production-setup" className="text-xl font-bold text-foreground">Before production</h2>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">The evaluation command does not configure persistent storage, backups, access controls or updates. Your team operates the infrastructure and pays for any external models or services it enables.</p>
             <div className="flex flex-wrap gap-3 mt-5">
-              <Button asChild><a href={solution.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="download">Read the {solution.shortName} setup guide</a></Button>
+              <Button asChild><a href={solution.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="download">Read the {solution.fullName} setup guide</a></Button>
               <Button variant="outline" asChild><Link href="/contact/" data-viglet-action="contact_intent" data-viglet-product={identifier} data-viglet-placement="download">Discuss implementation</Link></Button>
             </div>
           </section>
-          {identifier === 'turing' && <p className="mt-6 text-sm text-muted-foreground">Using WordPress or WooCommerce? Install the <a href="https://turing.viglet.org/docs/integrations/wordpress/" className="text-brand underline underline-offset-4">Viglet Turing Search plugin</a> alongside your Turing server. Dumont is not required.</p>}
+          {identifier === 'turing' && <p className="mt-6 text-sm text-muted-foreground">Using WordPress or WooCommerce? Install the <a href="https://turing.viglet.org/docs/integrations/wordpress/" className="text-brand underline underline-offset-4">Viglet Turing Search plugin</a> alongside your Viglet Turing server. Viglet Dumont is not required.</p>}
           <nav className="flex flex-wrap gap-x-6 gap-y-3 mt-8 text-sm text-brand" aria-label="Installation resources">
-            <Link href={solution.permalink} className="underline underline-offset-4">{solution.shortName} overview</Link>
+            <Link href={solution.permalink} className="underline underline-offset-4">{solution.fullName} overview</Link>
             <Link href={`${solution.permalink}release-notes/`} className="underline underline-offset-4">Release notes</Link>
             {solution.github && <a href={`${solution.github}/releases/`} className="underline underline-offset-4">Official releases</a>}
             <a href={solution.docs} className="underline underline-offset-4">All documentation</a>

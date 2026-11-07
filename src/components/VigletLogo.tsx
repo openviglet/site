@@ -13,16 +13,12 @@
  * size ≥ 56   → the cube with the symbol (<id>.svg)
  */
 
+import { getSolution } from '@/data/solutions'
+
 export const PRODUCT_COLORS: Record<string, string> = {
   dumont: '#0F766E',  // teal
   shio:   '#7C3AED',  // violet
   turing: '#4169E1',  // royalblue
-}
-
-const PRODUCT_NAMES: Record<string, string> = {
-  dumont: 'Viglet Dumont',
-  shio:   'Viglet Shio',
-  turing: 'Viglet Turing',
 }
 
 interface VigletLogoProps {
@@ -34,7 +30,7 @@ interface VigletLogoProps {
 }
 
 export default function VigletLogo({ identifier, size = 48, glow = true, className }: VigletLogoProps) {
-  const name = PRODUCT_NAMES[identifier]
+  const name = getSolution(identifier)?.fullName
   if (!name) return null
   const small = size < 56
   const classes = [className, glow && !small ? 'vg-cube-glow' : ''].filter(Boolean).join(' ')

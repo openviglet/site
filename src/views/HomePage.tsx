@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import { IconArrowRight, IconBrandDocker } from '@tabler/icons-react'
@@ -28,8 +28,8 @@ export default function HomePage() {
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.08] text-foreground max-w-3xl">{hubMessage.title}</h1>
               <p className="text-lg text-muted-foreground leading-relaxed mt-6 max-w-xl">{hubMessage.description}</p>
               <div className="flex flex-wrap gap-3 mt-8">
-                <Button size="lg" asChild><a href="https://turing.viglet.org/#playground" data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="home_hero" data-viglet-journey="general">Try Turing live <IconArrowRight size={18} /></a></Button>
-                <Button size="lg" variant="outline" asChild><Link href="/turing/download/" data-viglet-action="setup_guide_open" data-viglet-product="turing" data-viglet-placement="home_hero"><IconBrandDocker size={18} /> Run Turing with Docker</Link></Button>
+                <Button size="lg" asChild><a href="https://turing.viglet.org/#playground" data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="home_hero" data-viglet-journey="general">Try Viglet Turing live <IconArrowRight size={18} /></a></Button>
+                <Button size="lg" variant="outline" asChild><Link href="/turing/download/" data-viglet-action="setup_guide_open" data-viglet-product="turing" data-viglet-placement="home_hero"><IconBrandDocker size={18} /> Run Viglet Turing with Docker</Link></Button>
               </div>
               <p className="mt-5 text-sm text-muted-foreground">Choosing a CMS or connector? <a href="#products" className="text-brand underline underline-offset-4">Find your product</a>.</p>
             </div>
@@ -50,8 +50,8 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-foreground">{path.job}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{path.description}</p>
                     <a href={path.href} data-viglet-action={path.product === 'turing' ? 'demo_open' : 'product_open'} data-viglet-product={path.product} data-viglet-placement="home_products" className="inline-flex items-center gap-2 text-brand font-semibold text-sm">{path.action}<IconArrowRight size={16} /></a>
-                    <Link href={product.permalink} className="mt-4 text-sm text-brand underline underline-offset-4">{product.shortName} overview</Link>
-                    <a href={product.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={path.product} data-viglet-placement="home_products" className="mt-4 text-sm text-muted-foreground underline underline-offset-4">Install {product.shortName}</a>
+                    <Link href={product.permalink} className="mt-4 text-sm text-brand underline underline-offset-4">{product.fullName} overview</Link>
+                    <a href={product.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={path.product} data-viglet-placement="home_products" className="mt-4 text-sm text-muted-foreground underline underline-offset-4">Install {product.fullName}</a>
                   </article>
                 )
               })}

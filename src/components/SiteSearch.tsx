@@ -235,7 +235,7 @@ function SearchDialog({ onClose }: Readonly<{ onClose: () => void }>) {
             <div className="mt-2 pt-2 border-t border-border">
               <p className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider product-text-turing">
                 <IconSparkles size={14} />
-                Turing docs, searched live by Viglet Turing
+                Viglet Turing docs, searched live by Viglet Turing
               </p>
               {liveLoading && <p className="px-3 py-2 text-xs text-muted-foreground">Searching…</p>}
               <ul>

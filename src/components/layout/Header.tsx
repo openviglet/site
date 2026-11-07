@@ -53,7 +53,7 @@ export default function Header() {
                   <span className={`absolute inline-flex h-full w-full rounded-full opacity-0 group-hover:opacity-75 group-hover:animate-ping product-bg-${sol.identifier}`} />
                   <span className={`relative inline-flex w-2 h-2 rounded-full product-bg-${sol.identifier}`} />
                 </span>
-                {sol.shortName}
+                {sol.fullName}
               </Link>
             ))}
           </nav>
@@ -104,7 +104,7 @@ export default function Header() {
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted no-underline"
               >
                 <VigletLogo identifier={sol.identifier} size={28} />
-                <span className="text-sm font-medium text-foreground">{sol.shortName}</span>
+                <span className="text-sm font-medium text-foreground">{sol.fullName}</span>
               </Link>
             ))}
             <hr className="border-border my-2" />

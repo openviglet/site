@@ -11,11 +11,11 @@ import { blogPosts } from '@/data/blog'
  *  1. **Local index** over the site's own data (`src/data/*`): products, their
  *     download and release-notes pages, features, modules, comparison pages,
  *     the static pages and the blog posts. Scored in the browser, no
- *     network, so it works offline and when Turing is down.
+ *     network, so it works offline and when Viglet Turing is down.
  *  2. **Live Viglet Turing** results from the public demo instance
  *     (`turing-demo.viglet.org`, SN site `turing-docs`) through the product's own
  *     `@viglet/turing-sdk`, so a query is also a demo of the product. That site
- *     indexes the Turing docs only; Dumont and Shio docs and the release notes
+ *     indexes the Viglet Turing docs only; Viglet Dumont and Viglet Shio docs and the release notes
  *     are not in it yet (the W6 remainder). Any failure (CORS on a dev origin,
  *     timeout, instance down) leaves the local results alone.
  */
@@ -46,10 +46,10 @@ function tokens(value: string): string[] {
 }
 
 const staticPages: SearchEntry[] = [
-  { title: 'About Viglet', body: 'Who makes Dumont, Shio and Turing, and the history of the project.', href: '/about/', kind: 'Page' },
-  { title: 'Contact', body: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.', href: '/contact/', kind: 'Page' },
-  { title: 'Partner with Viglet', body: 'Integrators, consultancies and software vendors building on Turing, Dumont and Shio: current partners and how to start.', href: '/partner/', kind: 'Page' },
-  { title: 'Documentation', body: 'Get started, install and develop with Turing, Dumont and Shio: the documentation of each product.', href: '/docs/', kind: 'Page' },
+  { title: 'About Viglet', body: 'Who makes Viglet Dumont, Viglet Shio and Viglet Turing, and the history of the project.', href: '/about/', kind: 'Page' },
+  { title: 'Contact', body: 'Talk to the Viglet team about using Viglet Dumont, Viglet Shio or Viglet Turing in your organization.', href: '/contact/', kind: 'Page' },
+  { title: 'Partner with Viglet', body: 'Integrators, consultancies and software vendors building on Viglet Turing, Viglet Dumont and Viglet Shio: current partners and how to start.', href: '/partner/', kind: 'Page' },
+  { title: 'Documentation', body: 'Get started, install and develop with Viglet Turing, Viglet Dumont and Viglet Shio: the documentation of each product.', href: '/docs/', kind: 'Page' },
   { title: 'Blog', body: 'Guides and comparisons on enterprise search, semantic search, RAG and AI agents.', href: '/blog/', kind: 'Page' },
 ]
 
@@ -58,15 +58,15 @@ function buildLocalIndex(): SearchEntry[] {
   const entries: SearchEntry[] = [...staticPages]
   for (const s of solutions) {
     entries.push({ title: s.fullName, body: `${s.category}. ${s.description}`, href: s.permalink, solution: s.identifier, kind: 'Product' })
-    entries.push({ title: `Download ${s.fullName}`, body: `Run ${s.shortName} with Docker. ${s.dockerImage ?? ''}`, href: `${s.permalink}download/`, solution: s.identifier, kind: 'Download' })
-    entries.push({ title: `${s.fullName} release notes`, body: `Changelog and release notes for ${s.shortName}.`, href: `${s.permalink}release-notes/`, solution: s.identifier, kind: 'Release notes' })
+    entries.push({ title: `Download ${s.fullName}`, body: `Run ${s.fullName} with Docker. ${s.dockerImage ?? ''}`, href: `${s.permalink}download/`, solution: s.identifier, kind: 'Download' })
+    entries.push({ title: `${s.fullName} release notes`, body: `Changelog and release notes for ${s.fullName}.`, href: `${s.permalink}release-notes/`, solution: s.identifier, kind: 'Release notes' })
   }
   for (const f of features) {
     entries.push({ title: f.title, body: f.content, href: getSolution(f.solution)?.permalink ?? '/', solution: f.solution, kind: 'Feature' })
   }
   for (const m of modules) {
     const product = getSolution(m.solution)
-    entries.push({ title: `${m.title} (${product?.shortName ?? m.solution})`, body: m.description, href: product?.permalink ?? '/', solution: m.solution, kind: 'Module' })
+    entries.push({ title: `${m.title} (${product?.fullName ?? m.solution})`, body: m.description, href: product?.permalink ?? '/', solution: m.solution, kind: 'Module' })
   }
   for (const c of comparisons) {
     entries.push({ title: c.h1, body: c.metaDescription, href: `/compare/${c.slug}/`, solution: c.accent, kind: 'Comparison' })
@@ -108,7 +108,7 @@ export function searchLocal(query: string, limit = 8): SearchEntry[] {
 }
 
 export interface LiveResult {
-  /** May carry `<mark>` highlights from Turing; render with `highlightParts`. */
+  /** May carry `<mark>` highlights from Viglet Turing; render with `highlightParts`. */
   title: string
   description: string
   url: string
@@ -119,7 +119,7 @@ export interface LiveResult {
 const turing = createTuringClient({ baseURL: TURING_DEMO_API, credentials: 'omit' })
 
 /**
- * Live Turing results for `query`; `[]` on any failure, never a throw. The
+ * Live Viglet Turing results for `query`; `[]` on any failure, never a throw. The
  * published SDK (2026.3.9) takes no timeout or abort signal yet, so a race
  * bounds the wait and the caller drops answers to a stale query.
  */
@@ -144,7 +144,7 @@ export async function searchTuring(query: string): Promise<LiveResult[]> {
 }
 
 /**
- * Splits a Turing highlight into plain and marked runs. Only `<mark>` is kept;
+ * Splits a Viglet Turing highlight into plain and marked runs. Only `<mark>` is kept;
  * any other tag is dropped, so the text never reaches the DOM as HTML.
  */
 export function highlightParts(value: string): { text: string; mark: boolean }[] {

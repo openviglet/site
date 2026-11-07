@@ -9,6 +9,7 @@ import ProductPageHero from '@/components/ProductPageHero'
 import { getSolution } from '@/data/solutions'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { fullProductNames } from '@/lib/product-names'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
 
@@ -52,7 +53,7 @@ function ChangeItem({ text, repository }: Readonly<{ text: string; repository?: 
   const entry = parseChange(text)
   if (!entry) return null
 
-  const parts = entry.description.split(/(#\d+)/g)
+  const parts = fullProductNames(entry.description).split(/(#\d+)/g)
   const descNode = parts.map((part, i) => {
     const issue = part.match(/^#(\d+)$/)
     if (issue && repository) {
@@ -137,8 +138,8 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
       <Header />
       <SolutionMenu solution={solution} />
       <main id="main-content" className="flex-1">
-        <ProductPageHero solution={solution} label="Release history" title={`${solution.shortName} release notes`} description="Changes published in the product changelog. Use official releases for downloadable artifacts and current availability.">
-          <Button size="lg" asChild><Link href={`${solution.permalink}download/`}>Install {solution.shortName}</Link></Button>
+        <ProductPageHero solution={solution} label="Release history" title={`${solution.fullName} release notes`} description="Changes published in the product changelog. Use official releases for downloadable artifacts and current availability.">
+          <Button size="lg" asChild><Link href={`${solution.permalink}download/`}>Install {solution.fullName}</Link></Button>
           {solution.github && <Button size="lg" variant="outline" asChild><a href={`${solution.github}/releases/`}>Official releases</a></Button>}
         </ProductPageHero>
         <section className="max-w-5xl mx-auto px-6 py-10" aria-label="Release history" aria-busy={status === 'loading'}>

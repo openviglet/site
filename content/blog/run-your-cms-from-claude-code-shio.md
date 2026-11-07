@@ -30,7 +30,7 @@ just doesn't have to.
 
 ## Connect Claude Code in two commands
 
-Shio ships a Claude Code plugin and an MCP server:
+Viglet Shio ships a Claude Code plugin and an MCP server:
 
 ```bash
 claude plugin marketplace add openviglet/shio
@@ -63,13 +63,13 @@ docker run -p 2710:2710 -e SHIO_ADMIN_PASSWORD=shio123 ghcr.io/openviglet/shio:l
 - **A token budget in CI**: response sizes are measured, and a regression fails the
   build like any other test.
 
-Shio itself hosts no model and no prompts. It works with any MCP-capable agent,
+Viglet Shio itself hosts no model and no prompts. It works with any MCP-capable agent,
 Claude Code being the one with a first-party plugin.
 
 ## What the curator keeps
 
 Letting an agent write content is only safe if a person still decides what goes
-live. In Shio, writes are drafts by default, publishing is an explicit step, and
+live. In Viglet Shio, writes are drafts by default, publishing is an explicit step, and
 every agent change lands in a review queue with attribution. The curator reviews in
 a React console with a Universal Editor and preview links.
 
@@ -77,7 +77,7 @@ a React console with a Universal Editor and preview links.
 
 Content goes out through a Content Delivery API (REST and GraphQL) with
 dependency-free TypeScript SDKs, to Next.js, Astro, Vue, Svelte or anything else.
-Or let Shio render the pages itself. To start a Next.js site wired to it:
+Or let Viglet Shio render the pages itself. To start a Next.js site wired to it:
 
 ```bash
 npm create @viglet/shio-app@latest my-site
@@ -85,9 +85,9 @@ npm create @viglet/shio-app@latest my-site
 
 ## Next steps
 
-- 📘 [Shio with Claude Code](https://shio.viglet.org/claude-code/)
-- 📗 [How Shio compares to Contentful, Sanity, Strapi and WordPress](https://shio.viglet.org/compare/)
-- ⭐ [Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
+- 📘 [Viglet Shio with Claude Code](https://shio.viglet.org/claude-code/)
+- 📗 [How Viglet Shio compares to Contentful, Sanity, Strapi and WordPress](https://shio.viglet.org/compare/)
+- ⭐ [Viglet Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
 
 *Viglet Shio is an open source, agent-ready CMS: people run it from the console, AI
 agents run it over MCP, and the curator approves what goes live.*

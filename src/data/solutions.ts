@@ -15,13 +15,12 @@ export interface Solution {
   /** What the product is, in words. The names dropped their acronyms (ES / CMS /
    *  DEP) in October 2026, so the category says it beside the name instead. */
   category: string
-  shortName: string
   memo: string
   fullName: string
   /** The product's one-line descriptor (W38). Used verbatim everywhere the site
    *  describes the product: cards, the solution page, meta descriptions, OG
-   *  cards and llms.txt. Dumont and Shio are described by how they relate to
-   *  Turing, which leads the suite. */
+   *  cards and llms.txt. Viglet Dumont and Viglet Shio are described by how they relate to
+   *  Viglet Turing, which leads the suite. */
   description: string
 
   downloadMessage?: string
@@ -51,7 +50,7 @@ export const productColors: Record<string, string> = {
   turing: '#4169E1',  // royalblue
 }
 
-/** Turing first (W38): the array order is the order every list on the site uses. */
+/** Viglet Turing first (W38): the array order is the order every list on the site uses. */
 export const solutions: Solution[] = [
   {
     identifier: 'turing',
@@ -67,11 +66,10 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     logoAcronym: 'Tu',
     category: 'Enterprise Search',
-    shortName: 'Turing',
     memo: 'Intelligence',
     fullName: 'Viglet Turing',
     description: 'Enterprise search, cited RAG and AI agents over your content. Self-hosted, with your choice of search engine and LLM.',
-    downloadMessage: 'Run Turing with Docker and add more value to your content.',
+    downloadMessage: 'Run Viglet Turing with Docker and add more value to your content.',
     dockerImage: 'ghcr.io/openviglet/turing',
     runPort: 2700,
     installationSteps: true,
@@ -90,11 +88,10 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     logoAcronym: 'Du',
     category: 'Data Exchange Platform',
-    shortName: 'Dumont',
     memo:'Flow',
     fullName: 'Viglet Dumont',
     description: 'Data exchange platform: connects your sources and delivers their content to Viglet Turing or any other search engine.',
-    downloadMessage: 'Run Dumont with Docker and explore your flight plan.',
+    downloadMessage: 'Run Viglet Dumont with Docker and explore your flight plan.',
     dockerImage: 'ghcr.io/openviglet/dumont',
     runPort: 30130,
     installationSteps: true,
@@ -113,11 +110,10 @@ export const solutions: Solution[] = [
     githubOrg: 'openviglet',
     logoAcronym: 'Sh',
     category: 'Agent-ready CMS',
-    shortName: 'Shio',
     fullName: 'Viglet Shio',
     description: 'Agent-ready CMS: models content, renders pages or delivers them over a versioned REST and GraphQL API, and indexes it in Viglet Turing for search.',
     memo: 'Content',
-    downloadMessage: 'Run Shio with Docker and create your site.',
+    downloadMessage: 'Run Viglet Shio with Docker and create your site.',
     dockerImage: 'ghcr.io/openviglet/shio',
     runPort: 2710,
     appLogin: 'admin',

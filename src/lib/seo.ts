@@ -70,13 +70,13 @@ export const homeMetadata = pageMetadata({
 export const staticPages = {
   compare: {
     path: '/compare/',
-    title: 'Compare Dumont, Shio and Turing · Viglet',
-    description: 'Viglet Dumont, Shio and Turing side by side: what each reads, delivers and runs on, and how they connect.',
+    title: 'Compare Viglet Dumont, Viglet Shio and Viglet Turing · Viglet',
+    description: 'Viglet Dumont, Viglet Shio and Viglet Turing side by side: what each reads, delivers and runs on, and how they connect.',
   },
   partner: {
     path: '/partner/',
     title: 'Partner with Viglet · Viglet',
-    description: 'Viglet works with integrators, consultancies and software vendors that build on Turing, Dumont and Shio. Tell us about your project.',
+    description: 'Viglet works with integrators, consultancies and software vendors that build on Viglet Turing, Viglet Dumont and Viglet Shio. Tell us about your project.',
   },
   about: {
     path: '/about/',
@@ -86,12 +86,12 @@ export const staticPages = {
   contact: {
     path: '/contact/',
     title: 'Contact · Viglet',
-    description: 'Talk to the Viglet team about using Dumont, Shio or Turing in your organization.',
+    description: 'Talk to the Viglet team about using Viglet Dumont, Viglet Shio or Viglet Turing in your organization.',
   },
   docs: {
     path: '/docs/',
     title: 'Documentation · Viglet',
-    description: 'Get started with Viglet Turing, Dumont and Shio: the getting-started guide, installation guide, developer guide and REST API of each product.',
+    description: 'Get started with Viglet Turing, Viglet Dumont and Viglet Shio: the getting-started guide, installation guide, developer guide and REST API of each product.',
   },
   blog: {
     path: '/blog/',

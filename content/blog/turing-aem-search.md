@@ -1,7 +1,7 @@
 ---
 date: 2026-07-27
 slug: turing-aem-search
-title: "Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People"
+title: "Viglet Turing AEM Search: What Your AEM Site Could Do If Search Actually Understood People"
 description: "Your AEM search box is the most honest feedback channel you own, and usually the most neglected. Hybrid search plus a conversational layer over the AEM content you already published, with citations, self-hosted and Apache 2.0."
 authors: [alexandre]
 tags: [aem, enterprise-search, semantic-search, rag, open-source]
@@ -228,9 +228,9 @@ catalog, hybrid search, RAG chat, agents, voice.
 
 - 🔗 **[turing.viglet.org/aem-search](https://turing.viglet.org/aem-search/)**: the AEM search page (live demo + CTAs)
 - 📘 [Index Adobe AEM into Viglet Turing](/blog/enterprise-search-for-adobe-aem/): the hands-on walkthrough
-- 📗 [AEM Connector docs](https://turing.viglet.org/docs/integration-aem/) · [Dumont connector](https://dumont.viglet.org/docs/connectors/aem/)
+- 📗 [AEM Connector docs](https://turing.viglet.org/docs/integration-aem/) · [Viglet Dumont connector](https://dumont.viglet.org/docs/connectors/aem/)
 - 📙 [Semantic & vector search on AEM](/blog/semantic-vector-search-aem/) · [MCP servers](https://turing.viglet.org/docs/mcp-servers/)
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and
 generative AI. Index Adobe Experience Manager alongside your other content

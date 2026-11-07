@@ -77,7 +77,7 @@ export function getOutcomes(): Outcome[] {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Pipeline (W2 / W21): how Dumont → Turing → Shio connect as one platform     */
+/* Pipeline (W2 / W21): how Viglet Dumont → Viglet Turing → Viglet Shio connect as one platform     */
 /* -------------------------------------------------------------------------- */
 
 export interface ProductConnection {
@@ -96,28 +96,28 @@ export const productConnections: ProductConnection[] = [
     id: 'external-search',
     source: 'AEM, databases, files and websites',
     solution: 'dumont',
-    action: 'Dumont connects and extracts',
+    action: 'Viglet Dumont connects and extracts',
     payload: 'Content and mapped fields',
-    destination: 'Turing search and cited answers',
-    description: 'Dumont feeds supported sources into Turing. It can also deliver directly to Apache Solr or Elasticsearch.',
+    destination: 'Viglet Turing search and cited answers',
+    description: 'Viglet Dumont feeds supported sources into Viglet Turing. It can also deliver directly to Apache Solr or Elasticsearch.',
   },
   {
     id: 'cms-search',
-    source: 'Content managed in Shio',
+    source: 'Content managed in Viglet Shio',
     solution: 'shio',
-    action: 'Shio indexes content',
+    action: 'Viglet Shio indexes content',
     payload: 'Authored content for indexing',
-    destination: 'Turing search and cited answers',
-    description: 'Add Turing when a Shio site needs search and answers over its content.',
+    destination: 'Viglet Turing search and cited answers',
+    description: 'Add Viglet Turing when a Viglet Shio site needs search and answers over its content.',
   },
   {
     id: 'cms-delivery',
     source: 'People and agents author content',
     solution: 'shio',
-    action: 'Shio publishes and delivers',
+    action: 'Viglet Shio publishes and delivers',
     payload: 'Rendered pages or REST / GraphQL',
     destination: 'Your website or application',
-    description: 'Use Shio as a CMS on its own. Turing and Dumont are not required to publish content.',
+    description: 'Use Viglet Shio as a CMS on its own. Viglet Turing and Viglet Dumont are not required to publish content.',
   },
 ]
 
@@ -184,7 +184,7 @@ export const essence: Record<string, SolutionEssence> = {
         step: 'Model',
         title: 'Post types in the console or as code',
         description:
-          'Create post types with exactly the attributes you need, in the admin or as versioned code with the Post Types DSL and the Shio CLI.',
+          'Create post types with exactly the attributes you need, in the admin or as versioned code with the Post Types DSL and the Viglet Shio CLI.',
       },
       {
         icon: IconApi,
@@ -350,7 +350,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'Which sources can I index (Adobe AEM, WordPress, databases)?',
-    a: 'Dumont connects AEM, databases, files and websites to Turing, Solr or Elasticsearch. The Viglet Turing Search plugin connects WordPress and WooCommerce directly to Turing; it does not require Dumont.',
+    a: 'Viglet Dumont connects AEM, databases, files and websites to Viglet Turing, Solr or Elasticsearch. The Viglet Turing Search plugin connects WordPress and WooCommerce directly to Viglet Turing; it does not require Viglet Dumont.',
   },
   {
     q: 'Does it support semantic search and RAG with the LLM of my choice?',

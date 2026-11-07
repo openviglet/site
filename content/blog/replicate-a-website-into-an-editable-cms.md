@@ -38,14 +38,14 @@ npx @viglet/shio judge           # ACCEPTED, or what holds it
 - **`clone`** captures the live site, its pages and assets.
 - **`propose`** derives a content model from the markup: which repeated structures
   are really post-types and fields.
-- **`convert`** turns the pages into real Shio posts.
+- **`convert`** turns the pages into real Viglet Shio posts.
 - **`publish`** is explicit. Until then everything is a draft.
 - **`judge`** says whether the round is done.
 
 ## Fidelity, authorable, or both
 
 `convert` has two modes. **Fidelity** gives a pixel-accurate copy. **Authorable**
-gives pages a curator can edit, redrawn with Shio's own section vocabulary, with a
+gives pages a curator can edit, redrawn with Viglet Shio's own section vocabulary, with a
 theme that takes its colours, type and corner radius from the source.
 
 The choice is per block, so most pages end up mixed: the blocks you accepted become
@@ -66,15 +66,15 @@ when the pixel comparison is what you need.
 
 ## After the copy
 
-The result is an ordinary Shio site: content in the console for curators, as
+The result is an ordinary Viglet Shio site: content in the console for curators, as
 Markdown files for an AI agent over MCP, and over a REST and GraphQL delivery API
 for any front end.
 
 ## Next steps
 
-- 📘 [Replicate a site with Shio](https://shio.viglet.org/replicate/)
+- 📘 [Replicate a site with Viglet Shio](https://shio.viglet.org/replicate/)
 - 📗 [Run your CMS from Claude Code](/blog/run-your-cms-from-claude-code-shio/)
-- ⭐ [Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
+- ⭐ [Viglet Shio on GitHub](https://github.com/openviglet/shio) (Apache 2.0)
 
 *Viglet Shio is an open source, agent-ready CMS: people run it from the console, AI
 agents run it over MCP, and the curator approves what goes live.*

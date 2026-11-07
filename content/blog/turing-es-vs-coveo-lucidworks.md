@@ -13,7 +13,7 @@ keywords:
   - Lucidworks Fusion alternative
   - enterprise search comparison
   - open source enterprise search
-  - Turing ES vs Coveo
+  - Viglet Turing ES vs Coveo
 viglet_products: [turing]
 ---
 
@@ -66,7 +66,7 @@ with infrastructure to run and pipelines to tune.
 
 ### Viglet Turing: open-source, self-hosted, search + AI in one
 
-Turing keeps your content on **your own infrastructure** under Apache 2.0,
+Viglet Turing keeps your content on **your own infrastructure** under Apache 2.0,
 with no per-query bill. It bundles faceted search, semantic/vector search, and
 **RAG** with the LLM of your choice (OpenAI, Ollama, Anthropic, Gemini) in one
 platform, plus **AI agents** with 27 built-in tools and
@@ -78,15 +78,15 @@ makes this light) and commercial support is optional rather than bundled.
 ## The real decision axes
 
 1. **Managed vs. self-hosted.** Coveo removes all ops at the cost of data
-   residency and per-query pricing. Fusion and Turing run in your perimeter;
-   Turing is the only fully open-source option of the three.
+   residency and per-query pricing. Fusion and Viglet Turing run in your perimeter;
+   Viglet Turing is the only fully open-source option of the three.
 2. **Cost shape.** Per-query/seat (Coveo) grows with success; license + infra
-   (Fusion) is a large fixed commitment; Turing is compute-only.
-3. **Search + AI in one vs. assembled.** Turing ships faceted search,
+   (Fusion) is a large fixed commitment; Viglet Turing is compute-only.
+3. **Search + AI in one vs. assembled.** Viglet Turing ships faceted search,
    semantic search, RAG, and agents together. With the others you often add an
    AI tier (and a bill) separately.
-4. **Connector quality.** All three index AEM; Turing does it through
-   [Dumont](https://dumont.viglet.org/docs/connectors/aem/) with event-driven sync and automatic
+4. **Connector quality.** All three index AEM; Viglet Turing does it through
+   [Viglet Dumont](https://dumont.viglet.org/docs/connectors/aem/) with event-driven sync and automatic
    tag → facet mapping.
 
 ## When to pick which
@@ -106,10 +106,10 @@ docker pull ghcr.io/openviglet/turing:latest
 docker run -p 2700:2700 ghcr.io/openviglet/turing:latest
 ```
 
-- ⚖️ [Turing vs Algolia, Coveo, Lucidworks, Elasticsearch and DIY RAG](https://turing.viglet.org/compare/#coveo-vs-lucidworks): the full capability matrix
+- ⚖️ [Viglet Turing vs Algolia, Coveo, Lucidworks, Elasticsearch and DIY RAG](https://turing.viglet.org/compare/#coveo-vs-lucidworks): the full capability matrix
 - 📘 [Adobe AEM enterprise search guide](/blog/enterprise-search-for-adobe-aem/)
 - 📗 [RAG over your content](https://turing.viglet.org/docs/rag/) · [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/)
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation and
 generative AI: a self-hosted alternative to Coveo and Lucidworks Fusion for

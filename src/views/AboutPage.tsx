@@ -57,19 +57,19 @@ const MILESTONES = [
   },
   {
     year: '2018',
-    title: 'Turing born',
+    title: 'Viglet Turing born',
     description:
       'The first public release of Viglet Turing, with semantic search, faceted navigation and NLP-assisted queries.',
   },
   {
     year: '2020',
-    title: 'Shio launched',
+    title: 'Viglet Shio launched',
     description:
-      'Viglet Shio added headless content management with GraphQL APIs, native caching and integration with the Turing search layer.',
+      'Viglet Shio added headless content management with GraphQL APIs, native caching and integration with the Viglet Turing search layer.',
   },
   {
     year: '2023',
-    title: 'Dumont ships',
+    title: 'Viglet Dumont ships',
     description:
       'Viglet Dumont, a data exchange platform, feeds content into Viglet Turing.',
   },
@@ -77,14 +77,14 @@ const MILESTONES = [
     year: '2025',
     title: 'Generative AI era',
     description:
-      'Turing 2025 ships built-in Generative AI support: RAG pipelines, LLM connectors, and a conversational search interface out of the box.',
+      'Viglet Turing 2025 ships built-in Generative AI support: RAG pipelines, LLM connectors, and a conversational search interface out of the box.',
   },
 ]
 
 const STACK_ITEMS = [
   { label: 'Java + Spring Boot', detail: 'Core runtime for all products' },
   { label: 'Apache Solr / OpenSearch', detail: 'Search & indexing backends' },
-  { label: 'GraphQL', detail: 'Shio content API' },
+  { label: 'GraphQL', detail: 'Viglet Shio content API' },
   { label: 'React + Vite', detail: 'Frontend & admin UIs' },
   { label: 'Apache 2.0', detail: 'License for all repositories' },
   { label: 'GitHub Actions', detail: 'CI/CD and release automation' },
@@ -230,7 +230,7 @@ export default function AboutPage() {
                   {sol.memo}
                 </p>
                 <p className="font-extrabold text-foreground mb-2 group-hover:text-brand transition-colors">
-                  {sol.shortName}
+                  {sol.fullName}
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-4">
                   {sol.description}

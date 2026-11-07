@@ -30,7 +30,7 @@ experience *and* a grounded RAG/agent capability, on your own infrastructure.
 ## RAG and search are the same retrieval problem
 
 A search query and a RAG prompt both need the same thing: the most relevant
-passages from your content. Turing already maintains that index (faceted,
+passages from your content. Viglet Turing already maintains that index (faceted,
 multi-language, [semantically ranked](https://turing.viglet.org/docs/semantic-navigation/)), so RAG
 reuses it instead of standing up a parallel store:
 
@@ -54,12 +54,12 @@ infrastructure.
 ## MCP: your search as a tool for any agent
 
 The [Model Context Protocol](https://turing.viglet.org/docs/mcp-servers/) is an open standard that lets
-AI models call tools on external servers. Turing uses MCP in two directions:
+AI models call tools on external servers. Viglet Turing uses MCP in two directions:
 
-1. **As an MCP client**: an [AI Agent](https://turing.viglet.org/docs/ai-agents/) in Turing can
+1. **As an MCP client**: an [AI Agent](https://turing.viglet.org/docs/ai-agents/) in Viglet Turing can
    connect to external MCP servers (over `HTTP` or `stdio`) and use their tools
    alongside its 27 built-in tools. That can be a company knowledge system, a
-   proprietary API, or any public MCP server, with no custom code inside Turing.
+   proprietary API, or any public MCP server, with no custom code inside Viglet Turing.
 2. **As a retrieval capability**: your enterprise index is exposed through
    tools like `list_sites`, `get_site_fields`, and `search_site`, so an agent
    can discover and search your content autonomously.
@@ -79,10 +79,10 @@ agents.
 
 ## Next steps
 
-- 📘 [What is RAG in Turing](https://turing.viglet.org/docs/rag/)
+- 📘 [What is RAG in Viglet Turing](https://turing.viglet.org/docs/rag/)
 - 📗 [MCP Servers](https://turing.viglet.org/docs/mcp-servers/) · [AI Agents](https://turing.viglet.org/docs/ai-agents/)
 - 📙 [Index Adobe AEM](/blog/enterprise-search-for-adobe-aem/) to build the retrieval layer
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 
 *Viglet Turing is open-source enterprise search with semantic navigation,
 generative AI, and MCP support. Index your enterprise content once and use it as

@@ -33,27 +33,27 @@ configuration determines where AI processing happens.
 ## The connector is a WordPress plugin, not a Java service
 
 **Viglet Turing Search** is a **PHP plugin you install directly inside WordPress**.
-It connects WordPress and WooCommerce directly to Turing over HTTP. It is supplied
-by Turing and does not require a Dumont process.
+It connects WordPress and WooCommerce directly to Viglet Turing over HTTP. It is supplied
+by Viglet Turing and does not require a Viglet Dumont process.
 
-See [Turing for WordPress](https://turing.viglet.org/wordpress/) or
+See [Viglet Turing for WordPress](https://turing.viglet.org/wordpress/) or
 [try the demo store](https://turing.viglet.org/wp-demo/) before installing.
 
 ![Diagram: The connector is a WordPress plugin, not a Java service](/blog/diagrams/enterprise-search-for-wordpress.svg)
 
-Indexing follows your edits, without making editors wait on Turing:
+Indexing follows your edits, without making editors wait on Viglet Turing:
 
 | WordPress event | What happens |
 |---|---|
-| Post/page published or updated | Queued, then sent to Turing |
+| Post/page published or updated | Queued, then sent to Viglet Turing |
 | Content trashed, deleted or unpublished | Queued, then removed from the index |
 
 A save only queues the post. A worker (WP-Cron, or `wp turing queue run`) sends the
-queue in batches and retries with backoff when Turing is unreachable, so an outage never
+queue in batches and retries with backoff when Viglet Turing is unreachable, so an outage never
 blocks the editor or drops a change. For the first load, the Setup page (or
 `wp turing index`) indexes everything already published.
 
-## Step 1: Run Turing
+## Step 1: Run Viglet Turing
 
 The fastest path is Docker:
 
@@ -68,15 +68,15 @@ content will land in.
 
 ## Step 2: Install the WordPress plugin
 
-Follow the [Turing WordPress installation reference](https://turing.viglet.org/docs/integrations/wordpress/#install)
+Follow the [Viglet Turing WordPress installation reference](https://turing.viglet.org/docs/integrations/wordpress/#install)
 for the current plugin package and installation methods. Upload the
 `viglet-turing-search` plugin ZIP under **Plugins → Add New → Upload Plugin**, then activate it.
 
-## Step 3: Connect to Turing
+## Step 3: Connect to Viglet Turing
 
-Open **Viglet Turing Search → Setup** and enter the Turing URL (for example
-`http://localhost:2700`), an API token from the Turing console, and the SN site name.
-**Save and test the connection** checks the address, the network, that it is a Turing,
+Open **Viglet Turing Search → Setup** and enter the Viglet Turing URL (for example
+`http://localhost:2700`), an API token from the Viglet Turing console, and the SN site name.
+**Save and test the connection** checks the address, the network, that it is a Viglet Turing,
 the key and the SN site. If one fails, it says which. If the SN site does not exist yet,
 it offers to create it. Then **Index everything now** loads your published content.
 
@@ -91,8 +91,8 @@ Each post becomes one document: title, rendered text, abstract, URL, type, autho
 publication and modification dates, image, and its categories and tags.
 
 The **Fields** page goes further. Per post type, it turns your custom taxonomies and
-custom fields into typed Turing fields (dates, numbers, booleans, multi-valued strings)
-and marks the ones to filter by as facets. Saving sends those fields to Turing, so facets
+custom fields into typed Viglet Turing fields (dates, numbers, booleans, multi-valued strings)
+and marks the ones to filter by as facets. Saving sends those fields to Viglet Turing, so facets
 need no console step, and the page shows what a real post sends. With nothing configured,
 every public custom taxonomy already becomes a facet.
 
@@ -105,7 +105,7 @@ other.
 
 ## Step 4: Query it
 
-Your WordPress content is now searchable through the Turing API, via REST,
+Your WordPress content is now searchable through the Viglet Turing API, via REST,
 GraphQL, or the SDK:
 
 ```bash
@@ -116,15 +116,15 @@ curl "http://localhost:2700/api/sn/wp-search/search?q=tutorial&rows=10&_setlocal
 curl "http://localhost:2700/api/sn/wp-search/ac?q=tut&_setlocale=en_US"
 ```
 
-You rarely need to, though. Turn on **Replace WordPress search with Turing** and your
-theme's own search page shows Turing's ranking, with the theme's header, footer and
-styles intact. Or drop the **Turing search** block on any page: it gives you suggestions
-as you type, "did you mean", facets and pages, built on Turing's JS SDK, which the plugin
+You rarely need to, though. Turn on **Replace WordPress search with Viglet Turing** and your
+theme's own search page shows Viglet Turing's ranking, with the theme's header, footer and
+styles intact. Or drop the **Viglet Turing search** block on any page: it gives you suggestions
+as you type, "did you mean", facets and pages, built on Viglet Turing's JS SDK, which the plugin
 also exposes to your theme as a script module.
 
 ## Step 5 (optional): Conversational answers (RAG)
 
-Because Turing already holds your WordPress content, turning on **RAG** gives
+Because Viglet Turing already holds your WordPress content, turning on **RAG** gives
 you grounded AI answers with citations over your own posts, with the LLM of your
 choice (OpenAI, Ollama, Anthropic, Gemini):
 
@@ -138,15 +138,15 @@ curl "http://localhost:2700/api/sn/wp-search/chat?q=How+do+I+reset+my+password"
   processing must stay inside your infrastructure; external providers receive
   the data needed for enabled requests.
 - **Taxonomies and custom fields → typed facets**, provisioned for you, with a
-  queue that keeps indexing in step with your edits through Turing outages.
+  queue that keeps indexing in step with your edits through Viglet Turing outages.
 - **Search + semantic + RAG in one platform** under Apache 2.0.
 
 ## Next steps
 
-- 📘 [Turing WordPress integration: full reference](https://turing.viglet.org/docs/integrations/wordpress/)
+- 📘 [Viglet Turing WordPress integration: full reference](https://turing.viglet.org/docs/integrations/wordpress/)
 - 📗 [Semantic Navigation](https://turing.viglet.org/docs/semantic-navigation/) and [RAG](https://turing.viglet.org/docs/rag/) guides
 - 📙 [How to add enterprise search to Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the same approach for the other major CMS
-- ⭐ [Star Turing on GitHub](https://github.com/openviglet/turing)
+- ⭐ [Star Viglet Turing on GitHub](https://github.com/openviglet/turing)
 - 💬 [Ask in GitHub Discussions](https://github.com/openviglet/turing/discussions)
 
 *Viglet Turing is open-source (Apache 2.0) enterprise search with semantic

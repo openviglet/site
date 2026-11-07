@@ -11,7 +11,7 @@ keywords:
   - Lucidworks alternative
   - AEM search engine comparison
   - enterprise search for AEM
-  - Algolia vs Coveo vs Turing
+  - Algolia vs Coveo vs Viglet Turing
 viglet_products: [turing]
 ---
 
@@ -43,7 +43,7 @@ it doesn't.
 
 SaaS search bills scale with your **content volume and query traffic**. For a
 large AEM repository (hundreds of thousands of pages, public traffic), that
-line item grows every year. Self-hosting Turing on infrastructure you
+line item grows every year. Self-hosting Viglet Turing on infrastructure you
 already run flips it to a fixed cost: you pay for compute, not per record.
 
 > If your content set is small and traffic is spiky, managed SaaS may genuinely
@@ -53,7 +53,7 @@ already run flips it to a fixed cost: you pay for compute, not per record.
 
 With Algolia and Coveo, your indexed content lives in **their** cloud. For
 regulated industries (finance, healthcare, education, government), AEM author
-content leaving the building is often a non-starter. Turing, Lucidworks, and
+content leaving the building is often a non-starter. Viglet Turing, Lucidworks, and
 raw Solr/ES all index **inside your perimeter**.
 
 ### 3. Connector quality (the part everyone underestimates)
@@ -61,7 +61,7 @@ raw Solr/ES all index **inside your perimeter**.
 A search engine is only as good as how cleanly it ingests AEM. The hard parts:
 real-time sync on publish, tags → facets, multi-language paths, author *and*
 publish environments, and **cascade re-indexing** when a shared fragment
-changes. Turing handles these through [Dumont](https://dumont.viglet.org/docs/connectors/aem/)
+changes. Viglet Turing handles these through [Viglet Dumont](https://dumont.viglet.org/docs/connectors/aem/)
 out of the box: OSGi event listeners, `infinity.json` traversal, automatic tag
 facets, and dependency-tracked cascade re-indexing.
 
@@ -72,7 +72,7 @@ AEM pipeline yourself, which is usually months of work.
 
 The 2026 reality is that "search" now includes conversational, grounded AI
 answers. With SaaS you often add a separate AI tier (and a separate bill).
-Turing bundles faceted search, **vector/semantic search**, and **RAG** with
+Viglet Turing bundles faceted search, **vector/semantic search**, and **RAG** with
 your choice of LLM (OpenAI, Ollama, Anthropic, Gemini) in one Apache-2.0
 platform, so answers are grounded in your AEM content with citations, on your
 own infrastructure. See the [RAG guide](https://turing.viglet.org/docs/rag/).
@@ -91,10 +91,10 @@ own infrastructure. See the [RAG guide](https://turing.viglet.org/docs/rag/).
 
 ## Try it
 
-Indexing AEM into Turing takes about 15 minutes, and there's a
+Indexing AEM into Viglet Turing takes about 15 minutes, and there's a
 [step-by-step guide using the WKND reference site](/blog/enterprise-search-for-adobe-aem/).
 
-- ⭐ [Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
+- ⭐ [Viglet Turing on GitHub](https://github.com/openviglet/turing) (Apache 2.0)
 - 📘 [AEM Connector docs](https://dumont.viglet.org/docs/connectors/aem/)
 - 💬 [GitHub Discussions](https://github.com/openviglet/turing/discussions)
 

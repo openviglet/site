@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import Link from 'next/link'
 import { IconArrowRight, IconBrandDocker } from '@tabler/icons-react'
@@ -23,16 +23,16 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
       <main id="main-content" className="flex-1">
         <ProductPageHero solution={solution} label="Product overview" title={solution.fullName} description={solution.description}>
               <Button size="lg" asChild><a href={path.href} data-viglet-action={identifier === 'turing' ? 'demo_open' : 'product_open'} data-viglet-product={identifier} data-viglet-placement="overview">{path.action}<IconArrowRight size={16} /></a></Button>
-              <Button size="lg" variant="outline" asChild><Link href={`${solution.permalink}download/`} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="overview"><IconBrandDocker size={18} /> Install {solution.shortName}</Link></Button>
+              <Button size="lg" variant="outline" asChild><Link href={`${solution.permalink}download/`} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="overview"><IconBrandDocker size={18} /> Install {solution.fullName}</Link></Button>
         </ProductPageHero>
         <section className="px-6 py-10">
           <div className="max-w-5xl mx-auto grid gap-10 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-bold text-foreground">When to choose {solution.shortName}</h2>
+              <h2 className="text-2xl font-bold text-foreground">When to choose {solution.fullName}</h2>
               <ul className="mt-5 pl-5 space-y-3 list-disc text-muted-foreground leading-relaxed">{overview.chooseWhen.map((reason) => <li key={reason}>{reason}</li>)}</ul>
               <h2 className="text-2xl font-bold text-foreground mt-8">Before you start</h2>
               <p className="mt-4 text-muted-foreground leading-relaxed">{overview.startingPoint}</p>
-              <a href={solution.getStarted} className="inline-block mt-4 text-brand underline underline-offset-4" data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="overview">Read the {solution.shortName} setup guide</a>
+              <a href={solution.getStarted} className="inline-block mt-4 text-brand underline underline-offset-4" data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="overview">Read the {solution.fullName} setup guide</a>
             </div>
             <div>
               <h2 className="text-2xl font-bold text-foreground">How it fits the portfolio</h2>
@@ -46,7 +46,7 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
         </section>
         <section className="px-6 py-8 bg-muted border-t border-border">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-xl font-bold text-foreground">Continue with {solution.shortName}</h2>
+            <h2 className="text-xl font-bold text-foreground">Continue with {solution.fullName}</h2>
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-4 text-sm font-semibold text-brand">
               <a href={solution.site} className="underline underline-offset-4">Full product site</a>
               <Link href={overview.guide.href} className="underline underline-offset-4">{overview.guide.label}</Link>

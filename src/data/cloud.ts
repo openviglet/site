@@ -23,5 +23,5 @@ export const cloud: CloudSurface = {
   url: 'https://viglet.cloud',
   beta: true,
   signUpUrl: 'https://console.viglet.cloud/?register=1',
-  oneLiner: 'Viglet Turing, Shio and Dumont as a hosted service, run by Viglet.',
+  oneLiner: 'Viglet Turing, Viglet Shio and Viglet Dumont as a hosted service, run by Viglet.',
 }
