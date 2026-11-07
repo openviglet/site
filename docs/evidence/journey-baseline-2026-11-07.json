@@ -1,0 +1,53 @@
+{
+  "capturedAt": "2026-11-07T20:58:02.782354+00:00",
+  "purpose": "Pre-publication traffic baseline only; not evidence of journey outcomes or uplift.",
+  "window": {
+    "startDate": "2026-10-08",
+    "endDate": "2026-11-04",
+    "days": 28
+  },
+  "ga": {
+    "property": "506977335",
+    "timeZone": "America/Sao_Paulo",
+    "measurementId": "G-SMSL7R3897",
+    "streamId": "14345428154",
+    "hostName": "www.viglet.org",
+    "exclusions": [
+      "localhost and 127.0.0.1 session sources",
+      "aocr.org referral spam",
+      "viglet-w55-internal test source"
+    ],
+    "metrics": {
+      "activeUsers": "7",
+      "sessions": "33",
+      "screenPageViews": "155"
+    },
+    "responseMetadata": {
+      "currencyCode": "BRL",
+      "timeZone": "America/Sao_Paulo"
+    }
+  },
+  "searchConsole": {
+    "site": "sc-domain:viglet.org",
+    "pageRegex": "^https://www\\.viglet\\.org/",
+    "type": "web",
+    "dataState": "final",
+    "aggregateRows": [
+      {
+        "clicks": 6,
+        "impressions": 327,
+        "ctr": 0.01834862385321101,
+        "position": 14.535168195718654
+      }
+    ],
+    "responseAggregationType": "byPage"
+  },
+  "limitations": [
+    "No validated post-change observation window exists.",
+    "GA reports only consented, unblocked traffic and may contain other unlabelled internal use.",
+    "One stream selected to avoid combining duplicate destination counts.",
+    "Search Console date boundaries differ from the GA property time zone.",
+    "No inquiry records were accessed; contact clicks are not leads.",
+    "Current custom dimensions were not registered at capture."
+  ]
+}

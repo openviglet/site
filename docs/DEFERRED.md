@@ -17,6 +17,7 @@
 - ⏸ **W38** (deps: —) **One entity, Turing first** — set aside (the product sites hold another session's open rebrand.): copy the descriptors into the GitHub repo descriptions and topics and onto the three product sites, which still carry the acronyms. → §XI.1
 - ⏸ **W68** (deps: —) **Journey dimensions are absent from the GA property** — set aside (Awaiting a GA property Editor to register product, journey and placement after the service account received HTTP 403.): Make product, journey and placement queryable before evaluating the revised journeys. → §XI.21
 - ⏸ **W55** (deps: W52 ✅, W67 ✅, W68 ⏸) **Evaluation events have not been verified in the deployed analytics account** — set aside (Awaiting W67 publication, W68 and live event confirmation.): Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
+- ⏸ **W56** (deps: W55 ⏸) **The effect of the revised journeys has not been measured** — set aside (Awaiting W55 and 28 usable observation days.): Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
 
 ## Block F — Reference app / developer funnel
 

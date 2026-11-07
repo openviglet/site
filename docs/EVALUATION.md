@@ -19,7 +19,7 @@ After publication, verify the events with a consented test session and exclude t
 session from the evaluation. Compare absolute counts over the same date range with
 Search Console clicks and impressions for AEM and the relevant published guides.
 Treat the consented sample as incomplete, not as total site traffic. Keep the
-October 2026 observations as historical context, not a current baseline.
+older October 2026 snapshots as historical context, not a current baseline.
 
 Review actual inquiries separately to learn whether visitors need implementation,
 support or a different product. Do not label a contact-page click a qualified lead.
@@ -92,3 +92,26 @@ dimensions, verify single delivery and the consent cases again, and record the
 verified revision and timestamp. Exclude the calibration sessions from reports.
 The first usable outcome day is the first full day after this verification and
 dimension availability, rather than the original site's publication date.
+
+## Outcome review preparation
+
+A fresh API query on 7 November captured a 28-day pre-publication baseline for
+8 October through 4 November, leaving the most recent days out for Search
+Console settlement. The saved query scope and aggregate results are in
+[journey-baseline-2026-11-07.json](evidence/journey-baseline-2026-11-07.json).
+The GA query selected www.viglet.org and only stream G-SMSL7R3897, excluding
+known localhost, referral-spam and labelled QA sources: 7 active users,
+33 sessions and 155 page views. Other unlabelled internal use may remain.
+Search Console reported 6 clicks and 327 impressions for www.viglet.org web
+search in that date range. GA and Search Console use different date boundaries.
+These totals do not establish inquiries or the effect of the revised journeys.
+
+W56 cannot yet compare a valid post-change period. After W55 succeeds, collect
+28 complete usable days and wait for the Search Console data to settle. Use
+longer periods if the sample is still too small. Keep the www host and single
+stream scope, exclude calibration traffic, and report AEM, WordPress and
+Viglet Shio paths separately only where the data supports it. Capture aggregate
+inquiry counts separately; no inquiry records were available in this run.
+Record the eventual conclusions in visibility/estrategia/viglet.md using that
+repository's workflow. No design or acquisition change follows from this
+baseline alone.
