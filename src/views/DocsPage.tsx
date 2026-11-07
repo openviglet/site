@@ -13,13 +13,10 @@ import {
 } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Badge } from '@/components/ui/badge'
+import PageHero from '@/components/PageHero'
 import { Card, CardContent } from '@/components/ui/card'
-import ProductButton from '@/components/ProductButton'
+import { Button } from '@/components/ui/button'
 import VigletLogo from '@/components/VigletLogo'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { solutions } from '@/data/solutions'
 
 /**
@@ -35,30 +32,17 @@ const GUIDES = [
 ]
 
 export default function DocsPage() {
-  const motionPaused = useIsMobileOrTablet()
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
+      <main id="main-content" className="flex-1">
 
       {/* ===== HERO ===== */}
-      <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color="#C2410C" colorDark="#F97316" extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <Badge variant="brand" className="mb-6">Documentation</Badge>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-            Get started with Viglet
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Each product has its own documentation. Pick the one you need, read its getting-started guide, then run it with Docker.
-          </p>
-        </div>
-      </section>
+      <PageHero label="Documentation" title="Get started with Viglet" description="Choose a product and follow its official setup guide, installation instructions or API reference." />
 
       {/* ===== PRODUCTS ===== */}
       <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid gap-6 md:grid-cols-3">
+        <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
           {solutions.map((s) => (
             <Card key={s.identifier} className={`product-card-${s.identifier}`}>
               <CardContent className="p-6 flex flex-col h-full">
@@ -66,7 +50,7 @@ export default function DocsPage() {
                   <VigletLogo identifier={s.identifier} size={40} />
                   <div>
                     <h2 className="text-xl font-extrabold text-foreground">{s.fullName}</h2>
-                    <p className={`text-xs font-semibold uppercase tracking-wider product-text-${s.identifier}`}>{s.category}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.category}</p>
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">{s.description}</p>
@@ -101,19 +85,19 @@ export default function DocsPage() {
                 </ul>
 
                 <div className="flex flex-wrap gap-3 mt-auto">
-                  <ProductButton identifier={s.identifier} size="sm" asChild>
+                  <Button size="sm" asChild>
                     <a href={s.getStarted} target="_blank" rel="noopener">
                       <IconRocket size={14} />
                       Get Started
                     </a>
-                  </ProductButton>
+                  </Button>
                   {s.dockerImage && (
-                    <ProductButton identifier={s.identifier} productVariant="ghost" size="sm" asChild>
+                    <Button variant="outline" size="sm" asChild>
                       <Link href={`${s.permalink}download/`}>
                         <IconBrandDocker size={14} />
                         Run with Docker
                       </Link>
-                    </ProductButton>
+                    </Button>
                   )}
                 </div>
               </CardContent>
@@ -121,7 +105,7 @@ export default function DocsPage() {
           ))}
         </div>
 
-        <div className="max-w-7xl mx-auto mt-8 grid gap-4 md:grid-cols-2">
+        <div className="max-w-5xl mx-auto mt-8 grid gap-4 md:grid-cols-2">
           <Link
             href="/#which-product"
             className="flex items-center justify-between gap-3 p-5 rounded-2xl border border-border bg-card hover:bg-muted transition-colors no-underline"
@@ -145,6 +129,7 @@ export default function DocsPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   )

@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react'
 import { IconArrowRight, IconChevronDown } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Badge } from '@/components/ui/badge'
+import PageHero from '@/components/PageHero'
+import { Button } from '@/components/ui/button'
 import VigletLogo from '@/components/VigletLogo'
 import { solutions } from '@/data/solutions'
 import { comparisons } from '@/data/comparisons'
@@ -83,23 +84,16 @@ export default function ProductComparePage() {
   const allOpen = open.size === ROW_IDS.length
 
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
+      <main id="main-content" className="flex-1">
 
-      <section className="py-16 px-6 bg-background border-b border-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <Badge variant="brand" className="mb-4">Compare</Badge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-            Dumont, Shio and Turing side by side
-          </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            What each Viglet product reads, delivers and runs on. Each one works alone, and they connect when you use them together.
-          </p>
-        </div>
-      </section>
+      <PageHero label="Compare products" title="Choose the tools your project needs" description="Compare what each Viglet product reads, delivers and runs on. Each works independently, with optional integrations.">
+        <Button size="lg" variant="outline" asChild><Link href="/#which-product">Help me choose</Link></Button>
+      </PageHero>
 
       <section className="py-12 px-6 flex-1">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Products to compare">
               {solutions.map((s) => {
@@ -225,6 +219,7 @@ export default function ProductComparePage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   )

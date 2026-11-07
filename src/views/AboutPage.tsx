@@ -15,11 +15,9 @@ import {
 } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import PageHero from '@/components/PageHero'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { solutions } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
 
@@ -104,7 +102,7 @@ function FounderSection() {
   const [photoOk, setPhotoOk] = useState(true)
 
   return (
-    <section className="py-20 px-6 bg-background border-t border-border">
+    <section className="py-12 md:py-16 px-6 bg-background border-t border-border">
       <div className="max-w-5xl mx-auto grid md:grid-cols-[auto_1fr] gap-10 md:gap-12 items-start">
         <div className="flex flex-col items-center md:items-start">
           {photoOk ? (
@@ -123,7 +121,7 @@ function FounderSection() {
 
         <div>
           <Badge variant="brand" className="mb-4">Meet the founder</Badge>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-2">
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-2">
             Alexandre Oliveira
           </h2>
           <p className="text-sm font-semibold text-brand mb-6">
@@ -156,46 +154,23 @@ function FounderSection() {
 }
 
 export default function AboutPage() {
-  const motionPaused = useIsMobileOrTablet()
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
+      <main id="main-content" className="flex-1">
 
       {/* ===== HERO ===== */}
-      <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <Badge variant="brand" className="mb-6">About Viglet</Badge>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-            Open source tools for{' '}
-            <span className="vg-gradient-text">enterprise intelligence</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Viglet gives any team enterprise search, data exchange and content management,
-            without vendor lock-in or enterprise pricing.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Button size="lg" asChild>
-              <a href="https://github.com/openviglet" target="_blank" rel="noopener">
-                <IconBrandGithub size={16} />
-                View on GitHub
-              </a>
-            </Button>
-            <Button variant="ghost" size="lg" asChild>
-              <Link href="/">Explore Products</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <PageHero label="About Viglet" title="Open-source software for search and content" description="Viglet builds enterprise search, data exchange and content management tools that teams can host and integrate themselves.">
+        <Button size="lg" asChild><a href="https://github.com/openviglet">View on GitHub</a></Button>
+        <Button size="lg" variant="outline" asChild><Link href="/#products">Explore products</Link></Button>
+      </PageHero>
 
       {/* ===== MISSION ===== */}
-      <section className="py-20 px-6 bg-muted">
+      <section className="py-12 md:py-16 px-6 bg-muted">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="brand" className="mb-4">Our mission</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-6">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight mb-6">
               Democratize enterprise-grade software
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -231,11 +206,11 @@ export default function AboutPage() {
       <FounderSection />
 
       {/* ===== PRODUCTS ===== */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-12 md:py-16 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">The platform</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">
               Three products, one ecosystem
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
@@ -270,11 +245,11 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TIMELINE ===== */}
-      <section className="py-20 px-6 bg-muted">
+      <section className="py-12 md:py-16 px-6 bg-muted">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">History</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">
               How we got here
             </h2>
           </div>
@@ -302,11 +277,11 @@ export default function AboutPage() {
       </section>
 
       {/* ===== VALUES ===== */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-12 md:py-16 px-6 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Values</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">
               What we stand for
             </h2>
           </div>
@@ -325,11 +300,11 @@ export default function AboutPage() {
       </section>
 
       {/* ===== TECH STACK ===== */}
-      <section className="py-20 px-6 bg-muted">
+      <section className="py-12 md:py-16 px-6 bg-muted">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge variant="brand" className="mb-4">Tech stack</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">
               Built on proven open source
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
@@ -354,12 +329,12 @@ export default function AboutPage() {
       </section>
 
       {/* ===== CTA ===== */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-12 md:py-16 px-6 bg-background">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-16 h-16 rounded-2xl bg-brand-bg text-brand flex items-center justify-center mx-auto mb-6">
             <IconRocket size={28} />
           </div>
-          <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-4">
+          <h2 className="text-3xl font-bold text-foreground tracking-tight mb-4">
             Get involved
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl mx-auto">
@@ -386,6 +361,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   )

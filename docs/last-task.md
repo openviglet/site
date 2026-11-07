@@ -1,7 +1,7 @@
-# Last task number: `W63`
+# Last task number: `W64`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W64`; after assigning it, bump the number above and the log line below.
+> `W65`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W64**: Use full product names throughout visitor-facing content (Block E), 2026-11-07
 - **W63**: Verify visual consistency across all route families (Block E), 2026-11-07
 - **W62**: Apply the shared layout to blog and article headers (Block E), 2026-11-07
 - **W61**: Apply shared site hero and layout conventions (Block E), 2026-11-07

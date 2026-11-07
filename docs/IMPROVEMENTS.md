@@ -270,21 +270,6 @@ from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
 
-### XI.15 W61: Shared site layout conventions
-
-The owner requested a consistent visual identity across the entire site on 2026-11-07.
-Establish a reusable PageHero and page-shell conventions built on the existing design
-system: common header/footer, adaptive surfaces, heading scale, brand label, content
-width, vertical rhythm and action styling. Apply the common hero to institutional pages
-(About, Contact, Partner, Docs), product and comparison pages. Keep the homepage's
-presentation-led composition and articles' narrower reading measure intentional, but
-share typography and controls. Remove decorative formula backdrops and oversized logo
-treatments from these informational surfaces, preserving their content and conversion
-actions. Do not introduce new colors, branding or a second UI system. Verify
-representative pages and all navigation at mobile, tablet and desktop widths in both
-themes with Playwright; run both builds. Blog-specific layout and final whole-site
-verification are separate tasks.
-
 ### XI.16 W62: Consistent editorial layouts
 
 Use the shared site hero and typography conventions on the blog index, tag pages and
@@ -308,3 +293,19 @@ use controlled fixtures for deterministic failure checks and distinguish those f
 verification. Record observed issues, fix scoped presentation regressions, and retain a
 concise QA report. Finish with static/server builds, internal-link checks and roadkeep
 lint. No deployment or claims of conversion uplift are part of this task.
+
+### XI.18 W64: Full product names across the site
+
+Apply the permanent brand decision in STRATEGY.md section I.7, made by the owner on
+2026-11-07: always use Viglet Turing, Viglet Dumont and Viglet Shio. Review every
+user-facing route and content surface, including header/footer, buttons, product
+navigation, summaries, install/release pages, comparisons, search/wizard messages, blog
+prose and headings, diagram labels, metadata, social-card copy and llms.txt. Derive
+product labels from fullName in the typed data model and remove the shortened
+display-name path so future UI cannot silently revert to bare names. Preserve technical
+identifiers, package names, commands, URL paths, published slugs, tag keys and
+historical facts; use the full brand prefix even when explaining historical display
+names. Regenerate the committed blog index and affected diagram assets. Verify all
+rendered route families and structured data for standalone short names with a text-aware
+check, and inspect representative mobile/desktop layouts for wrapping after the longer
+labels. Run both builds. Do not rewrite governed roadmap history as marketing copy.

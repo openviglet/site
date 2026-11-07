@@ -48,9 +48,9 @@
 
 - 📋 **W55** (deps: W52 ✅) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
-- 📋 **W61** (deps: W60 ✅) **Informational pages still use competing hero and layout patterns** — Apply shared hero, typography, spacing and surface conventions so the portfolio and institutional pages have one visual identity. → §XI.15
-- 📋 **W62** (deps: W61) **Blog headers and page framing differ from the shared site layout** — Unify editorial headers and controls while preserving readable article width, metadata and stable post addresses. → §XI.16
-- 📋 **W63** (deps: W62) **There is no whole-site evidence of visual consistency** — Verify every route family against the shared layout in both themes and fix observed presentation regressions. → §XI.17
+- 📋 **W62** (deps: W61 ✅) **Blog headers and page framing differ from the shared site layout** — Unify editorial headers and controls while preserving readable article width, metadata and stable post addresses. → §XI.16
+- 📋 **W63** (deps: W62, W64) **There is no whole-site evidence of visual consistency** — Verify every route family against the shared layout in both themes and fix observed presentation regressions. → §XI.17
+- 📋 **W64** (deps: W62) **Product display names omit the Viglet brand across the site** — Use the full product names on every visitor-facing surface to keep brand identity and entity naming consistent. → §XI.18
 
 ## Block F — Reference app / developer funnel
 

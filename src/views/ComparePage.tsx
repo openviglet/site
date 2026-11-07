@@ -3,101 +3,51 @@
 import Link from 'next/link'
 import {
   IconArrowRight,
-  IconBook,
   IconBrandDocker,
-  IconBrandOpenSource,
   IconCheck,
-  IconRocket,
-  IconScale,
 } from '@tabler/icons-react'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import PageHero from '@/components/PageHero'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import ProductBadge from '@/components/ProductBadge'
-import ProductButton from '@/components/ProductButton'
 import VigletLogo from '@/components/VigletLogo'
 import { getComparison } from '@/data/comparisons'
-import { getSolution, productColors } from '@/data/solutions'
+import { getSolution } from '@/data/solutions'
 import { getPostsBySlugs } from '@/data/blog'
 
 /** The FAQPage JSON-LD for this page is rendered by its route
  *  (src/app/compare/[slug]/page.tsx), into the static HTML. */
 export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
   const comparison = getComparison(slug)
-  const motionPaused = useIsMobileOrTablet()
 
   // The route 404s an unknown slug.
   if (!comparison) return null
 
   const accent = comparison.accent
-  const accentColor = productColors[accent] ?? '#4169e1'
   const relatedGuides = getPostsBySlugs(comparison.guideSlugs)
   const products = comparison.products
     .map((id) => getSolution(id))
     .filter((s): s is NonNullable<typeof s> => Boolean(s))
 
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
+      <main id="main-content" className="flex-1">
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color={accentColor} colorDark={accentColor} withLightning extraTokens={['Algolia', 'Coveo', 'AEM', 'RAG']} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-
-        <div className="max-w-4xl mx-auto relative z-10 text-center">
-          <ProductBadge identifier={accent} className="mb-4">
-            {comparison.eyebrow}
-          </ProductBadge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-            {comparison.h1}
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
-            {comparison.intro}
-          </p>
-
-          <div className="flex flex-wrap gap-3 items-center justify-center">
-            <ProductButton identifier={accent} size="lg" asChild>
-              <a data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="comparison" data-viglet-journey={comparison.slug === 'enterprise-search-for-aem' ? 'aem' : 'general'} href={comparison.slug === 'enterprise-search-for-aem' ? 'https://turing.viglet.org/aem-search/' : 'https://turing.viglet.org/#playground'}>
-                <IconRocket size={18} />
-                Try Turing in context
-              </a>
-            </ProductButton>
-            <ProductButton identifier={accent} productVariant="ghost" size="lg" asChild>
-              <a data-viglet-action="setup_guide_open" data-viglet-product="turing" data-viglet-placement="comparison" href="https://turing.viglet.org/docs/getting-started/intro/" target="_blank" rel="noopener">
-                <IconBook size={18} />
-                Get Started
-              </a>
-            </ProductButton>
-          </div>
-
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center">
-            <span className="flex items-center gap-1.5">
-              <IconBrandOpenSource size={14} />
-              Open Source
-            </span>
-            <span className="flex items-center gap-1.5">
-              <IconScale size={14} />
-              Apache 2.0
-            </span>
-            <span className="flex items-center gap-1.5">
-              <IconBrandDocker size={14} />
-              Self-hosted with Docker
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero label={comparison.eyebrow} title={comparison.h1} description={comparison.intro}>
+        <Button size="lg" asChild><a href={comparison.slug === 'enterprise-search-for-aem' ? 'https://turing.viglet.org/aem-search/' : 'https://turing.viglet.org/#playground'} data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="comparison">Try Turing in context</a></Button>
+        <Button size="lg" variant="outline" asChild><a href="https://turing.viglet.org/docs/getting-started/intro/" data-viglet-action="setup_guide_open" data-viglet-product="turing" data-viglet-placement="comparison">Read the setup guide</a></Button>
+      </PageHero>
 
       {/* ===== COMPARISON TABLE ===== */}
-      <section className="py-20 px-6 bg-background border-b border-border">
+      <section className="py-12 md:py-16 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <ProductBadge identifier={accent} className="mb-4">Side by side</ProductBadge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight mb-3">
               How they compare
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
@@ -149,11 +99,11 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
       </section>
 
       {/* ===== APPROACH ===== */}
-      <section className="py-20 px-6 bg-muted border-b border-border">
+      <section className="py-12 md:py-16 px-6 bg-muted border-b border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <ProductBadge identifier={accent} className="mb-4">How it works</ProductBadge>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
+            <h2 className="text-3xl font-bold text-foreground tracking-tight mb-3">
               The Viglet approach
             </h2>
           </div>
@@ -199,11 +149,11 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
       {/* ===== GUIDES (cross-link into the blog) ===== */}
       {relatedGuides.length > 0 && (
-        <section className="py-20 px-6 bg-background border-b border-border">
+        <section className="py-12 md:py-16 px-6 bg-background border-b border-border">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={accent} className="mb-4">Go deeper</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight mb-3">
+              <h2 className="text-3xl font-bold text-foreground tracking-tight mb-3">
                 Guides &amp; comparisons
               </h2>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto">
@@ -229,11 +179,11 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
       {/* ===== FAQ ===== */}
       {comparison.faq.length > 0 && (
-        <section className="py-20 px-6 bg-muted border-b border-border">
+        <section className="py-12 md:py-16 px-6 bg-muted border-b border-border">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <ProductBadge identifier={accent} className="mb-4">FAQ</ProductBadge>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
+              <h2 className="text-3xl font-bold text-foreground tracking-tight">
                 Common questions
               </h2>
             </div>
@@ -252,36 +202,18 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
       )}
 
       {/* ===== CTA ===== */}
-      <section className={`relative overflow-hidden product-hero-${accent}`}>
-        <div className="absolute inset-0 download-hero-highlight" />
-        <div className="max-w-4xl mx-auto py-16 px-6 text-center relative">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
-            Own your search: open source, self-hosted
-          </h2>
-          <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            Free under Apache 2.0, deployed from a single Docker image.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="https://turing.viglet.org/"
-              rel="noopener"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
-            >
-              <IconRocket size={16} />
-              Explore Turing
-            </a>
-            <Link
-              href="/turing/download/"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
-            >
-              <IconBrandDocker size={16} />
-              Run with Docker
-              <IconArrowRight size={16} />
-            </Link>
+      <section className="px-6 py-12 md:py-16 bg-muted border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground">Evaluate it on your own content</h2>
+          <p className="mt-3 text-muted-foreground">Start with the setup guide or explore the product demonstration.</p>
+          <div className="flex flex-wrap gap-3 mt-6">
+            <Button size="lg" asChild><a href="https://turing.viglet.org/">Explore Turing</a></Button>
+            <Button size="lg" variant="outline" asChild><Link href="/turing/download/"><IconBrandDocker size={16} /> Run with Docker <IconArrowRight size={16} /></Link></Button>
           </div>
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   )

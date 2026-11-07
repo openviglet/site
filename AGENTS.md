@@ -65,6 +65,7 @@ npm run preview    # serve out/ on http://localhost:4173 (needs Python)
 - SEO/GEO is a feature: when you add a route or a product, update the data
   `src/lib/seo.ts`, the sitemap and llms.txt read.
 - **No invented product claims**: no superlatives, no unverifiable benchmarks.
+- **Product names always include Viglet**: use **Viglet Turing**, **Viglet Dumont** and **Viglet Shio** in all visitor-facing copy, labels and SEO/GEO outputs; derive labels from `fullName` and adjust the layout instead of abbreviating. Technical identifiers and stable URLs are unchanged. Decision: [docs/STRATEGY.md](docs/STRATEGY.md) §I.7.
 
 ## Roadmap & docs maintenance
 

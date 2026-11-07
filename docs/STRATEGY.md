@@ -78,6 +78,24 @@ hub's message, existing demos or setup guides.
 
 ---
 
+### I.7 Decision: always use full product names
+
+Decision made by the owner on 2026-11-07: every visitor-facing product mention uses the
+full name Viglet Turing, Viglet Dumont or Viglet Shio. Bare Turing, Dumont and Shio are
+not alternative display names, even after the first mention. This applies to navigation,
+buttons, headings, body copy, articles, diagrams, accessible labels, metadata, social
+images and SEO/GEO outputs.
+
+Render product labels from the typed fullName field. Do not add a shortened display-name
+field or manually abbreviate the names to fit a layout; adjust wrapping and spacing
+instead. Preserve technical identifiers, package names, commands, existing URLs,
+published slugs and tag keys. Historical roadmap and changelog entries remain records of
+earlier work rather than marketing copy to rewrite.
+
+This replaces the earlier editorial convention of using the full name once and the bare
+name thereafter. It is a durable brand and entity-identification rule, not a temporary
+redesign preference. W64 applies it to the existing site; future work must keep it.
+
 ## II Channel split: one job per surface
 
 | Surface | Primary role |

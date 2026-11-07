@@ -3,19 +3,21 @@
 import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import { Badge } from '@/components/ui/badge'
+import PageHero from '@/components/PageHero'
+import { Button } from '@/components/ui/button'
 import CognitoForm from '@/components/CognitoForm'
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-      <main id="main-content" className="flex-1 px-6 py-12 md:py-16">
-        <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-start">
+      <main id="main-content" className="flex-1">
+        <PageHero label="Implementation & support" title="Plan your Viglet deployment" description="Tell us what you need to search, connect or publish. Discuss architecture, implementation and support options.">
+          <Button size="lg" asChild><a href="#contact-form">Tell us about your project</a></Button>
+          <Button size="lg" variant="outline" asChild><Link href="/docs/">Choose a setup guide</Link></Button>
+        </PageHero>
+        <div className="max-w-5xl mx-auto px-6 py-12 md:py-16 grid gap-10 lg:grid-cols-2 items-start">
           <div>
-            <Badge variant="brand" className="mb-5">Implementation & support</Badge>
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Plan your Viglet deployment</h1>
-            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">Tell us what you need to search, connect or publish. We can help you evaluate the architecture and discuss implementation and support options.</p>
             <h2 className="text-xl font-bold text-foreground mt-8">Useful details to include</h2>
             <ul className="list-disc pl-5 mt-4 space-y-3 text-muted-foreground">
               <li>Your content sources and the experience you want to build.</li>
