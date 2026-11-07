@@ -49,6 +49,7 @@
 - **W46** — Posts render statically at /blog/, with tag pages, RSS, OG cards, sitemap and llms.txt entries; docs.viglet.org/blog redirects to them.
 - **W49** — Every page carries JSON-LD: Organization and WebSite site-wide, a WebPage with BreadcrumbList per route, SoftwareApplication per product, Blog on the index.
 - **W50** — Removed manually maintained version badges and metadata, preserved release and installation links, and qualified data residency, connector setup and operating costs across the site and llms.txt.
+- **W40** — The hub leads directly to product demos and setup, gives Shio its own agent-ready proposition, offers AEM and WordPress paths, and presents manual examples, optional selection help and earlier contact capture (design §XI.3 recorded in `src/data/hub.ts`).
 
 ## Block H — Conversion narrative & product essence
 

@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
 import { blogAuthors, blogTags, formatPostDate, type BlogPostMeta } from '@/data/blog'
+import { evaluationPaths, productPaths } from '@/data/hub'
 
 /**
  * One blog post (W46). `html` is rendered at build time by src/lib/blog.ts
@@ -15,6 +16,10 @@ export default function BlogPostPage({
   html,
   readingMinutes,
 }: Readonly<{ post: BlogPostMeta; html: string; readingMinutes: number }>) {
+  const context = evaluationPaths.find((path) => post.tags.includes(path.id))
+  const nextSteps = context
+    ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href }]
+    : productPaths.filter((path) => post.solutions.includes(path.product)).map((path) => ({ label: path.action, href: path.href }))
   return (
     <div className="min-h-screen bg-muted flex flex-col">
       <Header />
@@ -51,6 +56,14 @@ export default function BlogPostPage({
           </header>
 
           <div className="blog-prose" dangerouslySetInnerHTML={{ __html: html }} />
+
+          <aside className="mt-10 rounded-2xl border border-border bg-muted p-6" aria-label="Next steps">
+            <h2 className="text-xl font-bold text-foreground">Put it to work</h2>
+            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-4">
+              {nextSteps.map((step) => <a key={step.href} href={step.href} className="text-brand font-semibold underline underline-offset-4">{step.label}</a>)}
+              <Link href="/contact/" className="text-brand font-semibold underline underline-offset-4">Discuss your deployment</Link>
+            </div>
+          </aside>
 
           <footer className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-border">
             {post.tags.map((t) => (

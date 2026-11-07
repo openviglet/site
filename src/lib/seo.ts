@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { Solution } from '@/data/solutions'
 import type { FaqItem } from '@/data/narrative'
 import { blogAuthors, blogDescription, blogTags, type BlogPostMeta } from '@/data/blog'
+import { hubMessage } from '@/data/hub'
 
 /** Absolute origin this site is served from (see CNAME). Used for canonicals. */
 export const SITE_ORIGIN = 'https://www.viglet.org'
@@ -57,12 +58,12 @@ export function pageMetadata(meta: PageMeta): Metadata {
 }
 
 export const homeMetadata = pageMetadata({
-  title: 'Viglet',
-  description: 'Open source enterprise search, data exchange and content management, self-hosted with Docker.',
+  title: 'Viglet · Open-source search, AI answers and content tools',
+  description: hubMessage.description,
   canonical: `${SITE_ORIGIN}/`,
   ogImage: '/og-banner.png',
-  ogTitle: 'Viglet · Open Source Tools for Enterprise Intelligence',
-  ogDescription: 'Enterprise search, data exchange and content management. Open source, self-hosted with Docker.',
+  ogTitle: hubMessage.title,
+  ogDescription: hubMessage.description,
 })
 
 /** The routes with no data behind them; each self-canonicalises. */

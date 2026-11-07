@@ -22,11 +22,19 @@ export default function ProductWizard() {
   // hash is already in the URL when the home mounts, but the section may render
   // after the router's own scroll, so scroll to it here.
   useEffect(() => {
-    if (window.location.hash === '#which-product') ref.current?.scrollIntoView()
+    const reveal = () => {
+      if (window.location.hash !== '#which-product') return
+      const details = ref.current?.closest('details')
+      if (details) details.open = true
+      ref.current?.scrollIntoView()
+    }
+    reveal()
+    window.addEventListener('hashchange', reveal)
+    return () => window.removeEventListener('hashchange', reveal)
   }, [])
 
   return (
-    <section ref={ref} id="which-product" className="py-20 px-6 bg-background border-t border-border">
+    <section ref={ref} id="which-product" className="py-10 px-6 bg-background border-t border-border scroll-mt-20">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
           <Badge variant="brand" className="mb-4">Find your fit</Badge>

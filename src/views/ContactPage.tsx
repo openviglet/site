@@ -1,113 +1,37 @@
-'use client'
+﻿'use client'
 
 import Link from 'next/link'
-import { IconArrowRight, IconBook, IconMessageCircle, IconRocket, IconUsers } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import CognitoForm from '@/components/CognitoForm'
 
-const TOPICS = [
-  {
-    icon: <IconRocket size={24} />,
-    title: 'Evaluating a product',
-    description: 'Tell us what you need to solve and we will help you pick between Viglet Dumont, Viglet Shio and Viglet Turing.',
-  },
-  {
-    icon: <IconMessageCircle size={24} />,
-    title: 'Planning a deployment',
-    description: 'Questions about architecture, integrations, connectors or running Viglet in production.',
-  },
-  {
-    icon: <IconUsers size={24} />,
-    title: 'Implementation & support',
-    description: 'Need help adopting Viglet? We can put you in touch with a solution partner for implementation or an SLA.',
-  },
-]
-
 export default function ContactPage() {
-  const motionPaused = useIsMobileOrTablet()
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
-
-      {/* ===== HERO ===== */}
-      <section className="relative bg-background border-b border-border overflow-hidden py-24 px-6">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color="#C2410C" colorDark="#F97316" extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <Badge variant="brand" className="mb-6">Contact</Badge>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-tight mb-6">
-            Want to use Viglet in your organization?
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl mx-auto">
-            Tell us about your project. We will answer questions about Viglet Dumont, Viglet Shio and Viglet Turing and help you get started.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Button size="lg" asChild>
-              <a href="#contact-form">
-                Talk to us
-                <IconArrowRight size={16} />
-              </a>
-            </Button>
-            <Button variant="ghost" size="lg" asChild>
-              <Link href="/docs/">
-                <IconBook size={16} />
-                Read the docs
-              </Link>
-            </Button>
+      <main id="main-content" className="flex-1 px-6 py-12 md:py-16">
+        <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-start">
+          <div>
+            <Badge variant="brand" className="mb-5">Implementation & support</Badge>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">Plan your Viglet deployment</h1>
+            <p className="mt-5 text-lg text-muted-foreground leading-relaxed">Tell us what you need to search, connect or publish. We can help you evaluate the architecture and discuss implementation and support options.</p>
+            <h2 className="text-xl font-bold text-foreground mt-8">Useful details to include</h2>
+            <ul className="list-disc pl-5 mt-4 space-y-3 text-muted-foreground">
+              <li>Your content sources and the experience you want to build.</li>
+              <li>Your hosting environment and any data-processing constraints.</li>
+              <li>Whether you need integration, deployment or ongoing support.</li>
+            </ul>
+            <p className="mt-8 text-sm text-muted-foreground">Getting started on your own? <Link href="/docs/" className="text-brand underline underline-offset-4">Choose an installation guide</Link>.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Working as an integrator? <Link href="/partner/" className="text-brand underline underline-offset-4">Talk about partnering</Link>.</p>
           </div>
-        </div>
-      </section>
-
-      {/* ===== TOPICS ===== */}
-      <section className="py-20 px-6 bg-muted">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">How we can help</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              What you can ask us about
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {TOPICS.map((t) => (
-              <div key={t.title} className="bg-card rounded-2xl border border-border p-6">
-                <div className="w-12 h-12 rounded-xl bg-brand-bg text-brand flex items-center justify-center mb-4">
-                  {t.icon}
-                </div>
-                <h3 className="font-bold text-foreground mb-2">{t.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{t.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CONTACT FORM ===== */}
-      <section id="contact-form" className="py-20 px-6 bg-background">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-10">
-            <Badge variant="brand" className="mb-4">Get in touch</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-3">
-              Tell us about your project
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Fill out the form below and our team will get back to you.
-              Building on Viglet as a company?{' '}
-              <Link href="/partner/" className="text-brand font-semibold">Talk to us about partnering</Link>.
-            </p>
-          </div>
-          <div className="bg-card rounded-2xl border border-border p-8">
+          <section id="contact-form" className="rounded-2xl border border-border bg-card p-5 md:p-8 scroll-mt-20" aria-label="Contact form">
+            <h2 className="text-2xl font-bold text-foreground mb-5">Tell us about your project</h2>
             <CognitoForm formId="3" />
-          </div>
+            <p className="text-sm text-muted-foreground mt-6">If the form does not load, you can also contact our implementation partner through <a href="https://sumware.com.br" className="text-brand underline underline-offset-4">the Sumware website</a>.</p>
+          </section>
         </div>
-      </section>
-
+      </main>
       <Footer />
     </div>
   )

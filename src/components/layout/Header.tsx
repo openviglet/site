@@ -46,7 +46,7 @@ export default function Header() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                href={sol.permalink}
+                href={sol.site ?? sol.permalink}
                 className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
               >
                 <span className="relative flex w-2 h-2 shrink-0">
@@ -86,6 +86,8 @@ export default function Header() {
             onClick={() => setMenuOpen((v) => !v)}
             className="md:hidden p-2 rounded-lg text-muted-foreground hover:bg-muted transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             {menuOpen ? <IconX size={20} /> : <IconMenu2 size={20} />}
           </button>
@@ -93,11 +95,11 @@ export default function Header() {
 
         {/* Mobile nav: inside header but below the 16h bar */}
         {menuOpen && (
-          <div className="md:hidden bg-background border-t border-border px-6 py-4 space-y-1 shadow-lg">
+          <div id="mobile-navigation" className="md:hidden bg-background border-t border-border px-6 py-4 space-y-1 shadow-lg">
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                href={sol.permalink}
+                href={sol.site ?? sol.permalink}
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted no-underline"
               >

@@ -1,6 +1,7 @@
 import { solutions } from '@/data/solutions'
 import { comparisons } from '@/data/comparisons'
 import { blogPosts } from '@/data/blog'
+import { hubMessage } from '@/data/hub'
 
 /**
  * The site's llms.txt (Block E), served at /llms.txt by src/app/llms.txt/route.ts
@@ -31,7 +32,9 @@ export function buildLlmTxt(): string {
 
   return `# Viglet
 
-> Open source platform for enterprise intelligence: enterprise search, data exchange and content management.
+> ${hubMessage.title}
+
+${hubMessage.description}
 
 Viglet makes three tools that work alone or together, led by Viglet Turing. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, with storage and model connections configured by your team.
 

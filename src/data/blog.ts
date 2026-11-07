@@ -40,9 +40,9 @@ export interface BlogTag {
   description: string
 }
 
-export const blogTitle = 'Viglet Blog: Enterprise Search & AI'
+export const blogTitle = 'Viglet Blog: Search, AI & Content'
 export const blogDescription =
-  'Guides and comparisons on enterprise search for Adobe AEM and WordPress, semantic search, RAG, and AI agents with Viglet Turing.'
+  'Practical guides to enterprise search, cited AI answers, source connectors and content management with people and agents.'
 
 export const blogAuthors: Record<string, BlogAuthor> = {
   alexandre: {

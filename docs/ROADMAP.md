@@ -46,8 +46,6 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 📋 **W40** (deps: W1 ⏸, W39 ✅) **Home in searched words, AEM as the front door** — a home headline naming the searched problem and the AEM page reworked around "aem search" queries, cross-linked with the Turing and Dumont AEM docs and proven by the W1 case study. → §XI.3
-
 ## Block F — Reference app / developer funnel
 
 - 💭 **W16** (deps: W1 ⏸, W2 ✅) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet", a reference repo as the technical lead magnet that turns the devs who clone it into Dumont and Turing users. → §VII.1

@@ -243,16 +243,3 @@ hero's random layout) now start from a value the server can produce.
 **What is left** needs the deployed site and the Search Console account: run URL
 inspection on `/turing/` and `/shio/` after the next deploy and confirm the rendered
 text is what Google sees. If it is, ship this line plainly.
-
-### XI.3 W40: Home in searched words, AEM as the front door
-
-"Open Source Tools for Enterprise Intelligence" names a category nobody searches.
-People search "open source enterprise search", "Algolia alternative", "RAG chat
-self-hosted", and, the only ones already showing impressions, AEM search. Rewrite
-the home headline around the problem in those words, Turing first (W38). Make the
-AEM page the main landing: Dumont's AEM connector plus Turing's search, in the
-searched terms ("search component", "search engine"), linked both ways with the
-AEM posts on docs.viglet.org. Ship it with the W1 cursarei case study, the one
-working proof, with its figures taken from cursarei itself (§0 grounding: nothing
-invented). Measure in the Search Console, monthly: impressions and position of the
-three AEM queries against the 13/10/2026 baseline above.

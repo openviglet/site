@@ -1,478 +1,104 @@
-'use client'
+﻿'use client'
 
-import { useMemo } from 'react'
 import Link from 'next/link'
-import { IconArrowRight, IconBrandDocker, IconBook } from '@tabler/icons-react'
+import { IconArrowRight, IconBrandDocker } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent } from '@/components/ui/card'
-import { solutions, type Solution } from '@/data/solutions'
 import VigletLogo from '@/components/VigletLogo'
-import Terminal from '@/components/Terminal'
 import PipelineDiagram from '@/components/PipelineDiagram'
 import ScriptedDemo from '@/components/sections/ScriptedDemo'
-import Outcomes from '@/components/sections/Outcomes'
 import StackWall from '@/components/sections/StackWall'
 import HomeFaq from '@/components/sections/HomeFaq'
 import ProductWizard from '@/components/sections/ProductWizard'
 import CloudCallout from '@/components/sections/CloudCallout'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
+import { hubMessage, productPaths, evaluationPaths } from '@/data/hub'
+import { getSolution } from '@/data/solutions'
 
-const stableSolutions = [...solutions].sort((a, b) => a.order - b.order)
-
-// One `docker run` per product for the closing-CTA terminal (W23 reuse on home).
-const runLines = stableSolutions
-  .filter((s) => s.dockerImage && s.runPort)
-  .map((s) => ({
-    cmd: `docker run -p ${s.runPort}:${s.runPort} ${s.dockerImage}`,
-    comment: s.shortName,
-  }))
-
-const CARD = 'bg-card rounded-2xl border border-border shadow-card hover:shadow-hover transition-all duration-200 no-underline'
-
-// ── Inline brand SVGs (Github/Linkedin removed from lucide as deprecated) ────
-function GitHubSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23A11.52 11.52 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
-    </svg>
-  )
-}
-
-function RedditSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
-    </svg>
-  )
-}
-
-function LinkedInSvg({ size = 20, className = '' }: Readonly<{ size?: number; className?: string }>) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  )
-}
-
-// ── Layout 1: Row with alternating tilts ────────────────────────────────────
-function LayoutRow({ sols }: Readonly<{ sols: Solution[] }>) {
-  const tilts = [
-    '-rotate-2 -translate-y-1 hover:rotate-0 hover:translate-y-0',
-    'translate-y-3 hover:translate-y-0',
-    'rotate-2 -translate-y-1 hover:rotate-0 hover:translate-y-0',
-  ]
-  return (
-    <div className="flex items-start gap-3">
-      {sols.map((sol, i) => (
-        <Link
-          key={sol.identifier}
-          href={sol.permalink}
-          className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${tilts[i]}`}
-        >
-          <VigletLogo identifier={sol.identifier} size={44} />
-          <div>
-            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
-            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">{sol.description}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-// ── Layout 2: Asymmetric. Tall card left, two stacked right ─────────────────
-function LayoutAsymmetric({ sols }: Readonly<{ sols: Solution[] }>) {
-  return (
-    <div className="flex gap-3 h-[236px]">
-      <Link
-        href={sols[0].permalink}
-        className={`${CARD} flex flex-col justify-between w-[42%] p-5 -rotate-1 hover:rotate-0`}
-      >
-        <VigletLogo identifier={sols[0].identifier} size={48} />
-        <div>
-          <p className="font-bold text-foreground">{sols[0].shortName}</p>
-          <p className="text-xs text-muted-foreground line-clamp-3 mt-1">{sols[0].description}</p>
-        </div>
-      </Link>
-      <div className="flex flex-col gap-3 flex-1">
-        {sols.slice(1).map((sol, i) => (
-          <Link
-            key={sol.identifier}
-            href={sol.permalink}
-            className={`${CARD} flex flex-col justify-between flex-1 p-4 ${i === 0 ? 'translate-x-1 hover:translate-x-0' : '-translate-x-1 hover:translate-x-0'}`}
-          >
-            <VigletLogo identifier={sol.identifier} size={36} />
-            <div>
-              <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
-              <p className="text-xs text-muted-foreground line-clamp-2 mt-0.5">{sol.description}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// ── Layout 3: Podium. Centre card is featured ───────────────────────────────
-function LayoutPodium({ sols }: Readonly<{ sols: Solution[] }>) {
-  const configs = [
-    'scale-95 translate-y-5 opacity-80 hover:scale-100 hover:translate-y-0 hover:opacity-100',
-    'scale-100 -translate-y-1 z-10 ring-1 ring-brand/10 shadow-hover hover:-translate-y-3',
-    'scale-95 translate-y-5 opacity-80 hover:scale-100 hover:translate-y-0 hover:opacity-100',
-  ]
-  return (
-    <div className="flex items-start gap-3">
-      {sols.map((sol, i) => (
-        <Link
-          key={sol.identifier}
-          href={sol.permalink}
-          className={`${CARD} flex flex-col justify-between flex-1 min-h-[164px] p-5 ${configs[i]}`}
-        >
-          <VigletLogo identifier={sol.identifier} size={44} />
-          <div>
-            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
-            <p className="text-xs text-muted-foreground line-clamp-2 mt-1">{sol.description}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-// ── Layout 4: Cascade. Diagonal staircase, hover lifts to front ─────────────
-function LayoutCascade({ sols }: Readonly<{ sols: Solution[] }>) {
-  const positions = [
-    'top-0 left-0 w-[65%] z-[1] hover:z-30 -rotate-1 hover:rotate-0',
-    'top-[26%] left-[17.5%] w-[65%] z-[2] hover:z-30',
-    'bottom-0 right-0 w-[65%] z-[3] hover:z-30 rotate-1 hover:rotate-0',
-  ]
-  return (
-    <div className="relative h-[228px]">
-      {sols.map((sol, i) => (
-        <Link
-          key={sol.identifier}
-          href={sol.permalink}
-          className={`absolute ${CARD} flex flex-col justify-between p-5 ${positions[i]}`}
-          style={{ minHeight: 108 }}
-        >
-          <VigletLogo identifier={sol.identifier} size={40} />
-          <div>
-            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
-            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">{sol.description}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-// ── Layout 5: Bento grid ────────────────────────────────────────────────────
-function LayoutBento({ sols }: Readonly<{ sols: Solution[] }>) {
-  return (
-    <div className="grid grid-cols-5 grid-rows-2 gap-3 h-[228px]">
-      <Link
-        href={sols[0].permalink}
-        className={`${CARD} flex flex-col justify-between col-span-2 row-span-2 p-5`}
-      >
-        <VigletLogo identifier={sols[0].identifier} size={48} />
-        <div>
-          <p className="font-bold text-foreground">{sols[0].shortName}</p>
-          <p className="text-xs text-muted-foreground line-clamp-3 mt-1">{sols[0].description}</p>
-        </div>
-      </Link>
-      {sols.slice(1).map((sol) => (
-        <Link
-          key={sol.identifier}
-          href={sol.permalink}
-          className={`${CARD} flex flex-row items-center gap-3 col-span-3 row-span-1 p-4`}
-        >
-          <VigletLogo identifier={sol.identifier} size={40} />
-          <div className="min-w-0">
-            <p className="font-bold text-foreground text-sm">{sol.shortName}</p>
-            <p className="text-xs text-muted-foreground line-clamp-1 mt-0.5">{sol.description}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  )
-}
-
-// ── Dispatcher ──────────────────────────────────────────────────────────────
-const LAYOUTS = ['row', 'asymmetric', 'podium', 'cascade', 'bento'] as const
-type Layout = (typeof LAYOUTS)[number]
-
-/**
- * The layout is random per render, but hydrating prerendered HTML (W39) must
- * reuse the one the build picked, so it is read back from `data-hero-layout`
- * when that markup is on the page. A client-side visit to `/` picks afresh.
- */
-function pickLayout(): Layout {
-  if (typeof document !== 'undefined') {
-    const rendered = document.querySelector<HTMLElement>('[data-hero-layout]')?.dataset.heroLayout
-    const known = LAYOUTS.find((l) => l === rendered)
-    if (known) return known
-  }
-  return LAYOUTS[Math.floor(Math.random() * LAYOUTS.length)]
-}
-
-function HeroCards({ sols }: Readonly<{ sols: Solution[] }>) {
-  const layout = useMemo<Layout>(pickLayout, [])
-  let cards
-  if (layout === 'row') cards = <LayoutRow sols={sols} />
-  else if (layout === 'asymmetric') cards = <LayoutAsymmetric sols={sols} />
-  else if (layout === 'podium') cards = <LayoutPodium sols={sols} />
-  else if (layout === 'cascade') cards = <LayoutCascade sols={sols} />
-  else cards = <LayoutBento sols={sols} />
-  return <div data-hero-layout={layout}>{cards}</div>
-}
-
-// ── Page ────────────────────────────────────────────────────────────────────
 export default function HomePage() {
-  const motionPaused = useIsMobileOrTablet()
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
-
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-background pt-20 pb-24 px-6">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-
-        <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Copy */}
-          <div className="hero-fade-in">
-            <div className="inline-flex items-center gap-2 bg-background border border-border rounded-full px-3.5 py-1.5 text-sm font-semibold text-brand shadow-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-br from-brand to-brand-light" />
-              <span>Open Source Platform</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-foreground tracking-tight leading-[1.1] mb-6">
-              Open Source Tools for{' '}
-              <span className="vg-gradient-text">Enterprise Intelligence</span>
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-lg">
-              Enterprise search, data exchange and content management for developers. Open source, self-hosted.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button size="lg" asChild>
-                <a href="#products">
-                  Explore Products
-                  <IconArrowRight size={16} />
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" asChild>
-                <Link href="/docs/">Read the Docs</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* Random product card layout */}
-          <div className="hidden md:block hero-fade-in--delayed">
-            <HeroCards sols={stableSolutions} />
-          </div>
-        </div>
-      </section>
-
-      {/* The stats band (3 projects, 100% open source, Apache 2.0, self-hosted)
-          repeated the headline; it comes back only as proof, such as the W1
-          case study (W41). */}
-
-      {/* ===== SEE: scripted product demo (W28) ===== */}
-      <ScriptedDemo />
-
-      {/* ===== OUTCOMES: what changes for you (W22) ===== */}
-      <Outcomes />
-
-      {/* ===== PRODUCTS ===== */}
-      <section id="products" className="py-20 px-6 bg-muted border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Products</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              The Viglet Suite
-            </h2>
-            <p className="text-muted-foreground text-lg mt-3 max-w-xl mx-auto">
-              Three complementary tools that work independently or together.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stableSolutions.map((sol) => (
-              <Card
-                key={sol.identifier}
-                className="flex flex-col hover:shadow-hover hover:-translate-y-1 transition-all"
-              >
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <VigletLogo identifier={sol.identifier} size={48} />
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                        {sol.memo}
-                      </p>
-                      <p className="font-bold text-foreground">{sol.shortName}</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-6">
-                    {sol.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <Link
-                      href={sol.permalink}
-                      className="flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-brand-dark transition-colors no-underline group"
-                    >
-                      Learn More
-                      <IconArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== WHICH PRODUCT: three-question wizard (W8) ===== */}
-      <ProductWizard />
-
-      {/* ===== HOSTED OR SELF-HOSTED: Viglet Cloud (beta) band (W30) ===== */}
-      <CloudCallout />
-
-      {/* ===== HOW THE THREE CONNECT: pipeline band (W21 / W2) ===== */}
-      <section className="py-20 px-6 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Integrations</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              Connect the tools your project needs
-            </h2>
-            <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
-              Each product works independently. These are the paths for adding search or delivering content when you combine them.
-            </p>
-          </div>
-          <PipelineDiagram />
-        </div>
-      </section>
-
-      {/* ===== WORKS WITH YOUR STACK: pill wall (W25) ===== */}
-      <StackWall />
-
-      {/* ===== FAQ (W26) ===== */}
-      <HomeFaq />
-
-      {/* ===== CONVERT: closing CTA (W21) ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950">
-        <div className="max-w-4xl mx-auto py-20 px-6 text-center relative">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Start with one product. Or the whole platform.
-          </h2>
-          <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            Open source under Apache 2.0, self-hosted with a single Docker command. No account, no per-query pricing.
-          </p>
-          {runLines.length > 0 && (
-            <div className="max-w-2xl mx-auto mb-8 text-left">
-              <Terminal title="bash · viglet" lines={runLines} />
-            </div>
-          )}
-          <div className="flex flex-wrap gap-3 justify-center">
-            <a
-              href="#products"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
-            >
-              <IconBrandDocker size={16} />
-              Explore the products
-            </a>
-            <Link
-              href="/docs/"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
-            >
-              <IconBook size={16} />
-              Read the Docs
-              <IconArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== COMMUNITY ===== */}
-      <section className="py-20 px-6 bg-background border-t border-border">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Community</Badge>
-            <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              Join the conversation
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <a
-              href="https://github.com/openviglet"
-              target="_blank"
-              rel="noopener"
-              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-12 rounded-xl bg-slate-900 flex items-center justify-center">
-                  <GitHubSvg size={20} className="text-white" />
-                </span>
-                <div>
-                  <p className="font-bold text-foreground">GitHub</p>
-                  <p className="text-xs text-muted-foreground">openviglet</p>
-                </div>
+      <main id="main-content">
+        <section className="px-6 py-14 md:py-20 border-b border-border">
+          <div className="max-w-7xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_1fr] items-center">
+            <div>
+              <Badge variant="brand" className="mb-6">Viglet / Apache 2.0</Badge>
+              <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.08] text-foreground max-w-3xl">{hubMessage.title}</h1>
+              <p className="text-lg text-muted-foreground leading-relaxed mt-6 max-w-xl">{hubMessage.description}</p>
+              <div className="flex flex-wrap gap-3 mt-8">
+                <Button size="lg" asChild><a href="https://turing.viglet.org/#playground">Try Turing live <IconArrowRight size={18} /></a></Button>
+                <Button size="lg" variant="outline" asChild><Link href="/turing/download/"><IconBrandDocker size={18} /> Run Turing with Docker</Link></Button>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                Explore the source, open issues, submit pull requests, and shape the roadmap.
-              </p>
-              <span className="text-sm font-semibold text-foreground">Star on GitHub →</span>
-            </a>
-            <a
-              href="https://www.reddit.com/r/TuringES/"
-              target="_blank"
-              rel="noopener"
-              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-12 rounded-xl bg-[#FF4500] flex items-center justify-center">
-                  <RedditSvg size={20} className="text-white" />
-                </span>
-                <div>
-                  <p className="font-bold text-foreground">Reddit</p>
-                  <p className="text-xs text-muted-foreground">r/TuringES</p>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                Ask questions, share integrations and talk search engineering with other users on r/TuringES.
-              </p>
-              <span className="text-sm font-semibold text-[#FF4500]">Join on Reddit →</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/viglet.com"
-              target="_blank"
-              rel="noopener"
-              className="flex flex-col bg-card border border-border rounded-2xl p-8 hover:shadow-hover hover:-translate-y-1 transition-all no-underline"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
-                  <LinkedInSvg size={20} className="text-white" />
-                </span>
-                <div>
-                  <p className="font-bold text-foreground">LinkedIn</p>
-                  <p className="text-xs text-muted-foreground">@viglet.com</p>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                Follow us for product updates, engineering insights, and community news.
-              </p>
-              <span className="text-sm font-semibold text-[#0A66C2]">Follow on LinkedIn →</span>
-            </a>
+              <p className="mt-5 text-sm text-muted-foreground">Choosing a CMS or connector? <a href="#products" className="text-brand underline underline-offset-4">Find your product</a>.</p>
+            </div>
+            <ScriptedDemo />
           </div>
-        </div>
-      </section>
+        </section>
 
+        <section id="products" className="px-6 py-16 scroll-mt-20 bg-muted">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Start with the job you need done</h2>
+            <p className="text-muted-foreground mt-3 mb-8">Three independent products. Add an integration when your project needs it.</p>
+            <div className="grid gap-5 md:grid-cols-3">
+              {productPaths.map((path) => {
+                const product = getSolution(path.product)!
+                return (
+                  <article key={path.product} className={`rounded-2xl border border-border bg-card p-6 flex flex-col product-card-${path.product}`}>
+                    <div className="flex items-center gap-3 mb-5"><VigletLogo identifier={path.product} size={40} /><p className={`font-semibold product-text-${path.product}`}>{product.fullName}</p></div>
+                    <h3 className="text-xl font-bold text-foreground">{path.job}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{path.description}</p>
+                    <a href={path.href} className="inline-flex items-center gap-2 text-brand font-semibold text-sm">{path.action}<IconArrowRight size={16} /></a>
+                    <a href={product.getStarted} className="mt-4 text-sm text-muted-foreground underline underline-offset-4">Install {product.shortName}</a>
+                  </article>
+                )
+              })}
+            </div>
+            <details className="mt-8 rounded-2xl border border-border bg-background scroll-mt-20">
+              <summary className="cursor-pointer p-5 font-semibold text-foreground">Need help choosing? Answer a few questions</summary>
+              <ProductWizard />
+            </details>
+          </div>
+        </section>
+
+        <section className="px-6 py-16 border-b border-border">
+          <div className="max-w-7xl mx-auto">
+            <Badge variant="brand" className="mb-4">Try it in context</Badge>
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Start from your environment</h2>
+            <div className="grid gap-8 md:grid-cols-3 mt-8">
+              {evaluationPaths.map((path) => (
+                <article key={path.id} className="border-t-2 border-brand pt-5 flex flex-col">
+                  <h3 className="font-bold text-xl text-foreground">{path.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-3 mb-5 flex-1">{path.description}</p>
+                  <Link href={path.href} className="font-semibold text-brand text-sm">{path.action} &rarr;</Link>
+                  <Link href={path.guide} className="text-sm text-muted-foreground underline underline-offset-4 mt-3">{path.guideLabel}</Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-16">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight text-foreground">Connect the tools your project needs</h2>
+            <p className="text-muted-foreground mt-3 mb-8">Each path is optional. You do not need all three products to get started.</p>
+            <PipelineDiagram />
+          </div>
+        </section>
+        <StackWall />
+        <HomeFaq />
+        <CloudCallout />
+        <section className="px-6 py-16 bg-muted border-t border-border">
+          <div className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2 items-center">
+            <div><h2 className="text-3xl font-bold tracking-tight text-foreground">Plan your first deployment</h2><p className="mt-3 text-muted-foreground leading-relaxed">Start with the setup guide, or talk with us about sources, architecture and implementation support.</p></div>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <Button size="lg" asChild><Link href="/docs/">Choose a setup guide <IconArrowRight size={16} /></Link></Button>
+              <Button size="lg" variant="outline" asChild><Link href="/contact/">Discuss your deployment</Link></Button>
+            </div>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   )

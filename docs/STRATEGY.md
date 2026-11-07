@@ -7,39 +7,48 @@
 
 ---
 
-## I. The core thesis: cursarei is the proof, viglet.org should sell it
+## I The hub helps visitors choose and evaluate
 
-### I.1 The realization
+The hub translates the portfolio strategy into clear product choices, verifiable
+evidence and direct evaluation paths.
 
-The **cursarei** project (`D:\Git\alegauss\cursarei`) is not just "a site about
-schools." It is a working, public application built on exactly the three
-primitives Viglet sells:
+### I.1 The hub follows the portfolio strategy
 
-- **Dumont**: a crawler indexing 100+ institutions (cursarei's Python crawler).
-- **Turing ES**: lexical + semantic + natural-language search, plus RAG copilot
-  and comparison summaries (cursarei's search + AI layer).
-- **Shio CMS**: editorial content per area (cursarei's area intros/FAQs).
+The portfolio positioning is maintained in
+`D:/Git/alegauss/visibility/estrategia/viglet.md`, with product-specific evidence in
+`produtos/` and portfolio priorities in `estrategia/portfolio.md`. This document
+translates that direction into the job of viglet.org.
 
-So the question shifts from "*what features should viglet.org copy from
-cursarei?*" to the more valuable one: **"how do we use cursarei to prove the
-Viglet stack and lower the barrier to adoption?"** Everything in the roadmap
-flows from that.
+Turing leads the acquisition story: enterprise search and cited AI answers over a team's
+content. Dumont connects existing sources to search. Shio has its own audience: people
+and agents managing and publishing content through a CMS. A Turing-first hub must
+preserve that separate reason to adopt Shio.
 
-### I.2 Bet 1: Show, don't tell (Block A + F)
+Cursarei is a candidate reference application, not evidence of integration merely
+because its architecture has similar layers. Publish a Built with Viglet case only after
+verifying the actual product integration. Existing product demonstrations can support
+evaluation without waiting for that case.
 
-The strongest sales asset for a search/AI platform is a working demo, not a
-feature list. A `/showcase/cursarei` case study, a "Built with Viglet"
-architecture diagram, and a live-demo link cost little and convert more than any
-landing copy. Publishing cursarei as a clonable starter (Block F) turns the demo
-into a developer funnel: clone → run → become a Dumont/Turing user.
+### I.2 Evidence before promotion
 
-### I.3 Bet 2: Dogfood the product as the site's own UX (Block B)
+Lead to demonstrations that already exist on the dedicated product sites. The hub may
+show a clearly labelled illustrative preview, but it must not imply that a scripted
+answer is a live result or a customer case.
 
-A product-finder copilot and semantic search on viglet.org are simultaneously a
-**feature and a demonstration**: the visitor *uses* Turing to decide to adopt
-Turing. This is the highest-converting move because it removes the
-imagination gap. Hard requirement: graceful degradation. The marketing site
-must never break because an LLM endpoint is down.
+For AEM, use the Turing site's WKND evaluation path and connector guides. Treat AEM as a
+targeted acquisition hypothesis supported by historical search impressions, not as a
+proven market winner. WordPress is a separate path with different installation
+requirements. Customer names, results and logos require evidence and permission; product
+demonstrations remain useful without them.
+
+### I.3 Dogfooding must serve the visitor
+
+Search on the hub can demonstrate Turing while helping visitors find a guide or product.
+A second full product playground on the hub is justified only if it removes a
+demonstrated obstacle; the existing product sites already own deeper evaluation.
+
+External services must degrade to useful static content or local search. A live AI
+feature is an experiment, not a claim of higher conversion without measurement.
 
 ### I.4 The binding reality: distribution, not features, is the bottleneck
 
@@ -49,13 +58,12 @@ are pure distribution: **GEO** (Block E: make LLM assistants name Viglet) and
 **lead capture** (Block D: turn the rare qualified visitor into a contact). Spend
 effort proportional to this: a showcase + GEO + capture beats a fourth redesign.
 
-### I.5 Bet 3: The reference repo as a lead-magnet (Block F)
+### I.5 A starter is conditional on a reproducible integration
 
-Developers adopt stacks they can clone and run in an afternoon. cursarei,
-genericized and published as "build an AI search portal on Viglet," is the
-cheapest durable acquisition channel for the technical buyer. Gated on the case
-study (W1/W2) so the repo and the story ship together, and on the cursarei
-owner's go-ahead (it's their codebase).
+An example repository can help technical adoption when it installs reliably, uses the
+claimed Viglet products and matches the published documentation. A cursarei-derived
+starter requires verified integration and its owner's agreement. It does not block the
+hub's message, existing demos or setup guides.
 
 ### I.6 Non-negotiables (the trust posture)
 
@@ -70,77 +78,66 @@ owner's go-ahead (it's their codebase).
 
 ---
 
-## II. Channel split: what each surface is for
+## II Channel split: one job per surface
 
-| Surface | Role | Stack reality |
-|---|---|---|
-| **viglet.org** (this repo) | **Hub / portfolio for all products**: positioning, comparison, **showcase**, lead capture, embedded AI demo. Top of funnel; funnels into the dedicated product sites via `solution.site`. | React+Vite SPA today → **Next.js on Viglet Cloud** (§VII). Emits `llms.txt`. |
-| **turing.viglet.org** (+ future dumont/shio) | **Dedicated product site**: the *essence* deep-dive of one product. Linked as the primary CTA from that product's page on viglet.org (`solution.site`). | React+Vite+Tailwind (same stack), own SSG/prerender. |
-| **viglet.org/blog** | Integration how-tos and comparisons (the conversion path GEO links into). Moved from docs.viglet.org, which redirects the old addresses (W46). | Markdown in this repo, prerendered by Next.js. |
-| **viglet.cloud** | **Managed/hosted delivery** of the products: the "run it for me" option beside self-host via Docker. **Beta / testing-only (2026-07)**: light-touch, honest exposure (Block I). | `viglet/cloud` repo (Next.js 15 + Docker). |
-| **Off-domain** | Strongest GEO lever: GitHub (the cursarei starter repo), directories, dev communities. | Where independent corroboration is born. |
+| Surface | Primary role |
+|---|---|
+| viglet.org | Explain the portfolio, help choose a product, establish trust and offer implementation contact. |
+| turing.viglet.org, dumont.viglet.org, shio.viglet.org | Demonstrate each product, explain requirements and lead to installation and product documentation. |
+| viglet.org/blog | Answer a specific question and link to the matching demo, guide or deployment conversation. |
+| viglet.cloud | Offer the managed-hosting beta as a secondary option, explicitly labelled Beta. |
+| GitHub and distribution channels | Supply source, releases and external discovery paths; use the visibility plan for channel work. |
 
-**They coexist as a layered funnel, not competitors.** viglet.org is the hub that
-routes a visitor to the right product deep-dive (turing.viglet.org), the docs, or
-(once out of beta) the hosted Cloud. Self-host (Docker) and Cloud are two delivery
-modes of the *same* products, not rival offerings. Note the reflexive twist in §VII:
-Cloud is also viglet.org's own future deployment platform (Block G), so the site both
-*markets* Cloud and *runs on* it.
+Product navigation goes directly to the dedicated sites. Existing local overview,
+download and release-note URLs remain available for inbound links. An evaluator should
+not need to read successive product introductions before trying the product.
 
----
+This repository is Next.js 16 with a static export and a server build. Preserve both
+until the hosting cutover is verified. Blog posts remain Markdown and their existing
+slugs stay stable.
 
-## III. Sequencing: what to do first
+## III Sequence by evaluation friction
 
-Convicted order (effort vs. payoff), not an exhaustive list:
+First keep product claims, release information and setup requirements consistent. Then
+shorten the path from a visitor's question to a demo, installation guide or
+implementation contact.
 
-1. **W4 live-demo CTA + W1 case study (Block A).** Lowest effort, immediate
-   proof. Mostly content; no backend.
-2. **W8 wizard + W9 comparison (Block C).** Pure client-side; clarifies the
-   "which product?" decision that loses buyers today.
-3. **W13 llms.txt + W14 comparison pages (Block E).** Distribution; rides
-   existing competitor query volume; cross-repo with Turing Block O.
-4. **Block G migration (W17/W18)** when the AI features (Block B) become the
-   priority. It's the enabler, so it precedes a *native* W5–W7.
-5. **Block B embedded AI.** Highest conversion, highest cost; ship against an
-   external Turing endpoint first if Block G slips, then move native (W19).
-6. **W10 capture + W16 starter repo.** Durable funnels; run continuously.
+Use a stable home composition with Turing first, independent product jobs, labelled
+integrations and optional selection help. Prefer useful examples to decorative motion.
+Preserve the existing product identity and design-system tokens.
 
----
+Evaluate the AEM path as one focused acquisition experiment; keep WordPress and Shio
+agent workflows distinct. Follow the visibility plan for articles and company LinkedIn
+posts. Historical October figures are context, not current traffic.
+
+Measure consented demo, guide and contact-intent actions alongside Search Console
+discovery data. A click to a setup guide is not a completed installation; a contact-page
+visit is not a qualified lead. Review actual inquiries separately. With limited traffic,
+use absolute counts and qualitative feedback before proposing an A/B test or another
+redesign.
 
 ## VII. The Next.js + Viglet Cloud migration (Block G)
 
-### VII.1 The bet
+### VII.1 Why retain the server deployment option (W16)
 
-viglet.org should become a **Next.js server app deployed on Viglet Cloud as one
-more site**, the same shape cursarei already runs in the `viglet/cloud` repo.
-Two reasons it's strategic, not just technical:
+The site already uses Next.js 16. Its static export serves the current public
+deployment; SITE_OUTPUT=server builds the same pages for next start on Viglet Cloud.
 
-1. **It makes the dogfooding real, end to end.** Today Block B's AI features
-   would call an external Turing endpoint and the site ships as static HTML.
-   On Next.js + Cloud, the copilot, semantic search, and NL match are **native
-   API routes** (cursarei's `llmRuntime` pattern), and viglet.org *itself* runs
-   on the Cloud platform it sells. The marketing site becomes a Cloud reference
-   deployment.
-2. **It collapses two codebases onto one proven pattern.** cursarei has already
-   solved Next.js 15 + SSG + `llms.txt`/sitemap + Docker-on-Cloud. Migrating
-   viglet.org to the same stack means one set of patterns to maintain and a
-   straight path to the Block F starter repo.
+The server option enables future native API routes and a potential reference deployment
+of the hosting platform. It is not a prerequisite for improving the hub or linking to
+existing product demonstrations. Keep deployment modes compatible until the DNS cutover
+is verified.
 
-### VII.2 The cost and the bar
+### VII.2 Compatibility is the migration bar
 
-It's a real migration, not a reskin: port six routes to the App Router, reproduce
-the three Vite plugins' SEO/GEO output as Next equivalents, add a Dockerfile, and
-wire Cloud deployment. **The bar is zero visual and SEO regression**: same URLs
-(trailing slashes preserved), same `<head>`/JSON-LD, same `llms.txt`, same
-sitemap. cursarei is the working reference for every pattern; read it first.
+Preserve route URLs and trailing slashes, canonical metadata, rendered content, llms.txt
+and the sitemap in both output modes. The Cloud image and deployment wiring are
+maintained in the cloud repository. Check both builds before changing shared runtime
+behavior; a successful local build is not evidence of a production cutover.
 
-### VII.3 Sequencing & risk
+### VII.3 Cutover and fallback
 
-- **Don't bolt an interim Node server onto the Vite build.** If Block B is needed
-  before the migration, ship it against an external Turing endpoint with
-  graceful fallback; don't fork the build system twice.
-- **CNAME cutover is last.** Keep GitHub Pages serving until Cloud serves
-  identical content at the same domain, then switch DNS. One-way, so verify first.
-- **Risk:** Cloud deploy maturity. viglet.org is low-stakes traffic, which makes
-  it a *good* first/early Cloud site: failures here are cheap and instructive,
-  exactly the argument Turing STRATEGY §VIII.2 makes for the Cloud bet.
+DNS cutover remains the final deployment step after Cloud serves the required content at
+the intended domain. Until that is verified, keep the static export and avoid native API
+dependencies in shared pages. External demo or AI failures must leave a usable route to
+documentation or deterministic local content.

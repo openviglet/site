@@ -62,10 +62,10 @@ export default function ComparePage({ slug }: Readonly<{ slug: string }>) {
 
           <div className="flex flex-wrap gap-3 items-center justify-center">
             <ProductButton identifier={accent} size="lg" asChild>
-              <Link href="/turing/">
+              <a href={comparison.slug === 'enterprise-search-for-aem' ? 'https://turing.viglet.org/aem-search/' : 'https://turing.viglet.org/#playground'}>
                 <IconRocket size={18} />
-                Explore Turing
-              </Link>
+                Try Turing in context
+              </a>
             </ProductButton>
             <ProductButton identifier={accent} productVariant="ghost" size="lg" asChild>
               <a href="https://turing.viglet.org/docs/getting-started/intro/" target="_blank" rel="noopener">

@@ -37,7 +37,7 @@ export default function Footer() {
               <span className="font-brand text-xl font-extrabold text-white tracking-tight">Viglet</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs mb-6">
-              Open source tools for enterprise intelligence.
+              Open-source search, AI answers and content tools you can self-host.
             </p>
             <div className="flex gap-2.5">
               <a
@@ -78,7 +78,7 @@ export default function Footer() {
               {solutions.map((sol) => (
                 <li key={sol.identifier}>
                   <Link
-                    href={sol.permalink}
+                    href={sol.site ?? sol.permalink}
                     className="group flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
                   >
                     <span className="relative flex w-2 h-2 shrink-0">
