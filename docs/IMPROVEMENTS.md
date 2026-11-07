@@ -283,18 +283,3 @@ use controlled fixtures for deterministic failure checks and distinguish those f
 verification. Record observed issues, fix scoped presentation regressions, and retain a
 concise QA report. Finish with static/server builds, internal-link checks and roadkeep
 lint. No deployment or claims of conversion uplift are part of this task.
-
-### XI.19 W65: Typography instead of decorative chips
-
-The owner rejected decorative pill/chip styling as a generic visual cue on 2026-11-07.
-Replace non-interactive capsule labels in the homepage, shared heroes and section
-headings with restrained typographic eyebrows: plain text, normal spacing, no pill
-border or fill. Product identity, logo, title and hierarchy should carry the page.
-Present license and beta information as simple metadata. Blog tags can be plain
-separated links; interactive tag/product filters should use clear underline or tab-style
-selection with aria-current/aria-pressed retained. Do not remove useful filters or
-status meaning, and do not disguise controls as static labels. Review shared Badge usage
-so decorative labels do not return through another page. Keep the design-system colors
-and the full product names. Verify the resulting visual hierarchy, selected states,
-keyboard focus and mobile wrapping with Playwright, and run the build. Record the
-preference in design guidance for future changes.

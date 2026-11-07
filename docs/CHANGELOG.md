@@ -59,6 +59,7 @@
 - **W61** — Institutional, product and comparison routes share PageHero, adaptive surfaces, heading and action conventions, with 36 informational layout checks and both builds passing (design §XI.15 recorded in `docs/DESIGN.md`).
 - **W62** — Blog index, tag pages and article headers use the shared hero and controls, retaining readable article width, metadata and stable routes, with 16 browser checks passing (design §XI.16 recorded in `docs/DESIGN.md`).
 - **W64** — All visitor-facing product names use the Viglet prefix, fullName drives labels and marks, diagrams and social assets are refreshed, and 40 exported pages plus SEO/GEO data passed the naming audit (design §XI.18 recorded in `docs/STRATEGY.md`).
+- **W65** — Decorative chips became plain typographic metadata, while preview, blog and product filters use underline selection with accessible states verified in 12 browser checks (design §XI.19 recorded in `docs/DESIGN.md`).
 
 ## Block H — Conversion narrative & product essence
 

@@ -35,7 +35,7 @@ export default function StackWall() {
                 {group.providers.map((p) => (
                   <span
                     key={p.name}
-                    className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground"
+                    className="inline-flex items-center gap-2 py-1 pr-5 text-sm font-medium text-foreground"
                   >
                     <span className="w-2 h-2 rounded-full" style={{ backgroundColor: p.color }} />
                     {p.name}

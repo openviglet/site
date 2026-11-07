@@ -67,9 +67,9 @@ export default function ProductWizard() {
                       type="button"
                       aria-pressed={selected}
                       onClick={() => setAnswers((a) => ({ ...a, [q.id]: o.id }))}
-                      className={`px-4 py-2 rounded-xl border text-sm font-medium transition-colors ${
+                      className={`px-4 py-2 rounded-md border text-sm font-medium transition-colors ${
                         selected
-                          ? 'border-brand bg-brand text-white'
+                          ? 'border-brand bg-muted text-foreground'
                           : 'border-border bg-card text-foreground hover:bg-muted'
                       }`}
                     >

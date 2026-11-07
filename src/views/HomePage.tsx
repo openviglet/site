@@ -24,7 +24,7 @@ export default function HomePage() {
         <section className="px-6 py-14 md:py-20 border-b border-border">
           <div className="max-w-7xl mx-auto grid gap-10 lg:grid-cols-[1.1fr_1fr] items-center">
             <div>
-              <Badge variant="brand" className="mb-6">Viglet / Apache 2.0</Badge>
+              <p className="mb-6 text-sm text-muted-foreground">Open source · Apache 2.0</p>
               <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.08] text-foreground max-w-3xl">{hubMessage.title}</h1>
               <p className="text-lg text-muted-foreground leading-relaxed mt-6 max-w-xl">{hubMessage.description}</p>
               <div className="flex flex-wrap gap-3 mt-8">

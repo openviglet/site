@@ -66,10 +66,10 @@ function TagLink({ href, label, active }: Readonly<{ href: string; label: string
     <Link
       href={href}
       aria-current={active ? 'page' : undefined}
-      className={`px-3 py-1 rounded-full text-sm font-semibold no-underline border transition-colors ${
+      className={`px-1 py-2 text-sm font-semibold no-underline border-b-2 transition-colors ${
         active
-          ? 'bg-brand text-white border-brand'
-          : 'bg-background text-muted-foreground border-border hover:text-foreground hover:border-brand-border'
+          ? 'text-foreground border-brand'
+          : 'text-muted-foreground border-transparent hover:text-foreground hover:border-border'
       }`}
     >
       {label}

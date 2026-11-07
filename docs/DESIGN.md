@@ -18,6 +18,9 @@ not introduce another color palette or a separate set of controls.
   empty and unavailable states retain useful next steps.
 - Keep focus visible and preserve keyboard access, native disclosure behavior
   and mobile navigation. Longer names wrap; they are not abbreviated to fit.
+- Labels, license details, beta information and article tags use plain typography.
+  Do not wrap decorative metadata in capsule borders or filled chips. Interactive
+  filters use clear tab-style selection; preserve their accessible state and focus.
 
 The permanent full-product-name rule is in STRATEGY.md section I.7 and AGENTS.md.
 Browser evidence and the limits of each verification are in QA-2026-11-07.md.

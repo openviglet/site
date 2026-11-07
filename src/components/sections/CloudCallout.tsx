@@ -19,7 +19,7 @@ export default function CloudCallout() {
           <p className="flex flex-wrap items-center gap-2 font-bold text-foreground text-lg mb-1">
             Self-host it, or let Viglet host it
             {cloud.beta && (
-              <span className="rounded border border-border px-1.5 py-px text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+              <span className="text-xs font-medium text-muted-foreground">
                 Beta
               </span>
             )}

@@ -104,8 +104,8 @@ export default function ProductComparePage() {
                     type="button"
                     aria-pressed={on}
                     onClick={() => toggleProduct(s.identifier)}
-                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-medium transition-colors ${
-                      on ? `product-bg-${s.identifier} text-white border-transparent` : 'border-border bg-card text-muted-foreground hover:bg-muted'
+                    className={`flex items-center gap-2 px-1 py-2 border-b-2 text-sm font-medium transition-colors ${
+                      on ? 'border-brand text-foreground' : 'border-transparent text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {s.fullName}

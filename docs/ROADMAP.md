@@ -48,8 +48,7 @@
 
 - 📋 **W55** (deps: W52 ✅) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
-- 📋 **W63** (deps: W62 ✅, W64 ✅, W65) **There is no whole-site evidence of visual consistency** — Verify every route family against the shared layout in both themes and fix observed presentation regressions. → §XI.17
-- 📋 **W65** (deps: —) **Decorative capsule labels make metadata look like controls** — Use typographic labels and clear tab-style filters to give the site a less generic visual identity without losing interaction meaning. → §XI.19
+- 📋 **W63** (deps: W62 ✅, W64 ✅, W65 ✅) **There is no whole-site evidence of visual consistency** — Verify every route family against the shared layout in both themes and fix observed presentation regressions. → §XI.17
 
 ## Block F — Reference app / developer funnel
 

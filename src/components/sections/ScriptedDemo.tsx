@@ -18,7 +18,7 @@ export default function ScriptedDemo() {
       <div className="flex flex-wrap gap-2 p-5" role="group" aria-label="Choose an example question">
         {demoScenarios.map((item, i) => (
           <button key={item.id} type="button" aria-pressed={index === i} onClick={() => setIndex(i)}
-            className={`rounded-lg border px-3 py-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${index === i ? 'border-brand bg-brand-bg text-brand' : 'border-border text-muted-foreground hover:bg-muted'}`}>
+            className={`border-b-2 px-1 py-2 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${index === i ? 'border-brand text-foreground' : 'border-transparent text-muted-foreground hover:text-foreground'}`}>
             {item.label}
           </button>
         ))}

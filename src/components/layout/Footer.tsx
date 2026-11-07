@@ -101,7 +101,7 @@ export default function Footer() {
                   <span className="w-2 h-2 shrink-0 rounded-full bg-slate-500" />
                   Cloud
                   {cloud.beta && (
-                    <span className="rounded border border-white/15 px-1.5 py-px text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <span className="text-xs font-medium text-slate-400">
                       Beta
                     </span>
                   )}
