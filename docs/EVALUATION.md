@@ -55,3 +55,25 @@ utm_campaign=w55-20261107. Exclude that source/campaign and localhost from any
 analysis. Treat 7 November as a calibration day, excluded from the outcome
 window; no counts from these sessions represent adoption. No contact inquiry
 was submitted, and no account destination settings were changed.
+
+## GA dimension registration
+
+On 7 November the Admin API returned no custom definitions for property
+506977335, and Data API metadata exposed no custom dimensions. The existing
+service account can read the property but its attempt to create the product
+definition returned HTTP 403 (caller does not have permission). No definition
+was created, and no permissions were changed.
+
+A property Editor must create these event-scoped custom dimensions under
+Admin > Data display > Custom definitions, using the exact event parameter names:
+
+| Display name | Event parameter | Scope |
+|---|---|---|
+| Viglet product | product | Event |
+| Viglet journey | journey | Event |
+| Viglet placement | placement | Event |
+
+After creation, record the activation date and confirm that the Data API exposes
+customEvent:product, customEvent:journey and customEvent:placement. W68 remains
+pending that account action and propagation. Do not reconstruct missing historical
+values or start a segmented outcome window before the definitions are usable.

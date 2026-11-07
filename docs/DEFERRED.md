@@ -15,6 +15,7 @@
 
 - ⏸ **W39** (deps: —) **Real prerender** — set aside (needs the deployed site and Search Console.): confirm with Search Console URL inspection of /turing/ and /shio/ after the next deploy that Google sees the rendered text. → §XI.2
 - ⏸ **W38** (deps: —) **One entity, Turing first** — set aside (the product sites hold another session's open rebrand.): copy the descriptors into the GitHub repo descriptions and topics and onto the three product sites, which still carry the acronyms. → §XI.1
+- ⏸ **W68** (deps: —) **Journey dimensions are absent from the GA property** — set aside (Awaiting a GA property Editor to register product, journey and placement after the service account received HTTP 403.): Make product, journey and placement queryable before evaluating the revised journeys. → §XI.21
 
 ## Block F — Reference app / developer funnel
 
