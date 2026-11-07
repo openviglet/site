@@ -103,5 +103,7 @@ export function trackJourneyAction(action: string, dimensions: Record<string, st
   }
   const w = window as unknown as { gtag?: (...args: unknown[]) => void }
   // Analytics must never interrupt navigation, even if an extension replaces gtag.
-  try { w.gtag?.('event', action, safe) } catch { /* navigation remains available */ }
+  // The Google tag can have other configured destinations in the same property.
+  // Route each action explicitly so those destinations do not count it again.
+  try { w.gtag?.('event', action, { ...safe, send_to: GA_ID }) } catch { /* navigation remains available */ }
 }

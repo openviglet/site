@@ -46,9 +46,8 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 🛠 **W55** (deps: W52 ✅, W67, W68) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
+- 🛠 **W55** (deps: W52 ✅, W67 ✅, W68) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
-- 📋 **W67** (deps: —) **Journey clicks reach two streams in the same GA property** — Route custom events to one intended stream so a single evaluation click is counted once. → §XI.20
 - 📋 **W68** (deps: —) **Journey dimensions are absent from the GA property** — Make product, journey and placement queryable before evaluating the revised journeys. → §XI.21
 
 ## Block F — Reference app / developer funnel

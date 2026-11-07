@@ -270,17 +270,6 @@ from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
 
-### XI.20 W67: Single-destination journey events
-
-The W55 live test on 2026-11-07 observed every journey action sent once to G-SMSL7R3897
-and again to G-Y2ZJHV209D, both in property 506977335. Pin each custom event to the
-intended destination with the documented send_to routing control, retaining only the
-existing allowlisted custom dimensions. Check the real Google tag in a controlled
-browser session, single delivery per click, denied and withdrawn consent, and navigation
-with the loader blocked. Do not change connected destinations in the GA account or
-deploy as part of this task. W55 must repeat its production verification after the fix
-is published.
-
 ### XI.21 W68: Queryable journey dimensions
 
 The Admin API and Data API metadata for property 506977335 returned no custom dimensions
