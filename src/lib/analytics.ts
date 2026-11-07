@@ -89,7 +89,7 @@ export type JourneyAction = (typeof journeyActions)[number]
 const allowedDimensions = {
   product: ['turing', 'dumont', 'shio', 'suite'],
   journey: ['general', 'aem', 'wordpress', 'shio'],
-  placement: ['home_hero', 'home_products', 'home_context', 'home_support', 'blog', 'comparison', 'navigation', 'download', 'docs'],
+  placement: ['home_hero', 'home_products', 'home_context', 'home_support', 'blog', 'comparison', 'navigation', 'download', 'docs', 'overview'],
 } as const
 
 /** Intent only: never infer a completed install or a submitted lead from a click. */

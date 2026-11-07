@@ -50,6 +50,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-foreground">{path.job}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed mt-3 mb-6 flex-1">{path.description}</p>
                     <a href={path.href} data-viglet-action={path.product === 'turing' ? 'demo_open' : 'product_open'} data-viglet-product={path.product} data-viglet-placement="home_products" className="inline-flex items-center gap-2 text-brand font-semibold text-sm">{path.action}<IconArrowRight size={16} /></a>
+                    <Link href={product.permalink} className="mt-4 text-sm text-brand underline underline-offset-4">{product.shortName} overview</Link>
                     <a href={product.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={path.product} data-viglet-placement="home_products" className="mt-4 text-sm text-muted-foreground underline underline-offset-4">Install {product.shortName}</a>
                   </article>
                 )

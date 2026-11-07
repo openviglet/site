@@ -46,7 +46,7 @@ export default function Header() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                href={sol.site ?? sol.permalink}
+                href={sol.permalink}
                 className="group flex items-center gap-2 px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
               >
                 <span className="relative flex w-2 h-2 shrink-0">
@@ -99,7 +99,7 @@ export default function Header() {
             {solutions.map((sol) => (
               <Link
                 key={sol.identifier}
-                href={sol.site ?? sol.permalink}
+                href={sol.permalink}
                 onClick={() => setMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-muted no-underline"
               >

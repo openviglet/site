@@ -78,7 +78,7 @@ export default function Footer() {
               {solutions.map((sol) => (
                 <li key={sol.identifier}>
                   <Link
-                    href={sol.site ?? sol.permalink}
+                    href={sol.permalink}
                     className="group flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors no-underline"
                   >
                     <span className="relative flex w-2 h-2 shrink-0">

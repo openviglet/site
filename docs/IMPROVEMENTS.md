@@ -270,16 +270,16 @@ from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
 
-### XI.12 W57: Discoverable product overviews
+### XI.13 W58: Turing-only WordPress integration
 
-Retain /turing/, /dumont/ and /shio/ as concise portfolio summaries, as selected by the
-owner on 2026-11-07. Each page should explain the problem it solves, when to choose it,
-how it relates to the other products and what is needed to start. Offer direct links to
-the dedicated product site, a relevant demonstration or guide, installation, release
-notes and implementation contact. Remove the repeated long feature/module narrative from
-these summaries; detailed capability content remains on the dedicated product sites.
-Restore local overview links in header and footer and add an explicit overview link on
-each home product card, while keeping direct demo and installation actions. Preserve all
-existing URLs and canonical rules. Keep product-specific content typed and data-driven.
-Validate all three routes, local links, mobile navigation and direct evaluation actions
-with Playwright, and run both output builds.
+The owner confirmed on 2026-11-07 that the WordPress/WooCommerce plugin is now supplied
+entirely by Turing, not Dumont. Remove its attribution to Dumont from feature and module
+data, comparisons, intent matching, the selection wizard, FAQ and llms.txt. Give
+WordPress its own Turing-only selection path and keep generic database, AEM and
+file-source paths with Dumont. Update the WordPress guide and related published/draft
+articles and diagrams that imply Dumont is required; preserve all existing slugs and tag
+keys. Locate the current WordPress documentation in the Turing product source instead of
+inventing a URL or claiming directory availability. Regenerate the committed blog index
+and any edited diagram SVG. Verify rendered copy, WordPress-only recommendations and
+direct guide links with Playwright, then run static and server builds. No changes to the
+plugin implementation are in scope.

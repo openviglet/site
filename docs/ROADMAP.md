@@ -48,7 +48,7 @@
 
 - 📋 **W55** (deps: W52 ✅) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
-- 📋 **W57** (deps: W40 ✅) **Local product overview pages are missing from navigation** — Keep concise portfolio summaries with clear product choices and restore their navigation links alongside direct demo and setup actions. → §XI.12
+- 📋 **W58** (deps: —) **WordPress integration is still attributed to Dumont** — Describe the plugin as Turing-only across guides, product selection and SEO/GEO so WordPress users are not told to install Dumont. → §XI.13
 
 ## Block F — Reference app / developer funnel
 

@@ -88,9 +88,10 @@ hub's message, existing demos or setup guides.
 | viglet.cloud | Offer the managed-hosting beta as a secondary option, explicitly labelled Beta. |
 | GitHub and distribution channels | Supply source, releases and external discovery paths; use the visibility plan for channel work. |
 
-Product navigation goes directly to the dedicated sites. Existing local overview,
-download and release-note URLs remain available for inbound links. An evaluator should
-not need to read successive product introductions before trying the product.
+Product navigation opens concise local portfolio summaries, while demo and installation
+actions go directly to their intended destinations. Existing local overview, download
+and release-note URLs remain available for inbound links. An evaluator should not need
+to read successive product introductions before trying the product.
 
 This repository is Next.js 16 with a static export and a server build. Preserve both
 until the hosting cutover is verified. Blog posts remain Markdown and their existing
