@@ -77,3 +77,18 @@ After creation, record the activation date and confirm that the Data API exposes
 customEvent:product, customEvent:journey and customEvent:placement. W68 remains
 pending that account action and propagation. Do not reconstruct missing historical
 values or start a segmented outcome window before the definitions are usable.
+
+## Production verification checkpoint
+
+W55 remains incomplete. The production browser checks established denied and
+withdrawn consent suppression and exposed the duplicate routing fixed by W67.
+The queried GA realtime report showed product_open and setup_guide_open once
+per stream, but did not establish receipt of all four controlled test actions.
+HTTP 204 collector responses alone are not sufficient account-side proof.
+
+Resume W55 after publishing W67 and completing W68. Use a fresh, labelled test
+session, check all four actions in the property, inspect their registered
+dimensions, verify single delivery and the consent cases again, and record the
+verified revision and timestamp. Exclude the calibration sessions from reports.
+The first usable outcome day is the first full day after this verification and
+dimension availability, rather than the original site's publication date.
