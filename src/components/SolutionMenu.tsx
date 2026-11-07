@@ -21,7 +21,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
 
   const tabs = [
     { label: 'Overview', to: base },
-    ...(solution.release
+    ...(solution.dockerImage
       ? [
           { label: 'Get Started', to: `${base}download/` },
           { label: 'Release Notes', to: `${base}release-notes/` },

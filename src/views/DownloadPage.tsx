@@ -51,7 +51,7 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
     : ''
   // GHCR container package page (org-level packages URL).
   const packagesUrl = solution.githubOrg
-    ? `https://github.com/orgs/${solution.githubOrg}/packages/container/package/${identifier}-ce`
+    ? `https://github.com/orgs/${solution.githubOrg}/packages/container/package/${identifier}`
     : undefined
 
   return (
@@ -74,7 +74,7 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
 
             <div className="flex-1 min-w-0 text-center md:text-left">
               <ProductBadge identifier={identifier} className="mb-4">
-                v{solution.release} · Stable
+                Docker installation
               </ProductBadge>
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 Run {solution.shortName}
@@ -125,7 +125,7 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
                   </span>
                   <span className="flex items-center gap-1.5">
                     <IconCheck size={14} />
-                    No install, runtime bundled
+                    Runtime bundled in the image
                   </span>
                 </div>
               )}
@@ -137,10 +137,17 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
       {/* ===== PREREQUISITES ===== */}
       <section className="py-14 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-3xl mx-auto">
+            The command above starts an evaluation instance. Before production, configure persistent storage,
+            backups, access controls and updates using the installation guide. Your team operates the infrastructure;
+            external models and services may add costs.{' '}
+            <a href={solution.getStarted} className="text-brand underline underline-offset-4">Read the setup guide</a>
+            {' '}or <a href="/contact/" className="text-brand underline underline-offset-4">discuss a deployment</a>.
+          </p>
           <div className="text-center mb-10">
             <ProductBadge identifier={identifier} className="mb-4">Prerequisites</ProductBadge>
             <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight">
-              The only requirement is Docker
+              Start with Docker
             </h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-5">
@@ -202,7 +209,7 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Pull the latest {solution.shortName} image from the GitHub Container Registry. The container bundles the runtime, so you install no Java and do no manual setup.
+                    Pull the {solution.shortName} image from the GitHub Container Registry. The runtime is bundled; configure storage and connections using the product installation guide.
                   </p>
                   <CommandBlock command={pullCmd} />
                 </CardContent>

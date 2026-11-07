@@ -5,7 +5,7 @@ import { solutions } from '@/data/solutions'
  * `ProductComparePage` at `/compare/`. Each row has a one-line summary per
  * product and an optional detail shown when the row is expanded.
  *
- * Rows that `solutions.ts` already knows (deploy, license, release) are derived
+ * Rows that `solutions.ts` already knows (deploy, license) are derived
  * from it, so a new release or image never needs a second edit here.
  *
  * Grounding rule (ROADMAP § non-goals): facts only, each restating
@@ -29,7 +29,7 @@ const written: CompareRowDef[] = [
     id: 'job',
     label: 'The job it does',
     cells: {
-      dumont: { summary: 'Extracts content from your sources and delivers it to a search engine.', detail: 'Each extraction flow connects several sources to several targets in one pipeline, so there is no ETL glue code to write.' },
+      dumont: { summary: 'Extracts content from your sources and delivers it to a search engine.', detail: 'Each extraction flow connects several sources to several targets in one pipeline, using the supported source and target connectors.' },
       shio: { summary: 'Models content and serves it to sites and apps.', detail: 'Define your own post types, deliver them over an API, and render them with any framework.' },
       turing: { summary: 'Searches your content and answers questions about it.', detail: 'Faceted search, cited RAG answers and AI agents over the content you index.' },
     },
@@ -91,11 +91,6 @@ function derived(): CompareRowDef[] {
         summary: 'Open source, Apache 2.0.',
         detail: s.github ? `Source: ${s.github}` : undefined,
       })),
-    },
-    {
-      id: 'release',
-      label: 'Latest release',
-      cells: cell((s) => ({ summary: s.release ? `v${s.release}` : 'See the release notes.' })),
     },
   ]
 }

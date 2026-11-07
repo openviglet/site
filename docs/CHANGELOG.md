@@ -47,6 +47,7 @@
 - **W45** — The Shio and Dumont pages lead with Explore to shio.viglet.org and dumont.viglet.org, canonicalise there as Turing does, and keep their curated release notes until SH1248 and D143 publish changelog.json.
 - **W46** — Posts render statically at /blog/, with tag pages, RSS, OG cards, sitemap and llms.txt entries; docs.viglet.org/blog redirects to them.
 - **W49** — Every page carries JSON-LD: Organization and WebSite site-wide, a WebPage with BreadcrumbList per route, SoftwareApplication per product, Blog on the index.
+- **W50** — Removed manually maintained version badges and metadata, preserved release and installation links, and qualified data residency, connector setup and operating costs across the site and llms.txt.
 
 ## Block H — Conversion narrative & product essence
 

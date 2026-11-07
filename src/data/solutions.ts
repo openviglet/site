@@ -11,7 +11,6 @@ export interface Solution {
   getStarted: string
   github?: string
   githubOrg?: string
-  release?: string
   logoAcronym: string
   /** What the product is, in words. The names dropped their acronyms (ES / CMS /
    *  DEP) in October 2026, so the category says it beside the name instead. */
@@ -66,7 +65,6 @@ export const solutions: Solution[] = [
     changelogUrl: 'https://turing.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/turing',
     githubOrg: 'openviglet',
-    release: '2026.2.6',
     logoAcronym: 'Tu',
     category: 'Enterprise Search',
     shortName: 'Turing',
@@ -90,7 +88,6 @@ export const solutions: Solution[] = [
     changelogUrl: 'https://dumont.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/dumont',
     githubOrg: 'openviglet',
-    release: '2026.2.16',
     logoAcronym: 'Du',
     category: 'Data Exchange Platform',
     shortName: 'Dumont',
@@ -114,7 +111,6 @@ export const solutions: Solution[] = [
     changelogUrl: 'https://shio.viglet.org/changelog.json',
     github: 'https://github.com/openviglet/shio',
     githubOrg: 'openviglet',
-    release: '0.3.8',
     logoAcronym: 'Sh',
     category: 'Agent-ready CMS',
     shortName: 'Shio',

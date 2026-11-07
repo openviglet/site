@@ -120,13 +120,13 @@ export const comparisons: Comparison[] = [
         {
           icon: IconCoin,
           label: 'Pricing model',
-          viglet: 'No per-document or per-query fees. You pay for the infrastructure you run',
+          viglet: 'No per-document or per-query fees. Infrastructure, operations and any external models are your costs',
           other: 'Usage-based: priced per record, query or request',
         },
         {
           icon: IconShieldLock,
           label: 'Where content lives',
-          viglet: 'Inside your own perimeter. Indexed content and queries never leave it',
+          viglet: 'Self-hosted storage; model, embedding and external-tool connections determine where request data is processed',
           other: 'The vendor cloud (with regional options on some plans)',
         },
         {
@@ -159,7 +159,7 @@ export const comparisons: Comparison[] = [
       {
         step: 'Extract',
         title: 'Connect your sources with Dumont',
-        body: 'Dumont connectors pull content from Adobe AEM, WordPress, SQL databases, file systems and the web into one flow, so there is no custom ETL to build and maintain.',
+        body: 'Dumont connectors pull content from Adobe AEM, WordPress, SQL databases, file systems and the web into one flow, with connector configuration and field mappings for your deployment.',
       },
       {
         step: 'Index & search',
@@ -180,7 +180,7 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         q: 'Is Viglet Turing really free?',
-        a: 'Turing is open source under the Apache 2.0 license. There are no license fees and no per-document or per-query charges. Your cost is the infrastructure you run it on.',
+        a: 'Turing is open source under the Apache 2.0 license. There are no license fees and no per-document or per-query charges. You operate the infrastructure and pay any external model or service costs.',
       },
       {
         q: 'Can it do semantic search and RAG like the hosted vendors?',
@@ -188,7 +188,7 @@ export const comparisons: Comparison[] = [
       },
       {
         q: 'How is data residency handled?',
-        a: 'You self-host with Docker, so indexed content and user queries stay inside your own perimeter. With SaaS search, content is stored in the vendor cloud. This matters most in regulated industries.',
+        a: 'Self-hosting gives you control over storage. Local models and embeddings can keep processing on your infrastructure; external model providers and tools receive the data needed for enabled requests.',
       },
       {
         q: 'Do I have to replace my search engine?',
@@ -226,13 +226,13 @@ export const comparisons: Comparison[] = [
         {
           icon: IconServer,
           label: 'Deployment',
-          viglet: 'Self-hosted from one Docker image, alongside your AEM environment',
+          viglet: 'Self-hosted Turing and Dumont containers, alongside your AEM environment',
           other: 'Vendor-hosted SaaS',
         },
         {
           icon: IconShieldLock,
           label: 'Where content lives',
-          viglet: 'Inside your own perimeter. AEM content and queries never leave it',
+          viglet: 'Self-hosted storage; use local models and embeddings when processing must stay within your infrastructure',
           other: 'The vendor cloud',
         },
         {

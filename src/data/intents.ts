@@ -31,7 +31,7 @@ export const intents: Intent[] = [
   { solution: 'dumont', terms: ['database', 'banco de dados', 'sql', 'jdbc', 'tabela'], reason: 'Dumont’s database source ingests and synchronizes records from SQL databases.' },
   { solution: 'dumont', terms: ['file share', 'filesystem', 'file system', 'arquivos', 'documentos', 'pdf'], reason: 'Dumont’s asset source makes documents and media on file systems searchable.' },
   { solution: 'dumont', terms: ['edge delivery', 'eds', 'franklin', 'helix'], reason: 'Dumont indexes Adobe Edge Delivery Services sites.' },
-  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], reason: 'Dumont connects a source to a search engine, with no custom ETL to write.' },
+  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], reason: 'Dumont connects supported sources to a search engine through configured connectors and field mappings.' },
   { solution: 'dumont', terms: ['solr', 'elasticsearch'], reason: 'Dumont delivers extracted content to Apache Solr or Elasticsearch by changing one property.' },
 
   // ── Turing: search and answer ────────────────────────────────────────────

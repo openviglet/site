@@ -46,7 +46,7 @@ const VALUES = [
     icon: <IconHeart size={22} />,
     title: 'Developer happiness',
     description:
-      'A single developer can get a Viglet tool running in minutes, without ops overhead or vendor onboarding calls.',
+      'Start with a container and the installation guide. Your team controls deployment, updates and integrations.',
   },
 ]
 

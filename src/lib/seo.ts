@@ -244,7 +244,6 @@ export function softwareApplicationNode(solution: Solution): JsonLdNode {
     operatingSystem: 'Docker',
     url: solution.site ?? base,
     image: `${SITE_ORIGIN}/og/${solution.identifier}.png`,
-    ...(solution.release ? { softwareVersion: solution.release } : {}),
     downloadUrl: `${base}download/`,
     releaseNotes: `${base}release-notes/`,
     license: APACHE_LICENSE,

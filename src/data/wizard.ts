@@ -43,7 +43,7 @@ export const wizardQuestions: WizardQuestion[] = [
         id: 'sources',
         label: 'In Adobe AEM, WordPress, a database, files or websites',
         solution: 'dumont',
-        reason: 'Viglet Dumont extracts it with a ready connector for each of those sources, so there is no custom ETL to write.',
+        reason: 'Viglet Dumont extracts it with a ready connector for each of those sources, with credentials and field mappings configured for your deployment.',
       },
       {
         id: 'engine',

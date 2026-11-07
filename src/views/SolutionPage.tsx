@@ -74,11 +74,6 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
             </div>
 
             <div className="flex-1 min-w-0 text-center md:text-left">
-              {solution.release && (
-                <ProductBadge identifier={identifier} className="mb-4">
-                  v{solution.release} · Stable
-                </ProductBadge>
-              )}
               <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
                 {solution.fullName}
               </h1>
@@ -110,7 +105,7 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
                     </a>
                   </ProductButton>
                 )}
-                {solution.release && (
+                {solution.dockerImage && (
                   <ProductButton identifier={identifier} productVariant="ghost" size="lg" asChild>
                     <Link href={`${solution.permalink}download/`}>
                       <IconBrandDocker size={18} />
@@ -150,7 +145,7 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
       <section className="py-10 px-6 bg-background border-b border-border">
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-3 gap-4">
-            {solution.release && (
+            {solution.dockerImage && (
               <Link
                 href={`${solution.permalink}download/`}
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
@@ -160,11 +155,11 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
                 </span>
                 <div>
                   <p className="font-bold text-foreground text-base">Run with Docker</p>
-                  <p className="text-xs text-muted-foreground">v{solution.release} · ghcr.io image</p>
+                  <p className="text-xs text-muted-foreground">Container image and setup guide</p>
                 </div>
               </Link>
             )}
-            {solution.release && (
+            {solution.dockerImage && (
               <Link
                 href={`${solution.permalink}release-notes/`}
                 className={`flex items-center gap-4 p-4 rounded-2xl border border-border hover:-translate-y-0.5 transition-all no-underline product-card-${identifier}`}
@@ -386,7 +381,7 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
                 Explore {solution.shortName}
               </a>
             )}
-            {solution.release && (
+            {solution.dockerImage && (
               <Link
                 href={`${solution.permalink}download/`}
                 className={`inline-flex items-center gap-2 px-6 py-3 font-bold rounded-xl transition-colors text-sm no-underline ${

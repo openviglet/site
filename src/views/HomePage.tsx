@@ -328,9 +328,6 @@ export default function HomePage() {
                       Learn More
                       <IconArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                     </Link>
-                    {sol.release && (
-                      <span className="text-xs text-muted-foreground font-medium">v{sol.release}</span>
-                    )}
                   </div>
                 </CardContent>
               </Card>

@@ -150,7 +150,7 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
               </p>
 
               <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-                {solution.release && (
+                {solution.dockerImage && (
                   <ProductButton identifier={identifier} size="lg" asChild>
                     <Link href={`${solution.permalink}download/`}>
                       <IconBrandDocker size={18} />
@@ -162,11 +162,10 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
 
               {/* Info bar */}
               <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
-                {solution.release && (
-                  <span className="flex items-center gap-1.5">
-                    <IconTag size={14} />
-                    Latest: v{solution.release}
-                  </span>
+                {solution.github && (
+                  <a href={`${solution.github}/releases/`} className="text-brand underline underline-offset-4">
+                    Official releases
+                  </a>
                 )}
                 {latestDate && (
                   <span className="flex items-center gap-1.5">
@@ -291,10 +290,10 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
             Try the latest version
           </h2>
           <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            {solution.shortName} v{solution.release} is available now. Pull the image and run it.
+            Read the release notes, then follow the installation guide for {solution.shortName}.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            {solution.release && (
+            {solution.dockerImage && (
               <Link
                 href={`${solution.permalink}download/`}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"

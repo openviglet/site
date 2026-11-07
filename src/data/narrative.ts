@@ -54,8 +54,8 @@ export const outcomes: Outcome[] = [
   },
   {
     icon: IconDatabaseImport,
-    title: 'Extract from any source, without glue code',
-    body: 'Connectors for Adobe AEM, WordPress, SQL databases, file systems and the web push content into your search engine. There is no custom ETL to build and maintain.',
+    title: 'Connect your existing content sources',
+    body: 'Connectors for Adobe AEM, WordPress, SQL databases, file systems and the web push content into your search engine. Configure the supported connectors and map the fields your search needs.',
     solution: 'dumont',
   },
   {
@@ -67,7 +67,7 @@ export const outcomes: Outcome[] = [
   {
     icon: IconLicense,
     title: 'Own your stack: Apache 2.0, self-hosted',
-    body: 'Every product is open source under Apache 2.0 and runs from a single Docker image on your own infrastructure, so your content stays inside your perimeter.',
+    body: 'Every product is open source under Apache 2.0 and runs from a single Docker image on your own infrastructure, with storage and model connections configured by your team.',
     solution: 'dumont',
   },
 ]
@@ -98,7 +98,7 @@ export const pipeline: PipelineStage[] = [
   {
     solution: 'dumont',
     step: 'Extract',
-    title: 'Connect any source',
+    title: 'Connect supported sources',
     description:
       'Viglet Dumont crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, and normalizes everything into one flow from source to destination.',
   },
@@ -151,9 +151,9 @@ export const essence: Record<string, SolutionEssence> = {
       {
         icon: IconPuzzle,
         step: 'Connect',
-        title: 'Any source, out of the box',
+        title: 'Connectors for your existing sources',
         description:
-          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler. No custom connector to write.',
+          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler. Configure credentials, field mappings and indexing for each source.',
       },
       {
         icon: IconTransform,
@@ -165,7 +165,7 @@ export const essence: Record<string, SolutionEssence> = {
       {
         icon: IconArrowsShuffle,
         step: 'Deliver',
-        title: 'Push to any search engine',
+        title: 'Deliver to your search engine',
         description:
           'Send the extracted flow to Viglet Turing, Apache Solr or Elasticsearch by changing a single property. Switching engines needs no rewrite.',
       },
@@ -343,11 +343,11 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'Is Viglet a free, open-source alternative to Algolia, Coveo or Lucidworks?',
-    a: 'Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it on your own infrastructure with no per-document or per-query pricing, and it includes faceted search, semantic/vector search and generative AI (RAG).',
+    a: 'Yes. Viglet Turing is open-source enterprise search under the Apache 2.0 license. You self-host it without per-document or per-query license fees, and it includes faceted search, semantic/vector search and generative AI (RAG).',
   },
   {
     q: 'How do I run it?',
-    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so there is no Java install and no manual setup. To have Viglet host it for you instead, Viglet Cloud is in beta at viglet.cloud.',
+    a: 'One Docker command per product, pulling the image from the GitHub Container Registry (ghcr.io). The runtime is bundled in the container, so no separate Java install is needed; configure storage, sources and any model providers for your deployment. To have Viglet host it for you instead, Viglet Cloud is in beta at viglet.cloud.',
   },
   {
     q: 'Which sources can I index (Adobe AEM, WordPress, databases)?',
@@ -358,8 +358,12 @@ export const faq: FaqItem[] = [
     a: 'Yes. Viglet Turing includes vector/semantic search and Retrieval-Augmented Generation with the LLM of your choice (OpenAI/ChatGPT, Ollama, Anthropic or Google Gemini), on SaaS or on-premises. Answers are grounded in your indexed content, with citations.',
   },
   {
+    q: 'What does self-hosting involve?',
+    a: 'There are no product license fees. Your team runs the infrastructure, configures persistent storage, manages backups and updates, and pays for any external models or services it enables. For help planning a deployment, contact Viglet about implementation and support options.',
+  },
+  {
     q: 'Where is my content stored?',
-    a: "On your own infrastructure. Every product is self-hosted with Docker, so indexed content and user queries never leave your perimeter. This matters for regulated industries with data-residency requirements, where SaaS search keeps content in the vendor's cloud.",
+    a: "You control where the application and indexed content are hosted. To keep processing within your infrastructure, configure local models and embeddings and review external integrations. Cloud model providers and external tools receive the data needed for the requests you enable.",
   },
 ]
 

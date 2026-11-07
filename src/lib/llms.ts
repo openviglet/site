@@ -20,7 +20,6 @@ export function buildLlmTxt(): string {
 
 > ${p.description}
 
-- Version: ${p.release ?? ''}
 - Product page: https://www.viglet.org/${p.identifier}/
 - Download: https://www.viglet.org/${p.identifier}/download/
 - Release notes: https://www.viglet.org/${p.identifier}/release-notes/
@@ -34,7 +33,7 @@ export function buildLlmTxt(): string {
 
 > Open source platform for enterprise intelligence: enterprise search, data exchange and content management.
 
-Viglet makes three tools that work alone or together, led by Viglet Turing. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, so your content stays on your infrastructure.
+Viglet makes three tools that work alone or together, led by Viglet Turing. All three are open source under the Apache 2.0 license, and each is self-hosted from a single Docker image, with storage and model connections configured by your team.
 
 - Website: https://www.viglet.org
 - Documentation: https://www.viglet.org/docs/ (links each product's own docs)
@@ -67,9 +66,9 @@ Stack: Java 21 + Spring Boot + Apache Solr. Port: 2700. Docker image: ghcr.io/op
 
 ## Viglet Dumont Details
 
-Dumont models each extraction flow as a flight that connects multiple sources to multiple targets in one pipeline, so there is no ETL glue code to write and maintain.
+Dumont models each extraction flow as a flight that connects multiple sources to multiple targets in one pipeline, using configured source and target connectors.
 
-Sources: Adobe AEM, Adobe Edge Delivery Services (EDS), WordPress, SQL databases (JDBC), file-system assets, and any website via the web crawler.
+Sources: Adobe AEM, Adobe Edge Delivery Services (EDS), WordPress, SQL databases (JDBC), file-system assets, and websites accessible to the web crawler.
 Targets: Viglet Turing, Apache Solr, Elasticsearch. Switch engine by changing a single property.
 Trust: per-field coverage and drift monitoring with field-level provenance; absent fields are omitted rather than sent as empty strings.
 
@@ -90,11 +89,11 @@ Common problems and the products that solve them:
 
 - Add enterprise search to an Adobe AEM site: Viglet Dumont indexes AEM content into Viglet Turing for faceted search, semantic search and RAG answers.
 - Add search to a WordPress site: Dumont connects to WordPress, and Turing serves the search and AI answers.
-- Make an intranet, file shares or a SQL database searchable: Dumont's connectors (file systems, JDBC, web crawler) feed Turing, with no custom connector to write.
+- Make an intranet, file shares or a SQL database searchable: Dumont's connectors (file systems, JDBC, web crawler) feed Turing, using supported connectors and configured field mappings.
 - Answer questions over your own content (RAG chatbot): Turing retrieves from your indexed content and returns grounded, cited answers with the LLM of your choice.
 - Replace a hosted search vendor with self-hosted open source: run Turing on your own infrastructure under Apache 2.0, with no per-document or per-query pricing.
 - Build a content site with content modelling and built-in search: Viglet Shio models and delivers content over REST and GraphQL, and Turing adds search.
-- Keep content and queries inside your perimeter (data residency): every product is self-hosted with Docker, so nothing is sent to a vendor cloud.
+- Keep content and queries inside your perimeter (data residency): configure self-hosted storage, local models and embeddings, and review external tools; external providers receive the data needed for enabled requests.
 
 ## Positioning & Comparisons
 
@@ -102,7 +101,7 @@ For evaluators comparing Viglet with hosted search products:
 
 - Open-source alternative to Algolia, Coveo and Lucidworks: Viglet Turing is Apache 2.0 enterprise search you host yourself. Faceted search, semantic and vector search and generative AI (RAG) are in one platform, with no per-document or per-query pricing.
 - Enterprise search for Adobe AEM and WordPress: Viglet Dumont provides the connectors, and Turing adds faceted navigation, semantic search and RAG on top.
-- Data residency and self-hosting: with SaaS search, your content lives in the vendor's cloud. With Viglet, indexed content and user queries stay on your own infrastructure, which matters in regulated industries.
+- Data residency and self-hosting: self-hosting controls storage; processing stays local only when models, embeddings and integrations are configured accordingly.
 - Any search engine, any LLM: Turing runs on Apache Solr, Elasticsearch or Lucene and works with OpenAI, Anthropic, Google Gemini, Azure OpenAI or local Ollama. No engine or model lock-in.
 - No required bundle: the three products run independently. Adopt one and add the others when needed.
 - The three products side by side (what each reads, delivers and runs on): https://www.viglet.org/compare/
