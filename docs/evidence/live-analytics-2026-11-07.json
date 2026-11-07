@@ -1,0 +1,147 @@
+{
+  "browserTestStartedAt": "2026-11-07T20:59:30.799Z",
+  "verifiedRevision": "3d527035829dcaf75058230a5f5bd7a905efc5ec",
+  "environment": "published www.viglet.org with real Google tag",
+  "campaign": "w55-20261107",
+  "journeyEvents": [
+    {
+      "stage": "granted",
+      "event": "demo_open",
+      "measurement": "G-SMSL7R3897",
+      "custom": {
+        "ep.product": "turing",
+        "ep.journey": "general",
+        "ep.placement": "home_hero"
+      },
+      "campaign": null,
+      "source": null
+    },
+    {
+      "stage": "granted",
+      "event": "setup_guide_open",
+      "measurement": "G-SMSL7R3897",
+      "custom": {
+        "ep.product": "suite",
+        "ep.placement": "navigation"
+      },
+      "campaign": null,
+      "source": null
+    },
+    {
+      "stage": "granted",
+      "event": "product_open",
+      "measurement": "G-SMSL7R3897",
+      "custom": {
+        "ep.product": "dumont",
+        "ep.placement": "home_products"
+      },
+      "campaign": null,
+      "source": null
+    },
+    {
+      "stage": "granted",
+      "event": "contact_intent",
+      "measurement": "G-SMSL7R3897",
+      "custom": {
+        "ep.placement": "navigation"
+      },
+      "campaign": null,
+      "source": null
+    }
+  ],
+  "deniedConsentRequests": 0,
+  "withdrawnConsentRequests": 0,
+  "blockedTagRequestsSent": 0,
+  "navigationWithBlockedTag": "passed for /turing/",
+  "collectorResponseStatuses": [
+    204,
+    204,
+    204
+  ],
+  "accountReportQueriedAt": "2026-11-07T21:00:54.512453+00:00",
+  "accountRealtimeReport": {
+    "dimensionHeaders": [
+      {
+        "name": "eventName"
+      },
+      {
+        "name": "streamId"
+      }
+    ],
+    "metricHeaders": [
+      {
+        "name": "eventCount",
+        "type": "TYPE_INTEGER"
+      }
+    ],
+    "rows": [
+      {
+        "dimensionValues": [
+          {
+            "value": "product_open"
+          },
+          {
+            "value": "14345428154"
+          }
+        ],
+        "metricValues": [
+          {
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "dimensionValues": [
+          {
+            "value": "product_open"
+          },
+          {
+            "value": "14345449577"
+          }
+        ],
+        "metricValues": [
+          {
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "dimensionValues": [
+          {
+            "value": "setup_guide_open"
+          },
+          {
+            "value": "14345428154"
+          }
+        ],
+        "metricValues": [
+          {
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "dimensionValues": [
+          {
+            "value": "setup_guide_open"
+          },
+          {
+            "value": "14345449577"
+          }
+        ],
+        "metricValues": [
+          {
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "rowCount": 4,
+    "kind": "analyticsData#runRealtimeReport"
+  },
+  "limitations": [
+    "Collector responses do not prove all four events are queryable in the property.",
+    "Custom dimensions remain unregistered; service-account creation returned HTTP 403.",
+    "All test traffic must be excluded from adoption analysis."
+  ]
+}

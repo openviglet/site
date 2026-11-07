@@ -45,8 +45,8 @@ that stream. Collector responses were HTTP 204. Only the allowlisted custom
 parameters product, journey and placement were present on those actions.
 Denied consent loaded no tag and sent no requests. Withdrawal suppressed later
 requests, and product navigation still worked with the loader blocked. Static
-and server builds passed. This does not validate the corrected production
-revision; W55 must repeat the test after publication. Google-managed automatic
+and server builds passed. This initial local check did not validate production;
+the later production retest is recorded below. Google-managed automatic
 page views and outbound-click events still use the connected destinations and
 must not be substituted for the four explicit journey actions.
 
@@ -86,8 +86,17 @@ The queried GA realtime report showed product_open and setup_guide_open once
 per stream, but did not establish receipt of all four controlled test actions.
 HTTP 204 collector responses alone are not sufficient account-side proof.
 
-Resume W55 after publishing W67 and completing W68. Use a fresh, labelled test
-session, check all four actions in the property, inspect their registered
+The corrected revision 3d52703 was published by the existing pipeline at 20:59 UTC.
+A fresh production session at 20:59 UTC sent each of the four journey actions
+once to G-SMSL7R3897, with HTTP 204 collector responses. Denied and withdrawn
+consent suppressed requests, and navigation worked with the tag blocked.
+[The sanitized evidence](evidence/live-analytics-2026-11-07.json) records the
+payloads and account report separately. The account report still did not
+establish receipt of all four controlled actions; no filter or processing
+explanation was verified.
+
+Resume W55 after completing W68. Use a fresh, labelled test session,
+check all four actions in the property, inspect their registered
 dimensions, verify single delivery and the consent cases again, and record the
 verified revision and timestamp. Exclude the calibration sessions from reports.
 The first usable outcome day is the first full day after this verification and
