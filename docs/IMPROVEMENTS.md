@@ -270,16 +270,41 @@ from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
 
-### XI.14 W60: Consistent product release histories
+### XI.15 W61: Shared site layout conventions
 
-The product release-note pages still use the earlier decorative hero, large logo,
-sidebar and closing marketing section while the overview and installation routes now use
-a concise shared presentation. Align all three release-note pages with that visual
-direction: adaptive surfaces, a compact product identity and title, the same product
-navigation, clear installation and official-release links, and a readable release
-history. Preserve release content, grouping/filter behavior where useful, per-release
-anchors, existing route URLs and metadata, and externally supplied changelog sources.
-Keep loading, empty and unavailable states useful, with access to official releases even
-when the feed fails. Do not silently drop a release when the data shape is invalid.
-Verify successful and failed loading in Playwright, mobile/desktop layout in both
-themes, navigation and anchors, and run both builds.
+The owner requested a consistent visual identity across the entire site on 2026-11-07.
+Establish a reusable PageHero and page-shell conventions built on the existing design
+system: common header/footer, adaptive surfaces, heading scale, brand label, content
+width, vertical rhythm and action styling. Apply the common hero to institutional pages
+(About, Contact, Partner, Docs), product and comparison pages. Keep the homepage's
+presentation-led composition and articles' narrower reading measure intentional, but
+share typography and controls. Remove decorative formula backdrops and oversized logo
+treatments from these informational surfaces, preserving their content and conversion
+actions. Do not introduce new colors, branding or a second UI system. Verify
+representative pages and all navigation at mobile, tablet and desktop widths in both
+themes with Playwright; run both builds. Blog-specific layout and final whole-site
+verification are separate tasks.
+
+### XI.16 W62: Consistent editorial layouts
+
+Use the shared site hero and typography conventions on the blog index, tag pages and
+article headers. Preserve the narrower article reading measure, authorship, dates, tags,
+all post URLs, Markdown rendering and product-specific next steps. Keep search and
+filters usable and replace page-specific decorative treatment with the same adaptive
+surfaces and controls as the rest of the site. Verify the index, a tag page and articles
+on mobile and desktop in both themes. Run the build and confirm SEO/RSS/sitemap outputs
+are retained.
+
+### XI.17 W63: Whole-site visual verification
+
+After the shared institutional, product and editorial layouts land, inspect every route
+family in a browser rather than inferring consistency from the build. Cover home, all
+three product overview/install/release pages, Docs, About, Contact, Partner, product
+comparison, acquisition comparison, blog index/tag/article, and the not-found page. Use
+narrow mobile, tablet and desktop widths and both themes. Check hero geometry, title
+scale, section widths, shared navigation, focus visibility, adaptive text/surfaces,
+overflow and loading/error states. Preserve real external service access when available;
+use controlled fixtures for deterministic failure checks and distinguish those from live
+verification. Record observed issues, fix scoped presentation regressions, and retain a
+concise QA report. Finish with static/server builds, internal-link checks and roadkeep
+lint. No deployment or claims of conversion uplift are part of this task.

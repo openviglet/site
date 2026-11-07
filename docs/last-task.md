@@ -1,7 +1,7 @@
-# Last task number: `W60`
+# Last task number: `W63`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W61`; after assigning it, bump the number above and the log line below.
+> `W64`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,9 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W63**: Verify visual consistency across all route families (Block E), 2026-11-07
+- **W62**: Apply the shared layout to blog and article headers (Block E), 2026-11-07
+- **W61**: Apply shared site hero and layout conventions (Block E), 2026-11-07
 - **W60**: Align release-note pages with product summaries and installation (Block E), 2026-11-07
 - **W59**: Keep concise installation entry pages (Block F), 2026-11-07
 - **W58**: Attribute WordPress integration exclusively to Turing (Block E), 2026-11-07

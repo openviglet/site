@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
-import VigletLogo from '@/components/VigletLogo'
+import ProductPageHero from '@/components/ProductPageHero'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { CommandBlock } from '@/components/Terminal'
@@ -22,11 +22,12 @@ export default function DownloadPage({ identifier }: Readonly<{ identifier: stri
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       <SolutionMenu solution={solution} />
-      <main id="main-content" className="flex-1 px-6 py-10 md:py-14">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-4 mb-5"><VigletLogo identifier={identifier} size={48} /><Badge variant="brand">Docker installation</Badge></div>
-          <h1 className="text-4xl font-extrabold text-foreground tracking-tight">Run {solution.shortName}</h1>
-          <p className="mt-4 text-muted-foreground leading-relaxed">Start an evaluation instance with Docker. For configuration and production deployment, follow the official {solution.shortName} setup guide.</p>
+      <main id="main-content" className="flex-1">
+        <ProductPageHero solution={solution} label="Docker installation" title={`Run ${solution.shortName}`} description={`Start an evaluation instance with Docker. Follow the official ${solution.shortName} setup guide for configuration and production deployment.`}>
+          <Button size="lg" asChild><a href={solution.getStarted} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="download">Read the {solution.shortName} setup guide</a></Button>
+          <Button size="lg" variant="outline" asChild><Link href={solution.permalink}>{solution.shortName} overview</Link></Button>
+        </ProductPageHero>
+        <div className="max-w-5xl mx-auto px-6 py-10">
           <p className="mt-4 text-sm text-muted-foreground">You need Docker Engine or Docker Desktop, access to the container registry, and port {port} available on your host.</p>
           {image && run && (
             <section className="mt-8 space-y-5" aria-label="Container commands">

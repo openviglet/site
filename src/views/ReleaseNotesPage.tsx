@@ -2,23 +2,13 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import {
-  IconBrandDocker,
-  IconArrowRight,
-  IconCalendar,
-  IconTag,
-} from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
+import ProductPageHero from '@/components/ProductPageHero'
 import { getSolution } from '@/data/solutions'
-import VigletLogo from '@/components/VigletLogo'
-import ProductBadge from '@/components/ProductBadge'
-import ProductButton from '@/components/ProductButton'
-import { FloatingFormulasBg } from '@viglet/viglet-design-system'
-import DecorativeBackdrop from '@/components/DecorativeBackdrop'
-import { useIsMobileOrTablet } from '@/hooks/use-mobile-or-tablet'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 
 type ChangeType = 'new' | 'added' | 'improved' | 'fixed' | 'removed'
 
@@ -58,19 +48,18 @@ function formatDate(dateStr: string | null): string {
   }
 }
 
-function ChangeItem({ text, githubOrg }: Readonly<{ text: string; githubOrg?: string }>) {
+function ChangeItem({ text, repository }: Readonly<{ text: string; repository?: string }>) {
   const entry = parseChange(text)
   if (!entry) return null
 
   const parts = entry.description.split(/(#\d+)/g)
   const descNode = parts.map((part, i) => {
     const issue = part.match(/^#(\d+)$/)
-    if (issue) {
-      const org = githubOrg || 'openviglet'
+    if (issue && repository) {
       return (
         <a
           key={i}
-          href={`https://github.com/${org}/viglet/issues/${issue[1]}`}
+          href={`${repository}/issues/${issue[1]}`}
           target="_blank"
           rel="noopener"
           className="text-brand hover:underline"
@@ -85,15 +74,35 @@ function ChangeItem({ text, githubOrg }: Readonly<{ text: string; githubOrg?: st
   return (
     <li className="flex items-start gap-2.5 text-sm text-foreground leading-relaxed">
       {entry.type ? (
-        <Badge variant={entry.type} className="mt-0.5 shrink-0 uppercase font-bold tracking-wider">
+        <Badge variant="outline" className="mt-0.5 shrink-0 uppercase font-bold tracking-wider">
           {entry.type}
         </Badge>
       ) : (
         <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground mt-2 shrink-0" />
       )}
-      <span className="flex-1">{descNode}</span>
+      <span className="flex-1 min-w-0 break-words">{descNode}</span>
     </li>
   )
+}
+
+function releaseId(version: string): string {
+  return `release-${version.replace(/[^a-zA-Z0-9_.-]/g, '-')}`
+}
+
+function readReleases(value: unknown): Release[] {
+  if (!Array.isArray(value)) throw new Error('Invalid release feed')
+  const ids = new Set<string>()
+  for (const release of value) {
+    if (!release || typeof release.version !== 'string' || !release.version.trim() ||
+      (release.pub_date !== null && typeof release.pub_date !== 'string') ||
+      !Array.isArray(release.notes) || !release.notes.every((note: unknown) => typeof note === 'string')) {
+      throw new Error('Invalid release entry')
+    }
+    const id = releaseId(release.version)
+    if (ids.has(id)) throw new Error('Duplicate release anchor')
+    ids.add(id)
+  }
+  return value as Release[]
 }
 
 export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: string }>) {
@@ -103,220 +112,53 @@ export default function ReleaseNotesPage({ identifier }: Readonly<{ identifier: 
 
   useEffect(() => {
     if (!solution) return
+    let active = true
+    const controller = new AbortController()
+    const timer = window.setTimeout(() => controller.abort(), 10000)
     setStatus('loading')
-    // Single source of truth: a product that publishes its own changelog (e.g.
-    // Turing, on its site) is read cross-origin (GitHub Pages sends
-    // Access-Control-Allow-Origin: *). The others keep their locally curated JSON.
-    const changelogUrl = solution.changelogUrl ?? `/static_files/json/${identifier}/changelog.json`
-    fetch(changelogUrl)
-      .then((r) => r.json())
-      .then((data: Release[]) => { setReleases(data); setStatus('done') })
-      .catch(() => setStatus('error'))
+    setReleases([])
+    fetch(solution.changelogUrl ?? `/static_files/json/${identifier}/changelog.json`, { signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error('Feed unavailable'); return response.json() })
+      .then(readReleases)
+      .then((data) => { if (active) { setReleases(data); setStatus('done') } })
+      .catch(() => { if (active) setStatus('error') })
+      .finally(() => window.clearTimeout(timer))
+    return () => { active = false; controller.abort(); window.clearTimeout(timer) }
   }, [identifier, solution])
 
-  const motionPaused = useIsMobileOrTablet()
+  useEffect(() => {
+    if (status !== 'done' || !window.location.hash) return
+    try { document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView() } catch { /* malformed fragments do not block reading */ }
+  }, [status, releases])
 
-  // The route (src/app/[identifier]/release-notes/page.tsx) 404s an unknown identifier.
   if (!solution) return null
-
-  const totalReleases = releases.length
-  const latestDate = releases[0]?.pub_date ? formatDate(releases[0].pub_date) : null
-
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
       <SolutionMenu solution={solution} />
-
-      {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden py-20 px-6 border-b border-border">
-        <DecorativeBackdrop>
-          <FloatingFormulasBg color="#C2410C" colorDark="#F97316" withLightning withExplosion extraTokens={["Turing", "Shio", "Dumont"]} motionPaused={motionPaused} />
-        </DecorativeBackdrop>
-
-        <div className="max-w-5xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
-
-            <div className="shrink-0">
-              <VigletLogo identifier={identifier} size={180} glow />
-            </div>
-
-            <div className="flex-1 min-w-0 text-center md:text-left">
-              <ProductBadge identifier={identifier} className="mb-4">Changelog</ProductBadge>
-              <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-4">
-                {solution.shortName} Release Notes
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-                Every new feature, improvement and fix, release by release.
-              </p>
-
-              <div className="flex flex-wrap gap-3 items-center justify-center md:justify-start">
-                {solution.dockerImage && (
-                  <ProductButton identifier={identifier} size="lg" asChild>
-                    <Link href={`${solution.permalink}download/`}>
-                      <IconBrandDocker size={18} />
-                      Run with Docker
-                    </Link>
-                  </ProductButton>
-                )}
-              </div>
-
-              {/* Info bar */}
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-muted-foreground justify-center md:justify-start">
-                {solution.github && (
-                  <a href={`${solution.github}/releases/`} className="text-brand underline underline-offset-4">
-                    Official releases
-                  </a>
-                )}
-                {latestDate && (
-                  <span className="flex items-center gap-1.5">
-                    <IconCalendar size={14} />
-                    {latestDate}
-                  </span>
-                )}
-                {totalReleases > 0 && (
-                  <span className="flex items-center gap-1.5">
-                    <IconTag size={14} />
-                    {totalReleases} release{totalReleases !== 1 ? 's' : ''}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== STATS BAR ===== */}
-      {status === 'done' && releases.length > 0 && (() => {
-        let totalNew = 0, totalFixed = 0, totalImproved = 0
-        for (const r of releases) {
-          for (const n of r.notes) {
-            const e = parseChange(n)
-            if (!e) continue
-            if (e.type === 'new' || e.type === 'added') totalNew++
-            else if (e.type === 'fixed') totalFixed++
-            else if (e.type === 'improved') totalImproved++
-          }
-        }
-        return (
-          <section className="py-10 px-6 bg-background border-b border-border">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
-                <div className="text-center">
-                  <p className={`text-3xl font-extrabold product-text-${identifier}`}>{totalReleases}</p>
-                  <p className="text-sm text-muted-foreground mt-1">Releases</p>
+      <main id="main-content" className="flex-1">
+        <ProductPageHero solution={solution} label="Release history" title={`${solution.shortName} release notes`} description="Changes published in the product changelog. Use official releases for downloadable artifacts and current availability.">
+          <Button size="lg" asChild><Link href={`${solution.permalink}download/`}>Install {solution.shortName}</Link></Button>
+          {solution.github && <Button size="lg" variant="outline" asChild><a href={`${solution.github}/releases/`}>Official releases</a></Button>}
+        </ProductPageHero>
+        <section className="max-w-5xl mx-auto px-6 py-10" aria-label="Release history" aria-busy={status === 'loading'}>
+          {status === 'loading' && <p role="status" className="text-muted-foreground">Loading release notes...</p>}
+          {status === 'error' && <div role="status" className="rounded-xl border border-border bg-muted p-6"><h2 className="text-xl font-bold text-foreground">Release history is unavailable</h2><p className="mt-3 text-muted-foreground">The changelog could not be loaded. You can still <a href={`${solution.github}/releases/`} className="text-brand underline underline-offset-4">read official releases on GitHub</a>.</p></div>}
+          {status === 'done' && releases.length === 0 && <p role="status" className="text-muted-foreground">No entries are published in this changelog yet. Check <a href={`${solution.github}/releases/`} className="text-brand underline underline-offset-4">official releases</a> for availability.</p>}
+          {status === 'done' && releases.length > 0 && <div className="space-y-6">
+            <p className="text-sm text-muted-foreground">{releases.length} entries in the published changelog</p>
+            {releases.map((release) => (
+              <article key={release.version} id={releaseId(release.version)} className="rounded-2xl border border-border bg-card p-5 md:p-7 scroll-mt-36">
+                <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2 mb-5">
+                  <h2 className="text-2xl font-bold text-foreground"><a href={`#${releaseId(release.version)}`} className="hover:underline underline-offset-4">{release.version}</a></h2>
+                  {release.pub_date && <time dateTime={release.pub_date} className="text-sm text-muted-foreground">{formatDate(release.pub_date)}</time>}
                 </div>
-                <div className="text-center">
-                  <p className="text-3xl font-extrabold text-emerald-600">{totalNew}</p>
-                  <p className="text-sm text-muted-foreground mt-1">New Features</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-extrabold text-blue-600">{totalImproved}</p>
-                  <p className="text-sm text-muted-foreground mt-1">Improvements</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-extrabold text-amber-600">{totalFixed}</p>
-                  <p className="text-sm text-muted-foreground mt-1">Bug Fixes</p>
-                </div>
-              </div>
-            </div>
-          </section>
-        )
-      })()}
-
-      {/* ===== CHANGELOG ===== */}
-      <section className="py-16 px-6 bg-muted">
-        <div className="max-w-3xl mx-auto">
-          {status === 'loading' && (
-            <div className="flex flex-col items-center py-20">
-              <div className={`w-10 h-10 rounded-full border-4 border-border border-t-current product-text-${identifier} animate-spin mb-4`} />
-              <p className="text-muted-foreground">Loading release notes…</p>
-            </div>
-          )}
-          {status === 'error' && (
-            <div className="text-center py-20">
-              <p className="text-muted-foreground">
-                An error occurred while fetching release notes.
-              </p>
-            </div>
-          )}
-          {status === 'done' && (
-            <div className="relative pl-2">
-              <span className={`absolute left-[43px] top-0 bottom-0 w-0.5 product-bg-${identifier} vg-timeline-line z-0`} />
-              <div>
-                {releases.map((release, idx) => {
-                  const validNotes = release.notes.filter(
-                    (n) => n.trim() && !/^\s*\[pretext\]\s/i.test(n),
-                  )
-                  const isLatest = idx === 0
-                  return (
-                    <div key={release.version} className="mb-12 last:mb-0">
-                      {/* version + date row */}
-                      <div className="relative z-10 flex flex-wrap items-center gap-3 mb-5">
-                        <ProductBadge identifier={identifier} className="shrink-0 min-w-[70px] justify-center">
-                          {release.version}
-                        </ProductBadge>
-                        {isLatest && (
-                          <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                            Latest
-                          </span>
-                        )}
-                        {release.pub_date && (
-                          <span className="flex items-center gap-1 text-sm text-muted-foreground">
-                            <IconCalendar size={13} />
-                            {formatDate(release.pub_date)}
-                          </span>
-                        )}
-                      </div>
-                      {/* items */}
-                      <ul className="relative z-10 pl-14 space-y-2.5 pb-2">
-                        {validNotes.map((note) => (
-                          <ChangeItem key={note} text={note} githubOrg={solution.githubOrg} />
-                        ))}
-                      </ul>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* ===== CTA BANNER ===== */}
-      <section className={`relative overflow-hidden product-hero-${identifier}`}>
-        <div className="absolute inset-0 download-hero-highlight" />
-        <div className="max-w-4xl mx-auto py-16 px-6 text-center relative">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-4">
-            Try the latest version
-          </h2>
-          <p className="text-white/70 text-lg mb-8 max-w-lg mx-auto">
-            Read the release notes, then follow the installation guide for {solution.shortName}.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {solution.dockerImage && (
-              <Link
-                href={`${solution.permalink}download/`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-100 transition-colors text-sm no-underline"
-              >
-                <IconBrandDocker size={16} />
-                Run {solution.shortName} with Docker
-              </Link>
-            )}
-            {solution.docs && (
-              <a
-                href={solution.docs}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-colors text-sm no-underline"
-              >
-                Documentation
-                <IconArrowRight size={16} />
-              </a>
-            )}
-          </div>
-        </div>
-      </section>
-
+                <ul className="space-y-3">{release.notes.map((note, i) => <ChangeItem key={`${i}-${note}`} text={note} repository={solution.github} />)}</ul>
+              </article>
+            ))}
+          </div>}
+        </section>
+      </main>
       <Footer />
     </div>
   )

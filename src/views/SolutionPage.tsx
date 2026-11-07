@@ -5,8 +5,7 @@ import { IconArrowRight, IconBrandDocker } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import SolutionMenu from '@/components/SolutionMenu'
-import VigletLogo from '@/components/VigletLogo'
-import { Badge } from '@/components/ui/badge'
+import ProductPageHero from '@/components/ProductPageHero'
 import { Button } from '@/components/ui/button'
 import { getSolution } from '@/data/solutions'
 import { productPaths } from '@/data/hub'
@@ -22,21 +21,10 @@ export default function SolutionPage({ identifier }: Readonly<{ identifier: stri
       <Header />
       <SolutionMenu solution={solution} />
       <main id="main-content" className="flex-1">
-        <section className="px-6 py-12 md:py-16 border-b border-border">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-6">
-              <VigletLogo identifier={identifier} size={64} />
-              <div><Badge variant="brand" className="mb-2">Product overview</Badge><p className="text-sm text-muted-foreground">{solution.category}</p></div>
-            </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">{solution.fullName}</h1>
-            <p className="text-xl text-foreground font-semibold mt-5">{path.job}</p>
-            <p className="text-muted-foreground leading-relaxed mt-3 max-w-3xl">{solution.description}</p>
-            <div className="flex flex-wrap gap-3 mt-7">
+        <ProductPageHero solution={solution} label="Product overview" title={solution.fullName} description={solution.description}>
               <Button size="lg" asChild><a href={path.href} data-viglet-action={identifier === 'turing' ? 'demo_open' : 'product_open'} data-viglet-product={identifier} data-viglet-placement="overview">{path.action}<IconArrowRight size={16} /></a></Button>
               <Button size="lg" variant="outline" asChild><Link href={`${solution.permalink}download/`} data-viglet-action="setup_guide_open" data-viglet-product={identifier} data-viglet-placement="overview"><IconBrandDocker size={18} /> Install {solution.shortName}</Link></Button>
-            </div>
-          </div>
-        </section>
+        </ProductPageHero>
         <section className="px-6 py-10">
           <div className="max-w-5xl mx-auto grid gap-10 md:grid-cols-2">
             <div>

@@ -55,6 +55,7 @@
 - **W54** — Playwright verified six viewport/theme combinations and the core evaluation interactions, with tablet header clipping and dark-card labels corrected and evidence recorded (design §XI.9 recorded in `docs/QA-2026-11-07.md`).
 - **W57** — Local product pages are concise, data-driven portfolio summaries, linked from home, header and footer, with direct evaluation, setup, release and support actions verified in twelve browser combinations (design §XI.12 recorded in `src/data/productOverviews.ts`).
 - **W58** — WordPress and WooCommerce are attributed directly to Turing in product data, recommendations, guides, diagrams and llms.txt, with WordPress-only selection verified and upstream installation-link drift filed as T1266 (design §XI.13 recorded in `docs/QA-2026-11-07.md`).
+- **W60** — Overview, installation and release notes share one product hero, with compact adaptive histories, stable anchors and explicit feed states verified in 45 route/state checks (design §XI.14 recorded in `src/components/ProductPageHero.tsx`).
 
 ## Block H — Conversion narrative & product essence
 
