@@ -1,7 +1,7 @@
-# Last task number: `W65`
+# Last task number: `W66`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W66`; after assigning it, bump the number above and the log line below.
+> `W67`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W66**: Link product navigation directly to each product repository (Block E), 2026-11-07
 - **W65**: Replace decorative chips with typographic labels and tab filters (Block E), 2026-11-07
 - **W64**: Use full product names throughout visitor-facing content (Block E), 2026-11-07
 - **W63**: Verify visual consistency across all route families (Block E), 2026-11-07

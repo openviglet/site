@@ -61,10 +61,11 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           })}
         </div>
 
-        {/* GitHub link: org only (product repos are not linked directly) */}
+        {solution.github && <>
         <div className="w-px h-5 bg-border shrink-0 hidden sm:block" />
         <a
-          href="https://github.com/openviglet"
+          href={solution.github}
+          aria-label={`GitHub repository for ${solution.fullName}`}
           target="_blank"
           rel="noopener"
           className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg text-sm sm:text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors no-underline shrink-0"
@@ -72,6 +73,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
           <GitHubIcon size={14} />
           <span className="hidden sm:inline">GitHub</span>
         </a>
+        </>}
       </div>
     </nav>
   )
