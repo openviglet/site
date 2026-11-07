@@ -243,3 +243,53 @@ hero's random layout) now start from a value the server can produce.
 **What is left** needs the deployed site and the Search Console account: run URL
 inspection on `/turing/` and `/shio/` after the next deploy and confirm the rendered
 text is what Google sees. If it is, ship this line plainly.
+
+### XI.8 W53: Current home social image
+
+The home metadata still points at public/og-banner.png, whose image contains
+openviglet.github.io addresses and the earlier suite slogan. Generate a home card in
+scripts/og-images.mjs using current hub copy and existing brand assets, and reference it
+from home metadata. Keep the old asset available for inbound links. Update nearby
+generated social copy where it repeats the superseded positioning. Use the established
+code-based SVG and PNG rendering pipeline, not image generation or a new asset system.
+Verify the generated 1200 by 630 card visually, confirm its copy fits, run both builds
+and inspect the exported OG/Twitter URLs. No publication is part of this task.
+
+### XI.9 W54: Browser verification of revised journeys
+
+Browser inspection was interrupted because Computer Use could not establish the Chrome
+URL. Builds and HTML checks passed, but screenshots, mobile behavior and keyboard
+interactions were not verified. When a policy-compatible browser session is available,
+inspect the home at narrow mobile, tablet and desktop widths in light and dark modes.
+Check menu expansion, visible focus, manual preview switching, the optional wizard and
+its deep link, integration arrows, consent choices, blog next steps and the contact form
+loading/fallback. Check clipping, overlap, horizontal overflow, text readability and
+target size. Record observed evidence and fix demonstrated defects within this scope. Do
+not substitute a build result for visual evidence or bypass browser access checks. A
+completed task requires actual browser verification.
+
+### XI.10 W55: Live measurement verification
+
+This task requires the revised site to be published and access to its GA property.
+Publication itself remains a separate operator action; do not deploy solely to close
+this line. In a controlled session, verify that demo_open, setup_guide_open,
+product_open and contact_intent arrive with only the documented bounded custom
+dimensions after consent. Confirm denied and withdrawn consent suppress collection, and
+that navigation works with analytics blocked. Check that no duplicate handler sends each
+click twice. Record the publication and verification dates and how internal test traffic
+was excluded. Keep test observations separate from real adoption and never submit a real
+contact inquiry just to test analytics. Update docs/EVALUATION.md with operational
+findings.
+
+### XI.11 W56: Review journey outcomes
+
+After live event delivery is verified, collect a full comparable observation window,
+normally four weeks from publication unless traffic requires longer. Use Search Console
+for search discovery and the consented GA sample for intent; report absolute counts,
+date ranges and exclusions. Review AEM, WordPress and Shio paths separately where counts
+permit. Inspect actual inquiries for implementation or support fit using aggregate,
+anonymized observations; a contact click is not a qualified lead. Compare with a newly
+captured baseline where possible and explain any missing baseline. Do not infer uplift
+from October snapshots or tiny samples. Record conclusions in the visibility
+strategy/review through that repository's own workflow, and file only evidence-backed
+follow-ups here. No automatic A/B test or launch campaign is required.
