@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import ConsentBanner from '@/components/ConsentBanner'
+import JourneyAnalytics from '@/components/JourneyAnalytics'
 import JsonLd from '@/components/JsonLd'
 import { SITE_ORIGIN, siteJsonLd } from '@/lib/seo'
 import '@/index.css'
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         {/* Organization + WebSite structured data, on every page (W49). */}
         <JsonLd data={siteJsonLd()} />
         <ConsentBanner />
+        <JourneyAnalytics />
         {children}
       </body>
     </html>

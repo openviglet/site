@@ -1,7 +1,7 @@
-# Last task number: `W51`
+# Last task number: `W52`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W52`; after assigning it, bump the number above and the log line below.
+> `W53`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W52**: Consent-gated evaluation action measurement (Block E), 2026-11-07
 - **W51**: Show actual product indexing and delivery relationships (Block A), 2026-11-07
 - **W50**: Remove stale versions and qualify deployment promises (Block E), 2026-11-07
 - **W49**: JSON-LD on every page: Organization, WebSite, WebPage + BreadcrumbList, SoftwareApplication, Blog (Block E), 2026-11-05

@@ -67,7 +67,7 @@ export default function Header() {
               Blog
             </Link>
             <Link
-              href="/contact/"
+              href="/contact/" data-viglet-action="contact_intent" data-viglet-placement="navigation"
               className="px-3.5 py-2 rounded-lg text-base font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               Contact
@@ -75,7 +75,7 @@ export default function Header() {
             <SiteSearch />
             <ColorModeToggle />
             <Button asChild size="sm">
-              <Link href="/docs/">Get Started</Link>
+              <Link href="/docs/" data-viglet-action="setup_guide_open" data-viglet-product="suite" data-viglet-placement="navigation">Get Started</Link>
             </Button>
           </div>
 
@@ -116,7 +116,7 @@ export default function Header() {
               Blog
             </Link>
             <Link
-              href="/contact/"
+              href="/contact/" data-viglet-action="contact_intent" data-viglet-placement="navigation"
               onClick={() => setMenuOpen(false)}
               className="flex items-center px-3 py-2.5 rounded-lg hover:bg-muted text-sm font-medium text-foreground no-underline"
             >
@@ -129,7 +129,7 @@ export default function Header() {
             </div>
             <hr className="border-border my-2" />
             <Link
-              href="/docs/"
+              href="/docs/" data-viglet-action="setup_guide_open" data-viglet-product="suite" data-viglet-placement="navigation"
               onClick={() => setMenuOpen(false)}
               className="flex items-center gap-2 px-3 py-2.5 text-sm font-bold text-brand no-underline"
             >

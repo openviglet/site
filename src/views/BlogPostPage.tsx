@@ -18,8 +18,8 @@ export default function BlogPostPage({
 }: Readonly<{ post: BlogPostMeta; html: string; readingMinutes: number }>) {
   const context = evaluationPaths.find((path) => post.tags.includes(path.id))
   const nextSteps = context
-    ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href }]
-    : productPaths.filter((path) => post.solutions.includes(path.product)).map((path) => ({ label: path.action, href: path.href }))
+    ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href, action: context.id === 'aem' ? 'demo_open' : 'setup_guide_open', product: 'turing' }]
+    : productPaths.filter((path) => post.solutions.includes(path.product)).map((path) => ({ label: path.action, href: path.href, action: path.product === 'turing' ? 'demo_open' : 'product_open', product: path.product }))
   return (
     <div className="min-h-screen bg-muted flex flex-col">
       <Header />
@@ -60,8 +60,8 @@ export default function BlogPostPage({
           <aside className="mt-10 rounded-2xl border border-border bg-muted p-6" aria-label="Next steps">
             <h2 className="text-xl font-bold text-foreground">Put it to work</h2>
             <div className="flex flex-wrap gap-x-6 gap-y-3 mt-4">
-              {nextSteps.map((step) => <a key={step.href} href={step.href} className="text-brand font-semibold underline underline-offset-4">{step.label}</a>)}
-              <Link href="/contact/" className="text-brand font-semibold underline underline-offset-4">Discuss your deployment</Link>
+              {nextSteps.map((step) => <a key={step.href} href={step.href} data-viglet-action={step.action} data-viglet-product={step.product} data-viglet-journey={context?.id ?? 'general'} data-viglet-placement="blog" className="text-brand font-semibold underline underline-offset-4">{step.label}</a>)}
+              <Link href="/contact/" data-viglet-action="contact_intent" data-viglet-journey={context?.id ?? 'general'} data-viglet-placement="blog" className="text-brand font-semibold underline underline-offset-4">Discuss your deployment</Link>
             </div>
           </aside>
 

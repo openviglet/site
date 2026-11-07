@@ -50,6 +50,7 @@
 - **W49** — Every page carries JSON-LD: Organization and WebSite site-wide, a WebPage with BreadcrumbList per route, SoftwareApplication per product, Blog on the index.
 - **W50** — Removed manually maintained version badges and metadata, preserved release and installation links, and qualified data residency, connector setup and operating costs across the site and llms.txt.
 - **W40** — The hub leads directly to product demos and setup, gives Shio its own agent-ready proposition, offers AEM and WordPress paths, and presents manual examples, optional selection help and earlier contact capture (design §XI.3 recorded in `src/data/hub.ts`).
+- **W52** — Explicit demo, setup, product and contact-intent clicks use allowlisted metadata only after consent, with withdrawal disabling collection and unavailable storage handled in-session (design §XI.7 recorded in `docs/EVALUATION.md`).
 
 ## Block H — Conversion narrative & product essence
 

@@ -31,7 +31,7 @@ export default function ScriptedDemo() {
       </div>
       <div className="border-t border-border bg-muted p-5">
         <p className="text-xs text-muted-foreground mb-3">Written examples. The live playground searches Turing documentation.</p>
-        <a href="https://turing.viglet.org/#playground" className="inline-flex items-center gap-2 font-semibold text-brand">Try the live playground <IconArrowRight size={16} aria-hidden="true" /></a>
+        <a href="https://turing.viglet.org/#playground" data-viglet-action="demo_open" data-viglet-product="turing" data-viglet-placement="home_hero" className="inline-flex items-center gap-2 font-semibold text-brand">Try the live playground <IconArrowRight size={16} aria-hidden="true" /></a>
       </div>
     </div>
   )

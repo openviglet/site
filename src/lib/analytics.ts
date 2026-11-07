@@ -14,8 +14,10 @@ const CONSENT_KEY = 'viglet-analytics-consent'
 export const OPEN_CONSENT_EVENT = 'viglet:open-consent'
 
 export type Consent = 'granted' | 'denied'
+let sessionConsent: Consent | undefined
 
 export function getConsent(): Consent | null {
+  if (sessionConsent !== undefined) return sessionConsent
   try {
     const v = localStorage.getItem(CONSENT_KEY)
     return v === 'granted' || v === 'denied' ? v : null
@@ -25,10 +27,15 @@ export function getConsent(): Consent | null {
 }
 
 export function setConsent(consent: Consent): void {
+  sessionConsent = consent
   try {
     localStorage.setItem(CONSENT_KEY, consent)
+    sessionConsent = undefined
   } catch {
     /* storage blocked: honour the choice for this session only */
+  }
+  if (typeof window !== 'undefined') {
+    (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = consent !== 'granted'
   }
   if (consent === 'granted') loadAnalytics()
 }
@@ -42,7 +49,10 @@ let loaded = false
 
 /** Inject gtag.js and configure GA. Idempotent, only ever called after consent. */
 export function loadAnalytics(): void {
-  if (loaded || typeof window === 'undefined') return
+  if (typeof window === 'undefined' || getConsent() !== 'granted') return
+  const flags = window as unknown as Record<string, unknown>
+  flags[`ga-disable-${GA_ID}`] = false
+  if (loaded) return
   loaded = true
 
   const w = window as unknown as { dataLayer: unknown[]; gtag?: (...args: unknown[]) => void }
@@ -66,5 +76,32 @@ export function loadAnalytics(): void {
 
 /** Called once at startup: honour a previously granted consent, load nothing otherwise. */
 export function initAnalyticsFromConsent(): void {
-  if (getConsent() === 'granted') loadAnalytics()
+  const granted = getConsent() === 'granted'
+  if (typeof window !== 'undefined') {
+    (window as unknown as Record<string, unknown>)[`ga-disable-${GA_ID}`] = !granted
+  }
+  if (granted) loadAnalytics()
+}
+
+export const journeyActions = ['demo_open', 'setup_guide_open', 'product_open', 'contact_intent'] as const
+export type JourneyAction = (typeof journeyActions)[number]
+
+const allowedDimensions = {
+  product: ['turing', 'dumont', 'shio', 'suite'],
+  journey: ['general', 'aem', 'wordpress', 'shio'],
+  placement: ['home_hero', 'home_products', 'home_context', 'home_support', 'blog', 'comparison', 'navigation', 'download', 'docs'],
+} as const
+
+/** Intent only: never infer a completed install or a submitted lead from a click. */
+export function trackJourneyAction(action: string, dimensions: Record<string, string | undefined>): void {
+  if (typeof window === 'undefined' || getConsent() !== 'granted') return
+  if (!journeyActions.includes(action as JourneyAction)) return
+  const safe: Record<string, string> = {}
+  for (const [key, allowed] of Object.entries(allowedDimensions)) {
+    const value = dimensions[key]
+    if (value && (allowed as readonly string[]).includes(value)) safe[key] = value
+  }
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void }
+  // Analytics must never interrupt navigation, even if an extension replaces gtag.
+  try { w.gtag?.('event', action, safe) } catch { /* navigation remains available */ }
 }
