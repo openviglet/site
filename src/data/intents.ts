@@ -21,18 +21,20 @@ export interface Intent {
   solution: string
   terms: string[]
   reason: string
+  /** A source with its own Turing integration must not trigger generic ingestion advice. */
+  excludeTerms?: string[]
 }
 
 export const intents: Intent[] = [
   // ── Dumont: get content out of a source ──────────────────────────────────
   { solution: 'dumont', terms: ['aem', 'adobe experience manager'], reason: 'Dumont’s AEM source extracts pages, fragments and assets from Adobe AEM for indexing.' },
-  { solution: 'dumont', terms: ['wordpress'], reason: 'Dumont’s WordPress source pushes posts and pages to your search engine.' },
+  { solution: 'turing', terms: ['wordpress', 'woocommerce'], reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Turing, without Dumont.' },
   { solution: 'dumont', terms: ['intranet', 'crawl', 'crawler', 'website', 'web site', 'rastrear'], reason: 'Dumont’s web crawler extracts structured content from public or private websites.' },
   { solution: 'dumont', terms: ['database', 'banco de dados', 'sql', 'jdbc', 'tabela'], reason: 'Dumont’s database source ingests and synchronizes records from SQL databases.' },
   { solution: 'dumont', terms: ['file share', 'filesystem', 'file system', 'arquivos', 'documentos', 'pdf'], reason: 'Dumont’s asset source makes documents and media on file systems searchable.' },
   { solution: 'dumont', terms: ['edge delivery', 'eds', 'franklin', 'helix'], reason: 'Dumont indexes Adobe Edge Delivery Services sites.' },
-  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], reason: 'Dumont connects supported sources to a search engine through configured connectors and field mappings.' },
-  { solution: 'dumont', terms: ['solr', 'elasticsearch'], reason: 'Dumont delivers extracted content to Apache Solr or Elasticsearch by changing one property.' },
+  { solution: 'dumont', terms: ['index', 'extract', 'extrair', 'ingest', 'ingerir', 'etl', 'connector', 'conector'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Dumont connects supported sources to a search engine through configured connectors and field mappings.' },
+  { solution: 'dumont', terms: ['solr', 'elasticsearch'], excludeTerms: ['wordpress', 'woocommerce'], reason: 'Dumont delivers extracted content to Apache Solr or Elasticsearch by changing one property.' },
 
   // ── Turing: search and answer ────────────────────────────────────────────
   { solution: 'turing', terms: ['search', 'busca', 'buscar', 'pesquisa', 'pesquisar', 'facet', 'faceta', 'filtro'], reason: 'Turing serves faceted, multilingual, typo-tolerant search on Solr, Elasticsearch or Lucene.' },
@@ -75,6 +77,7 @@ export function matchProducts(text: string): ProductMatch[] {
   const order = ['dumont', 'turing', 'shio']
   const found = new Map<string, string[]>()
   for (const intent of intents) {
+    if (intent.excludeTerms?.some((t) => termMatches(t, words, phrase))) continue
     if (!intent.terms.some((t) => termMatches(t, words, phrase))) continue
     const reasons = found.get(intent.solution) ?? []
     if (!reasons.includes(intent.reason)) reasons.push(intent.reason)

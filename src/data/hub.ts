@@ -19,7 +19,7 @@ export const productPaths: ProductPath[] = [
 
 export const evaluationPaths = [
   { id: 'aem', title: 'Add search to Adobe AEM', description: 'See search and cited answers over WKND content, then follow the connector setup for your AEM environment.', action: 'Explore the AEM demo', href: 'https://turing.viglet.org/aem-search/', guide: '/blog/enterprise-search-for-adobe-aem/', guideLabel: 'Read the AEM integration guide' },
-  { id: 'wordpress', title: 'Search your WordPress content', description: 'Follow the WordPress integration guide. You will need a Turing server; AI answers also require a configured model.', action: 'Read the WordPress guide', href: '/blog/enterprise-search-for-wordpress/', guide: 'https://turing.viglet.org/docs/getting-started/intro/', guideLabel: 'Set up the Turing server' },
+  { id: 'wordpress', title: 'Search your WordPress content', description: 'Use the Turing plugin for WordPress and WooCommerce, without Dumont. You need a Turing server; AI answers also require a configured model.', action: 'Read the WordPress guide', href: '/blog/enterprise-search-for-wordpress/', guide: 'https://turing.viglet.org/wordpress/', guideLabel: 'Explore Turing for WordPress' },
   { id: 'shio', title: 'Let an agent work with your CMS', description: 'Connect Claude Code to Shio through MCP and see how content authoring and review fit together.', action: 'Read the Shio agent guide', href: '/blog/run-your-cms-from-claude-code-shio/', guide: 'https://shio.viglet.org/claude-code/', guideLabel: 'Explore Shio for agents' },
 ] as const
 

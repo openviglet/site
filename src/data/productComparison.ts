@@ -38,7 +38,7 @@ const written: CompareRowDef[] = [
     id: 'reads',
     label: 'What it reads',
     cells: {
-      dumont: { summary: 'Adobe AEM, Adobe EDS, WordPress, SQL databases, file systems, websites.', detail: 'Sources are plugins on one architecture: AEM pages, fragments and assets; JDBC databases; documents and media on file systems; any site through the web crawler, with robots.txt and sitemap discovery.' },
+      dumont: { summary: 'Adobe AEM, Adobe EDS, SQL databases, file systems, websites.', detail: 'Sources are plugins on one architecture: AEM pages, fragments and assets; JDBC databases; documents and media on file systems; any site through the web crawler, with robots.txt and sitemap discovery.' },
       shio: { summary: 'Content your team authors in its console, or pushes as code.', detail: 'Post types are created in the admin or versioned as code with the Post Types DSL and the Shio CLI, with push, pull and drift detection.' },
       turing: { summary: 'Content indexed by Dumont, by Shio, or through its API and Java SDK.', detail: 'Dumont’s Turing target and Shio’s indexing feed it directly; the Java SDK indexes from any JVM application.' },
     },

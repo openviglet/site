@@ -63,8 +63,9 @@ Elasticsearch's ecosystem leads. Both are excellent engines, and both leave the
 
 Turing adds, on top of the engine you choose:
 
-- **Connectors** for [Adobe AEM](https://dumont.viglet.org/docs/connectors/aem/), WordPress, databases,
-  file systems, and web crawl, with event-driven sync and tag → facet mapping.
+- **Connectors** for [Adobe AEM](https://dumont.viglet.org/docs/connectors/aem/), databases,
+  file systems and web crawl through Dumont. WordPress and WooCommerce use the
+  [Turing plugin](https://turing.viglet.org/wordpress/) directly.
 - **Semantic + vector search** and **RAG** with your LLM
   ([guide](https://turing.viglet.org/docs/rag/)), instead of building an AI tier separately.
 - **Multi-language, faceting, autocomplete, spotlights, targeting** out of the

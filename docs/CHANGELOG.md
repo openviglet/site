@@ -54,6 +54,7 @@
 - **W53** — The home share card is generated from current hub messaging, carries www.viglet.org and current product names, and is referenced by OG and Twitter metadata with both output modes verified (design §XI.8 recorded in `scripts/og-images.mjs`).
 - **W54** — Playwright verified six viewport/theme combinations and the core evaluation interactions, with tablet header clipping and dark-card labels corrected and evidence recorded (design §XI.9 recorded in `docs/QA-2026-11-07.md`).
 - **W57** — Local product pages are concise, data-driven portfolio summaries, linked from home, header and footer, with direct evaluation, setup, release and support actions verified in twelve browser combinations (design §XI.12 recorded in `src/data/productOverviews.ts`).
+- **W58** — WordPress and WooCommerce are attributed directly to Turing in product data, recommendations, guides, diagrams and llms.txt, with WordPress-only selection verified and upstream installation-link drift filed as T1266 (design §XI.13 recorded in `docs/QA-2026-11-07.md`).
 
 ## Block H — Conversion narrative & product essence
 

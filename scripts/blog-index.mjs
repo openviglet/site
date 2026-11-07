@@ -15,8 +15,8 @@ import matter from 'gray-matter'
 const SRC = resolve(process.cwd(), 'content/blog')
 const OUT = resolve(process.cwd(), 'src/data/blog.generated.json')
 const KNOWN_PRODUCTS = ['turing', 'dumont', 'shio']
-// A post about a source CMS involves its Dumont connector.
-const SOURCE_TAGS = new Set(['aem', 'wordpress'])
+// AEM uses Dumont; the WordPress plugin belongs directly to Turing.
+const SOURCE_TAGS = new Set(['aem'])
 
 /** Explicit `viglet_products` wins; otherwise Turing, plus Dumont for a source connector. */
 function solutionsOf(data) {

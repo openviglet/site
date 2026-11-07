@@ -55,7 +55,7 @@ export const outcomes: Outcome[] = [
   {
     icon: IconDatabaseImport,
     title: 'Connect your existing content sources',
-    body: 'Connectors for Adobe AEM, WordPress, SQL databases, file systems and the web push content into your search engine. Configure the supported connectors and map the fields your search needs.',
+    body: 'Connectors for Adobe AEM, SQL databases, file systems and the web push content into your search engine. Configure the supported connectors and map the fields your search needs.',
     solution: 'dumont',
   },
   {
@@ -152,7 +152,7 @@ export const essence: Record<string, SolutionEssence> = {
         step: 'Connect',
         title: 'Connectors for your existing sources',
         description:
-          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress and a web crawler. Configure credentials, field mappings and indexing for each source.',
+          'Ready-to-use connectors for Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services and a web crawler. Configure credentials, field mappings and indexing for each source.',
       },
       {
         icon: IconTransform,
@@ -350,7 +350,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: 'Which sources can I index (Adobe AEM, WordPress, databases)?',
-    a: 'Viglet Dumont connects Adobe AEM, WordPress, SQL databases, file systems and any website through its web crawler, and delivers the content into Apache Solr, Elasticsearch or Viglet Turing.',
+    a: 'Dumont connects AEM, databases, files and websites to Turing, Solr or Elasticsearch. The Viglet Turing Search plugin connects WordPress and WooCommerce directly to Turing; it does not require Dumont.',
   },
   {
     q: 'Does it support semantic search and RAG with the LLM of my choice?',

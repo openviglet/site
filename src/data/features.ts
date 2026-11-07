@@ -14,7 +14,7 @@ export const features: Feature[] = [
   { title: 'React & JavaScript SDKs', solution: 'shio', content: 'Official SDKs with hooks (useShioPost, useShioQuery, useShioChildren) to render content with Next.js or any framework, plus outbound webhooks on publish.' },
   { title: 'Native Cache & Search', solution: 'shio', content: 'Delivery runs on a Hazelcast-backed native cache. Content is indexed automatically, with Viglet Turing integration for enterprise search.' },
   // ── Dumont: Data Exchange Platform ─────────────────────────────────────
-  { title: 'Multi-source connectors', solution: 'dumont', content: 'Index from Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, WordPress, and any website through the web crawler, all on one plugin architecture.' },
+  { title: 'Multi-source connectors', solution: 'dumont', content: 'Index from Adobe AEM, JDBC databases, filesystem assets, Adobe Edge Delivery Services, and websites through the web crawler, all on one plugin architecture.' },
   { title: 'Search-engine-agnostic delivery', solution: 'dumont', content: 'Publish the same content to Viglet Turing, Apache Solr, or Elasticsearch by changing a single property. Switching engines needs no rewrite.' },
   { title: 'Declarative structured sources', solution: 'dumont', content: 'Model listings and detail pages as a typed schema with reusable Sitemap, HtmlListing and TabularListing strategies. A new source is a manifest, with no code to write.' },
   { title: 'AI-assisted source setup', solution: 'dumont', content: 'Point Viglet Dumont at a URL and get a draft extraction strategy and field manifest to confirm. Nothing is published automatically and no value is guessed.' },

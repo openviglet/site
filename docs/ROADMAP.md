@@ -48,11 +48,11 @@
 
 - 📋 **W55** (deps: W52 ✅) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
-- 📋 **W58** (deps: —) **WordPress integration is still attributed to Dumont** — Describe the plugin as Turing-only across guides, product selection and SEO/GEO so WordPress users are not told to install Dumont. → §XI.13
 
 ## Block F — Reference app / developer funnel
 
 - 💭 **W16** (deps: W1 ⏸, W2 ✅) **Publish cursarei as an open-source starter** — "clone this to build an AI search portal on Viglet", a reference repo as the technical lead magnet that turns the devs who clone it into Dumont and Turing users. → §VII.1
+- 📋 **W59** (deps: —) **Download pages repeat long tutorials and product descriptions** — Keep short installation entries with commands and requirements, linking the official setup guides for maintained production instructions. → §VII.4
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 

@@ -158,6 +158,20 @@ tell one story. Depends on the cursarei owner's go-ahead (it's their codebase).
 
 ---
 
+### VII.4 W59: Concise installation entries
+
+The owner chose on 2026-11-07 to retain /<product>/download/ as concise installation
+entries rather than redirecting them. Replace the long duplicated product/tutorial
+narrative with the product identity, copyable Docker pull/run command, basic
+prerequisites, the console URL where supplied by product data, and a clear distinction
+between an evaluation instance and production configuration. Link the product's official
+setup documentation, official releases, local overview and implementation contact.
+Preserve the secondary Cloud beta option and its honest label. Do not copy default
+passwords or claim a one-line evaluation command handles production storage, security
+and backups. WordPress plugin users must go to the Turing integration guide, not Dumont
+installation. Preserve route URLs and metadata and verify the three pages and
+command-copy controls in Playwright on mobile and desktop; run both builds.
+
 ## VIII. Block G: Next.js + Viglet Cloud migration
 
 > The platform shift that makes Block B native and turns viglet.org itself into a
@@ -269,17 +283,3 @@ captured baseline where possible and explain any missing baseline. Do not infer 
 from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
-
-### XI.13 W58: Turing-only WordPress integration
-
-The owner confirmed on 2026-11-07 that the WordPress/WooCommerce plugin is now supplied
-entirely by Turing, not Dumont. Remove its attribution to Dumont from feature and module
-data, comparisons, intent matching, the selection wizard, FAQ and llms.txt. Give
-WordPress its own Turing-only selection path and keep generic database, AEM and
-file-source paths with Dumont. Update the WordPress guide and related published/draft
-articles and diagrams that imply Dumont is required; preserve all existing slugs and tag
-keys. Locate the current WordPress documentation in the Turing product source instead of
-inventing a URL or claiming directory availability. Regenerate the committed blog index
-and any edited diagram SVG. Verify rendered copy, WordPress-only recommendations and
-direct guide links with Playwright, then run static and server builds. No changes to the
-plugin implementation are in scope.

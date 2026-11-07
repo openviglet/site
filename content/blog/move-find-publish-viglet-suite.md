@@ -31,7 +31,7 @@ All three are Apache 2.0 and self-hosted.
 
 ## Move it: Dumont
 
-Your content already lives somewhere: Adobe AEM, WordPress, a database, a file
+Your content already lives somewhere: Adobe AEM, a database, a file
 share, a set of sites. Dumont reads those sources and keeps their content indexed,
 including the hard part of noticing changed and removed pages. It delivers to Turing
 by default, or to your own Apache Solr or Elasticsearch, so you can use it without

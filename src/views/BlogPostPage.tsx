@@ -18,7 +18,7 @@ export default function BlogPostPage({
 }: Readonly<{ post: BlogPostMeta; html: string; readingMinutes: number }>) {
   const context = evaluationPaths.find((path) => post.tags.includes(path.id))
   const nextSteps = context
-    ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href, action: context.id === 'aem' ? 'demo_open' : 'setup_guide_open', product: 'turing' }]
+    ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href, action: context.id === 'aem' ? 'demo_open' : 'product_open', product: 'turing' }]
     : productPaths.filter((path) => post.solutions.includes(path.product)).map((path) => ({ label: path.action, href: path.href, action: path.product === 'turing' ? 'demo_open' : 'product_open', product: path.product }))
   return (
     <div className="min-h-screen bg-muted flex flex-col">

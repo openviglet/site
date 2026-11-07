@@ -41,9 +41,15 @@ export const wizardQuestions: WizardQuestion[] = [
     options: [
       {
         id: 'sources',
-        label: 'In Adobe AEM, WordPress, a database, files or websites',
+        label: 'In Adobe AEM, a database, files or websites',
         solution: 'dumont',
         reason: 'Viglet Dumont extracts it with a ready connector for each of those sources, with credentials and field mappings configured for your deployment.',
+      },
+      {
+        id: 'wordpress',
+        label: 'In WordPress or WooCommerce',
+        solution: 'turing',
+        reason: 'Viglet Turing Search connects WordPress and WooCommerce directly to Turing; Dumont is not required.',
       },
       {
         id: 'engine',

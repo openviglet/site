@@ -150,7 +150,7 @@ export const comparisons: Comparison[] = [
         {
           icon: IconPlugConnected,
           label: 'Source connectors',
-          viglet: 'Via Viglet Dumont: Adobe AEM, WordPress, SQL databases, file systems and the web',
+          viglet: 'Dumont: AEM, SQL databases, files and the web. WordPress and WooCommerce: the Turing plugin directly.',
           other: 'Vendor connectors and crawlers',
         },
       ],
@@ -159,7 +159,7 @@ export const comparisons: Comparison[] = [
       {
         step: 'Extract',
         title: 'Connect your sources with Dumont',
-        body: 'Dumont connectors pull content from Adobe AEM, WordPress, SQL databases, file systems and the web into one flow, with connector configuration and field mappings for your deployment.',
+        body: 'Dumont connectors pull content from Adobe AEM, SQL databases, file systems and the web into one flow, with connector configuration and field mappings for your deployment.',
       },
       {
         step: 'Index & search',

@@ -23,7 +23,7 @@ quietly stops happening. The usual symptom is a search result that leads to a 40
 or a page everyone can see on the site and nobody can find.
 
 [**Viglet Dumont**](https://dumont.viglet.org/) is the open source
-connector layer of the Viglet suite. It reads AEM, WordPress, databases, files and
+connector layer of the Viglet suite. It reads AEM, databases, files and
 web sites, and keeps their content indexed in Viglet Turing, Apache Solr or
 Elasticsearch. This post is about the second half of that sentence: *keeps*.
 
@@ -81,6 +81,6 @@ last run, and writes nothing. Only a draft you confirm gets indexed.
 - 📗 [Enterprise search for Adobe AEM](/blog/enterprise-search-for-adobe-aem/), the search side with Turing
 - ⭐ [Dumont on GitHub](https://github.com/openviglet/dumont) (Apache 2.0)
 
-*Viglet Dumont is an open source data exchange platform: it connects AEM, WordPress,
+*Viglet Dumont is an open source data exchange platform: it connects AEM,
 databases, files and web sites to Viglet Turing, Solr or Elasticsearch, and keeps
 the index in step with the source.*
