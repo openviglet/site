@@ -270,16 +270,6 @@ from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
 
-### XI.16 W62: Consistent editorial layouts
-
-Use the shared site hero and typography conventions on the blog index, tag pages and
-article headers. Preserve the narrower article reading measure, authorship, dates, tags,
-all post URLs, Markdown rendering and product-specific next steps. Keep search and
-filters usable and replace page-specific decorative treatment with the same adaptive
-surfaces and controls as the rest of the site. Verify the index, a tag page and articles
-on mobile and desktop in both themes. Run the build and confirm SEO/RSS/sitemap outputs
-are retained.
-
 ### XI.17 W63: Whole-site visual verification
 
 After the shared institutional, product and editorial layouts land, inspect every route

@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { IconRss } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import PageHero from '@/components/PageHero'
+import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { blogTags, formatPostDate, usedTags, type BlogPostMeta } from '@/data/blog'
 
@@ -16,25 +18,24 @@ export default function BlogIndexPage({
   activeTag,
 }: Readonly<{ posts: BlogPostMeta[]; heading: string; intro: string; activeTag?: string }>) {
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <section className="bg-background border-b border-border py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Badge variant="brand" className="mb-4">Blog</Badge>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-4">{heading}</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">{intro}</p>
-          <nav aria-label="Tags" className="flex flex-wrap gap-2 mt-8">
+      <main id="main-content" className="flex-1">
+        <PageHero label="Blog" title={heading} description={intro}>
+          <Button size="lg" variant="outline" asChild><a href="/blog/rss.xml"><IconRss size={16} /> RSS feed</a></Button>
+        </PageHero>
+        <div className="px-6 border-b border-border bg-muted">
+          <nav aria-label="Tags" className="max-w-5xl mx-auto flex flex-wrap gap-2 py-6">
             <TagLink href="/blog/" label="All posts" active={!activeTag} />
             {usedTags().map((t) => (
               <TagLink key={t} href={`/blog/tags/${t}/`} label={blogTags[t].label} active={t === activeTag} />
             ))}
           </nav>
         </div>
-      </section>
 
-      <main className="flex-1 py-16 px-6">
-        <div className="max-w-4xl mx-auto space-y-5">
+        <section className="px-6 py-12 md:py-16" aria-label="Published articles">
+        <div className="max-w-5xl mx-auto space-y-5">
           {posts.map((p) => (
             <Link
               key={p.slug}
@@ -51,13 +52,8 @@ export default function BlogIndexPage({
               </div>
             </Link>
           ))}
-          <p className="text-center pt-4">
-            <a href="/blog/rss.xml" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand no-underline">
-              <IconRss size={16} />
-              RSS feed
-            </a>
-          </p>
         </div>
+        </section>
       </main>
 
       <Footer />

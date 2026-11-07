@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { IconArrowLeft } from '@tabler/icons-react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import PageHero from '@/components/PageHero'
+import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { blogAuthors, blogTags, formatPostDate, type BlogPostMeta } from '@/data/blog'
 import { evaluationPaths, productPaths } from '@/data/hub'
@@ -21,20 +23,16 @@ export default function BlogPostPage({
     ? [{ label: context.id === 'wordpress' ? context.guideLabel : context.action, href: context.id === 'wordpress' ? context.guide : context.href, action: context.id === 'aem' ? 'demo_open' : 'product_open', product: 'turing' }]
     : productPaths.filter((path) => post.solutions.includes(path.product)).map((path) => ({ label: path.action, href: path.href, action: path.product === 'turing' ? 'demo_open' : 'product_open', product: path.product }))
   return (
-    <div className="min-h-screen bg-muted flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <Header />
 
-      <main className="flex-1 bg-background">
-        <article className="max-w-3xl mx-auto py-14 px-6">
-          <Link href="/blog/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand no-underline mb-8">
-            <IconArrowLeft size={16} />
-            All posts
-          </Link>
+      <main id="main-content" className="flex-1 bg-background">
+        <PageHero label="Article" context="Viglet Blog" title={post.title} description={post.description}>
+          <Button size="lg" variant="outline" asChild><Link href="/blog/"><IconArrowLeft size={16} />All posts</Link></Button>
+        </PageHero>
+        <article className="max-w-3xl mx-auto py-12 md:py-16 px-6">
 
           <header className="mb-10">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight mb-5">
-              {post.title}
-            </h1>
             <p className="text-sm text-muted-foreground">
               <time dateTime={post.date}>{formatPostDate(post.date)}</time> · {readingMinutes} min read
             </p>

@@ -57,6 +57,7 @@
 - **W58** — WordPress and WooCommerce are attributed directly to Turing in product data, recommendations, guides, diagrams and llms.txt, with WordPress-only selection verified and upstream installation-link drift filed as T1266 (design §XI.13 recorded in `docs/QA-2026-11-07.md`).
 - **W60** — Overview, installation and release notes share one product hero, with compact adaptive histories, stable anchors and explicit feed states verified in 45 route/state checks (design §XI.14 recorded in `src/components/ProductPageHero.tsx`).
 - **W61** — Institutional, product and comparison routes share PageHero, adaptive surfaces, heading and action conventions, with 36 informational layout checks and both builds passing (design §XI.15 recorded in `docs/DESIGN.md`).
+- **W62** — Blog index, tag pages and article headers use the shared hero and controls, retaining readable article width, metadata and stable routes, with 16 browser checks passing (design §XI.16 recorded in `docs/DESIGN.md`).
 
 ## Block H — Conversion narrative & product essence
 
