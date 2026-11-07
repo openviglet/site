@@ -1,7 +1,7 @@
-# Last task number: `W66`
+# Last task number: `W68`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W67`; after assigning it, bump the number above and the log line below.
+> `W69`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,8 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W68**: Register queryable journey dimensions in GA (Block E), 2026-11-07
+- **W67**: Prevent journey events reaching duplicate GA streams (Block E), 2026-11-07
 - **W66**: Link product navigation directly to each product repository (Block E), 2026-11-07
 - **W65**: Replace decorative chips with typographic labels and tab filters (Block E), 2026-11-07
 - **W64**: Use full product names throughout visitor-facing content (Block E), 2026-11-07
