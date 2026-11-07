@@ -1,4 +1,9 @@
 import HomePage from '@/views/HomePage'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Page not found · Viglet',
+}
 
 /**
  * An unknown path (or an unknown product or comparison slug) shows the home

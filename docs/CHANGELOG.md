@@ -61,6 +61,7 @@
 - **W64** — All visitor-facing product names use the Viglet prefix, fullName drives labels and marks, diagrams and social assets are refreshed, and 40 exported pages plus SEO/GEO data passed the naming audit (design §XI.18 recorded in `docs/STRATEGY.md`).
 - **W65** — Decorative chips became plain typographic metadata, while preview, blog and product filters use underline selection with accessible states verified in 12 browser checks (design §XI.19 recorded in `docs/DESIGN.md`).
 - **W66** — The shared product navigation opens each product repository directly, with full-name accessible labels and all nine route destinations verified (design §XI.20 recorded in `src/components/SolutionMenu.tsx`).
+- **W63** — Verified all exported route families across three widths and both themes, fixed missing not-found titles, and passed static/server builds and internal-link checks.
 
 ## Block H — Conversion narrative & product essence
 

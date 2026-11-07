@@ -269,17 +269,3 @@ captured baseline where possible and explain any missing baseline. Do not infer 
 from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
-
-### XI.17 W63: Whole-site visual verification
-
-After the shared institutional, product and editorial layouts land, inspect every route
-family in a browser rather than inferring consistency from the build. Cover home, all
-three product overview/install/release pages, Docs, About, Contact, Partner, product
-comparison, acquisition comparison, blog index/tag/article, and the not-found page. Use
-narrow mobile, tablet and desktop widths and both themes. Check hero geometry, title
-scale, section widths, shared navigation, focus visibility, adaptive text/surfaces,
-overflow and loading/error states. Preserve real external service access when available;
-use controlled fixtures for deterministic failure checks and distinguish those from live
-verification. Record observed issues, fix scoped presentation regressions, and retain a
-concise QA report. Finish with static/server builds, internal-link checks and roadkeep
-lint. No deployment or claims of conversion uplift are part of this task.
