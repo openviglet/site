@@ -80,47 +80,46 @@ export function getOutcomes(): Outcome[] {
 /* Pipeline (W2 / W21): how Dumont → Turing → Shio connect as one platform     */
 /* -------------------------------------------------------------------------- */
 
-export interface PipelineStage {
-  /** Product identifier. Drives logo + accent colour. */
-  solution: string
-  /** Short verb-phrase step label. */
-  step: string
-  title: string
+export interface ProductConnection {
+  id: string
+  source: string
+  solution: 'dumont' | 'shio'
+  action: string
+  payload: string
+  destination: string
   description: string
 }
 
-/**
- * The reusable "Built with Viglet" pipeline: extract with Dumont → search &
- * answer with Turing → model & serve with Shio. It presents the three product
- * pages as one platform.
- */
-export const pipeline: PipelineStage[] = [
+// Independent integration paths, not a required three-product installation.
+export const productConnections: ProductConnection[] = [
   {
+    id: 'external-search',
+    source: 'AEM, databases, files and websites',
     solution: 'dumont',
-    step: 'Extract',
-    title: 'Connect supported sources',
-    description:
-      'Viglet Dumont crawls and connects Adobe AEM, WordPress, SQL databases, file systems and the web, and normalizes everything into one flow from source to destination.',
+    action: 'Dumont connects and extracts',
+    payload: 'Content and mapped fields',
+    destination: 'Turing search and cited answers',
+    description: 'Dumont feeds supported sources into Turing. It can also deliver directly to Apache Solr or Elasticsearch.',
   },
   {
-    solution: 'turing',
-    step: 'Search & answer',
-    title: 'Index, search, answer',
-    description:
-      'Viglet Turing indexes that flow into Apache Solr, Elasticsearch or Lucene, adds faceted semantic navigation, and answers questions with a RAG chatbot grounded in your content.',
-  },
-  {
+    id: 'cms-search',
+    source: 'Content managed in Shio',
     solution: 'shio',
-    step: 'Model & serve',
-    title: 'Model & deliver content',
-    description:
-      'Viglet Shio models the content, exposes it over GraphQL, and serves a cached, search-ready site. It is the editorial layer of the platform.',
+    action: 'Shio indexes content',
+    payload: 'Authored content for indexing',
+    destination: 'Turing search and cited answers',
+    description: 'Add Turing when a Shio site needs search and answers over its content.',
+  },
+  {
+    id: 'cms-delivery',
+    source: 'People and agents author content',
+    solution: 'shio',
+    action: 'Shio publishes and delivers',
+    payload: 'Rendered pages or REST / GraphQL',
+    destination: 'Your website or application',
+    description: 'Use Shio as a CMS on its own. Turing and Dumont are not required to publish content.',
   },
 ]
-
-export function getPipeline(): PipelineStage[] {
-  return pipeline
-}
 
 /* -------------------------------------------------------------------------- */
 /* Per-product essence (W24): pillars per product for SolutionPage             */

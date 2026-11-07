@@ -346,12 +346,12 @@ export default function HomePage() {
       <section className="py-20 px-6 bg-background border-t border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <Badge variant="brand" className="mb-4">Built with Viglet</Badge>
+            <Badge variant="brand" className="mb-4">Integrations</Badge>
             <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
-              How the three connect
+              Connect the tools your project needs
             </h2>
             <p className="text-muted-foreground text-lg mt-3 max-w-2xl mx-auto">
-              Each one works alone. Together: extract with Viglet Dumont, search and answer with Viglet Turing, model and serve with Viglet Shio.
+              Each product works independently. These are the paths for adding search or delivering content when you combine them.
             </p>
           </div>
           <PipelineDiagram />

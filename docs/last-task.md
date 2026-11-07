@@ -1,7 +1,7 @@
-# Last task number: `W50`
+# Last task number: `W51`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W51`; after assigning it, bump the number above and the log line below.
+> `W52`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W51**: Show actual product indexing and delivery relationships (Block A), 2026-11-07
 - **W50**: Remove stale versions and qualify deployment promises (Block E), 2026-11-07
 - **W49**: JSON-LD on every page: Organization, WebSite, WebPage + BreadcrumbList, SoftwareApplication, Blog (Block E), 2026-11-05
 - **W48**: Product links move from openviglet.github.io to <id>.viglet.org; models.viglet.org is linked (Block F), 2026-11-05

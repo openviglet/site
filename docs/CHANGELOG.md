@@ -24,6 +24,7 @@
 ## Block A — Showcase & proof
 
 - **W2** — "Built with Viglet" pipeline diagram: reusable [PipelineDiagram.tsx](../src/components/PipelineDiagram.tsx) rendering the Dumont → Turing → Shio flow as product-coloured, numbered process cards. Data-driven from `narrative.ts`; consumed by the home "how the three connect" band (W21) and reusable by any future showcase (W1/W3).
+- **W51** — The home shows independent, labelled Dumont-to-Turing, Shio-to-Turing and Shio-to-application paths, with optional products and standalone delivery explained (design §II.5 recorded in `src/data/narrative.ts`).
 
 ## Block D — Engagement & lead capture (privacy-first)
 
