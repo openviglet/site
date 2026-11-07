@@ -46,8 +46,7 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 🛠 **W55** (deps: W52 ✅, W67 ✅, W68 ⏸) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
-- 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
+- 📋 **W56** (deps: W55 ⏸) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
 
 ## Block F — Reference app / developer funnel
 
