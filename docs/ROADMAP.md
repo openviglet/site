@@ -46,8 +46,7 @@
 > four. Turing is the long-term relevance bet from 2027, through search and AI
 > assistants. Design → IMPROVEMENTS §XI.
 
-- 📋 **W53** (deps: W40 ✅) **The home share image still advertises retired addresses** — Generate the home social card from current hub messaging and product identities so shared links match the revised site. → §XI.8
-- 📋 **W54** (deps: W40 ✅, W51 ✅, W53) **The revised journeys have no browser layout or accessibility verification** — Check desktop and mobile rendering, keyboard use and the contact path before treating the redesign as visually verified. → §XI.9
+- 📋 **W54** (deps: W40 ✅, W51 ✅, W53 ✅) **The revised journeys have no browser layout or accessibility verification** — Check desktop and mobile rendering, keyboard use and the contact path before treating the redesign as visually verified. → §XI.9
 - 📋 **W55** (deps: W52 ✅) **Evaluation events have not been verified in the deployed analytics account** — Confirm consent behavior and event delivery after publication so journey counts have a verified starting point. → §XI.10
 - 📋 **W56** (deps: W55) **The effect of the revised journeys has not been measured** — Review comparable post-publication discovery, consented intent and actual inquiries before choosing further design or acquisition changes. → §XI.11
 

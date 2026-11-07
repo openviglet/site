@@ -51,6 +51,7 @@
 - **W50** — Removed manually maintained version badges and metadata, preserved release and installation links, and qualified data residency, connector setup and operating costs across the site and llms.txt.
 - **W40** — The hub leads directly to product demos and setup, gives Shio its own agent-ready proposition, offers AEM and WordPress paths, and presents manual examples, optional selection help and earlier contact capture (design §XI.3 recorded in `src/data/hub.ts`).
 - **W52** — Explicit demo, setup, product and contact-intent clicks use allowlisted metadata only after consent, with withdrawal disabling collection and unavailable storage handled in-session (design §XI.7 recorded in `docs/EVALUATION.md`).
+- **W53** — The home share card is generated from current hub messaging, carries www.viglet.org and current product names, and is referenced by OG and Twitter metadata with both output modes verified (design §XI.8 recorded in `scripts/og-images.mjs`).
 
 ## Block H — Conversion narrative & product essence
 

@@ -12,7 +12,7 @@
 // the build. The SVG is still written to public/og/ as a fallback. CI installs
 // the dep, so the deployed site always gets PNGs. The `id`s here MUST match the
 // ids src/lib/seo.ts references (dumont, shio, turing, about, partner, ...);
-// the home page uses the static public/og-banner.png instead.
+// the home card reads its message from src/data/hub.ts.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
@@ -103,13 +103,24 @@ function extractBlogPosts() {
   }))
 }
 
-// The home page uses the committed public/og-banner.png instead of a generated card.
+// Keep the hub message shared with the page without adding a TS runtime to this script.
+const hubSource = readFileSync(resolve(process.cwd(), 'src/data/hub.ts'), 'utf-8')
+const homeTitle = hubSource.match(/title:\s*'([^']+)'/)?.[1]
+if (!homeTitle) throw new Error('og-images: hubMessage.title must be a plain single-quoted string')
+
 const identities = [
+  {
+    id: 'home',
+    title: homeTitle,
+    subtitle: products.map((product) => product.title).join(' / '),
+    acronym: '',
+    grad: GRADIENTS.brand,
+  },
   ...products,
   {
     id: 'about',
     title: 'About Viglet',
-    subtitle: 'The open-source platform for enterprise intelligence',
+    subtitle: 'Open-source search, AI answers and content tools',
     acronym: '',
     grad: GRADIENTS.brand,
   },
@@ -144,7 +155,7 @@ const identities = [
   {
     id: 'blog',
     title: 'Viglet Blog',
-    subtitle: 'Enterprise search, RAG and AI agents, in practice',
+    subtitle: 'Search, AI answers and content management, in practice',
     acronym: '',
     grad: GRADIENTS.brand,
   },
@@ -157,7 +168,7 @@ const identities = [
 const escapeXml = (s) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-/** Greedy word-wrap to at most `maxLines` lines of ~`maxChars`. */
+/** Wrap complete lines; make any truncation explicit rather than losing words silently. */
 function wrap(text, maxChars, maxLines) {
   const words = text.split(/\s+/)
   const lines = []
@@ -166,18 +177,19 @@ function wrap(text, maxChars, maxLines) {
     if ((line + ' ' + w).trim().length > maxChars && line) {
       lines.push(line)
       line = w
-      if (lines.length === maxLines - 1) break
     } else {
       line = (line + ' ' + w).trim()
     }
   }
   if (line) lines.push(line)
-  return lines.slice(0, maxLines)
+  if (lines.length <= maxLines) return lines
+  return [...lines.slice(0, maxLines - 1), lines[maxLines - 1].replace(/[.,;:]$/, '') + '…']
 }
 
 function svgFor(item) {
   const [c1, c2] = item.grad
-  const titleLines = wrap(item.title, 26, 3)
+  const isHome = item.id === 'home'
+  const titleLines = wrap(item.title, isHome ? 30 : 26, 3)
   const titleStartY = 300 - (titleLines.length - 1) * 38
   const titleTspans = titleLines
     .map((l, i) => `<tspan x="100" y="${titleStartY + i * 76}">${escapeXml(l)}</tspan>`)
@@ -207,9 +219,10 @@ function svgFor(item) {
   <rect width="1200" height="630" fill="url(#glow)"/>
   ${acronymBadge}
   <text x="${wordmarkX}" y="${wordmarkY}" font-family="Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="1" fill="rgba(255,255,255,0.92)">Viglet</text>
-  <text font-family="Arial, sans-serif" font-size="64" font-weight="800" fill="#ffffff">${titleTspans}</text>
+  <text font-family="Arial, sans-serif" font-size="${isHome ? 54 : 64}" font-weight="800" fill="#ffffff">${titleTspans}</text>
   <text x="100" y="${titleStartY + titleLines.length * 76 + 6}" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.82)">${escapeXml(wrap(item.subtitle, 60, 1)[0] ?? '')}</text>
   <text x="100" y="560" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.65)">Open Source · Apache 2.0 · self-hosted with Docker</text>
+  ${isHome ? '<text x="1100" y="560" text-anchor="end" font-family="Arial, sans-serif" font-size="24" fill="#ffffff">www.viglet.org</text>' : ''}
 </svg>`
 }
 

@@ -61,7 +61,7 @@ export const homeMetadata = pageMetadata({
   title: 'Viglet · Open-source search, AI answers and content tools',
   description: hubMessage.description,
   canonical: `${SITE_ORIGIN}/`,
-  ogImage: '/og-banner.png',
+  ogId: 'home',
   ogTitle: hubMessage.title,
   ogDescription: hubMessage.description,
 })

@@ -244,17 +244,6 @@ hero's random layout) now start from a value the server can produce.
 inspection on `/turing/` and `/shio/` after the next deploy and confirm the rendered
 text is what Google sees. If it is, ship this line plainly.
 
-### XI.8 W53: Current home social image
-
-The home metadata still points at public/og-banner.png, whose image contains
-openviglet.github.io addresses and the earlier suite slogan. Generate a home card in
-scripts/og-images.mjs using current hub copy and existing brand assets, and reference it
-from home metadata. Keep the old asset available for inbound links. Update nearby
-generated social copy where it repeats the superseded positioning. Use the established
-code-based SVG and PNG rendering pipeline, not image generation or a new asset system.
-Verify the generated 1200 by 630 card visually, confirm its copy fits, run both builds
-and inspect the exported OG/Twitter URLs. No publication is part of this task.
-
 ### XI.9 W54: Browser verification of revised journeys
 
 Browser inspection was interrupted because Computer Use could not establish the Chrome
