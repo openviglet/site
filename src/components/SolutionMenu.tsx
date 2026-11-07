@@ -51,7 +51,7 @@ export default function SolutionMenu({ solution }: SolutionMenuProps) {
                 href={tab.to}
                 className={`px-2.5 sm:px-3.5 py-1.5 rounded-lg text-sm sm:text-base font-medium transition-colors no-underline whitespace-nowrap shrink-0 ${
                   isActive
-                    ? `product-tab-active-${solution.identifier} font-semibold`
+                    ? 'bg-card text-foreground ring-1 ring-border font-semibold'
                     : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                 }`}
               >

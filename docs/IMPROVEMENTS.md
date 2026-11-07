@@ -158,20 +158,6 @@ tell one story. Depends on the cursarei owner's go-ahead (it's their codebase).
 
 ---
 
-### VII.4 W59: Concise installation entries
-
-The owner chose on 2026-11-07 to retain /<product>/download/ as concise installation
-entries rather than redirecting them. Replace the long duplicated product/tutorial
-narrative with the product identity, copyable Docker pull/run command, basic
-prerequisites, the console URL where supplied by product data, and a clear distinction
-between an evaluation instance and production configuration. Link the product's official
-setup documentation, official releases, local overview and implementation contact.
-Preserve the secondary Cloud beta option and its honest label. Do not copy default
-passwords or claim a one-line evaluation command handles production storage, security
-and backups. WordPress plugin users must go to the Turing integration guide, not Dumont
-installation. Preserve route URLs and metadata and verify the three pages and
-command-copy controls in Playwright on mobile and desktop; run both builds.
-
 ## VIII. Block G: Next.js + Viglet Cloud migration
 
 > The platform shift that makes Block B native and turns viglet.org itself into a
@@ -283,3 +269,17 @@ captured baseline where possible and explain any missing baseline. Do not infer 
 from October snapshots or tiny samples. Record conclusions in the visibility
 strategy/review through that repository's own workflow, and file only evidence-backed
 follow-ups here. No automatic A/B test or launch campaign is required.
+
+### XI.14 W60: Consistent product release histories
+
+The product release-note pages still use the earlier decorative hero, large logo,
+sidebar and closing marketing section while the overview and installation routes now use
+a concise shared presentation. Align all three release-note pages with that visual
+direction: adaptive surfaces, a compact product identity and title, the same product
+navigation, clear installation and official-release links, and a readable release
+history. Preserve release content, grouping/filter behavior where useful, per-release
+anchors, existing route URLs and metadata, and externally supplied changelog sources.
+Keep loading, empty and unavailable states useful, with access to official releases even
+when the feed fails. Do not silently drop a release when the data shape is invalid.
+Verify successful and failed loading in Playwright, mobile/desktop layout in both
+themes, navigation and anchors, and run both builds.

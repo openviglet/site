@@ -5,8 +5,8 @@ import { IconCopy, IconCheck } from '@tabler/icons-react'
  * Reusable terminal components (Block H / W23), promoted from DownloadPage's
  * private `CopyableCommand`. Two variants:
  *
- *  - `CommandBlock`: a single copy-to-clipboard command line (the original
- *    DownloadPage look, kept pixel-identical so that page has no regression).
+ *  - `CommandBlock`: a copyable command using adaptive design-system surfaces,
+ *    with success and failure feedback from the clipboard API.
  *  - `Terminal`: a macOS-style faux terminal (traffic-light dots, monospace,
  *    colored prompt/flag/comment spans) for dev credibility on the home and
  *    solution pages.
@@ -15,22 +15,38 @@ import { IconCopy, IconCheck } from '@tabler/icons-react'
  * animation is used here, so nothing to gate).
  */
 
-/** A single copyable command in a dark slate box (was `CopyableCommand`). */
+/** A single copyable command with truthful clipboard feedback. */
 export function CommandBlock({ command }: Readonly<{ command: string }>) {
   const [copied, setCopied] = useState(false)
+  const [failed, setFailed] = useState(false)
+  const copy = async () => {
+    setCopied(false)
+    setFailed(false)
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable')
+      await navigator.clipboard.writeText(command)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setFailed(true)
+    }
+  }
   return (
-    <div className="bg-slate-900 rounded-xl px-4 py-3 flex items-start justify-between gap-3 group">
-      <code className="text-sky-300 text-sm font-mono whitespace-pre-wrap break-words leading-relaxed min-w-0">
+    <div className="bg-card border border-border rounded-xl px-4 py-3 flex flex-wrap items-start justify-between gap-3 group">
+      <code className="text-foreground text-sm font-mono whitespace-pre-wrap break-words leading-relaxed min-w-0 flex-1">
         <span className="text-slate-500 select-none">$ </span>{command}
       </code>
       <button
         type="button"
-        onClick={() => { navigator.clipboard?.writeText(command); setCopied(true); setTimeout(() => setCopied(false), 2000) }}
-        className="text-muted-foreground hover:text-white transition-colors shrink-0 mt-0.5"
+        onClick={copy}
+        className="text-muted-foreground hover:text-foreground transition-colors shrink-0 p-1 rounded focus-visible:outline-2 focus-visible:outline-ring"
         aria-label="Copy command"
       >
         {copied ? <IconCheck size={16} className="text-green-400" /> : <IconCopy size={16} />}
       </button>
+      <span role="status" className={failed ? 'text-sm text-muted-foreground w-full' : 'sr-only'}>
+        {failed ? 'Copy unavailable. Select and copy the command above.' : copied ? 'Command copied.' : ''}
+      </span>
     </div>
   )
 }

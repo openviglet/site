@@ -1,7 +1,7 @@
-# Last task number: `W59`
+# Last task number: `W60`
 
 > **Single source of truth for the next free task number.** The next new task is
-> `W60`; after assigning it, bump the number above and the log line below.
+> `W61`; after assigning it, bump the number above and the log line below.
 
 ## Why this file exists
 
@@ -22,6 +22,7 @@ Turing Block O) but number independently.
 
 ## Log (most recent first)
 
+- **W60**: Align release-note pages with product summaries and installation (Block E), 2026-11-07
 - **W59**: Keep concise installation entry pages (Block F), 2026-11-07
 - **W58**: Attribute WordPress integration exclusively to Turing (Block E), 2026-11-07
 - **W57**: Restore discoverable local product overviews (Block E), 2026-11-07

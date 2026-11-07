@@ -90,6 +90,7 @@
 
 - **W47** — A /docs/ hub page is the target of every generic Get Started and Documentation link; product links go to openviglet.github.io/<id>/docs/.
 - **W48** — Product, docs and blog links use <id>.viglet.org; models.viglet.org is linked from the footer, Turing modules, llms.txt and a blog post.
+- **W59** — Each product keeps a concise installation page with copyable commands, evaluation and production requirements, official setup links and accessible clipboard success or failure feedback, verified in twelve browser combinations (design §VII.4 recorded in `docs/QA-2026-11-07.md`).
 
 ## Block G — Platform migration (Next.js server + Viglet Cloud)
 
